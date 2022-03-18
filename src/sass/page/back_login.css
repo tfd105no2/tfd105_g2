@@ -1,0 +1,55 @@
+body {
+  background-color: #b2f3ff;
+}
+
+.back_login {
+  width: 1200px;
+  margin: 100px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #172852;
+}
+
+button {
+  width: 125px;
+  background-color: #a3a3a3;
+  color: #ffffff;
+  border: 1px solid #a3a3a3;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 70px;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/*# sourceMappingURL=back_login.css.map */
