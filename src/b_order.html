@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後台-訂單管理</title>
+    <!-- 初始化css -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="root">
+      @@include('layout/b_head.html')
+
+      <main class="b_order_main">
+        <div class="b_order_left">
+          <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
+        </div>
+
+        <div class="b_order_right">
+          <form action="" method="get" id="">
+            <p>訂單管理</p>
+
+            <section>
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="以訂單編號查詢"
+                v-model="order_number"
+              />
+              <label
+                for="search"
+                :class="{'-active':order_number}"
+                @click="lookfor"
+                >搜尋</label
+              >
+            </section>
+          </form>
+
+          <div>
+            <ul class="b_order_title">
+              <li v-for="title in titles">{{title}}</li>
+              <li></li>
+            </ul>
+
+            <ul v-for="(order,key) in orders" class="b_order_order">
+              <li>{{order.order_id}}</li>
+              <li>{{order.account}}</li>
+              <li>{{order.order_type}}</li>
+              <li>{{order.payment_status}}</li>
+              <li>{{order.order_status}}</li>
+              <li>{{order.checkin_status}}</li>
+              <li>{{order.order_date}}</li>
+              <li @click="edit(key)">編輯與查看</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      <footer class="b_order_footer">
+        <ul>
+          <li
+            v-for="page in pages"
+            v-on:click="showOdata(page.link)"
+            v-bind:class="{nowpagela:page.page == nowpage}"
+          >
+            {{page.page}}
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- 引入js -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/b_order.min.js"></script>
+  </body>
+</html>

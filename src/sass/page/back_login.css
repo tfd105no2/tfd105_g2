@@ -1,10 +1,9 @@
-body {
-  background-color: #b2f3ff;
-}
-
 .back_login {
-  width: 1200px;
+  width: 500px;
+  height: 400px;
+  border-radius: 5px;
   margin: 100px auto;
+  background-color: #aae0ff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,19 +16,19 @@ body {
           align-items: center;
 }
 
-.logo {
+.back_logo {
   width: 150px;
   height: 150px;
   margin-bottom: 40px;
 }
 
-.logo img {
+.back_logo img {
   width: 100%;
 }
 
-h2 {
+.back_login h2 {
   font-size: 36px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 input {
