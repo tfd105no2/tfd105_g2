@@ -192,6 +192,9 @@
   z-index: 2;
   background-color: #ffffff;
   overflow-y: auto;
+  li {
+    font-size: 14px;
+  }
 }
 
 .b_order_edit > p {
@@ -306,7 +309,7 @@
 }
 
 .b_order_order_detail > section > ul > li {
-  width: 65px;
+  width: 75px;
 }
 
 .b_order_detail_content {
@@ -320,7 +323,7 @@
   margin: 0px;
   padding: 10px 0;
   padding-left: 400px;
-  width: 400px;
+  // width: 400px;
   list-style: none;
   text-align: left;
   .total {
