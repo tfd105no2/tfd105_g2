@@ -1,62 +1,30 @@
-.clearfix::after,
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+// .clearfix::after,
+// .clearfix::after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+*{
+  box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
+html{
+  font-size: 10px;
+}
+
+body{
+  line-height: 1.6;
+  font-family: 'Noto Sans TC','微软雅黑','Microsoft YaHei',sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: rgb(255, 255, 255);
   color: #333;
+  letter-spacing: .25rem;
+  
 }
 
-.w {
-  width: 1200px;
-  margin: 0 auto;
-}
-
-/* header */
-header {
-  background-color: #bfa;
-}
-.nav-wrapper {
-  background-color: #adc;
-  height: 100px;
-}
-/* logo */
-.logo {
-  float: left;
-}
-
-/* 菜單 */
-.menu-wrapper {
-  float: right;
-  margin-right: 50px;
-}
-
-.menu-wrapper a {
-  display: block;
-  line-height: 100px;
-  margin: 0 20px;
-}
-
-.menu-wrapper .menu-item {
-  float: left;
-}
-
-/* 會員 購物車 */
-.user-wrapper {
-  float: right;
-  margin-top: 30px;
-}
-
-.user-wrapper li {
-  float: left;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-.user-wrapper img {
-  width: 100%;
+a{
+  color: #333;
+  text-decoration: none;
 }
