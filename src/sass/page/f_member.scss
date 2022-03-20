@@ -1,0 +1,23 @@
+@import '../var/var';
+
+// font-size: map-get($title , h1);
+* {
+    box-sizing: border-box;
+}
+
+.f_member {
+    max-width: 100%;
+    display: flex;
+
+    .member_head {
+        width: 380px;
+        height: 100vh;
+        overflow: hidden;
+
+        img {
+            @extend %img-mw
+        }
+    }
+
+    .member_body {}
+}
