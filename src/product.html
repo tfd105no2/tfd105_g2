@@ -3,16 +3,18 @@
 
 <head>
   @@include('layout/head.html', {
-  "title": "首頁"
+  "title": "夜宿體驗"
   })
 </head>
 
 <body>
   <div class="index-wrapper">
-    @@include('layout/nav.html')
+    @@include('layout/nav.html', {
+      'active4': 'active'
+    })
     <!-- 大家各自頁面內容都放main裡 -->
     <main>
-      <p>首頁~~</p>
+      <p>夜宿體驗~~</p>
     </main>
   </div>
   @@include('layout/footer.html')
