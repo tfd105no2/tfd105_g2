@@ -1,15 +1,15 @@
-@import "../sass/base/reset.scss";
-@import "../sass/base/basic.scss";
-<<<<<<< HEAD
-@import "../sass/page/back_login.scss";
-@import "../sass/page/_b_member.scss";
-@import "../sass/page/_b_order.scss";
-=======
+@import "base/reset.scss";
+@import "base/basic.scss";
 
-@import "layout/nav";
+
+@import "layout/footer";
+@import "layout/footer";
+
 
 @import "page/index";
 
+@import "page/back_login.scss";
+@import "page/b_member";
+@import "page/b_order";
 
-    
->>>>>>> dev_evonne
+
