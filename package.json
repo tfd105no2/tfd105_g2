@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "安裝套件" : "npm install",
-    "開發" : "gulp"
+    "安裝套件": "npm install",
+    "開發": "gulp"
   },
   "author": "",
   "license": "ISC",
