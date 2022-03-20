@@ -134,69 +134,89 @@ table {
   border-spacing: 0;
 }
 
-.clearfix::after,
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  line-height: 1.6;
+  font-family: 'Noto Sans TC','微软雅黑','Microsoft YaHei',sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: white;
+  color: #333;
+  letter-spacing: .25rem;
 }
 
 a {
-  text-decoration: none;
   color: #333;
+  text-decoration: none;
 }
 
-.w {
-  width: 1200px;
-  margin: 0 auto;
-}
-
-/* header */
 header {
-  background-color: #bfa;
+  background: #00BDD1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
-.nav-wrapper {
-  background-color: #adc;
-  height: 100px;
+header .nav-wrapper {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-/* logo */
-.logo {
-  float: left;
-}
-
-/* 菜單 */
-.menu-wrapper {
-  float: right;
-  margin-right: 50px;
-}
-
-.menu-wrapper a {
+header .nav-wrapper .logo a {
   display: block;
-  line-height: 100px;
-  margin: 0 20px;
 }
 
-.menu-wrapper .menu-item {
-  float: left;
+header .nav-wrapper .logo a img {
+  height: 60px;
 }
 
-/* 會員 購物車 */
-.user-wrapper {
-  float: right;
-  margin-top: 30px;
+header .nav-wrapper .menu-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.user-wrapper li {
-  float: left;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+header .nav-wrapper .menu-wrapper li a {
+  padding: 10px;
+  display: block;
+  color: #eee;
+  font-weight: 500;
+  font-size: 15px;
 }
 
-.user-wrapper img {
+header .nav-wrapper .menu-wrapper li a.active {
+  color: #008a99;
+}
+
+header .nav-wrapper .menu-wrapper li a:hover {
+  color: #008a99;
+}
+
+header .container {
   width: 100%;
+  padding: 0 60px;
+  margin: auto 0;
+}
+
+.index-wrapper main {
+  height: 1200px;
 }
 
 .back_login {
@@ -244,6 +264,7 @@ header {
 
 .back_login_btn {
   width: 65px;
+  margin-top: 10px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -474,6 +495,7 @@ header {
 }
 
 .b_member_member li {
+  font-size: 14px;
   white-space: nowrap;
   /* 不斷行 */
   overflow: hidden;
@@ -535,7 +557,7 @@ header {
 
 .b-member_edit {
   width: 750px;
-  height: 300px;
+  height: 325px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -863,6 +885,7 @@ header {
 }
 
 .b_order_order li {
+  font-size: 14px;
   white-space: nowrap;
   /* 不斷行 */
   overflow: hidden;
