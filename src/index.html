@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -56,10 +57,24 @@
         </ul>
       </div>
     </header>
+=======
+>>>>>>> dev_evonne
 
+<head>
+  @@include('layout/head.html', {
+  "title": "首頁"
+  })
+</head>
+
+<body>
+  <div class="index-wrapper">
+    @@include('layout/nav.html')
     <!-- 大家各自頁面內容都放main裡 -->
-    <main></main>
+    <main>
+      <p>首頁~~</p>
+    </main>
+  </div>
+  @@include('layout/footer.html')
+</body>
 
-    <footer></footer>
-  </body>
 </html>
