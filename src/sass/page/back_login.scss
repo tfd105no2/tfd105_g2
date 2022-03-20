@@ -18,7 +18,16 @@
   }
 }
 
+.back_login_form {
+  display: flex;
+  flex-direction: column;
+}
 .back_login h2 {
   font-size: 36px;
   margin: 10px 0;
+}
+
+.back_login_btn {
+  width: 65px;
+  align-self: center;
 }
