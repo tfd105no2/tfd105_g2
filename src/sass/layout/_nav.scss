@@ -1,0 +1,51 @@
+@mixin name {
+    
+}
+
+
+header{
+    
+    background: #00BDD1;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .nav-wrapper{
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo a{
+            display: block;
+            img{
+                height: 60px;
+            }   
+        }
+
+        .menu-wrapper{
+            display: flex;
+            li a{
+                padding: 10px;
+                display: block;
+                color: #eee;
+                font-weight: 500;
+                font-size: 15px;
+            }
+            li a.active{
+                color: hsl(186, 100%, 30%);
+            }
+            li a:hover{
+                color: hsl(186, 100%, 30%);
+            }
+
+        }
+    }
+    .container{
+        width: 100%;
+        padding: 0 60px;
+        margin: auto 0;
+    }
+    
+}
+
+
