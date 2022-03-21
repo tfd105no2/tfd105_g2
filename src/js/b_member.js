@@ -40,9 +40,16 @@ new Vue({
             {
                 'member_id': '001',
                 'account': 'Harukadou@gmail.com',
-                'name': '張昭',
+                'name': '嶠小賀',
                 'phone': '0910123456'
-            },],
+            },
+            {
+                'member_id': '002',
+                'account': 'Harukadou@gmail.com',
+                'name': '芽芽',
+                'phone': '0910123456'
+            },
+        ],
         pages: [
             { page: "<", link: "x" },
             { page: "1", link: "1" },

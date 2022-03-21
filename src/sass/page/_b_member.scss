@@ -164,6 +164,7 @@
 }
 
 .b_member_member li {
+  font-size: 14px;
   white-space: nowrap;
   /* 不斷行 */
   overflow: hidden;
@@ -220,7 +221,7 @@
 //彈出
 .b-member_edit {
   width: 750px;
-  height: 300px;
+  height: 325px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -323,10 +324,11 @@
   border-radius: 10px;
   overflow: hidden;
   z-index: 5;
+  border: 2px solid red;
 }
 
 .dbc section {
-  background-color: #bb866a;
+  background-color: #f00;
 }
 
 .dbc p {
