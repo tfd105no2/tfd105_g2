@@ -38,7 +38,7 @@ var appVue = new Vue({
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
-            { name: "消息管理", url: "./n-product.html" },
+            { name: "消息管理", url: "b_news.html" },
             { name: "房間管理", url: "./n-customized.html" },
             { name: "訂票管理", url: "./n-news.html" },
         ],
@@ -69,8 +69,8 @@ var appVue = new Vue({
                 'member_name': '大偉盧曼',
                 'member_phone': '32242424',
                 'payment': '線上付款',
-                'discount_id': 'sea300',
-                'discount_price': 300
+                'discount_id': '',
+                'discount_price': 0
             },
             // {
             //     'order_id': '',
@@ -124,6 +124,10 @@ var appVue = new Vue({
                 { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
                 { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
                 { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+            ],
+            [
+                { 'ticket_name': '孩童票', 'checkin_date': '', 'area': '', 'quantity': '1', 'price': '1000' },
+
             ],
 
         ],
