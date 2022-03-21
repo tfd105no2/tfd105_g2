@@ -1,0 +1,18 @@
+@import '../var/var';
+
+
+
+#news{
+
+
+    // img{
+    //     @extend %img-mw ;
+    // }
+    .wrapper{
+        background-image:url('../img/news-banner1.png') ;
+        background-size: cover;
+        @extend %img-mw ;
+        height: calc(100vh - 80px);
+
+    }
+}
