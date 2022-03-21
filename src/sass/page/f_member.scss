@@ -8,16 +8,115 @@
 .f_member {
     max-width: 100%;
     display: flex;
-
+    background-color: #EDF9FB;
     .member_head {
         width: 380px;
-        height: 100vh;
+        height: calc(100vh - 80px);
         overflow: hidden;
-
         img {
-            @extend %img-mw
+            @extend %img-mw;
         }
     }
+    .member_body {
+        width: 500px;
+        margin: space(2) auto 0;
+        .member_list {
+            display: flex;
+            // justify-content: space-around;
+            border-bottom: 5px solid $text-color;
+            .member_item {
+                width: calc(100% / 3);
+                text-align: center;
+                font-size: map-get($title, h6);
+                line-height: $line-height-text;
+                padding: space(1) space(2);
+                color: rgb(0, 189, 209, .5);
+                cursor: pointer;
+            }
+            .member_item.js-m-active {
+                color: $text-color;
+            }
+            .member_item + .member_item {
+                border-left: 1px solid;
+            }
+        }
+        .member_form {
+            margin-top: space(2);
+            label {
+                display: inline-block;
+                width: 30%;
+                font-size: map-get($title, h6);
+                line-height: $line-height-text;
+                vertical-align: middle;
+                color: $text-color;
+            }
+            input {
+                vertical-align: middle;
+                width: 70%;
+                height: 30px;
+                margin: space(1) 0;
+                border: 1px solid $btn-color;
+                border-radius: 5px;
+                outline: none;
+            }
+            input:last-child {
+                display: block;
+                margin: space(1) auto 0;
+                width: auto;
+                height: auto;
+                padding: 10px 20px;
+                font-size: 16px;
+                color: $btn-color;
+                border: 1px solid $btn-color;
+                border-radius: 5px;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                &:hover {
+                    background-color: #0080A8;
+                    color: #fff;
+                }
+            }
 
-    .member_body {}
+            .member_box {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto space(2);
+                overflow: hidden;
+                background-image: url(../img/member-pic.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                img {
+                    @extend %img-mw;
+                }
+            }
+            .member_file {
+                display: none;
+            }
+            .member_choose {
+                display: block;
+                margin: 0 auto space(2);
+                padding: 10px 20px;
+                font-size: 16px;
+                color: $btn-color;
+                border: 1px solid $btn-color;
+                border-radius: 5px;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                &:hover {
+                    background-color: #0080A8;
+                    color: #fff;
+                }
+            }
+            .member_forget {
+                display: flex;
+                margin-right: auto;
+                color: $link-color;
+                &:hover {
+                    color: $link-color-hover;
+                }
+            }
+        }
+    }
 }
