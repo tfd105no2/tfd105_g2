@@ -23,13 +23,27 @@
         }
     }
     main.news_box {
-        
+        max-width: $container-width;
+        margin: space(4) auto;
       
+        >.tab{
+            display: flex;
+            justify-content: center;
 
-     
+            .tab_item{
+                text-align: center;
+                font-size: map-get($title, h6);
+                color: rgb(0, 189, 209, .5);
+                cursor: pointer;
+                margin-right:space(3) ;
+    
+                i {
+                    font-size: 36px;
+                }
+                
+            }
+        }
+
+    }
     
 }
-
-
-
-
