@@ -1,0 +1,294 @@
+.minwidth-wrapper {
+  min-width: 1200px;
+}
+.b-member_header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #aae0ff;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 120% 100%;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+.b-member_logo {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  img {
+    width: 50px;
+  }
+  p {
+    font-size: 30px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+.b-member_logout {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+  p {
+    font-size: 16px;
+    color: #172852;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// main left區塊
+.b_ticket_main {
+  display: flex;
+  justify-content: flex-start;
+  padding: 60px 60px 20px;
+  .b_ticket_left {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      margin: 0;
+      margin-bottom: 10px;
+      padding: 0;
+      width: 144px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 10px;
+      border: 1px solid #f4ece5;
+      background-color: #d4e7f4;
+    }
+  }
+}
+
+.b_ticket_left > a:nth-child(5) {
+  background-color: #7db6df;
+}
+
+.b_ticket_left > a:hover {
+  background-color: #7db6df;
+}
+//main right
+.b_ticket_right {
+  width: 85%;
+  min-height: 500px;
+  form {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    p {
+      font-size: 22px;
+      color: #333;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      border-bottom: 3px solid #7db6df;
+    }
+  }
+}
+
+.b_ticket_right > div {
+  border: 1px solid black;
+  min-height: 455px;
+}
+
+.b_ticket_right form section {
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 10px;
+  align-items: flex-end;
+  label {
+    border: 1px solid #a3a3a3;
+    width: 80px;
+    height: 28px;
+    background-color: #a3a3a3;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+  }
+  input {
+    border: 1px solid #000;
+    width: 216px;
+    height: 28px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+
+.b_ticket_title {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 107px;
+  column-gap: 10px;
+  background-color: #7db6df;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+}
+
+.b_ticket_ticket {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 107px;
+  column-gap: 10px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #172852;
+  align-items: center;
+  &:hover {
+    background-color: #f8f2ed;
+  }
+}
+
+.b_ticket_ticket li {
+  font-size: 14px;
+  white-space: nowrap;
+  /* 不斷行 */
+  overflow: hidden;
+  /* 隱藏 */
+  text-overflow: ellipsis;
+  /* 出現省略符號 */
+}
+
+// .b_ticket_ticket li:last-child {
+//   background-color: #6599e8;
+//   border-radius: 5px;
+//   font-weight: bold;
+//   text-align: center;
+//   color: #ffffff;
+//   padding: 5px;
+// }
+
+// .b_ticket_ticket li:last-child:hover {
+//   cursor: pointer;
+// }
+
+.b_ticket_footer {
+  padding-right: 60px;
+}
+
+.b_ticket_footer ul {
+  display: flex;
+  justify-content: flex-end;
+  li {
+    border: 1px solid #000;
+    border-left: none;
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    &:hover {
+      background-color: #000;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+}
+
+.nowpagela {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.b_ticket_footer ul li:first-child {
+  border-left: 1px solid #000;
+}
+
+//彈出
+.b_ticket_edit {
+  width: 750px;
+  height: 325px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #ffffff;
+  /* display: none; */
+}
+
+.b_ticket_edit > ul {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  padding: 15px 30px;
+  row-gap: 50px;
+}
+
+.b-member_edit > ul > li {
+  font-size: 16px;
+  color: #172852;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.b_ticket_editbtn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.b_ticket_editbtn button {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #a3a3a3;
+  padding: 5px 25px;
+  margin: 0;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#hide {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+}
+
+.b_ticket_right .-active {
+  background: #172852;
+}
+
+.-active2 {
+  color: #a3a3a3;
+}
