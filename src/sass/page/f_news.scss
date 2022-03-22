@@ -1,18 +1,44 @@
 @import '../var/var';
 
-
-
+* {
+    box-sizing: border-box;
+}
 #news{
 
+    background-color: #EDF9FB;
 
     // img{
     //     @extend %img-mw ;
     // }
     .wrapper{
+        
         background-image:url('../img/news-banner1.png') ;
         background-size: cover;
         @extend %img-mw ;
         height: calc(100vh - 80px);
-
+        
     }
+    main{
+        
+        
+        .tab{
+            margin: space(4) auto 0;
+            
+            ul{
+                @extend %flex-center;   
+          
+            li{
+               text-align: center;
+               margin-left: space(2);
+               color: #00BDD1;
+            }
+
+            }
+        }
+    }
+    
 }
+
+
+
+
