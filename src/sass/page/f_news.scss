@@ -7,9 +7,6 @@
 
     background-color: #EDF9FB;
 
-    // img{
-    //     @extend %img-mw ;
-    // }
     .wrapper{
         
         background-image:url('../img/news-banner1.png') ;
@@ -17,25 +14,19 @@
         @extend %img-mw ;
         height: calc(100vh - 80px);
         
-    }
-    main{
-        
-        
-        .tab{
-            margin: space(4) auto 0;
-            
-            ul{
-                @extend %flex-center;   
-          
-            li{
-               text-align: center;
-               margin-left: space(2);
-               color: #00BDD1;
-            }
+        >h2{
+            font-size: map-get($title, h2);
+            text-align: center;
+            line-height: calc(100vh - 80px);
+            color: #fff;
 
-            }
         }
     }
+    main.news_box {
+        
+      
+
+     
     
 }
 
