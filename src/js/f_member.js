@@ -22,10 +22,11 @@ $(function () {
     let member_form = $('#FMember .member_body form.member_form');
     member_form.hide();
     member_form.eq(0).show();
+    member_item.eq(0).addClass('js-m-active');
     member_item.on('click', function () {
         member_item.removeClass('js-m-active');
         $(this).addClass('js-m-active');
-        $('form.member_form').hide();
+        member_form.hide();
         let tab_id = $(this).data('tab');
         $('#' + tab_id).show();
     });

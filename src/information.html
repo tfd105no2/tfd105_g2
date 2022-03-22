@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "園區資訊"
+    })
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+
+<body>
+    @@include('layout/nav.html')
+
+    <div class="info_banner">
+        <h2 class="info_title">園區資訊</h2>
+    </div>
+
+    <main class="info_box" id="app">
+        <ul class="info_list">
+            <li class="info_item" data-tab="TabInfor01">
+                <i class="fa-solid fa-ticket"></i>
+                <h3>票價資訊</h3>
+            </li>
+            <li class="info_item" data-tab="TabInfor02">
+                <i class="fa-solid fa-clock"></i>
+                <h3>營業時間</h3>
+            </li>
+            <li class="info_item" data-tab="TabInfor03">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3>園區介紹</h3>
+            </li>
+            <li class="info_item" data-tab="TabInfor04">
+                <i class="fa-solid fa-drum"></i>
+                <h3>表演活動</h3>
+            </li>
+        </ul>
+        <div class="info_content" id="TabInfor01">
+            <ul class="info_list">
+                <li class="info_item">
+                    <h3 class="info_title">個人票價表</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>票種</th>
+                                <th>票價</th>
+                                <th>適用對象</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>全票</td>
+                                <td>NT$ 550</td>
+                                <td>限18歲(含)以上成人使用</td>
+                            </tr>
+                            <tr>
+                                <td>學生票</td>
+                                <td>NT$ 400</td>
+                                <td>限12歲(含)以上持學生證之學生適用</td>
+                            </tr>
+                            <tr>
+                                <td>孩童票</td>
+                                <td>NT$ 250</td>
+                                <td>限4歲(含)以上及未滿12歲兒童適用</td>
+                            </tr>
+                            <tr>
+                                <td>博愛票</td>
+                                <td>NT$ 250</td>
+                                <td>限持有身心障礙證明者與1位陪同者、孕婦、滿65歲以上長者適用</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span>*未滿4歲且有家長陪同的幼童可免費入場</span>
+                </li>
+                <li class="info_item">
+                    <h3 class="info_title">團體票價表</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>票種</th>
+                                <th>票價</th>
+                                <th>適用對象</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>團體優惠票</td>
+                                <td>NT$ 500</td>
+                                <td>團體票價限15人以上適用</td>
+                            </tr>
+                            <tr>
+                                <td>學生團體優惠票</td>
+                                <td>NT$ 360</td>
+                                <td>學生團體優惠價限教育局核定公私立學校適用(15人成團)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span>*以上公告及現場標示價格及相關內容Kireiumi Park保有最終解釋權。</span>
+                </li>
+            </ul>
+        </div>
+        <div class="info_content" id="TabInfor02">
+            <div class="info_wrapper">
+                <div class="info_head">
+                    <img src="img/business-pic.png" alt="business-pic">
+                </div>
+                <div class="info_body">
+                    <h5>營業時間</h5>
+                    <p>平日(週一至週五)&nbsp;&nbsp;<time>10:00~20:30</time></p>
+                    <p>假日(國定休假日)&nbsp;&nbsp;<time>09:00~22:00</time></p>
+                </div>
+                <span>
+                    * 售票截止、停車場停止開放與最後入園時間為閉館前1小時。
+                    <br>
+                    * 本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。
+                </span>
+            </div>
+        </div>
+        <div class="info_content" id="TabInfor03">
+            <ul class="intro_list">
+                <li class="intro_item">
+                    <img src="img/intro-pic-01.png" alt="intro-pic-01">
+                    <div class="intro_item_content">
+                        <h3>海底隧道</h3>
+                        <p>除了珊瑚，還有活力充沛的熱帶珊瑚礁魚群，讓遊客體驗宛若水晶宮般的世界，也滿足了探索珊瑚礁的好奇心。</p>
+                    </div>
+                </li>
+                <li class="intro_item l-flip">
+                    <img src="img/intro-pic-02.png" alt="intro-pic-02">
+                    <div class="intro_item_content">
+                        <h3>大洋池</h3>
+                        <p>大陸棚深度達兩百公尺以下的外洋海域，依照水深、光線、水團特性，可分為表、中、深層。居住著許多洄游性物種。</p>
+                    </div>
+                </li>
+                <li class="intro_item">
+                    <img src="img/intro-pic-03.png" alt="intro-pic-03">
+                    <div class="intro_item_content">
+                        <h3>白鯨池</h3>
+                        <p>有著80萬加侖水量之白鯨展示池，在這個池子裡住著最聰明活潑之海中金絲雀－白鯨。 當置身於透明隧道時，可以看見這些頑皮的動物優游於你的身邊，與你做近距離之接觸。</p>
+                    </div>
+                </li>
+                <li class="intro_item l-flip">
+                    <img src="img/intro-pic-04.png" alt="intro-pic-04">
+                    <div class="intro_item_content">
+                        <h3>海藻森林</h3>
+                        <p>透過展示窗重現美國加州沿岸海藻森林的豐富動植物生態。 其中展示高達10公尺以上的巨藻，讓遊客體驗每日可生長達50公分巨藻所帶來的震撼。</p>
+                    </div>
+                </li>
+                <li class="intro_item">
+                    <img src="img/intro-pic-05.png" alt="intro-pic-05">
+                    <div class="intro_item_content">
+                        <h3>極地水域</h3>
+                        <p>極地的生物多樣性雖不高，但生物各自發展出很好的適應方法。本區介紹南北極海域的生態特性，藉由企鵝及海鸚鵡的展示，讓遊客見識到在如此寒冷的環境下，牠們是如何生存下來。</p>
+                    </div>
+                </li>
+                <li class="intro_item l-flip">
+                    <img src="img/intro-pic-06.png" alt="intro-pic-06">
+                    <div class="intro_item_content">
+                        <h3>鯊魚區</h3>
+                        <p>此區介紹鯊魚的生活、生存、生殖等生態行為，以及其所面對的環境問題與生存壓力。透過近距離的接觸，來真實感受海洋裡的霸主。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="info_content" id="TabInfor04">
+            <div class="active">
+                <h3 class="active_title">海豚劇場</h3>
+                <div class="active_box">
+                    <img src="img/active-pic-01.png" alt="active-pic-01">
+                    <div class="active_content">
+                        <h4>海豚精靈秀</h4>
+                        <p>園區中的超級人氣冠軍王，看那熱情的海豚躍出水面來個360度大翻轉，超可愛的海豚讓我們忍不住的按下快門想留住這瞬間的感動，一個俏皮的小擺動就足以讓現場的我們驚喜連連感動不已。</p>
+                        <p>
+                            時間：每日3場，10:30、13:00、14:30<br>
+                            持續時間：25分鐘<br>
+                            地點：海豚劇場
+                        </p>
+                    </div>
+                </div>
+                <h3 class="active_title">大洋池餵食解說</h3>
+                <div class="active_box">
+                    <img src="img/active-pic-01.png" alt="active-pic-01">
+                    <div class="active_content">
+                        <h4>大洋池餵食解說</h4>
+                        <p>充滿神秘與驚奇的海底世界，可供我們從水下觀看海洋生物的生態，讓潛水員帶著我們一起更認識海洋生物吧！</p>
+                        <p>
+                            時間：每日3場，10:00、13:00、16:30<br>
+                            持續時間：15分鐘<br>
+                            地點：大洋地區
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/information.min.js"></script>
+</body>
+
+</html>
