@@ -30,25 +30,4 @@
   font-size: 36px;
   margin: 10px 0;
 }
-
-input {
-  padding: 5px 5px;
-  margin-top: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #172852;
-}
-
-button {
-  width: 125px;
-  background-color: #a3a3a3;
-  color: #ffffff;
-  border: 1px solid #a3a3a3;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 0 70px;
-  margin-top: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
 /*# sourceMappingURL=back_login.css.map */

@@ -1,140 +1,34 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
- v2.0 | 20110126
- License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 body {
   background-color: #EDF9FB;
+}
+
+.transportation_banner h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+.transportation_banner img {
+  width: 100%;
+}
+
+.traffic_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+  display: flex;
+}
+
+.traffic_nav .fa-solid {
+  text-align: center;
+  margin: 80px;
 }
 
 .traffic_time {
@@ -200,10 +94,150 @@ body {
 
 .traffic_map_wapper .traffic_map {
   margin: 0 auto;
+  margin-bottom: 120px;
 }
 
 .traffic_map_wapper .traffic_map .traffic_address {
   background-color: #B4EDF6;
   height: 50px;
+}
+
+.train_wapper {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 120px;
+}
+
+.train_wapper .fa-train, .train_wapper .fa-car, .train_wapper .fa-bus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.train_wapper .train-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .train-content .content {
+  width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.train_wapper .train-content h3 {
+  border-bottom: 1px solid #00BDD1;
+}
+
+.train_wapper .car-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .car-content .content {
+  width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.train_wapper .car-content h3 {
+  border-bottom: 1px solid #00BDD1;
+}
+
+.train_wapper .car-content .carpice {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.train_wapper {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 120px;
+}
+
+.train_wapper .bus-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .bus-content .content {
+  width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.train_wapper .bus-content table {
+  border: 1px solid #00BDD1;
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 60px;
+}
+
+.train_wapper .bus-content table .bustitle, .train_wapper .bus-content table th, .train_wapper .bus-content table td {
+  border: 1px solid #00BDD1;
+}
+
+.train_wapper .bus-content table .bustitle {
+  background-color: #00BDD1;
+  color: white;
 }
 /*# sourceMappingURL=traffic.css.map */
