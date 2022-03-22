@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>後台-會員管理</title>
-    <!-- 初始化css -->
-    <link rel="stylesheet" href="css/style.css" />
+    @@include('layout/head.html',{ 'title':'後台-訂票管理' })
   </head>
   <body>
     <div class="minwidth-wrapper">
@@ -23,22 +18,22 @@
           </div>
         </header>
 
-        <main class="b_member_main">
+        <main class="b_ticket_main">
           <!-- main left -->
-          <div class="b_member_left">
+          <div class="b_ticket_left">
             <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
           </div>
 
-          <div class="b_member_right">
-            <form action="" method="get" id="">
-              <p>會員管理</p>
+          <div class="b_ticket_right">
+            <form action="" method="" id="">
+              <p>訂票管理</p>
 
               <section>
                 <input
                   type="text"
                   name="search"
                   id="search"
-                  placeholder="以會員編號查詢"
+                  placeholder="以票券編號查詢"
                   v-model="member_number"
                 />
                 <label
@@ -51,25 +46,26 @@
             </form>
 
             <div>
-              <ul class="b_member_title">
+              <ul class="b_ticket_title">
                 <li v-for="title in titles">{{title}}</li>
                 <li></li>
               </ul>
 
-              <ul v-for="(member,key) in members" class="b_member_member">
-                <li>{{member.member_id}}</li>
-                <li>{{member.account}}</li>
-                <li>{{member.name}}</li>
-                <li>{{member.phone}}</li>
+              <ul v-for="(ticket,key) in tickets" class="b_ticket_ticket">
+                <li>{{ticket.ticket_id}}</li>
+                <li>{{ticket.buy_date}}</li>
+                <li>{{ticket.ticket_type}}</li>
+                <li>{{ticket.ticket_status}}</li>
+                <li>{{ticket.use_date}}</li>
 
-                <li @click="edit(key)">查看</li>
+                <!-- <li @click="edit(key)">查看</li> -->
               </ul>
             </div>
           </div>
         </main>
 
         <!-- footer page -->
-        <footer class="b_member_footer">
+        <footer class="b_ticket_footer">
           <ul>
             <li
               v-for="page in pages"
@@ -81,28 +77,27 @@
           </ul>
         </footer>
 
-        <div class="b-member_edit" v-if="current_edit !== null">
-          <p>編輯與查看</p>
-
-          <ul class="b-member_edit-member">
-            <li>編號:{{members[current_edit].member_id}}</li>
-            <li>帳號:{{members[current_edit].account}}</li>
-            <li>手機:{{members[current_edit].phone}}</li>
-            <li>姓名:{{members[current_edit].name}}</li>
-            <li>折扣碼:cd001</li>
+        <!-- <div class="b_ticket_edit" v-if="current_edit !== null">
+          <ul>
+            <li>票券編號:{{tickets[current_edit].ticket_id}}</li>
+            <li>購買日期:{{tickets[current_edit].buy_date}}</li>
+            <li>票種:{{tickets[current_edit].ticket_type}}</li>
+            <li>狀態:{{tickets[current_edit].ticket_status}}</li>
+            <li>使用時間:{{tickets[current_edit].use_date}}</li>
           </ul>
 
-          <div class="b-member_editbtn">
-            <button class="n-member_close" @click="f_close">關閉</button>
+          <div class="b_ticket_editbtn">
+            <button class="b_ticket_close" @click="f_close">關閉</button>
           </div>
         </div>
 
-        <div id="hide" v-if="current_edit !== null"></div>
+        <div id="hide" v-if="current_edit !== null"></div> -->
         <!-- <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check> -->
       </div>
     </div>
+
     <!-- 引入js -->
     <script src="js/vue.min.js"></script>
-    <script src="js/b_member.min.js"></script>
+    <script src="js/b_ticket.min.js"></script>
   </body>
 </html>
