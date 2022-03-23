@@ -1,4 +1,80 @@
 @charset "UTF-8";
+<<<<<<< HEAD
+.clearfix::after,
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* header */
+header {
+  background-color: #bfa;
+}
+
+.nav-wrapper {
+  background-color: #adc;
+  height: 100px;
+}
+
+/* logo */
+.logo {
+  float: left;
+}
+
+/* 菜單 */
+.menu-wrapper {
+  float: right;
+  margin-right: 50px;
+}
+
+.menu-wrapper a {
+  display: block;
+  line-height: 100px;
+  margin: 0 20px;
+}
+
+.menu-wrapper .menu-item {
+  float: left;
+}
+
+/* 會員 購物車 */
+.user-wrapper {
+  float: right;
+  margin-top: 30px;
+}
+
+.user-wrapper li {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.user-wrapper img {
+  width: 100%;
+}
+
+body {
+  background-color: #b2f3ff;
+}
+
+.back_login {
+<<<<<<< HEAD
+  width: 1200px;
+  margin: 100px auto;
+=======
+=======
 /* http://meyerweb.com/eric/tools/css/reset/ 
  v2.0 | 20110126
  License: none (public domain)
@@ -220,11 +296,16 @@ header .container {
 }
 
 .back_login {
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
   width: 500px;
   height: 400px;
   border-radius: 5px;
   margin: 100px auto;
   background-color: #aae0ff;
+<<<<<<< HEAD
+>>>>>>> d433e60beeb247b6dc0240eacfd63003b8185352
+=======
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,12 +318,33 @@ header .container {
           align-items: center;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+.logo {
+=======
 .back_logo {
+>>>>>>> d433e60beeb247b6dc0240eacfd63003b8185352
+=======
+.back_logo {
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
   width: 150px;
   height: 150px;
   margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+.logo img {
+  width: 100%;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+=======
+.back_logo img {
+  width: 100%;
+=======
 .back_logo img {
   width: 100%;
 }
@@ -255,11 +357,38 @@ header .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
 }
 
 .back_login h2 {
   font-size: 36px;
   margin: 10px 0;
+<<<<<<< HEAD
+>>>>>>> d433e60beeb247b6dc0240eacfd63003b8185352
+}
+
+input {
+  padding: 5px 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #172852;
+}
+
+button {
+  width: 125px;
+  background-color: #a3a3a3;
+  color: #ffffff;
+  border: 1px solid #a3a3a3;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 70px;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+<<<<<<< HEAD
+=======
+=======
 }
 
 .back_login_btn {
@@ -268,6 +397,7 @@ header .container {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
 }
 
 .b-member_header {
@@ -341,7 +471,11 @@ header .container {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+<<<<<<< HEAD
+  padding: 60px 60px;
+=======
   padding: 60px 60px 20px;
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
 }
 
 .b_member_main .b_member_left {
@@ -381,6 +515,10 @@ header .container {
 }
 
 .b_member_right {
+<<<<<<< HEAD
+  /* border: 1px solid red; */
+=======
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
   width: 85%;
   min-height: 500px;
 }
@@ -495,7 +633,10 @@ header .container {
 }
 
 .b_member_member li {
+<<<<<<< HEAD
+=======
   font-size: 14px;
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
   white-space: nowrap;
   /* 不斷行 */
   overflow: hidden;
@@ -515,6 +656,9 @@ header .container {
 
 .b_member_member li:last-child:hover {
   cursor: pointer;
+<<<<<<< HEAD
+>>>>>>> d433e60beeb247b6dc0240eacfd63003b8185352
+=======
 }
 
 .b_member_footer {
@@ -1161,5 +1305,6 @@ header .container {
 
 .b_order_right .-active {
   background: #172852;
+>>>>>>> a6201ac1d5fb940f032203478c3715047a9d6bf0
 }
 /*# sourceMappingURL=style.css.map */
