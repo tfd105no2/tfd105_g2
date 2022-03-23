@@ -112,7 +112,7 @@ new Vue({
 
         sss() {
             this.current_edit = null;
-            this.dbcheck = false;
+            this.dbcheck_off = false;
             let edit_z = document.querySelector('.b_area_edit');
             edit_z.style.opacity = 1;
 
@@ -120,7 +120,21 @@ new Vue({
 
         ccc() {
             // this.current_edit = null;
-            this.dbcheck = false;
+            this.dbcheck_off = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+        },
+        osss() {
+            this.current_edit = null;
+            this.dbcheck_on = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+
+        },
+
+        occc() {
+            // this.current_edit = null;
+            this.dbcheck_on = false;
             let edit_z = document.querySelector('.b_area_edit');
             edit_z.style.opacity = 1;
         },

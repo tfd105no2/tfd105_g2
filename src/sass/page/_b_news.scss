@@ -1,5 +1,7 @@
 .minwidth-wrapper {
   min-width: 1200px;
+  height: 100%;
+  background-color: #fff;
 }
 .b_news_main {
   display: flex;
@@ -59,14 +61,14 @@
   font-size: 22px;
   color: #333;
   font-weight: bold;
-  margin: 0;
+  margin-right: 10px;
   padding: 0;
   border-bottom: 3px solid #7db6df;
 }
 
 .b_news_newsbtn {
   width: 280px;
-  margin-left: 40px;
+  margin-left: 75px;
   display: flex;
   align-items: flex-end;
 }
