@@ -26,8 +26,29 @@
   width: 100%;
 }
 
+.back_login_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .back_login h2 {
   font-size: 36px;
   margin: 10px 0;
 }
+<<<<<<< HEAD
+=======
+
+.back_login_btn {
+  width: 65px;
+  margin-top: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+>>>>>>> dev
 /*# sourceMappingURL=back_login.css.map */

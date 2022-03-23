@@ -10,9 +10,151 @@
 <body>
   <div class="index-wrapper">
     @@include('layout/nav.html')
-    <!-- 大家各自頁面內容都放main裡 -->
     <main>
-      <p>首頁~~</p>
+      <!-- section-背景影片 -->
+      <section class="topVisualWrap">
+        <div class="top-container">
+          <!-- logo -->
+          <h1>
+            <img src="img/logo.png" alt="">
+          </h1>
+          <h2>AQUARIUM</h2>
+          <div class="scroll-box">
+            <a href="">scroll</a>
+            <a href="">
+              <img src="https://www.sumida-aquarium.com/img/top/vector_scroll.svg" alt="">
+            </a>
+          </div>
+        </div>
+        <video class="movie-content" src="https://www.kyoto-aquarium.com/img/top/video.mp4" width="100%" height="100%"
+          autoplay loop muted playsinline></video>
+        <span class="bg"></span>
+
+      </section>
+
+      <!-- section 天氣與營業時間 -->
+      <section class="weather-time-wrap">
+        <div class="container">
+          <div class="weather">
+            <img src="img/weather.jpg" alt="">
+          </div>
+          <div class="opentime">
+            <h3>營業時間</h3>
+            <div class="middle">
+              <div class="week">
+                <p>週一~週五</p>
+                <p>假日(國定假日)</p>
+              </div>
+              <div class="detail-time">
+                <p>10:00~20:30</p>
+                <p>09:00~22:00</p>
+              </div>
+            </div>
+            <ul class="notice">
+              <li>* 最終入場時間為閉館前1小時。</li>
+              <li>* 本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。</li>
+            </ul>
+            <div class="deco">
+              <img class="sea_horse" src="img/sea_horse.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 動物介紹 -->
+      <section class="intro">
+        <div class="container">
+          <div class="top">
+            <div class="text">
+              <img class="icon" src="img/jelly.svg" alt="">
+              <h2>深海裡的贈禮</h2>
+              <p>長島海峽之旅從淡水海峽之旅從淡海峽之旅從淡河海峽之旅從淡海峽之旅從淡流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。</p>
+            </div>
+            <div class="pic">
+              <img src="img/intro_jelly.jpeg" alt="">
+            </div>
+          </div>
+          <div class="second">
+            <div class="pic">
+              <img src="img/intro_pc.jpg" alt="">
+            </div>
+            <div class="text">
+              <img class="icon" src="img/jelly.svg" alt="">
+              <h2>深海裡的贈禮</h2>
+              <p>長島海峽之旅從淡水河流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- section 最新消息 -->
+      <section class="news">
+        <div class="container">
+          <div class="news_title">
+            <h3>最新消息</h3>
+            <p>海洋公園隨時更新最新活動讓您能即時獲取消息！</p>
+            <div class="deco">
+              <img src="img/sealion.png" alt="">
+            </div>
+          </div>
+          <ul class="news_row">
+            <li class="news_item">
+              <a href="">
+                <img src="img/news_01.jpg" alt="">
+                <div class="news_text">
+                  <h4>White Day贈禮</h4>
+                  <p>白色情人節本館入場就贈
+                    巧克力。</p>
+                </div>
+              </a>
+            </li>
+            <li class="news_item">
+              <a href="">
+                <img src="img/news_01.jpg" alt="">
+                <div class="news_text">
+                  <h4>新冠疫情相關</h4>
+                  <p>入館請務必戴口罩無佩戴口
+                    罩禁止入館並入館並請配合入館並請配合入館並請配合請配合量</p>
+                </div>
+              </a>
+            </li>
+            <li class="news_item">
+              <a href="">
+                <img src="img/news_01.jpg" alt="">
+                <div class="news_text">
+                  <h4>228淨灘活動</h4>
+                  <p>228連假到來，大家在海邊
+                    玩時也可以順便維護環境，本館於火星海灘舉辦淨灘....</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- section 功能卡片 -->
+      <section class="function_card">
+        <div class="container">
+          <div class="booking_card">
+            <h4>夜宿體驗</h4>
+            <p>海洋公園強力推出室內夜宿體驗，讓您擁有最近距離的感受，與您喜愛的海底總動員一起入睡！</p>
+            <p>歡迎大朋友&小朋友，立即預訂區域，與海洋夜未眠！</p>
+            <div class="btn_booking">
+              <a href="#">預訂</a>
+            </div>
+          </div>
+          <div class="map_card">
+            <h4>如何到這裡</h4>
+            <p class="title">使用這張方便的地圖，直接引導您前往海洋公園</p>
+            <form action="#" method="get" target="_blank">
+              <label for="map_card">輸入你的位置</label>
+              <input class="input_add" type="text" name="map_card" id="map_card">
+              <input class="btn_map" type="submit" value="前往">
+            </form>
+            <p class="address">台北市中山區南京東路三段219號</p>
+          </div>
+        </div>
+      </section>
+
+
     </main>
   </div>
   @@include('layout/footer.html')

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('layout/head.html',{ 'title':'後台-訂票管理' })
+  </head>
+  <body>
+    <div class="minwidth-wrapper">
+      <div id="root">
+        <!-- 後台header -->
+        <header class="b-member_header">
+          <div class="b-member_logo">
+            <img src="./img/logo.png" alt="" srcset="" />
+            <p>kireiumi後臺管理</p>
+          </div>
+          <div class="b-member_logout">
+            <p>帳號登出</p>
+            <img src="./img/log-out.png" alt="" srcset="" />
+          </div>
+        </header>
+
+        <main class="b_ticket_main">
+          <!-- main left -->
+          <div class="b_ticket_left">
+            <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
+          </div>
+
+          <div class="b_ticket_right">
+            <form action="" method="" id="">
+              <p>訂票管理</p>
+
+              <section>
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="以票券編號查詢"
+                  v-model="member_number"
+                />
+                <label
+                  for="search"
+                  :class="{'-active':member_number}"
+                  @click="lookfor"
+                  >搜尋</label
+                >
+              </section>
+            </form>
+
+            <div>
+              <ul class="b_ticket_title">
+                <li v-for="title in titles">{{title}}</li>
+                <li></li>
+              </ul>
+
+              <ul v-for="(ticket,key) in tickets" class="b_ticket_ticket">
+                <li>{{ticket.ticket_id}}</li>
+                <li>{{ticket.buy_date}}</li>
+                <li>{{ticket.ticket_type}}</li>
+                <li>{{ticket.ticket_status}}</li>
+                <li>{{ticket.use_date}}</li>
+
+                <!-- <li @click="edit(key)">查看</li> -->
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <!-- footer page -->
+        <footer class="b_ticket_footer">
+          <ul>
+            <li
+              v-for="page in pages"
+              v-on:click="showMdata(page.link)"
+              v-bind:class="{nowpagela:page.page == nowpage}"
+            >
+              {{page.page}}
+            </li>
+          </ul>
+        </footer>
+
+        <!-- <div class="b_ticket_edit" v-if="current_edit !== null">
+          <ul>
+            <li>票券編號:{{tickets[current_edit].ticket_id}}</li>
+            <li>購買日期:{{tickets[current_edit].buy_date}}</li>
+            <li>票種:{{tickets[current_edit].ticket_type}}</li>
+            <li>狀態:{{tickets[current_edit].ticket_status}}</li>
+            <li>使用時間:{{tickets[current_edit].use_date}}</li>
+          </ul>
+
+          <div class="b_ticket_editbtn">
+            <button class="b_ticket_close" @click="f_close">關閉</button>
+          </div>
+        </div>
+
+        <div id="hide" v-if="current_edit !== null"></div> -->
+        <!-- <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check> -->
+      </div>
+    </div>
+
+    <!-- 引入js -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/b_ticket.min.js"></script>
+  </body>
+</html>

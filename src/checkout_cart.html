@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "購物車"
+    })
+</head>
+
+<body>
+    <div class="cart_wrapper">
+        @@include('layout/nav.html')
+        <main class="cart_main">
+            <!-- 結帳流程進度條區塊 -->
+            <div class="cart_anv">
+                <div class="cart_item cartSelected">
+                    <div class="cart_round">
+                        <p>1</p>
+                    </div>
+                    <p>查看購物車</p>
+                </div>
+                <div class="cart_item">
+                    <div class="cart_round">
+                        <p>2</p>
+                    </div>
+                    <p>確認付款</p>
+                </div>
+                <div class="cart_item">
+                    <div class="cart_round">
+                        <p>3</p>
+                    </div>
+                    <p>完成訂單</p>
+                </div>
+            </div>
+
+            <!-- 購物車內容區塊 -->
+            <div class="cart_contentWrapper">
+                 <!-- 內容明細區塊 -->
+                <table class="cart_content">
+                    <thead class="contentTitle">
+                        <tr>
+                            <th colspan="2">品名</th>
+                            <th>單價</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ticketGroup">
+                            <td class="ticketImg">
+                                <img src="./img/checkout/ticket01.jpeg" alt="票券圖片">
+                            </td>
+                            <td class="ticketType"><a href="#">全票</a></td>
+                            <td>NT$<span>550</span></td>
+                            <!-- 數量組區塊 -->
+                            <td>
+                                <div class="cart_quantityInfo">
+                                    <span><button class="minus">-</button></span>
+                                    <div>
+                                        <input type="number" class="quantity" value="1">
+                                    </div>
+                                    <span><button class="plus">+</button></span>  
+                                </div> 
+                            </td>
+                            <td class="subtotal">NT$<span>550</span></td>
+                            <td><button class="deleteButton">×</button></td>
+                        </tr>
+                        <tr class="ticketGroup">
+                            <td class="ticketImg">
+                                <img src="./img/checkout/ticket02.jpg" alt="票券圖片"></td>
+                            <td class="ticketType"><a href="#">夜宿體驗-全票<br>大洋池親近區</a></td>
+                            <td>NT$<span>3180</span></td>
+                            <td>
+                                <div class="cart_quantityInfo">
+                                    <span><button class="minus">-</button></span>
+                                    <div>
+                                        <input type="number" class="quantity" value="1">
+                                    </div>
+                                    <span><button class="plus">+</button></span>  
+                                </div> 
+                            </td>
+                            <td class="subtotal">NT$<span>3180</span></td>
+                            <td><button class="deleteButton">×</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 購物車總額區塊 -->
+                <div class="cart_detail">
+                    <div class="total">
+                        <span>商品總額</span><div>NT$<span>3730</span></div>
+                    </div>
+                    <!-- 折扣碼輸入框 -->
+                    <div class="discountCode">
+                        <div><input type="text" class="discountCode_box" placeholder="請輸入折扣碼"></div>
+                        <span><button type="submit" class="discountCode_btn">使用</button></span>
+                    </div>
+                    <div class="discount">
+                        <span>折扣</span><div>-NT$<span>0</span></div>
+                    </div>
+                    <div class="line"></div> <!-- 分隔線 -->
+                    <div class="payable">
+                        <span>應付金額</span><div>NT$<span>3730</span></div>
+                    </div>
+                    <div class="next">
+                        <a href="./checkout_pay.html">前往結帳</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    @@include('layout/footer.html')
+</body>
+
+</html>

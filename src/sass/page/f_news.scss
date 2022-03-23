@@ -1,0 +1,189 @@
+@import '../var/var';
+
+
+#news{
+
+    background-color: #EDF9FB;
+  
+  
+
+
+    //banner
+    .wrapper{
+        
+        background-image:url('../img/news-banner1.png') ;
+        background-size: cover;
+        @extend %img-mw ;
+        height: calc(100vh - 80px);
+        background-attachment: fixed;
+
+        //banner主標
+        >h2{
+            font-size: map-get($title, h2);
+            text-align: center;
+            line-height: calc(100vh - 80px);
+            color: #fff;
+
+        }
+    }
+    // banner end
+
+
+    main.news_box {
+        max-width: $container-width;
+        margin: space(4) auto;
+      //頁籤
+        >.tab{
+            display: flex;
+            justify-content: center;
+            z-index: 2;
+
+            .tab_item{
+                text-align: center;
+                font-size: map-get($title, h6);
+                color: rgb(0, 189, 209, .5);
+                cursor: pointer;
+                margin: space(4) space(3) space(4) 0;
+                i {
+                    font-size: 36px;
+                }
+                
+            }
+            .tab_item.js-i-active {
+                color: $text-color;
+            }
+        }
+
+        //最新消息 --內容
+        .news_content{
+
+            display: flex;
+            flex-wrap: wrap;
+            
+            
+            .news_list{
+                .news_item{
+                    width: calc(100vh /1.9);
+                    margin-bottom:space(3);
+
+                    h6{
+                        font-size: map-get($title, h6);
+                        color: $text-color;
+                    }
+                    p{
+                        font-size:$font-size;
+
+                    }
+                  
+                }
+            }
+
+            //查看更多
+            .more{
+                color: $text-color;
+                font-size: map-get($title, h5);
+                margin: 0 auto space(4);
+                position: relative;
+                cursor: pointer;
+                &::after{
+                    
+                    content: '';
+                    position: absolute;
+                    left:55px;
+                    top:45px;
+                    border-bottom: 3px solid $text-color;
+                    border-right: 3px solid $text-color;
+                    width: 10px;
+                    height: 10px;
+                    transform: rotate(45deg);
+                    
+                }
+            }
+        }
+    }
+    //背景
+    ul.BackgroundCircle{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
+        
+        .circle {
+            position: relative;
+            background-color:#DBF5F8;
+            text-align: left;
+            display: block;
+          }
+          .circle{
+            width:  10em;
+            height: 10em;
+            border-radius: 50%;
+          }
+          li{
+            position: absolute;
+            list-style: none;
+            bottom: -300px;
+            &:nth-child(1){
+                left: 90%;
+                animation-delay: 0s;
+                bottom: -400px;
+
+                >.circle{
+                    width:  220px;
+                    height: 220px;
+                    background-color: #DBF5F8;
+                  }
+            }
+            &:nth-child(2){
+                left: 0;
+                animation-delay: 6s;
+                bottom: -500px;
+
+                >.circle{
+                    width:  210px;
+                    height: 210px;
+                    background-color: #DBF5F8;
+                }
+            }
+            &:nth-child(3){
+                left: 50%;
+                animation-delay: 3s;
+                bottom: -400px;
+                >.circle{
+                    width:  200px;
+                    height: 200px;
+                    background-color: #DBF5F8;
+                }
+            }
+        }
+        li{
+            animation: rotation1 25s cubic-bezier(0, 0.24, 1, 0.56) infinite;
+          }
+        @keyframes rotation1 {
+            0%{
+                transform: translateY(0);
+                opacity: 0;
+                border-radius: 0;
+            }
+            100%{
+                transform: translateY(-2000px);
+                opacity: 1;
+            }
+          }
+        }
+    }
+      
+
+    
+      
+      
+      
+
+     
+    
+      
+  

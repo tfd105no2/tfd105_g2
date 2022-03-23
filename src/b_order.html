@@ -6,72 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>後台-訂單管理</title>
     <!-- 初始化css -->
-    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="root">
-      @@include('layout/b_head.html')
+    <div class="minwidth-wrapper">
+      <div id="root">
+        @@include('layout/b_head.html')
 
-      <main class="b_order_main">
-        <div class="b_order_left">
-          <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
-        </div>
+        <main class="b_order_main">
+          <div class="b_order_left">
+            <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
+          </div>
 
-        <div class="b_order_right">
-          <form action="" method="get" id="">
-            <p>訂單管理</p>
+          <div class="b_order_right">
+            <form action="" method="get" id="">
+              <p>訂單管理</p>
+
+              <section>
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="以訂單編號查詢"
+                  v-model="order_number"
+                />
+                <label
+                  for="search"
+                  :class="{'-active':order_number}"
+                  @click="lookfor"
+                  >搜尋</label
+                >
+              </section>
+            </form>
+
+            <div>
+              <ul class="b_order_title">
+                <li v-for="title in titles">{{title}}</li>
+                <li></li>
+              </ul>
+
+              <ul v-for="(order,key) in orders" class="b_order_order">
+                <li>{{order.order_id}}</li>
+                <li>{{order.account}}</li>
+                <li>{{order.order_type}}</li>
+                <li>{{pay_list[order.payment_status]}}</li>
+                <li>{{form_list[order.order_status]}}</li>
+                <li>{{checkin_list[order.checkin_status]}}</li>
+                <li>{{order.order_date}}</li>
+                <li @click="edit(key)">編輯與查看</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="b_order_footer">
+          <ul>
+            <li
+              v-for="page in pages"
+              v-on:click="showOdata(page.link)"
+              v-bind:class="{nowpagela:page.page == nowpage}"
+            >
+              {{page.page}}
+            </li>
+          </ul>
+        </footer>
+
+        <!-- 詳細頁 -->
+        <div class="b_order_edit" v-if="current_edit !== null">
+          <p>編輯與查看</p>
+
+          <div class="b_order_order_search">
+            <label for="">訂單編號:</label>
+            <input type="text" v-model="select_number" readonly />
+          </div>
+
+          <ul class="b_order_total_status">
+            <li>
+              付款狀態:
+              <select name="pay_status" id="" v-model="o_pay">
+                <option value="0">未付款</option>
+                <option value="1">已付款</option>
+                <option value="2">付款失敗</option>
+                <option value="3">退款中</option>
+                <option value="4">已退款</option>
+              </select>
+            </li>
+
+            <li>
+              訂單狀態:
+              <select name="order_status" id="" v-model="o_form">
+                <option value="0">處理中</option>
+                <option value="1">已確認</option>
+                <option value="2">已完成</option>
+                <option value="3">已取消</option>
+              </select>
+            </li>
+
+            <li>
+              夜宿狀態:
+              <select name="status_status" id="" v-model="o_check">
+                <option value="0">未報到</option>
+                <option value="1">已報到</option>
+                <option value="2">已過期</option>
+              </select>
+            </li>
+          </ul>
+
+          <ul class="b_order_order_information">
+            <li>會員編號: {{orders[current_edit].order_id}}</li>
+            <li>會員帳號: {{orders[current_edit].account}}</li>
+            <li>姓名: {{orders[current_edit].member_name}}</li>
+            <li>手機: {{orders[current_edit].member_phone}}</li>
+            <li>付款方式: {{orders[current_edit].payment}}</li>
+            <li>折扣碼: {{orders[current_edit].discount_id}}</li>
+          </ul>
+
+          <div class="b_order_order_detail">
+            <p>訂單商品明細</p>
+            <ul class="b_order_detail_title">
+              <li v-for="title in order_title">{{title}}</li>
+            </ul>
 
             <section>
-              <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="以訂單編號查詢"
-                v-model="order_number"
-              />
-              <label
-                for="search"
-                :class="{'-active':order_number}"
-                @click="lookfor"
-                >搜尋</label
+              <ul
+                v-for="lists in order_list[current_edit]"
+                class="b_order_detail_content"
               >
+                <!-- <li v-for='list in lists'>{{list}}</li> -->
+                <li>{{lists.ticket_name}}</li>
+                <li>{{lists.checkin_date}}</li>
+                <li>{{lists.area}}</li>
+                <li>{{lists.quantity}}</li>
+                <li>{{lists.price}}</li>
+              </ul>
             </section>
-          </form>
 
-          <div>
-            <ul class="b_order_title">
-              <li v-for="title in titles">{{title}}</li>
-              <li></li>
-            </ul>
+            <ul class="b_order_order_checkout">
+              <li class="total">
+                商品金額&emsp;&nbsp;:&ensp;${{total_cost}}元
+              </li>
+              <li>
+                折扣碼優惠&nbsp;:&ensp;&nbsp;&nbsp;${{orders[current_edit].discount_price}}元
+              </li>
+              <li class="line"></li>
 
-            <ul v-for="(order,key) in orders" class="b_order_order">
-              <li>{{order.order_id}}</li>
-              <li>{{order.account}}</li>
-              <li>{{order.order_type}}</li>
-              <li>{{order.payment_status}}</li>
-              <li>{{order.order_status}}</li>
-              <li>{{order.checkin_status}}</li>
-              <li>{{order.order_date}}</li>
-              <li @click="edit(key)">編輯與查看</li>
+              <li>訂單總金額&nbsp;:&ensp;&nbsp;&nbsp;${{order_cost}}元</li>
             </ul>
           </div>
+
+          <div class="b_order_editbtn">
+            <button class="b_order_close" @click="f_close">關閉</button>
+            <button class="b_order_save" @click="f_save">儲存</button>
+          </div>
         </div>
-      </main>
 
-      <footer class="b_order_footer">
-        <ul>
-          <li
-            v-for="page in pages"
-            v-on:click="showOdata(page.link)"
-            v-bind:class="{nowpagela:page.page == nowpage}"
-          >
-            {{page.page}}
-          </li>
-        </ul>
-      </footer>
+        <div id="hide" v-if="current_edit !== null"></div>
+        <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check>
+      </div>
     </div>
-
     <!-- 引入js -->
     <script src="js/vue.min.js"></script>
     <script src="js/b_order.min.js"></script>
