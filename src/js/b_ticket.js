@@ -35,19 +35,21 @@ new Vue({
 
         ],
         member_number: '',
-        titles: ['會員編號', '帳號', '姓名', '手機'],
-        members: [
+        titles: ['票券編號', '購買日期', '票種', '狀態', '使用時間'],
+        tickets: [
             {
-                'member_id': '001',
-                'account': 'Harukadou@gmail.com',
-                'name': '嶠小賀',
-                'phone': '0910123456'
+                'ticket_id': 'XD203301',
+                'buy_date': '2022/01/01',
+                'ticket_type': '全票',
+                'ticket_status': '已使用',
+                'use_date': '2022/03/01 09:00:00'
             },
             {
-                'member_id': '002',
-                'account': 'Harukadou@gmail.com',
-                'name': '芽芽',
-                'phone': '0910123456'
+                'ticket_id': 'XD203301',
+                'buy_date': '2022/01/01',
+                'ticket_type': '學生票',
+                'ticket_status': '未使用',
+                'use_date': '2022/03/01 09:00:00'
             },
         ],
         pages: [

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('layout/head.html',{ 'title':'後台-區域管理' })
+  </head>
+  <body>
+    <div class="minwidth-wrapper">
+      <div id="root">
+        <!-- 後台header -->
+        <header class="b-member_header">
+          <div class="b-member_logo">
+            <img src="./img/logo.png" alt="" srcset="" />
+            <p>kireiumi後臺管理</p>
+          </div>
+          <div class="b-member_logout">
+            <p>帳號登出</p>
+            <img src="./img/log-out.png" alt="" srcset="" />
+          </div>
+        </header>
+
+        <main class="b_area_main">
+          <!-- main left -->
+          <div class="b_area_left">
+            <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
+          </div>
+
+          <div class="b_area_right">
+            <p>區域管理</p>
+
+            <!-- 日曆 -->
+            <div class="b_area_calendar">
+              <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
+              <div>
+                <!-- <button @click="adjustYear(-1)">上一年</button> -->
+                <button @click="adjustMonth(-1)">上個月</button>
+                <!-- <button @click="setToday">今天</button> -->
+                <button @click="adjustMonth(1)">下個月</button>
+                <!-- <button @click="adjustYear(1)">下一年</button> -->
+              </div>
+              <div class="b_area_weekDay">
+                <div>日</div>
+                <div>一</div>
+                <div>二</div>
+                <div>三</div>
+                <div>四</div>
+                <div>五</div>
+                <div>六</div>
+              </div>
+              <div class="b_area_week" v-for="i in 6">
+                <div
+                  class="day"
+                  v-for="j in 7"
+                  :data-date="calendarMonth[(i-1)*7+j-1].date"
+                  :class="{
+                            b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
+                            b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
+                      }"
+                  @click="edit"
+                >
+                  <div class="b_area_booking_status">進行中</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- 彈框 -->
+        <div class="b_area_edit" v-if="current_edit !== null">
+          <p>2022/03/22</p>
+          <p>選擇夜宿區域</p>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+          </ul>
+
+          <div class="b_area_editbtn">
+            <button class="b_area_close" @click="f_close">關閉區域</button>
+            <button class="b_area_close" @click="f_open">開啟區域</button>
+            <button class="b_area_close" @click="f_out">離開</button>
+          </div>
+        </div>
+
+        <div id="hide" v-if="current_edit !== null"></div>
+        <double-check-off
+          v-if="dbcheck_off"
+          @save="sss"
+          @cancel="ccc"
+        ></double-check-off>
+        <double-check-on
+          v-if="dbcheck_on"
+          @save="sss"
+          @cancel="ccc"
+        ></double-check-on>
+      </div>
+    </div>
+
+    <!-- 引入js -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/b_area.min.js"></script>
+  </body>
+</html>

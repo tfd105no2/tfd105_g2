@@ -1,0 +1,55 @@
+// h標籤字體大小
+$title:(
+    "h1": 48px,
+    "h2": 40px,
+    "h3": 36px,
+    "h4": 32px,
+    "h5": 28px,
+    "h6": 24px
+);
+// 網站整體寬度
+$container-width: 1200px;
+// 全域字型
+$font-style: 'Helvetica';
+// 全域字型大小
+$font-size: 20px;
+// 全域字型粗體
+$font-weight: bold;
+// 全域標題行距
+$line-height-title: 1.2;
+// text行距
+$line-height-text: 1.4;
+// 預設文字顏色
+$text-color: rgb(0, 189, 209);
+// 預設連結顏色
+$link-color: #00BDD1;
+// 預設連結hover顏色
+$link-color-hover: #0080A8;
+// 按鈕顏色
+$btn-color: #5C9FB9;
+// 按鈕hover顏色
+$btn-color-hover: #0080A8;
+// 空值
+$null: null;
+
+// 預設距離
+$baseSpace: 10px;
+// 設定間距的方法
+@function space($count: 1){
+    @return $baseSpace * $count;
+}
+
+// 利用@extend重複使用相同屬性
+%a-button {
+    display: block;
+    text-decoration: none;
+}
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+%img-mw {
+    display: block;
+    max-width: 100%;
+}
