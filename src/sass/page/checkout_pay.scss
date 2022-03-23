@@ -1,0 +1,139 @@
+.pay_wrapper{
+    background-color: #EDF9FB;
+    height: 1000px;
+    .pay_main{
+        width: 1200px;
+        margin: 0 auto;
+
+        // 結帳流程進度條區塊
+        .cart_anv{
+            width: 75%;
+            display: flex;
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+        .cart_item{
+            width: 33.3%;
+            color: #707070;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 3px solid rgba($color: #00bdd1, $alpha: 0.5);
+            a{
+                color: #707070;
+            }
+        }
+        .cart_round{
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: rgba($color: #00bdd1, $alpha: 0.5);
+            color: #fff;
+            line-height: 30px;
+        }
+        .cartSelected{
+            .cart_round{
+                background-color: #00BDD1;
+                color: #fff;
+            }
+            color: #00BDD1;
+            border-bottom: 3px solid #00BDD1;
+        }
+
+        // 確認付款內容區塊
+        .cart_contentWrapper{
+            display: flex;
+            justify-content: center;
+            
+            // 內容明細區塊
+            .cart_content{
+                width: 65%;
+                background-color: #fff;
+                margin-right: 3rem;
+                text-align: center;
+                color: #707070;
+                border: 1px solid #00BDD1;
+                border-collapse:separate;
+                border-radius: 5px;
+
+                a, button {
+                    color: #707070;
+                }
+                th, td{
+                    vertical-align:middle;
+                    padding: 6px;
+                }
+                td{
+                    border-top: 1px solid #00BDD1;
+                }
+                .contentTitle{
+                    font-size: 16px;
+                }
+                .ticketGroup{
+                    img{
+                        width: 100px;
+                        border-radius: 5px;
+                    }
+                    .ticketType{
+                        text-align: left;
+                    }
+                    .cart_quantityInfo {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .quantity:focus{
+                        outline: 0;
+                    }
+                    button{
+                        background-color: #fff;
+                        border: 1px solid #00BDD1;
+                        cursor: pointer;
+                    }
+                    .minus{
+                        border-right: none;
+                        border-radius: 5px 0 0 5px;
+                    }
+                    .plus{
+                        border-left: none;
+                        border-radius: 0 5px 5px 0;
+                    }
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                    input[type=number] {
+                        -moz-appearance: textfield;
+                    }
+                    input{
+                        width: 50px;
+                        text-align: center;
+                        border: 1px solid #00BDD1;
+                    }
+                    .subtotal{
+                        font-weight: 600;
+                    }
+                    .deleteButton{
+                        font-size: 2.5rem;
+                        border: none;
+                    }
+                }
+                .ticketTotal{
+                    text-align: right;
+                }
+                .noBorderTop{
+                    border-top: 1px solid #fff;
+                }
+            }
+        }
+
+        // 選擇付款方式區塊
+        .a{
+            width: 25%;
+            height: 250px;
+            background-color: #DBF5F8;
+        }
+
+    }
+
+}

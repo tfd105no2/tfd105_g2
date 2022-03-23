@@ -1,0 +1,226 @@
+.minwidth-wrapper {
+  min-width: 1200px;
+}
+.b-member_header {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #aae0ff;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 120% 100%;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+.b-member_logo {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  img {
+    width: 50px;
+  }
+  p {
+    font-size: 30px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+.b-member_logout {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+  p {
+    font-size: 16px;
+    color: #172852;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// main left區塊
+.b_area_main {
+  display: flex;
+  justify-content: flex-start;
+  padding: 60px 60px 20px;
+  .b_area_left {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      margin: 0;
+      margin-bottom: 10px;
+      padding: 0;
+      width: 144px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 10px;
+      border: 1px solid #f4ece5;
+      background-color: #d4e7f4;
+    }
+  }
+}
+
+.b_area_left > a:nth-child(4) {
+  background-color: #7db6df;
+}
+
+.b_area_left > a:hover {
+  background-color: #7db6df;
+}
+//main right
+.b_area_right {
+  width: 85%;
+  min-height: 500px;
+
+  p {
+    width: 98px;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid #7db6df;
+  }
+}
+
+// calendar
+.b_area_calendar {
+  margin: 30px 90px;
+  border: 3px solid #00bdd1;
+  width: 800px;
+  text-align: center;
+  h1 {
+    font-size: 28px;
+  }
+}
+
+.b_area_weekDay,
+.b_area_week {
+  display: flex;
+  border-bottom: 1px solid #00bdd1;
+}
+.b_area_weekDay > div {
+  flex: 1 1 0%;
+  line-height: 30px;
+}
+.b_area_week {
+  /*border-right: 1px solid #00bdd1;*/
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.b_area_week > div {
+  cursor: pointer;
+  position: relative;
+  flex: 1 1 0%;
+  height: 90px;
+  line-height: 30px;
+  border-left: 1px solid #00bdd1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &:first-child {
+    border-left: none;
+  }
+}
+.b_area_week > div:before {
+  position: absolute;
+  content: attr(data-date);
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: block;
+  width: 30px;
+}
+.b_area_booking_status {
+  margin-top: 30px;
+}
+.b_area_today {
+  color: #333;
+  background-color: #94d8e5;
+}
+
+.b_area_other {
+  color: #bbb;
+  background-color: #ddd;
+}
+
+//彈出
+.b_area_edit {
+  width: 750px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #ffffff;
+  /* display: none; */
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    li {
+      width: 230px;
+      margin: 0 10px;
+      margin-bottom: 10px;
+      background-color: #bfa;
+    }
+  }
+}
+
+// .b_area_edit > ul {
+//   margin: 0;
+//   padding: 0px;
+//   list-style: none;
+//   display: grid;
+//   grid-template-columns: 1fr 0.9fr;
+//   padding: 15px 30px;
+//   row-gap: 50px;
+// }
+
+.b_area_editbtn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.b_area_editbtn button {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #a3a3a3;
+  padding: 5px 25px;
+  margin: 0;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#hide {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+}
