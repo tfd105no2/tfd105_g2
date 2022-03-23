@@ -43,11 +43,11 @@
 }
 
 // main left區塊
-.b_member_main {
+.b_ticket_main {
   display: flex;
   justify-content: flex-start;
   padding: 60px 60px 20px;
-  .b_member_left {
+  .b_ticket_left {
     display: flex;
     flex-direction: column;
     width: 15%;
@@ -70,15 +70,15 @@
   }
 }
 
-.b_member_left > a:nth-child(1) {
+.b_ticket_left > a:nth-child(5) {
   background-color: #7db6df;
 }
 
-.b_member_left > a:hover {
+.b_ticket_left > a:hover {
   background-color: #7db6df;
 }
 //main right
-.b_member_right {
+.b_ticket_right {
   width: 85%;
   min-height: 500px;
   form {
@@ -96,12 +96,12 @@
   }
 }
 
-.b_member_right > div {
+.b_ticket_right > div {
   border: 1px solid black;
   min-height: 455px;
 }
 
-.b_member_right form section {
+.b_ticket_right form section {
   flex-grow: 2;
   display: flex;
   justify-content: flex-end;
@@ -137,12 +137,12 @@
   }
 }
 
-.b_member_title {
+.b_ticket_title {
   margin: 0;
   padding: 10px;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 107px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 107px;
   column-gap: 10px;
   background-color: #7db6df;
   font-size: 16px;
@@ -150,12 +150,12 @@
   font-weight: bold;
 }
 
-.b_member_member {
+.b_ticket_ticket {
   margin: 0;
   padding: 10px;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr 107px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 107px;
   column-gap: 10px;
   background-color: #ffffff;
   font-size: 16px;
@@ -166,7 +166,7 @@
   }
 }
 
-.b_member_member li {
+.b_ticket_ticket li {
   font-size: 14px;
   white-space: nowrap;
   /* 不斷行 */
@@ -176,24 +176,24 @@
   /* 出現省略符號 */
 }
 
-.b_member_member li:last-child {
-  background-color: #6599e8;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  color: #ffffff;
-  padding: 5px;
-}
+// .b_ticket_ticket li:last-child {
+//   background-color: #6599e8;
+//   border-radius: 5px;
+//   font-weight: bold;
+//   text-align: center;
+//   color: #ffffff;
+//   padding: 5px;
+// }
 
-.b_member_member li:last-child:hover {
-  cursor: pointer;
-}
+// .b_ticket_ticket li:last-child:hover {
+//   cursor: pointer;
+// }
 
-.b_member_footer {
+.b_ticket_footer {
   padding-right: 60px;
 }
 
-.b_member_footer ul {
+.b_ticket_footer ul {
   display: flex;
   justify-content: flex-end;
   li {
@@ -217,12 +217,12 @@
   color: #fff !important;
 }
 
-.b_member_footer ul li:first-child {
+.b_ticket_footer ul li:first-child {
   border-left: 1px solid #000;
 }
 
 //彈出
-.b-member_edit {
+.b_ticket_edit {
   width: 750px;
   height: 325px;
   display: flex;
@@ -237,20 +237,10 @@
   /* display: none; */
 }
 
-.b-member_edit > p {
-  margin: 0;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #7db6df;
-}
-
-.b-member_edit > ul {
+.b_ticket_edit > ul {
   margin: 0;
   padding: 0px;
   list-style: none;
-  display: -ms-grid;
   display: grid;
   grid-template-columns: 1fr 0.9fr;
   padding: 15px 30px;
@@ -265,28 +255,23 @@
   padding: 0;
 }
 
-.b-member_editbtn {
+.b_ticket_editbtn {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   column-gap: 30px;
 }
 
-.b-member_editbtn button {
+.b_ticket_editbtn button {
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #172852;
+  background-color: #a3a3a3;
   padding: 5px 25px;
   margin: 0;
-  border: 1px solid #172852;
+  border: 1px solid #a3a3a3;
   border-radius: 10px;
   cursor: pointer;
-}
-
-.b-member_editbtn .b-member_close {
-  background-color: #a3a3a3;
-  border: 1px solid #a3a3a3;
 }
 
 #hide {
@@ -300,80 +285,10 @@
   height: 100%;
 }
 
-.b-member_right .-active {
+.b_ticket_right .-active {
   background: #172852;
 }
 
 .-active2 {
   color: #a3a3a3;
-}
-/* 談窗 */
-.dbc {
-  /* border: 1px solid red; */
-  width: 385px;
-  height: 220px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 50px 1fr 1fr;
-  grid-template-rows: 50px 1fr 1fr;
-  background-color: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 5;
-  border: 2px solid red;
-}
-
-.dbc section {
-  background-color: #f00;
-}
-
-.dbc p {
-  font-size: 22px;
-  font-weight: bold;
-  color: #172852;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-}
-
-.dbc div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-column-gap: 30px;
-  column-gap: 30px;
-  height: 54px;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.dbc button {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #172852;
-  padding: 5px 25px;
-  margin: 0;
-  border: 1px solid #172852;
-  border-radius: 10px;
-  cursor: pointer;
-  height: 34px;
-}
-
-.dbc button:first-child {
-  background-color: #a3a3a3;
-  border: 1px solid #a3a3a3;
 }
