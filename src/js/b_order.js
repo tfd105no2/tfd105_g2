@@ -39,7 +39,7 @@ var appVue = new Vue({
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
             { name: "消息管理", url: "b_news.html" },
-            { name: "房間管理", url: "./n-customized.html" },
+            { name: "房間管理", url: "b_area.html" },
             { name: "訂票管理", url: "b_ticket.html" },
         ],
         titles: ['訂單編號', '會員帳號', '訂單類型', '付款狀態', '訂單狀態', '夜宿狀態', '訂購日期', '',],
