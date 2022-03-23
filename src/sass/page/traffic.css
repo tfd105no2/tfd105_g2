@@ -2,6 +2,30 @@ body {
   background-color: #EDF9FB;
 }
 
+body p {
+  font-size: 12px;
+}
+
+body h2 {
+  font-size: 20px;
+  color: #00BDD1;
+}
+
+body h3 {
+  font-size: 18px;
+  color: #0080A8;
+}
+
+body h4 {
+  font-size: 16px;
+  color: #5C9FB9;
+}
+
+body .fa-solid {
+  color: #00BDD1;
+  font-size: 24px;
+}
+
 .transportation_banner h1 {
   position: absolute;
   left: 50%;
@@ -31,16 +55,37 @@ body {
   margin: 80px;
 }
 
+.traffic_nav .fa-solid h2 {
+  margin-top: 10px;
+}
+
+.traffic_nav .icon {
+  margin-bottom: 10px;
+}
+
 .traffic_time {
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin: 0 auto;
   padding-bottom: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.traffic_time .time_contant {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .traffic_dashed {
@@ -100,6 +145,11 @@ body {
 .traffic_map_wapper .traffic_map .traffic_address {
   background-color: #B4EDF6;
   height: 50px;
+}
+
+.traffic_map_wapper .traffic_map .traffic_address h2 {
+  text-align: center;
+  line-height: 50px;
 }
 
 .train_wapper {
@@ -217,11 +267,14 @@ body {
 }
 
 .train_wapper .bus-content .content {
-  width: 1000px;
   margin: auto;
   margin-top: 40px;
   border-collapse: collapse;
   text-align: center;
+}
+
+.train_wapper .bus-content .content .table {
+  margin-bottom: 60px;
 }
 
 .train_wapper .bus-content table {
@@ -230,14 +283,27 @@ body {
   text-align: center;
   border-collapse: collapse;
   margin-bottom: 60px;
+  margin: auto;
 }
 
 .train_wapper .bus-content table .bustitle, .train_wapper .bus-content table th, .train_wapper .bus-content table td {
   border: 1px solid #00BDD1;
 }
 
+.train_wapper .bus-content table .bustitle h2, .train_wapper .bus-content table th h2, .train_wapper .bus-content table td h2 {
+  color: white;
+}
+
 .train_wapper .bus-content table .bustitle {
   background-color: #00BDD1;
   color: white;
+}
+
+.train_wapper .bus-content .grass {
+  position: absolute;
+}
+
+.star img {
+  width: 100%;
 }
 /*# sourceMappingURL=traffic.css.map */

@@ -2,6 +2,25 @@
 
 body{
     background-color:#EDF9FB;
+    p{
+        font-size: 12px;
+    }
+    h2{
+        font-size: 20px;
+        color: #00BDD1;
+    }
+    h3{
+        font-size: 18px;
+        color: #0080A8;
+    }
+    h4{
+        font-size: 16px;
+        color: #5C9FB9;
+    }
+    .fa-solid{
+        color: #00BDD1;
+        font-size: 24px;
+    }
 }
 
 
@@ -29,6 +48,12 @@ body{
     .fa-solid{
         text-align: center;
         margin: 80px;
+        h2{
+            margin-top: 10px;
+        }
+    }
+    .icon{
+        margin-bottom: 10px;
     }
 }
 
@@ -36,9 +61,19 @@ body{
 .traffic_time{
     width: 1200px;
     display: flex;
-    align-items: center;
+    // align-items: center;
     margin: 0 auto;
     padding-bottom: 10px;
+    justify-content: space-between;
+    .time_contant{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .openwes{
+
+        }
+    }
 }
 
 
@@ -73,6 +108,7 @@ body{
     margin-bottom: 20px;
     font-size: 16px;
     background-color: #EDF9FB;
+    
 }
 
 
@@ -95,6 +131,10 @@ body{
         .traffic_address{
             background-color: #B4EDF6;
             height: 50px;      
+            h2{
+                text-align: center;
+                line-height: 50px;
+            }
         }
         
     }
@@ -128,6 +168,7 @@ body{
         h3{
             border-bottom:1px solid #00BDD1;
         }
+    
         img{
             // width: 450px;
         }
@@ -181,11 +222,14 @@ body{
         flex-direction: column;
         align-items: flex-end;
         .content{
-            width: 1000px;
+            // width: 1000px;
             margin: auto;
             margin-top: 40px;
             border-collapse: collapse;
             text-align: center;
+            .table{
+                margin-bottom: 60px;
+            }
         }
         table{
             border: 1px solid #00BDD1;
@@ -193,17 +237,29 @@ body{
             text-align: center;
             border-collapse: collapse;
             margin-bottom: 60px;
+            margin: auto;
             .bustitle , th , td{
                 border: 1px solid #00BDD1;
+                h2{
+                    color: white;
+                }
             }
             .bustitle{
                 background-color: #00BDD1;
                 color: white;
             }
         }
+        .grass{
+            position: absolute;
+        }
         
     }
 }
 
+.star{
+    img{
+        width: 100%;
+    }
+}
 
 
