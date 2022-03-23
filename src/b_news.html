@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('layout/head.html',{ 'title':'後台-消息管理' })
+  </head>
+  <body>
+    <div class="minwidth-wrapper">
+      <div id="root">
+        @@include('layout/b_head.html')
+
+        <main class="b_news_main">
+          <div class="b_news_left">
+            <a v-for="btn in mainbtn" :href="btn.url">{{btn.name}}</a>
+          </div>
+
+          <div class="b_news_right">
+            <form action="" method="get" id="">
+              <p>消息管理</p>
+
+              <div class="b_news_newsbtn">
+                <button class="b_news_add" @click="new_add()" type="button">
+                  新增
+                </button>
+              </div>
+
+              <section>
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="以文章編號查詢"
+                  v-model="news_number"
+                />
+                <label
+                  for="search"
+                  :class="{'-active':news_number}"
+                  @click="lookfor"
+                  >搜尋</label
+                >
+              </section>
+            </form>
+
+            <div>
+              <ul class="b_news_title">
+                <li v-for="title in titles">{{title}}</li>
+                <li></li>
+              </ul>
+
+              <ul v-for="(news,key) in newss" class="b_news_news">
+                <li>{{news.news_id}}</li>
+                <li>{{news.create_date}}</li>
+                <li>{{n_sort_list[news.news_class]}}</li>
+                <li>{{news.news_title}}</li>
+                <li :class="{'-active2':newss[key].news_status == '0'}">
+                  {{on_off_list[news.news_status]}}
+                </li>
+                <li>{{news.news_update}}</li>
+                <li @click="edit(key)">編輯與查看</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="b_news_footer">
+          <ul>
+            <li
+              v-for="page in pages"
+              v-on:click="showNdata(page.link)"
+              v-bind:class="{nowpagela:page.page == nowpage}"
+            >
+              {{page.page}}
+            </li>
+          </ul>
+        </footer>
+
+        <!-- 編輯區 -->
+        <div class="b_news_edit" v-if="current_edit !== null">
+          <!-- <div class="n-news_edit" v-if='true'> -->
+
+          <p>編輯與查看</p>
+
+          <div class="b_news_news_mid">
+            <ul>
+              <li>
+                <section>
+                  文章分類:
+                  <select name="status" id="" v-model="n_sort">
+                    <option value="0">公告</option>
+                    <option value="1">活動</option>
+                  </select>
+                </section>
+
+                <section>
+                  上下架:
+                  <select name="status" id="" v-model="on_off">
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                  </select>
+                </section>
+              </li>
+
+              <li>
+                <label for="">標題:</label>
+                <input type="text" v-model="n_main_title" />
+              </li>
+
+              <li>
+                <label for="">內文:</label>
+                <textarea name="" id="" v-model="n_main_content"></textarea>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="b_news_img">
+            <li>
+              <label for="">圖片:</label>
+              <input type="file" />
+            </li>
+            <li class="b_img">
+              <img src="../img/b_n_img.png" alt="" />
+            </li>
+          </ul>
+          <!-- <div class="b_news_news_bot">
+            <div class="b_news_group" v-for="(img_name, index) in img_names">
+              <label :for="index">{{img_name.name}}:</label>
+              <input type="file" :id="index" @change="upload_img" />
+              <p>{{new_img[index]}}</p>
+              <div class="b_news_img">
+                <img :src="img_name.src" />
+                
+              </div>
+              <img src="../images/backend/select.png" alt="" />
+            </div>
+          </div> -->
+
+          <div class="b_news_editbtn">
+            <button class="b_news_close" @click="n_close">關閉</button>
+            <button class="b_news_save" @click="n_save">儲存</button>
+          </div>
+        </div>
+
+        <div id="hide" v-if="current_edit !== null"></div>
+
+        <news-add
+          v-if="new_edit"
+          @nclose="closennn"
+          @nsave="savennn"
+        ></news-add>
+        <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check>
+      </div>
+    </div>
+    <!-- 引入js -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/b_news.min.js"></script>
+  </body>
+</html>

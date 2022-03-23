@@ -29,9 +29,9 @@ new Vue({
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
-            { name: "消息管理", url: "./n-product.html" },
-            { name: "房間管理", url: "./n-customized.html" },
-            { name: "訂票管理", url: "./n-news.html" },
+            { name: "消息管理", url: "b_news.html" },
+            { name: "房間管理", url: "b_area.html" },
+            { name: "訂票管理", url: "b_ticket.html" },
 
         ],
         member_number: '',
@@ -40,9 +40,16 @@ new Vue({
             {
                 'member_id': '001',
                 'account': 'Harukadou@gmail.com',
-                'name': '張昭',
+                'name': '嶠小賀',
                 'phone': '0910123456'
-            },],
+            },
+            {
+                'member_id': '002',
+                'account': 'Harukadou@gmail.com',
+                'name': '芽芽',
+                'phone': '0910123456'
+            },
+        ],
         pages: [
             { page: "<", link: "x" },
             { page: "1", link: "1" },

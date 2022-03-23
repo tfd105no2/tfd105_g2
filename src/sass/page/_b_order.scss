@@ -1,3 +1,6 @@
+.minwidth-wrapper {
+  min-width: 1200px;
+}
 .b_order_main {
   display: flex;
   justify-content: flex-start;
@@ -123,6 +126,7 @@
 }
 
 .b_order_order li {
+  font-size: 14px;
   white-space: nowrap;
   /* 不斷行 */
   overflow: hidden;
@@ -175,4 +179,202 @@
 
 .b_order_footer ul li:first-child {
   border-left: 1px solid #000;
+}
+
+//詳細頁
+.b_order_edit {
+  width: 750px;
+  height: 90%;
+  max-height: 1150px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #ffffff;
+  overflow-y: auto;
+  li {
+    font-size: 14px;
+  }
+}
+
+.b_order_edit > p {
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #7db6df;
+  position: sticky;
+  top: 0;
+}
+
+.b_order_order_search {
+  /* border: 1px solid red; */
+  padding: 20px;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+.b_order_order_search > input {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #000;
+}
+
+.b_order_total_status {
+  margin: 30px;
+  margin-top: 0;
+  padding: 15px 20px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  color: #333;
+  font-weight: bold;
+  border: 2px solid #000;
+}
+
+.b_order_total_status select {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  width: 120px;
+  padding-left: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  background: none;
+  background-image: url("../img/select.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+.b_order_order_information {
+  list-style: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin: 30px;
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: 1fr n-order_8fr;
+  row-gap: 20px;
+  border: 2px solid #000;
+}
+
+.b_order_order_detail {
+  list-style: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin: 30px;
+  padding: 15px 20px;
+  border: 2px solid #000;
+}
+
+.b_order_order_detail p {
+  margin: 0;
+}
+
+.b_order_detail_title {
+  margin: 10px;
+  padding: 8px 15px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.5fr 1fr 1fr;
+  background-color: #eee;
+  margin-bottom: 0;
+}
+
+.b_order_order_detail > section {
+  border: 2px solid #eee;
+  width: 624px;
+  height: 160px;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.b_order_order_detail > section > ul {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.5fr 1fr 1fr;
+}
+
+.b_order_order_detail > section > ul > li {
+  width: 75px;
+}
+
+.b_order_detail_content {
+  margin: 0px;
+  padding: 8px 13px;
+  list-style: none;
+  align-items: center;
+}
+
+.b_order_order_checkout {
+  margin: 0px;
+  padding: 10px 0;
+  padding-left: 400px;
+  // width: 400px;
+  list-style: none;
+  text-align: left;
+  .total {
+    margin-bottom: 5px;
+  }
+  .line {
+    width: 200px;
+    height: 1px;
+    margin: 5px 0;
+    background-color: #f00;
+  }
+}
+
+.b_order_editbtn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  margin-bottom: 20px;
+}
+
+.b_order_editbtn button {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #172852;
+  padding: 5px 25px;
+  margin: 0;
+  border: 1px solid #172852;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.b_order_editbtn .b_order_close {
+  background-color: #a3a3a3;
+  border: 1px solid #a3a3a3;
+}
+
+#hide {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.b_order_right .-active {
+  background: #172852;
 }

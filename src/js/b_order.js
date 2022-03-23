@@ -33,14 +33,14 @@ var appVue = new Vue({
         order_number: '',
         pay_list: ['未付款', '已付款', '付款失敗', '退款中', '已退款'],
         form_list: ['處理中', '已確認', '已完成', '已取消'],
-        ship_list: ['待出貨', '已出貨', '已送達', '已取貨', '已退貨'],
+        checkin_list: ['未報到', '已報到', '已過期'],
 
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
-            { name: "消息管理", url: "./n-product.html" },
-            { name: "房間管理", url: "./n-customized.html" },
-            { name: "訂票管理", url: "./n-news.html" },
+            { name: "消息管理", url: "b_news.html" },
+            { name: "房間管理", url: "b_area.html" },
+            { name: "訂票管理", url: "b_ticket.html" },
         ],
         titles: ['訂單編號', '會員帳號', '訂單類型', '付款狀態', '訂單狀態', '夜宿狀態', '訂購日期', '',],
         orders: [
@@ -48,14 +48,29 @@ var appVue = new Vue({
                 'order_id': 'CD0SD01',
                 'account': 'Harukadou@gmail.com',
                 'order_type': '夜宿',
-                'payment_status': '已付款',
-                'order_status': '已完成',
-                'checkin_status': '已報到',
+                'payment_status': 0,
+                'order_status': 0,
+                'checkin_status': 0,
                 'order_date': '2021/01/01',
-                'receiver_name': '員姓名',
-                'receiver_phone': '32242424',
+                'member_name': '大偉盧曼',
+                'member_phone': '32242424',
                 'payment': '線上付款',
-                'discount_id': 'edr100'
+                'discount_id': 'sea300',
+                'discount_price': 300
+            },
+            {
+                'order_id': 'CD0SD01',
+                'account': 'Harukadou@gmail.com',
+                'order_type': '夜宿',
+                'payment_status': 0,
+                'order_status': 0,
+                'checkin_status': 0,
+                'order_date': '2021/01/01',
+                'member_name': '大偉盧曼',
+                'member_phone': '32242424',
+                'payment': '線上付款',
+                'discount_id': '',
+                'discount_price': 0
             },
             // {
             //     'order_id': '',
@@ -89,7 +104,7 @@ var appVue = new Vue({
             { page: ">", url: "#" },
         ],
         current_edit: null,
-        order_title: ['名稱', '數量', '金額'],
+        order_title: ['票種', '夜宿日期', '區域', '數量', '金額'],
         order_list: [
             // [
             //     {'product_name':'草莓大福', 'quantity':'2', 'order_detail_price':456},
@@ -102,7 +117,17 @@ var appVue = new Vue({
             //     {'product_name':'草莓大福', 'quantity':'4', 'order_detail_price':444}
             // ],
             [
-                { 'product_name': '', 'quantity': '', 'order_detail_price': '' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+                { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
+            ],
+            [
+                { 'ticket_name': '孩童票', 'checkin_date': '', 'area': '', 'quantity': '1', 'price': '1000' },
+
             ],
 
         ],
@@ -119,22 +144,22 @@ var appVue = new Vue({
             this.current_edit = index;
 
             // 訂單編號
-            this.select_number = this.orders[index].order_list;
+            this.select_number = this.orders[index].order_id;
 
             // 商品總金額
             let tot = this.order_list[index];
 
             for (let i = 0; i < tot.length; i++) {
-                this.total_cost += (tot[i].order_detail_price * 1)
+                this.total_cost += (tot[i].price * 1)
             }
 
             // 訂單總金額                    
-            this.order_cost = (this.total_cost * 1) + (this.orders[index].shipping_fee * 1) - (this.orders[index].discount_price * 1);
+            this.order_cost = (this.total_cost * 1) - (this.orders[index].discount_price * 1);
 
             //狀態
             this.o_pay = this.orders[index].payment_status;
             this.o_form = this.orders[index].order_status;
-            this.o_ship = this.orders[index].shipping_status;
+            this.o_check = this.orders[index].checkin_status;
 
         },
 
@@ -166,7 +191,7 @@ var appVue = new Vue({
 
             this.orders[n_index].payment_status = this.o_pay;
             this.orders[n_index].order_status = this.o_form;
-            this.orders[n_index].shipping_status = this.o_ship;
+            this.orders[n_index].checkin_status = this.o_check;
 
 
             this.current_edit = null;

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "確認付款"
+    })
+</head>
+
+<body>
+    <div class="pay_wrapper">
+        @@include('layout/nav.html')
+        <main class="pay_main">
+            <!-- 結帳流程進度條區塊 -->
+            <div class="cart_anv">
+                <div class="cart_item">
+                    <a href="./checkout_cart.html">
+                        <div class="cart_round">
+                            <p>1</p>
+                        </div>
+                        <p>查看購物車</p>
+                    </a>
+                </div>
+                <div class="cart_item cartSelected">
+                    <div class="cart_round">
+                        <p>2</p>
+                    </div>
+                    <p>確認付款</p>
+                </div>
+                <div class="cart_item">
+                    <div class="cart_round">
+                        <p>3</p>
+                    </div>
+                    <p>完成訂單</p>
+                </div>
+            </div>
+
+            <!-- 確認付款內容區塊 -->
+            <div class="cart_contentWrapper">
+                <!-- 內容明細區塊 -->
+                <table class="cart_content">
+                    <thead class="contentTitle">
+                        <tr>
+                            <th colspan="2">品名</th>
+                            <th>單價</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ticketGroup">
+                            <td class="ticketImg">
+                                <img src="./img/checkout/ticket01.jpeg" alt="票券圖片">
+                            </td>
+                            <td class="ticketType"><a href="#">全票</a></td>
+                            <td>NT$<span>550</span></td>
+                            <!-- 數量組區塊 -->
+                            <td>
+                                <div class="cart_quantityInfo">
+                                    <span><button class="minus">-</button></span>
+                                    <div>
+                                        <input type="number" class="quantity" value="1">
+                                    </div>
+                                    <span><button class="plus">+</button></span>
+                                </div>
+                            </td>
+                            <td class="subtotal">NT$<span>550</span></td>
+                            <td><button class="deleteButton">×</button></td>
+                        </tr>
+                        <tr class="ticketGroup">
+                            <td class="ticketImg">
+                                <img src="./img/checkout/ticket02.jpg" alt="票券圖片">
+                            </td>
+                            <td class="ticketType"><a href="#">夜宿體驗-全票<br>大洋池親近區</a></td>
+                            <td>NT$<span>3180</span></td>
+                            <td>
+                                <div class="cart_quantityInfo">
+                                    <span><button class="minus">-</button></span>
+                                    <div>
+                                        <input type="number" class="quantity" value="1">
+                                    </div>
+                                    <span><button class="plus">+</button></span>
+                                </div>
+                            </td>
+                            <td class="subtotal">NT$<span>3180</span></td>
+                            <td><button class="deleteButton">×</button></td>
+                        </tr>
+                        <!-- 確認金額區塊 -->
+                        <tr class="ticketTotal">
+                            <td colspan="5">折扣金額</td>
+                            <td colspan="1">-NT$<span>0</span></td>
+                        </tr>
+                        <tr class="ticketTotal">
+                            <td class="noBorderTop" colspan="5">付款金額</td>
+                            <td class="noBorderTop" colspan="1">NT$<span>3730</span></td>
+                        </tr>
+                        <tr class="ticketTotal">
+                            <td class="noBorderTop" colspan="6"><a href="#">確認付款</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 選擇付款方式區塊 -->
+                <div class="a">
+                    
+                </div>
+        </main>
+    </div>
+    @@include('layout/footer.html')
+</body>
+
+</html>
