@@ -20,7 +20,7 @@ $line-height-title: 1.2;
 // text行距
 $line-height-text: 1.4;
 // 預設文字顏色
-$text-color: #00bdd1;
+$text-color: rgb(0, 189, 209);
 // 預設連結顏色
 $link-color: #00BDD1;
 // 預設連結hover顏色
@@ -52,4 +52,5 @@ $baseSpace: 10px;
 %img-mw {
     display: block;
     max-width: 100%;
+    object-fit: cover;
 }

@@ -1,29 +1,36 @@
 @import '../var/var';
 
-// font-size: map-get($title , h1);
-* {
-    box-sizing: border-box;
-}
-
 .f_member {
     max-width: 100%;
     display: flex;
     background-color: #EDF9FB;
+
     .member_head {
         width: 380px;
         height: calc(100vh - 80px);
         overflow: hidden;
+        @media screen and (max-width: 768px) {
+            width: 0;
+        }
+
         img {
             @extend %img-mw;
         }
     }
+
     .member_body {
-        width: 500px;
         margin: space(2) auto 0;
+
         .member_list {
             display: flex;
-            // justify-content: space-around;
+            width: 500px;
+            margin: 0 auto;
             border-bottom: 5px solid $text-color;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                padding: 0 space(1.5);
+            }
+
             .member_item {
                 width: calc(100% / 3);
                 text-align: center;
@@ -32,16 +39,26 @@
                 padding: space(1) space(2);
                 color: rgb(0, 189, 209, .5);
                 cursor: pointer;
+                @media screen and (max-width: 768px) {
+                    padding: space(1) space(1);
+                }
             }
+
             .member_item.js-m-active {
                 color: $text-color;
             }
-            .member_item + .member_item {
+
+            .member_item+.member_item {
                 border-left: 1px solid;
             }
         }
+
         .member_form {
             margin-top: space(2);
+            @media screen and (max-width: 768px) {
+                padding: 0 space(1.5);
+            }
+
             label {
                 display: inline-block;
                 width: 30%;
@@ -50,6 +67,7 @@
                 vertical-align: middle;
                 color: $text-color;
             }
+
             input {
                 vertical-align: middle;
                 width: 70%;
@@ -59,6 +77,7 @@
                 border-radius: 5px;
                 outline: none;
             }
+
             input:last-child {
                 display: block;
                 margin: space(1) auto 0;
@@ -72,6 +91,7 @@
                 outline: none;
                 background-color: transparent;
                 cursor: pointer;
+
                 &:hover {
                     background-color: #0080A8;
                     color: #fff;
@@ -86,13 +106,16 @@
                 background-image: url(../img/member-pic.png);
                 background-size: cover;
                 background-repeat: no-repeat;
+
                 img {
                     @extend %img-mw;
                 }
             }
+
             .member_file {
                 display: none;
             }
+
             .member_choose {
                 display: block;
                 margin: 0 auto space(2);
@@ -104,18 +127,77 @@
                 outline: none;
                 background-color: transparent;
                 cursor: pointer;
+
                 &:hover {
                     background-color: #0080A8;
                     color: #fff;
                 }
             }
+
             .member_forget {
                 display: flex;
-                margin-right: auto;
+                justify-content: flex-end;
                 color: $link-color;
+
                 &:hover {
                     color: $link-color-hover;
                 }
+            }
+
+            >table {
+                border: 3px solid #00BDD1;
+
+                thead {
+                    tr {
+                        position: relative;
+
+                        th {
+                            font-size: $font-size;
+                        }
+
+                        &::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 98%;
+                            border: 1px solid #00BDD1;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+
+                tbody {
+                    td {
+                        font-size: 16px;
+                        color: #888;
+
+                        button {
+                            padding: 5px 10px;
+                            border: 1px solid transparent;
+                            border-radius: 5px;
+                            outline: none;
+                            background-color: $btn-color;
+                            color: #fff;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #fff;
+                                color: $btn-color;
+                                border: 1px solid $btn-color;
+                            }
+                        }
+                    }
+                }
+
+                th,
+                td {
+                    text-align: center;
+                    padding: 10px;
+                }
+
+
             }
         }
     }

@@ -1,0 +1,309 @@
+body {
+  background-color: #EDF9FB;
+}
+
+body p {
+  font-size: 12px;
+}
+
+body h2 {
+  font-size: 20px;
+  color: #00BDD1;
+}
+
+body h3 {
+  font-size: 18px;
+  color: #0080A8;
+}
+
+body h4 {
+  font-size: 16px;
+  color: #5C9FB9;
+}
+
+body .fa-solid {
+  color: #00BDD1;
+  font-size: 24px;
+}
+
+.transportation_banner h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+.transportation_banner img {
+  width: 100%;
+}
+
+.traffic_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+  display: flex;
+}
+
+.traffic_nav .fa-solid {
+  text-align: center;
+  margin: 80px;
+}
+
+.traffic_nav .fa-solid h2 {
+  margin-top: 10px;
+}
+
+.traffic_nav .icon {
+  margin-bottom: 10px;
+}
+
+.traffic_time {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.traffic_time .time_contant {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.traffic_dashed {
+  content: "";
+  display: block;
+  border-bottom: 2px black dashed;
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 100px;
+}
+
+.traffic_dashed img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 700px;
+  position: absolute;
+}
+
+#traffic_address {
+  width: 300px;
+  height: 30px;
+  padding-left: 5px;
+  border: 0;
+  border-bottom: 2px solid #0080A8;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: #EDF9FB;
+}
+
+#traffic_send {
+  width: 100px;
+  height: 30px;
+  background-color: #EDF9FB;
+  color: #00BDD1;
+  border: 1px solid #0080A8;
+  cursor: pointer;
+}
+
+.traffic_map_wapper {
+  margin-top: 100px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.traffic_map_wapper .traffic_map {
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+.traffic_map_wapper .traffic_map .traffic_address {
+  background-color: #B4EDF6;
+  height: 50px;
+}
+
+.traffic_map_wapper .traffic_map .traffic_address h2 {
+  text-align: center;
+  line-height: 50px;
+}
+
+.train_wapper {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 120px;
+}
+
+.train_wapper .fa-train, .train_wapper .fa-car, .train_wapper .fa-bus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.train_wapper .train-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .train-content .content {
+  width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.train_wapper .train-content h3 {
+  border-bottom: 1px solid #00BDD1;
+}
+
+.train_wapper .car-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .car-content .content {
+  width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.train_wapper .car-content h3 {
+  border-bottom: 1px solid #00BDD1;
+}
+
+.train_wapper .car-content .carpice {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.train_wapper {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 120px;
+}
+
+.train_wapper .bus-content {
+  background-color: #DBF5F8;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.train_wapper .bus-content .content {
+  margin: auto;
+  margin-top: 40px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.train_wapper .bus-content .content .table {
+  margin-bottom: 60px;
+}
+
+.train_wapper .bus-content table {
+  border: 1px solid #00BDD1;
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 60px;
+  margin: auto;
+}
+
+.train_wapper .bus-content table .bustitle, .train_wapper .bus-content table th, .train_wapper .bus-content table td {
+  border: 1px solid #00BDD1;
+}
+
+.train_wapper .bus-content table .bustitle h2, .train_wapper .bus-content table th h2, .train_wapper .bus-content table td h2 {
+  color: white;
+}
+
+.train_wapper .bus-content table .bustitle {
+  background-color: #00BDD1;
+  color: white;
+}
+
+.train_wapper .bus-content .grass {
+  position: absolute;
+}
+
+.star img {
+  width: 100%;
+}
+/*# sourceMappingURL=traffic.css.map */

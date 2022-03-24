@@ -29,9 +29,9 @@ new Vue({
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
-            { name: "消息管理", url: "./n-product.html" },
-            { name: "房間管理", url: "./n-customized.html" },
-            { name: "訂票管理", url: "./n-news.html" },
+            { name: "消息管理", url: "b_news.html" },
+            { name: "房間管理", url: "b_area.html" },
+            { name: "訂票管理", url: "b_ticket.html" },
 
         ],
         member_number: '',
