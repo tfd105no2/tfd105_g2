@@ -1,29 +1,46 @@
-body {
+.traffichead {
   background-color: #EDF9FB;
 }
 
-body p {
+.traffichead p {
   font-size: 12px;
 }
 
-body h2 {
+.traffichead h1 {
+  font-size: 40px;
+}
+
+.traffichead h2 {
   font-size: 20px;
   color: #00BDD1;
 }
 
-body h3 {
+.traffichead h3 {
   font-size: 18px;
-  color: #0080A8;
 }
 
-body h4 {
+.traffichead h4 {
   font-size: 16px;
   color: #5C9FB9;
 }
 
-body .fa-solid {
+.traffichead .fa-solid {
   color: #00BDD1;
   font-size: 24px;
+  cursor: pointer;
+}
+
+.traffichead .fa-solid:hover {
+  color: #00BDD1;
+  -webkit-filter: saturate(130%);
+          filter: saturate(130%);
+}
+
+.transportation_banner {
+  background-image: url("../img/hongkong-ocean-park-1.jpg");
+  width: 100%;
+  height: 900px;
+  background-attachment: fixed;
 }
 
 .transportation_banner h1 {
@@ -162,6 +179,7 @@ body .fa-solid {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 120px;
+  position: relative;
 }
 
 .train_wapper .fa-train, .train_wapper .fa-car, .train_wapper .fa-bus {
@@ -203,6 +221,48 @@ body .fa-solid {
   border-bottom: 1px solid #00BDD1;
 }
 
+@-webkit-keyframes upup {
+  0% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  50% {
+    -webkit-transform: translateY(70%);
+            transform: translateY(70%);
+  }
+  100% {
+    -webkit-transform: translateY(15%);
+            transform: translateY(15%);
+  }
+}
+
+@keyframes upup {
+  0% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  50% {
+    -webkit-transform: translateY(70%);
+            transform: translateY(70%);
+  }
+  100% {
+    -webkit-transform: translateY(15%);
+            transform: translateY(15%);
+  }
+}
+
+.train_wapper .train-content img {
+  z-index: 1;
+  -webkit-animation: upup 50s ease-in-out infinite;
+          animation: upup 50s ease-in-out infinite;
+}
+
+.train_wapper .wave {
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+}
+
 .train_wapper .car-content {
   background-color: #DBF5F8;
   height: 520px;
@@ -216,12 +276,24 @@ body .fa-solid {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  position: relative;
 }
 
 .train_wapper .car-content .content {
   width: 1200px;
   margin: auto;
   margin-top: 40px;
+}
+
+.train_wapper .car-content .content .car_three .three-end {
+  margin-bottom: 20px;
+}
+
+.train_wapper .car-content .jellyfish {
+  position: absolute;
+  right: 60%;
+  bottom: -20%;
+  z-index: 1;
 }
 
 .train_wapper .car-content h3 {
@@ -237,6 +309,13 @@ body .fa-solid {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 1;
+}
+
+.train_wapper .wave {
+  width: 100%;
+  position: absolute;
+  bottom: -15%;
 }
 
 .train_wapper {
