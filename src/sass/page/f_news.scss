@@ -31,7 +31,7 @@
 
     main.news_box {
         max-width: $container-width;
-        margin: space(4) auto ;
+        margin: 0 auto ;
       //頁籤
         >.tab{
             display: flex;
@@ -43,13 +43,14 @@
                 font-size: map-get($title, h6);
                 color: rgb(0, 189, 209, .5);
                 cursor: pointer;
-                margin: space(4) space(3) space(8) space(3);
+                margin: space(4) space(3) space(4) space(3);
                 i {
                     font-size: 36px;
+                    // color: rgb(0, 189, 209, .5);
                 }
                 
             }
-            .tab_item.js-i-active {
+            .tab_item .js-i-active {
                 color: $text-color;
             }
         }
