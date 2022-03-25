@@ -64,6 +64,8 @@
             
             
             .news_list{
+                    z-index: 2;
+                }
                 .news_item{
                     width: calc(100vh /1.9);
                     margin-bottom:space(15);
@@ -181,7 +183,7 @@
             }
           }
         }
-    }
+    
       
 
     
