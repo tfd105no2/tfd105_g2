@@ -110,16 +110,30 @@
                         text-align: center;
                         border: 1px solid #00BDD1;
                     }
-                    .subtotal{
-                        font-weight: 600;
-                    }
                     .deleteButton{
                         font-size: 2.5rem;
                         border: none;
                     }
                 }
+                .subtotal{
+                    font-weight: 600;
+                }
                 .ticketTotal{
-                    text-align: right;
+                    // text-align: right;
+                    .pay_btn{
+                        a{
+                            display: block;
+                            margin: 0 auto;
+                            width: 8rem;
+                            height: 2.5rem;
+                            
+                            background-color: #00BDD1;
+                            color: #fff;
+                            border-radius: 5px;
+                            font-size: 1.4rem;
+                            text-align: center;
+                        }
+                    }
                 }
                 .noBorderTop{
                     border-top: 1px solid #fff;
@@ -128,10 +142,33 @@
         }
 
         // 選擇付款方式區塊
-        .a{
+        .choose_block{
             width: 25%;
-            height: 250px;
+            height: 150px;
+            color: #707070;
             background-color: #DBF5F8;
+            border: 1px solid #00BDD1;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+
+            .chooseTitle{
+                text-align: center;
+                border-bottom: 1px solid #00BDD1;
+                line-height: 3rem;
+                margin-bottom: 2rem;
+            }
+            .choose{
+                line-height: 0rem;
+                margin-bottom: 1.5rem;
+
+                // border: 1px solid red;
+                img{
+                    width: 8rem;
+                }
+                input{
+                    accent-color: #0080A8;
+                }
+            }
         }
 
     }
