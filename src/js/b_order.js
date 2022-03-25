@@ -1,8 +1,3 @@
-// var my_back = localStorage.getItem("n-login");
-// if (my_back !== 'yes') {
-//     location.href = "./n-login.html"
-// }
-
 Vue.component('double-check', {
     template:
         ` 
@@ -59,37 +54,19 @@ var appVue = new Vue({
                 'discount_price': 300
             },
             {
-                'order_id': 'CD0SD01',
+                'order_id': 'CD0SD02',
                 'account': 'Harukadou@gmail.com',
                 'order_type': '夜宿',
                 'payment_status': 0,
                 'order_status': 0,
                 'checkin_status': 0,
                 'order_date': '2021/01/01',
-                'member_name': '大偉盧曼',
+                'member_name': '溫刀郎',
                 'member_phone': '32242424',
                 'payment': '線上付款',
                 'discount_id': '',
                 'discount_price': 0
             },
-            // {
-            //     'order_id': '',
-            //     'order_list': '',
-            //     'account': '',
-            //     'payment_status': '',
-            //     'order_status': '',
-            //     'shipping_status': '',
-            //     'order_date': '',
-            //     'receiver_name': '',
-            //     'receiver_phone': '',
-            //     'shipping_address': '',
-            //     'shipping_type': '',
-            //     'store': '',
-            //     'payment': '',
-            //     'shipping_fee': '',
-            //     'discount_id': '',
-            //     'discount_price': '',
-            // }
 
         ],
         pages: [
@@ -106,16 +83,6 @@ var appVue = new Vue({
         current_edit: null,
         order_title: ['票種', '夜宿日期', '區域', '數量', '金額'],
         order_list: [
-            // [
-            //     {'product_name':'草莓大福', 'quantity':'2', 'order_detail_price':456},
-            //     {'product_name':'藍莓大福', 'quantity':'3', 'order_detail_price':234},
-            //     {'product_name':'草莓大福', 'quantity':'4', 'order_detail_price':444}
-            // ],
-            // [
-            //     {'product_name':'草莓大福', 'quantity':'2', 'order_detail_price':456},
-            //     {'product_name':'藍莓大福', 'quantity':'3', 'order_detail_price':234},
-            //     {'product_name':'草莓大福', 'quantity':'4', 'order_detail_price':444}
-            // ],
             [
                 { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
                 { 'ticket_name': '全票', 'checkin_date': '20220301', 'area': '海底隧道', 'quantity': '1', 'price': '1000' },
@@ -165,14 +132,14 @@ var appVue = new Vue({
 
         f_close() {
             this.dbcheck = true;
-            let edit_z = document.querySelector('.n-order_edit');
+            let edit_z = document.querySelector('.b_order_edit');
             edit_z.style.opacity = 0;
         },
 
         sss() {
             this.current_edit = null;
             this.dbcheck = false;
-            let edit_z = document.querySelector('.n-order_edit');
+            let edit_z = document.querySelector('.b_order_edit');
             edit_z.style.opacity = 1;
 
             this.total_cost = null;
@@ -180,7 +147,7 @@ var appVue = new Vue({
 
         ccc() {
             this.dbcheck = false;
-            let edit_z = document.querySelector('.n-order_edit');
+            let edit_z = document.querySelector('.b_order_edit');
             edit_z.style.opacity = 1;
         },
 
@@ -217,8 +184,7 @@ var appVue = new Vue({
 
         },
         log_out() {
-            localStorage.setItem("n-login", "no");
-            location.href = "./n-login.html"
+            location.href = "back_login.html"
         },
 
         showOdata(gopage) {
@@ -260,18 +226,5 @@ var appVue = new Vue({
             // });
         }
     },
-    // computed: {
-    //     ordersd: function() {
-    //         var search = this.order_number;                
-
-    //         if (search) {
-    //             return this.orders.filter(function(product) {                   
-    //                 return String (product.order_id).toLowerCase().indexOf(search) > -1                 
-    //             })                
-    //         }
-
-    //         return this.orders;
-    //     }
-    // } 
 
 })

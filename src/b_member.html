@@ -17,7 +17,7 @@
             <img src="./img/logo.png" alt="" srcset="" />
             <p>kireiumi後臺管理</p>
           </div>
-          <div class="b-member_logout">
+          <div @click="log_out" class="b-member_logout">
             <p>帳號登出</p>
             <img src="./img/log-out.png" alt="" srcset="" />
           </div>
@@ -73,7 +73,7 @@
           <ul>
             <li
               v-for="page in pages"
-              v-on:click="showMdata(page.link)"
+              @click="showMdata(page.link)"
               v-bind:class="{nowpagela:page.page == nowpage}"
             >
               {{page.page}}
@@ -98,8 +98,6 @@
         </div>
 
         <div id="hide" v-if="current_edit !== null"></div>
-        <!-- <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check> -->
-      </div>
     </div>
     <!-- 引入js -->
     <script src="js/vue.min.js"></script>

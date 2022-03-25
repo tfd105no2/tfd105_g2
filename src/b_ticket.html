@@ -12,7 +12,7 @@
             <img src="./img/logo.png" alt="" srcset="" />
             <p>kireiumi後臺管理</p>
           </div>
-          <div class="b-member_logout">
+          <div @click="log_out" class="b-member_logout">
             <p>帳號登出</p>
             <img src="./img/log-out.png" alt="" srcset="" />
           </div>
@@ -34,11 +34,11 @@
                   name="search"
                   id="search"
                   placeholder="以票券編號查詢"
-                  v-model="member_number"
+                  v-model="ticket_number"
                 />
                 <label
                   for="search"
-                  :class="{'-active':member_number}"
+                  :class="{'-active':ticket_number}"
                   @click="lookfor"
                   >搜尋</label
                 >
@@ -76,23 +76,6 @@
             </li>
           </ul>
         </footer>
-
-        <!-- <div class="b_ticket_edit" v-if="current_edit !== null">
-          <ul>
-            <li>票券編號:{{tickets[current_edit].ticket_id}}</li>
-            <li>購買日期:{{tickets[current_edit].buy_date}}</li>
-            <li>票種:{{tickets[current_edit].ticket_type}}</li>
-            <li>狀態:{{tickets[current_edit].ticket_status}}</li>
-            <li>使用時間:{{tickets[current_edit].use_date}}</li>
-          </ul>
-
-          <div class="b_ticket_editbtn">
-            <button class="b_ticket_close" @click="f_close">關閉</button>
-          </div>
-        </div>
-
-        <div id="hide" v-if="current_edit !== null"></div> -->
-        <!-- <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check> -->
       </div>
     </div>
 
