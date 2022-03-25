@@ -1,0 +1,101 @@
+.fishgame_header {
+  position: static;
+}
+.fishgame_wrapper {
+  background-image: url(../img/fishgame_bg.jpg);
+  background-size: cover;
+  background-position: 100% 90%;
+  height: calc(100vh - 80px);
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fishgame_start {
+  width: 515px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: justify;
+  // background-color: #bfa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-size: 24px;
+  }
+  button {
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #5c9fb9;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.fishgame_counter {
+  width: 85px;
+  color: #000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  img {
+    width: 40px;
+    vertical-align: middle;
+  }
+  span {
+    font-size: 32px;
+    font-family: Arial;
+  }
+}
+
+.fish {
+  background-color: #f90;
+  background-image: linear-gradient(90deg, #f90, #f60, #f90);
+  border-radius: 50% 50% 0 0;
+  color: #c00;
+  font-size: 6vmin;
+  height: 6vmin;
+  left: calc(50% - 1.5vmin);
+  position: fixed;
+  text-align: center;
+  top: -5%;
+  transition: left, top ease-in-out;
+  user-select: none;
+  width: 6vmin;
+  &:before {
+    background-color: #000;
+    border: solid 1px #fff;
+    border-radius: 50%;
+    bottom: 60%;
+    content: "";
+    left: 30%;
+    position: absolute;
+    right: 30%;
+    top: 5%;
+  }
+  &:after {
+    border: solid 1.5vmin transparent;
+    border-bottom-color: #f60;
+    bottom: -40%;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    width: 0;
+  }
+  &:hover {
+    background-color: #fff;
+    background-image: none;
+    cursor: pointer;
+    &:after {
+      border-bottom-color: #fff;
+    }
+  }
+}
