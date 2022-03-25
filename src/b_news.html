@@ -16,6 +16,11 @@
           <div class="b_news_right">
             <form action="" method="get" id="">
               <p>消息管理</p>
+              <select>
+                <option value="0">文章分類</option>
+                <option value="1">公告</option>
+                <option value="2">活動</option>
+              </select>
 
               <div class="b_news_newsbtn">
                 <button class="b_news_add" @click="new_add()" type="button">
@@ -75,8 +80,6 @@
 
         <!-- 編輯區 -->
         <div class="b_news_edit" v-if="current_edit !== null">
-          <!-- <div class="n-news_edit" v-if='true'> -->
-
           <p>編輯與查看</p>
 
           <div class="b_news_news_mid">
@@ -120,18 +123,6 @@
               <img src="../img/b_n_img.png" alt="" />
             </li>
           </ul>
-          <!-- <div class="b_news_news_bot">
-            <div class="b_news_group" v-for="(img_name, index) in img_names">
-              <label :for="index">{{img_name.name}}:</label>
-              <input type="file" :id="index" @change="upload_img" />
-              <p>{{new_img[index]}}</p>
-              <div class="b_news_img">
-                <img :src="img_name.src" />
-                
-              </div>
-              <img src="../images/backend/select.png" alt="" />
-            </div>
-          </div> -->
 
           <div class="b_news_editbtn">
             <button class="b_news_close" @click="n_close">關閉</button>

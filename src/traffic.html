@@ -1,191 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    @@include('layout/head.html')
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<head>
-  @@include('layout/head.html')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+  <body>
+    <div class="traffichead">@@include('layout/nav.html')</div>
 
-<body>
-  <div class="traffichead">
-    @@include('layout/nav.html')
-  </div>
-  
-  <main>
-    <div class="transportation_banner">
-      <h1>交通指南</h1>
-      <img src="../src/img/hongkong-ocean-park-1.jpg" alt="">
-    </div>
+    <main>
+      <div class="transportation_banner">
+        <h1>交通指南</h1>
+        <img src="img/hongkong-ocean-park-1.jpg" alt="" />
+      </div>
 
-    <!-- traffic nav -->
-    <article class="traffic_nav">
-      <i class="fa-solid fa-train">
-        <h2>大眾運輸</h2></i>
-      <i class="fa-solid fa-car"><h2>開車</h2></i>
-      <i class="fa-solid fa-bus"><h2>接駁車</h2></i>
-    </article>
+      <!-- traffic nav -->
+      <article class="traffic_nav">
+        <i class="fa-solid fa-train"> <h2>大眾運輸</h2></i>
+        <i class="fa-solid fa-car"><h2>開車</h2></i>
+        <i class="fa-solid fa-bus"><h2>接駁車</h2></i>
+      </article>
 
-    <!-- time -->
-    <article class="traffic_time">
-      <img src="./img/fish.jpg" alt="" />
-      <section class="time_contant">
-        <div class="opentime">
-          <h2>營業時間</h2>
-        </div>
-        
-        <h3>週一~週五 10:00~20:30 <br>
-        假日(國定假日) 09:00~22:00</h3>
-        <div class="openwes">
-          <p>* 最終入場時間為閉館前1小時。</p>
-          <p>*本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。</p>
-        </div>
-      </section>
-    </article>
-    <div class="traffic_dashed">
-      <img src="./img/071-06.png" alt="" />
-    </div>
+      <!-- time -->
+      <article class="traffic_time">
+        <img src="img/fish.jpg" alt="" />
+        <section class="time_contant">
+          <div class="opentime">
+            <h2>營業時間</h2>
+          </div>
 
-    <!-------- start map go ----------->
-    <div class="traffic_map_wapper">
-      <form action="#" method="#">
-        <ul>
-          <li>
-            <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
-          </li>
-
-          <li>
-            <input id="traffic_send" type="submit" value="前往" />
-          </li>
-        </ul>
-      </form>
-
-      <article class="traffic_map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9041.486248627809!2d121.5293230783774!3d25.064052295902638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a969d447cd57%3A0x1b4c930c704cd1ae!2sBeApe%20Restaurant!5e0!3m2!1szh-TW!2stw!4v1643603760451!5m2!1szh-TW!2stw" width="1200" height="250"
-          style="border: 0" allowfullscreen="" loading="lazy" data-aos="fade-up"></iframe>
-        <section class="traffic_address">
-          <h2>地址：台北市中山區南京東路三段219號</h2>
+          <h3>
+            週一~週五 10:00~20:30 <br />
+            假日(國定假日) 09:00~22:00
+          </h3>
+          <div class="openwes">
+            <p>* 最終入場時間為閉館前1小時。</p>
+            <p>
+              *本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。
+            </p>
+          </div>
         </section>
       </article>
-    </div>
+      <div class="traffic_dashed">
+        <img src="img/071-06.png" alt="" />
+      </div>
 
-    <!---------take the train----- -->
-    <article class="train_wapper">
-      <i class="fa-solid fa-train"><br>大眾運輸</i>
-      <section class="train-content">
-        <div class="content">
-          <h3>火車</h3>
-          <h4>搭乘東部幹線→瑞芳車站→深澳線至「海科館站」→步行5分鐘即可抵達<br>
-            搭乘西部幹線→基隆車站→基隆市公車103路線至「海科館/碧水巷」→步行2分鐘即可抵達<br>
-            搭乘西部幹線→七堵車站→基隆客運R66路線至「海科館/碧水巷」→步行2分鐘即可抵達</h4>
-        </div>
+      <!-------- start map go ----------->
+      <div class="traffic_map_wapper">
+        <form action="#" method="#">
+          <ul>
+            <li>
+              <input
+                id="traffic_address"
+                type="text"
+                placeholder="輸入目前的地址"
+              />
+            </li>
 
-        <div class="content">
-          <h3>客運</h3>
-          <h4>大都會客運 - 2088：搭乘至海科館站(終點站)下車，步行3分鐘即可抵<br>
-            首都客運 - 1579：搭乘至海科館站(終點站)下車，步行3分鐘即可抵達</h4>
-            <!-- <img src="../src/img/073-06.png" alt=""> -->
-        </div>
-        <img src="../src/img/073-06.png" alt="">
-      </section>
-      
-    </article>
+            <li>
+              <input id="traffic_send" type="submit" value="前往" />
+            </li>
+          </ul>
+        </form>
 
-    <!---------drive ---- car----- -->
-    <article class="train_wapper">
-      <i class="fa-solid fa-car"><br>開車</i>
-      <section class="car-content">
-        <div class="content">
-          <h3>開車</h3>
-          <h4>1號  南下→五甲系統→88快速道路→國道3號→南州交流道往省道台1線→經[楓港]橋接省道台26 線→[車城鄉]轉[後灣]方向抵達本館。<br>
-            3號  南下→南州交流道往省道台1線→經[楓港]橋接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br>
-            省道-<br>
-            經高雄南下:<br>
-            南下→省道台17線→經[水底寮]後接省道台1線→經[楓港橋]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br>
-            
-            經屏東南下:<br>
-            南下→省道台1線→經[楓港橋]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br>
-            
-            經台東南下:<br>
-            南下→省道台9線→經[達仁鄉]過[楓港]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。</h4>
-        </div>
-        <div class="carpice">
-          <img src="../src/img/032-09.png" alt="泡泡">
-          <img src="../src/img/18-021.png" alt="河豚">
-        </div>
-        <!-- <img src="../src/img/032-08.png" alt=""> -->
-      </section>
-      <!-- <img src="../src/img/032-08.png" alt=""> -->
-    </article>
+        <article class="traffic_map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9041.486248627809!2d121.5293230783774!3d25.064052295902638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a969d447cd57%3A0x1b4c930c704cd1ae!2sBeApe%20Restaurant!5e0!3m2!1szh-TW!2stw!4v1643603760451!5m2!1szh-TW!2stw"
+            width="1200"
+            height="250"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            data-aos="fade-up"
+          ></iframe>
+          <section class="traffic_address">
+            <h2>地址：台北市中山區南京東路三段219號</h2>
+          </section>
+        </article>
+      </div>
 
-    <!---------BUS----- -->
-    <article class="train_wapper">
-      <i class="fa-solid fa-bus"><br>接駁車</i>
-      <section class="bus-content">
-        <div class="content">
-          <div class="table">
-            <table>
-              <tr>
-                <th class="bustitle" colspan="8"><h2>周一～周五</h2></th>
-              </tr>
-              <tr>
-                <th colspan="4"><h3>台北車站發車</h3></th>
-                
-                
-                <th colspan="4"><h3>桃園車站發車</h3></th>
-                
-              </tr>
-              <tr>
-                <td>08:00</td>
-                <td>12:00</td>
-                <td>16:00</td>
-                <td>20:00</td>
-  
-                <td>08:00</td>
-                <td>12:00</td>
-                <td>16:00</td>
-                <td>20:00</td>
-              </tr>
-  
-              <tr>
-                <td>09:00</td>
-                <td>13:00</td>
-                <td>17:00</td>
-                <td>21:00</td>
-  
-                <td>09:00</td>
-                <td>13:00</td>
-                <td>17:00</td>
-                <td>21:00</td>
-              </tr>
-  
-              <tr>
-                <td>10:00</td>
-                <td>14:00</td>
-                <td>18:00</td>
-                <td>22:00</td>
-  
-                <td>10:00</td>
-                <td>14:00</td>
-                <td>18:00</td>
-                <td>22:00</td>
-              </tr>
-  
-              <tr>
-                <td>11:00</td>
-                <td>15:00</td>
-                <td>19:00</td>
-                <td>23:00</td>
-  
-                <td>11:00</td>
-                <td>15:00</td>
-                <td>19:00</td>
-                <td>23:00</td>
-              </tr>
-              
-            </table>
+      <!---------take the train----- -->
+      <article class="train_wapper">
+        <i class="fa-solid fa-train"><br />大眾運輸</i>
+        <section class="train-content">
+          <div class="content">
+            <h3>火車</h3>
+            <h4>
+              搭乘東部幹線→瑞芳車站→深澳線至「海科館站」→步行5分鐘即可抵達<br />
+              搭乘西部幹線→基隆車站→基隆市公車103路線至「海科館/碧水巷」→步行2分鐘即可抵達<br />
+              搭乘西部幹線→七堵車站→基隆客運R66路線至「海科館/碧水巷」→步行2分鐘即可抵達
+            </h4>
           </div>
-          <!-- <table>
+
+          <div class="content">
+            <h3>客運</h3>
+            <h4>
+              大都會客運 - 2088：搭乘至海科館站(終點站)下車，步行3分鐘即可抵<br />
+              首都客運 - 1579：搭乘至海科館站(終點站)下車，步行3分鐘即可抵達
+            </h4>
+            <!-- <img src="../src/img/073-06.png" alt=""> -->
+          </div>
+          <img src="img/073-06.png" alt="" />
+        </section>
+      </article>
+
+      <!---------drive ---- car----- -->
+      <article class="train_wapper">
+        <i class="fa-solid fa-car"><br />開車</i>
+        <section class="car-content">
+          <div class="content">
+            <h3>開車</h3>
+            <h4>
+              1號
+              南下→五甲系統→88快速道路→國道3號→南州交流道往省道台1線→經[楓港]橋接省道台26
+              線→[車城鄉]轉[後灣]方向抵達本館。<br />
+              3號
+              南下→南州交流道往省道台1線→經[楓港]橋接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br />
+              省道-<br />
+              經高雄南下:<br />
+              南下→省道台17線→經[水底寮]後接省道台1線→經[楓港橋]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br />
+
+              經屏東南下:<br />
+              南下→省道台1線→經[楓港橋]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。<br />
+
+              經台東南下:<br />
+              南下→省道台9線→經[達仁鄉]過[楓港]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。
+            </h4>
+          </div>
+          <div class="carpice">
+            <img src="img/032-09.png" alt="泡泡" />
+            <img src="img/18-021.png" alt="河豚" />
+          </div>
+          <!-- <img src="../src/img/032-08.png" alt=""> -->
+        </section>
+        <!-- <img src="../src/img/032-08.png" alt=""> -->
+      </article>
+
+      <!---------BUS----- -->
+      <article class="train_wapper">
+        <i class="fa-solid fa-bus"><br />接駁車</i>
+        <section class="bus-content">
+          <div class="content">
+            <div class="table">
+              <table>
+                <tr>
+                  <th class="bustitle" colspan="8"><h2>周一～周五</h2></th>
+                </tr>
+                <tr>
+                  <th colspan="4"><h3>台北車站發車</h3></th>
+
+                  <th colspan="4"><h3>桃園車站發車</h3></th>
+                </tr>
+                <tr>
+                  <td>08:00</td>
+                  <td>12:00</td>
+                  <td>16:00</td>
+                  <td>20:00</td>
+
+                  <td>08:00</td>
+                  <td>12:00</td>
+                  <td>16:00</td>
+                  <td>20:00</td>
+                </tr>
+
+                <tr>
+                  <td>09:00</td>
+                  <td>13:00</td>
+                  <td>17:00</td>
+                  <td>21:00</td>
+
+                  <td>09:00</td>
+                  <td>13:00</td>
+                  <td>17:00</td>
+                  <td>21:00</td>
+                </tr>
+
+                <tr>
+                  <td>10:00</td>
+                  <td>14:00</td>
+                  <td>18:00</td>
+                  <td>22:00</td>
+
+                  <td>10:00</td>
+                  <td>14:00</td>
+                  <td>18:00</td>
+                  <td>22:00</td>
+                </tr>
+
+                <tr>
+                  <td>11:00</td>
+                  <td>15:00</td>
+                  <td>19:00</td>
+                  <td>23:00</td>
+
+                  <td>11:00</td>
+                  <td>15:00</td>
+                  <td>19:00</td>
+                  <td>23:00</td>
+                </tr>
+              </table>
+            </div>
+            <!-- <table>
             <tr>
               <th class="bustitle" colspan="8"><h2>周一～周五</h2></th>
             </tr>
@@ -246,66 +267,65 @@
             
           </table> -->
 
-          <div class="table">
-            <table>
-              <tr>
-                <th class="bustitle" colspan="8"><h2>假日(國定假日)</h2></th>
-              </tr>
-              <tr>
-                <th colspan="4"><h3>台北車站發車</h3></th>
-                <th colspan="4"><h3>桃園車站發車</h3></th>
-              </tr>
-              <tr>
-                <td>08:00</td>
-                <td>12:00</td>
-                <td>16:00</td>
-                <td>20:00</td>
-  
-                <td>08:00</td>
-                <td>12:00</td>
-                <td>16:00</td>
-                <td>20:00</td>
-              </tr>
-  
-              <tr>
-                <td>09:00</td>
-                <td>13:00</td>
-                <td>17:00</td>
-                <td>21:00</td>
-  
-                <td>09:00</td>
-                <td>13:00</td>
-                <td>17:00</td>
-                <td>21:00</td>
-              </tr>
-  
-              <tr>
-                <td>10:00</td>
-                <td>14:00</td>
-                <td>18:00</td>
-                <td>22:00</td>
-  
-                <td>10:00</td>
-                <td>14:00</td>
-                <td>18:00</td>
-                <td>22:00</td>
-              </tr>
-  
-              <tr>
-                <td>11:00</td>
-                <td>15:00</td>
-                <td>19:00</td>
-                <td>23:00</td>
-  
-                <td>11:00</td>
-                <td>15:00</td>
-                <td>19:00</td>
-                <td>23:00</td>
-              </tr>
-              
-            </table>
-          </div>
-          <!-- <table>
+            <div class="table">
+              <table>
+                <tr>
+                  <th class="bustitle" colspan="8"><h2>假日(國定假日)</h2></th>
+                </tr>
+                <tr>
+                  <th colspan="4"><h3>台北車站發車</h3></th>
+                  <th colspan="4"><h3>桃園車站發車</h3></th>
+                </tr>
+                <tr>
+                  <td>08:00</td>
+                  <td>12:00</td>
+                  <td>16:00</td>
+                  <td>20:00</td>
+
+                  <td>08:00</td>
+                  <td>12:00</td>
+                  <td>16:00</td>
+                  <td>20:00</td>
+                </tr>
+
+                <tr>
+                  <td>09:00</td>
+                  <td>13:00</td>
+                  <td>17:00</td>
+                  <td>21:00</td>
+
+                  <td>09:00</td>
+                  <td>13:00</td>
+                  <td>17:00</td>
+                  <td>21:00</td>
+                </tr>
+
+                <tr>
+                  <td>10:00</td>
+                  <td>14:00</td>
+                  <td>18:00</td>
+                  <td>22:00</td>
+
+                  <td>10:00</td>
+                  <td>14:00</td>
+                  <td>18:00</td>
+                  <td>22:00</td>
+                </tr>
+
+                <tr>
+                  <td>11:00</td>
+                  <td>15:00</td>
+                  <td>19:00</td>
+                  <td>23:00</td>
+
+                  <td>11:00</td>
+                  <td>15:00</td>
+                  <td>19:00</td>
+                  <td>23:00</td>
+                </tr>
+              </table>
+            </div>
+            <!-- <table>
             <tr>
               <th class="bustitle" colspan="8"><h2>假日(國定假日)</h2></th>
             </tr>
@@ -363,24 +383,18 @@
             
           </table> -->
 
-          <div class="star">
-            <img src="../src/img/073-01.png" alt="長條泡泡">
+            <div class="star">
+              <img src="img/073-01.png" alt="長條泡泡" />
+            </div>
           </div>
-        </div>
 
-        <div class="grass">
-          <img src="../src/img/073-10.png" alt="水草">
-        </div>
-      </section>
-    </article>
+          <div class="grass">
+            <img src="img/073-10.png" alt="水草" />
+          </div>
+        </section>
+      </article>
+    </main>
 
-
-
-
-  </main>
-
-  
-  @@include('layout/footer.html')
-</body>
-
+    @@include('layout/footer.html')
+  </body>
 </html>

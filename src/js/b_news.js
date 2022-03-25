@@ -1,8 +1,3 @@
-// var my_back = localStorage.getItem("n-login");
-// if (my_back !== 'yes') {
-//     location.href = "./n-login.html"
-// }
-
 Vue.component('double-check', {
     template:
         ` 
@@ -32,16 +27,14 @@ Vue.component('news-add', {
             n_sort: 0,
             on_off: 0,
             n_main_title: '',
-            n_sec_title: '',
             n_main_content: '',
-            n_sec_content: '',
-
         };
     },
 
     template: `
        <div>
             <div class="b_news_edit">
+                <p>新增消息</p>
                 <div class="b_news_news_mid">
                     <ul>
                         <li>
@@ -97,81 +90,9 @@ Vue.component('news-add', {
             this.$emit('nclose');
         },
         n_save() {
-
-            function getFileName(o) {
-                var pos = o.lastIndexOf("\\");
-                return o.substring(pos + 1);
-            }
-            let form_data = new FormData();
-            for (let i = 0; i < $('.n-news_Pic').length; i++) {
-                form_data.append("files[]", document.getElementsByClassName('n-news_Pic')[i].files[0]);
-            }
-
-            let pic1 = $('.n-news_Pic').eq(0).val();
-            let pic2 = $('.n-news_Pic').eq(1).val();
-            let pic3 = $('.n-news_Pic').eq(2).val();
-            let pic4 = $('.n-news_Pic').eq(3).val();
-            let pic5 = $('.n-news_Pic').eq(4).val();
-            pic1 = getFileName(pic1);
-            pic2 = getFileName(pic2);
-            pic3 = getFileName(pic3);
-            pic4 = getFileName(pic4);
-            pic5 = getFileName(pic5);
-
-            if (this.n_main_title != '' && this.n_sec_title != '' && pic1 != '' && pic2 != '' && pic3 != '' && pic4 != '' && pic5 != '') {
-                // append
-                form_data.append('news_class', this.n_sort);
-                form_data.append('news_status', this.on_off);
-                form_data.append('news_title1', this.n_main_title);
-                form_data.append('news_title2', this.n_sec_title);
-                form_data.append('news_content1', this.n_main_content);
-                form_data.append('news_content2', this.n_sec_content);
-                form_data.append('news_image_right', pic1);
-                form_data.append('news_image_main', pic2);
-                form_data.append('news_image1', pic3);
-                form_data.append('news_image2', pic4);
-                form_data.append('news_image3', pic5);
-
-                $.ajax({
-                    url: '../php/n-newsAdd.php',
-                    type: 'post',
-                    cache: false,
-                    data: form_data,
-                    processData: false,
-                    contentType: false,
-                    success: function (res) {
-                        alert(res);
-                        window.location.reload();
-                        Vue.$emit('nsave', this.n_sort, this.on_off, this.n_main_title, this.n_sec_title, this.n_main_content, this.n_sec_content);
-
-                    },
-                    error: function (exception) {
-                        alert("數據載入失敗: " + exception.status);
-                    }
-                })
-
-            } else {
-                alert('請完成所有欄位');
-            }
+            this.$emit('nsave');
         },
 
-        upload_img(e) {
-
-            var files = e.target.files || e.dataTransfer.files;
-            let file = files[0];
-
-            e.target.nextElementSibling.innerText = file.name;
-
-            let readFile = new FileReader();
-            readFile.readAsDataURL(file);
-            readFile.addEventListener("load", function () {
-
-                e.target.nextElementSibling.nextElementSibling.querySelector('img').src = readFile.result;
-
-                e.target.nextElementSibling.nextElementSibling.querySelector('p').style.opacity = 0;
-
-            });
-        },
     }
 });
 
@@ -186,11 +107,10 @@ var appVue = new Vue({
         on_off_list: ['下架', '上架'],
         n_sort_list: ['公告', '活動'],
         n_main_title: '',
-        n_sec_title: '',
         n_sort: 0,
         on_off: 0,
         n_main_content: '',
-        n_sec_content: '',
+
 
 
         mainbtn: [
@@ -216,30 +136,14 @@ var appVue = new Vue({
             {
                 'news_id': '12345',
                 'create_date': '2021/01/01 00:00',
-                'news_class': 0,
-                'news_title': '3/27園區整修,停業一天',
+                'news_class': 1,
+                'news_title': '2/14情人玩親親享有小禮物',
                 'news_status': 0,
                 'news_update': '2021/03/01 16:16',
-                'news_content': '這就是內文',
+                'news_content': '親親親親親親',
                 'news_image': '',
 
             },
-            // {
-            //     'news_id': '',
-            //     'create_date': '',
-            //     'news_class': '',
-            //     'news_title1': '',
-            //     'news_title2': '',
-            //     'news_status': '',
-            //     'news_update': '',
-            //     'news_content1': '',
-            //     'news_content2': '',
-            //     'news_image_right': '',
-            //     'news_image_main': '',
-            //     'news_image1': '',
-            //     'news_image2': '',
-            //     'news_image3': ''
-            // }
         ],
         pages: [
             { page: "<", url: "#" },
@@ -261,217 +165,53 @@ var appVue = new Vue({
 
     methods: {
         edit(index) {
+
             this.current_edit = index;
 
             this.n_sort = this.newss[index].news_class;
             this.on_off = this.newss[index].news_status;
-            this.n_main_title = this.newss[index].news_title1;
-            this.n_sec_title = this.newss[index].news_title2;
-            this.n_main_content = this.newss[index].news_content1;
-            this.n_sec_content = this.newss[index].news_content2;
+            this.n_main_title = this.newss[index].news_title;
+            this.n_main_content = this.newss[index].news_content;
 
-            this.new_img[0] = this.newss[index].news_image_right;
-            this.new_img[1] = this.newss[index].news_image_main;
-            this.new_img[2] = this.newss[index].news_image1;
-            this.new_img[3] = this.newss[index].news_image2;
-            this.new_img[4] = this.newss[index].news_image3;
-
-            this.img_names[0]['src'] = '../images/news/' + this.newss[index].news_image_right;
-            this.img_names[1]['src'] = '../images/news/' + this.newss[index].news_image_main;
-            this.img_names[2]['src'] = '../images/news/' + this.newss[index].news_image1;
-            this.img_names[3]['src'] = '../images/news/' + this.newss[index].news_image2;
-            this.img_names[4]['src'] = '../images/news/' + this.newss[index].news_image3;
+            this.new_img[0] = this.newss[index].news_image;
 
         },
 
-        n_close() {
-            this.dbcheck = true;
-            let edit_z = document.querySelector('.n-news_edit');
-            edit_z.style.opacity = 0;
 
-            // 把預設值設回來
-            // this.new_img_src = ['圖片', '圖片', '圖片', '圖片', '圖片'];
-
-            // this.new_img[0] = '請選擇圖片上傳';
-            // this.new_img[1] = '請選擇圖片上傳';
-            // this.new_img[2] = '請選擇圖片上傳';
-            // this.new_img[3] = '請選擇圖片上傳';
-            // this.new_img[4] = '請選擇圖片上傳';
-        },
 
         sss() {
             this.current_edit = null;
             this.dbcheck = false;
-            let edit_z = document.querySelector('.n-news_edit');
-            edit_z.style.opacity = 1;
-
             this.new_edit = false;
         },
 
         ccc() {
             this.dbcheck = false;
-            let edit_z = document.querySelector('.n-news_edit');
-            edit_z.style.opacity = 1;
         },
 
         n_save() {
-
-            // let n_index = this.$data.current_edit;
-
-            // this.newss[n_index].news_status = this.on_off;
-            // this.newss[n_index].news_class = this.n_sort;
-            // this.newss[n_index].news_title1 = this.n_main_title;
-            // this.newss[n_index].news_title2 = this.n_sec_title;
-            // this.newss[n_index].news_content1 = this.n_main_content;
-            // this.newss[n_index].news_content2 = this.n_sec_content;
-
-            // this.newss[n_index].news_image_right = this.new_img[0];
-            // this.newss[n_index].news_image_main = this.new_img[1];
-            // this.newss[n_index].news_image1 = this.new_img[2];
-            // this.newss[n_index].news_image2 = this.new_img[3];
-            // this.newss[n_index].news_image3 = this.new_img[4];
-
-
-            // let aa = new Date();
-            // let year = aa.getFullYear();
-
-            // let month = aa.getMonth() + 1;
-            // if (month < 10) {
-            //     month = '0' + month
-            // }
-
-            // let date = aa.getDate();
-            // if (date < 10) {
-            //     date = '0' + date
-            // }
-
-            // let today = year + '-' + month + '-' + date;
-            // this.newss[n_index].news_update = today;
-
-
-            // this.current_edit = null;
-
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/n-news_update.php",
-            //     data: {
-            //         news_id: this.newss[n_index].news_id, //id
-            //         news_class: this.newss[n_index].news_class, //分類
-            //         news_status: this.newss[n_index].news_status, // 上下架
-            //         news_title1: this.newss[n_index].news_title1, // 主標題
-            //         news_title2: this.newss[n_index].news_title2, //副標題
-            //         news_content1: this.newss[n_index].news_content1, // 內文1
-            //         news_content2: this.newss[n_index].news_content2, // 內文2
-            //         news_image_right: this.newss[n_index].news_image_right, // 個別圖片檔名
-            //         news_image_main: this.newss[n_index].news_image_main,
-            //         news_image1: this.newss[n_index].news_image1,
-            //         news_image2: this.newss[n_index].news_image2,
-            //         news_image3: this.newss[n_index].news_image3,
-            //         news_update: this.newss[n_index].news_update, // 更新日期
-
-            //         new_img: this.new_img, // 所有圖片檔名
-            //         new_img_src: this.new_img_src, // 圖片base64
-
-            //     },
-            //     dataType: "text",
-            //     success: function (response) {
-            //         alert("更新成功");
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     }
-            // });
-
-            // 把預設值設回來
-            // this.new_img_src = ['圖片', '圖片', '圖片', '圖片', '圖片'];
-
-            // this.new_img[0] = '請選擇圖片上傳';
-            // this.new_img[1] = '請選擇圖片上傳';
-            // this.new_img[2] = '請選擇圖片上傳';
-            // this.new_img[3] = '請選擇圖片上傳';
-            // this.new_img[4] = '請選擇圖片上傳';
-
+            this.current_edit = null;
         },
-
-        upload_img(e) {
-
-            var files = e.target.files || e.dataTransfer.files;
-            let file = files[0];
-
-            this.new_img[e.target.id] = file.name; // 看是第幾個檔案，存進vueData
-            e.target.nextElementSibling.innerText = file.name;
-
-
-            let readFile = new FileReader();
-            readFile.readAsDataURL(file);
-            readFile.addEventListener("load", function () {
-
-                e.target.closest('.n-news_group').querySelector('img').src = readFile.result;
-                appVue.$data.new_img_src[e.target.id] = readFile.result; // 更換的圖檔base64存進vueData
-
-                e.target.closest('.n-news_group').querySelector('img').nextElementSibling.style.opacity = 0;
-
-            });
+        n_close() {
+            this.dbcheck = true;
         },
 
         new_add() {
             this.new_edit = true;
-            // this.current_edit = "notnull";
+            this.current_edit = "notnull";
         },
         closennn() {
-            // this.new_edit = false;
-
+            this.new_edit = false;
             this.dbcheck = true;
-            let edit_z = document.querySelector('.n-news_edit');
-            edit_z.style.opacity = 0;
         },
-        savennn(n_sort, on_off, n_main_title, n_sec_title, n_main_content, n_sec_content) {
+        savennn() {
+            this.current_edit = null;
             this.new_edit = false;
 
-            // console.log(f_sort);
-
-            let today = new Date()
-            let y_today = today.getFullYear()
-            let m_today = today.getMonth() + 1
-            if (m_today < 10) {
-                m_today = '0' + m_today
-            }
-            let d_today = today.getDate()
-            if (d_today < 10) {
-                d_today = '0' + d_today
-            }
-            let h_today = today.getHours()
-            if (h_today < 10) {
-                h_today = '0' + h_today
-            }
-            let min_today = today.getMinutes()
-            if (min_today < 10) {
-                min_today = '0' + min_today
-            }
-            let u_today = y_today + '/' + m_today + '/' + d_today
-            let last_today = `${y_today}/${m_today}/${d_today} ${h_today}:${min_today}`
-
-
-            let nnn =
-            {
-                'news_id': '1234567890',
-                'create_date': u_today,
-                'news_class': parseInt(n_sort),
-                'news_title1': n_main_title,
-                'news_title2': n_sec_title,
-                'news_status': parseInt(on_off),
-                'news_update': last_today,
-                'news_content1': n_main_content,
-                'news_content2': n_sec_content,
-            }
-
-            // console.log(nnn);
-
-            this.newss.unshift(nnn);
         },
         log_out() {
             localStorage.setItem("n-login", "no");
-            location.href = "./n-login.html"
+            location.href = "back_login.html"
         },
 
         showNdata(gopage) {
@@ -512,16 +252,5 @@ var appVue = new Vue({
             // });
         }
     },
-    // computed: {
-    //     newssd: function() {
-    //         var search = this.news_number;   
-    //         if (search) {
-    //             return this.newss.filter(function(product) {                   
-    //                 return String (product.news_id).toLowerCase().indexOf(search) > -1                 
-    //             })                
-    //         }
-    //         return this.newss;
-    //     }
-    // }  
 
 })

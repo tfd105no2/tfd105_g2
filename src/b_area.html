@@ -12,7 +12,7 @@
             <img src="./img/logo.png" alt="" srcset="" />
             <p>kireiumi後臺管理</p>
           </div>
-          <div class="b-member_logout">
+          <div @click="log_out" class="b-member_logout">
             <p>帳號登出</p>
             <img src="./img/log-out.png" alt="" srcset="" />
           </div>
@@ -55,7 +55,7 @@
                             b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
                             b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
                       }"
-                  @click="edit"
+                  @click="edit(calendarMonth[(i-1)*7+j-1].year,(calendarMonth[(i-1)*7+j-1].month)+1,calendarMonth[(i-1)*7+j-1].date)"
                 >
                   <div class="b_area_booking_status">進行中</div>
                 </div>
@@ -65,7 +65,7 @@
         </main>
         <!-- 彈框 -->
         <div class="b_area_edit" v-if="current_edit !== null">
-          <p>2022/03/22</p>
+          <p>{{current_edit}}</p>
           <p>選擇夜宿區域</p>
           <ul>
             <li>1</li>
@@ -91,8 +91,8 @@
         ></double-check-off>
         <double-check-on
           v-if="dbcheck_on"
-          @save="sss"
-          @cancel="ccc"
+          @save="osss"
+          @cancel="occc"
         ></double-check-on>
       </div>
     </div>

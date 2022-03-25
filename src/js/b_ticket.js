@@ -1,30 +1,8 @@
-// Vue.component('double-check', {
-//     template:
-//         ` 
-//         <div class="dbc">
-//             <section></section>
-//             <p>尚未存檔，是否確認關閉</p>
-//             <div>
-//                 <button type="button" @click='cancel'>取消</button>
-//                 <button type="button" @click='sure'>確認</button>
-//             </div>
-//         </div>                
-//         `
-//     ,
-//     methods: {
-//         sure() {
-//             this.$emit('save')
-//         },
-//         cancel() {
-//             this.$emit('cancel')
-//         }
-//     },
-// });
+
 new Vue({
     el: '#root',
     data: {
-        dbcheck: false,
-        member_number: '',
+        ticket_number: '',
         m_status: 0,
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
@@ -34,7 +12,6 @@ new Vue({
             { name: "訂票管理", url: "b_ticket.html" },
 
         ],
-        member_number: '',
         titles: ['票券編號', '購買日期', '票種', '狀態', '使用時間'],
         tickets: [
             {
@@ -81,13 +58,6 @@ new Vue({
             edit_z.style.opacity = 0;
         },
 
-        // sss() {
-
-        //     this.dbcheck = false;
-        //     let edit_z = document.querySelector('.n-member_edit');
-        //     edit_z.style.opacity = 1;
-
-        // },
 
         ccc() {
             this.current_edit = null;
@@ -97,32 +67,9 @@ new Vue({
         },
 
 
-        f_save() {
 
-            let n_index = this.$data.current_edit;
-
-            this.current_edit = null;
-
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/n-member_update.php",
-            //     data: {
-            //         account: this.members[n_index].account, // 哪筆會員
-            //         member_status: this.members[n_index].member_status, // 更新的會員狀態
-            //     },
-            //     dataType: "text",
-            //     success: function (response) {
-            //         alert("更新成功");
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     }
-            // });
-
-        },
         log_out() {
-            localStorage.setItem("n-login", "no");
-            location.href = "./n-login.html"
+            location.href = "back_login.html"
         },
 
         showMdata(gopage) {

@@ -1,5 +1,7 @@
 .minwidth-wrapper {
   min-width: 1200px;
+  height: 100%;
+  background-color: #fff;
 }
 .b-member_header {
   position: static;
@@ -172,6 +174,9 @@
   z-index: 2;
   background-color: #ffffff;
   /* display: none; */
+  p {
+    font-size: 24px;
+  }
   ul {
     display: flex;
     flex-wrap: wrap;

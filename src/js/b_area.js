@@ -3,7 +3,7 @@ Vue.component('double-check-off', {
         ` 
         <div class="dbc">
             <section></section>
-            <p>日期:2022/03/22</p>
+            <p>日期:{{current_edit}}</p>
             <p>區域:海底隧道</p>
             <p>確定要關閉該區嗎?</p>
 
@@ -49,7 +49,7 @@ Vue.component('double-check-on', {
         }
     },
 });
-new Vue({
+const vm = new Vue({
     el: '#root',
     data: {
         dbcheck_off: false,
@@ -85,9 +85,9 @@ new Vue({
         this.setToday()
     },
     methods: {
-        edit(index) {
-            // this.current_edit = index;
-            this.current_edit = 'aa';
+        edit(year, month, date) {
+            this.current_edit = year + '/' + month + '/' + date;
+            //console.log(year + '/' + month + '/' + date);
         },
 
 
@@ -112,7 +112,7 @@ new Vue({
 
         sss() {
             this.current_edit = null;
-            this.dbcheck = false;
+            this.dbcheck_off = false;
             let edit_z = document.querySelector('.b_area_edit');
             edit_z.style.opacity = 1;
 
@@ -120,7 +120,21 @@ new Vue({
 
         ccc() {
             // this.current_edit = null;
-            this.dbcheck = false;
+            this.dbcheck_off = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+        },
+        osss() {
+            this.current_edit = null;
+            this.dbcheck_on = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+
+        },
+
+        occc() {
+            // this.current_edit = null;
+            this.dbcheck_on = false;
             let edit_z = document.querySelector('.b_area_edit');
             edit_z.style.opacity = 1;
         },
@@ -150,8 +164,7 @@ new Vue({
 
         },
         log_out() {
-            localStorage.setItem("n-login", "no");
-            location.href = "./n-login.html"
+            location.href = "back_login.html"
         },
 
         showMdata(gopage) {

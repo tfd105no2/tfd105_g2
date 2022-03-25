@@ -1,5 +1,7 @@
 .minwidth-wrapper {
   min-width: 1200px;
+  height: 100%;
+  background-color: #fff;
 }
 .b_order_main {
   display: flex;
@@ -48,7 +50,7 @@
       font-size: 22px;
       color: #333;
       font-weight: bold;
-      margin: 0;
+      margin-right: 10px;
       padding: 0;
       border-bottom: 3px solid #7db6df;
     }
