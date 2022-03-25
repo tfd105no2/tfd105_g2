@@ -23,8 +23,8 @@
         }
     }
     .bake {
-        padding-left: 10%;
-        padding-top: 10px;
+        padding-left: 5%;
+        padding: space(2) 0 space(8) 5% ;
         
         a{
             color: $link-color;
@@ -60,5 +60,99 @@
         } 
     }
 
+    main.detail_box{
+        
+        max-width: $container-width;
+        margin: 0 auto ;
+        img{
+            @extend %img-mw;
+        }
+
+        .text_area{
+       
+            h6{
+                margin: space(2) 0;
+                font-size: 18px;  
+            }
+            h5{
+                font-size: map-get($title, h5);
+                color: $link-color-hover;
+                position: relative;
+                
+                &::before{  
+                    position: absolute;
+                    content:'';
+                    left:0px;
+                    top:50px;
+                    border-bottom: 1px solid $link-color;
+                    width: $container-width;
+                    height: 0px;
+    
+                }
+            }
+            p{
+                font-size: $font-size;
+                color: $btn-color;
+
+                &:first-of-type{
+                    margin: space(1) 0 ;
+                }
+
+                &:nth-of-type(2), &:nth-of-type(3){
+                    margin-top: space(4);
+
+                }
+            }
+
+        }
+        .back{
+              
+                margin: space(15) 0 0;
+                display: flex;
+                justify-content: space-around;
+                position: relative;
+                
+                
+             
+           
+            a{
+                outline: 3px solid $link-color;
+                border-radius:50%;
+                width: 75px;
+                height: 75px;
+                line-height: 75px;
+                @extend %a-button;
+                text-align: center;
+                color:$link-color;
+                font-size: 20px;
+            }
+            img{
+                margin-bottom: space(3);
+                animation: up 3s linear infinite;
+                &:last-child{
+                    animation-delay: 1s;
+                }
+            }
+            @keyframes up {
+                0% {
+                    transform: translateY(0) rotateY(0);
+                    opacity:1;
+                }
+                50% {
+                    transform: translateY(30px) rotateY(0);
+                    opacity:0.5;
+                }
+               
+                100% {
+                    transform: translateY(0) rotateY(0);
+                    opacity:1;
+                }
+            }
+           
+   
+        }
+       
+
+    }
 
 }
