@@ -5,26 +5,25 @@
 //   clear: both;
 // }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-html{
+html {
   font-size: 10px;
 }
 
-body{
+body {
   line-height: 1.6;
-  font-family: 'Noto Sans TC','微软雅黑','Microsoft YaHei',sans-serif;
+  font-family: "Noto Sans TC", "微软雅黑", "Microsoft YaHei", sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
   background-color: rgb(255, 255, 255);
   color: #333;
-  letter-spacing: .25rem;
-  
+  letter-spacing: 0.25rem;
 }
 
-a{
+a {
   color: #333;
   text-decoration: none;
 }
