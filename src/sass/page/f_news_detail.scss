@@ -1,0 +1,64 @@
+@import '../var/var';
+
+
+#news_detail{
+
+    background-color: #EDF9FB;
+  
+    .wrapper{
+
+        background-image:url('../img/news-banner1.png') ;
+        background-size: cover;
+        @extend %img-mw ;
+        height: calc(100vh - 80px);
+        background-attachment: fixed;
+
+        //banner主標
+        >h2{
+            font-size: map-get($title, h2);
+            text-align: center;
+            line-height: calc(100vh - 80px);
+            color: #fff;
+
+        }
+    }
+    .bake {
+        padding-left: 10%;
+        padding-top: 10px;
+        
+        a{
+            color: $link-color;
+            position: relative;
+            &:nth-child(3){
+                color:$link-color-hover;
+            }
+
+            &:nth-child(2), &:nth-child(3){
+                padding-left: 15px;
+            }
+        
+            &:nth-child(1)::before{
+                content: '';
+                position: absolute;
+                left:67px;
+                top:1px;
+                border-right: 1px solid black;
+                width: 8px;
+                height: 16px;
+                transform: rotate(25deg);
+                }
+            &:nth-child(2)::before{
+                content: '';
+                position: absolute;
+                left:83px;
+                top:1px;
+                border-right: 1px solid black;
+                width: 8px;
+                height: 16px;
+                transform: rotate(25deg);
+                }     
+        } 
+    }
+
+
+}
