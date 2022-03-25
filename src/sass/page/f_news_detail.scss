@@ -107,11 +107,11 @@
         }
         .back{
               
-                margin: space(15) 0 0;
-                display: flex;
-                justify-content: space-around;
-                position: relative;
-                
+            margin: space(15) 0 0;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+          
                 
              
            
@@ -125,6 +125,11 @@
                 text-align: center;
                 color:$link-color;
                 font-size: 20px;
+                &:hover{
+                    color: white;
+                    background-color: $btn-color-hover;
+                    
+                }
             }
             img{
                 margin-bottom: space(3);
