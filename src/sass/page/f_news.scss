@@ -17,6 +17,11 @@
         height: calc(100vh - 80px);
         background-attachment: fixed;
 
+        @media screen and (max-width: 768px) {
+            background-image: url('../img/news-banner1.svg');
+            background-size: cover;
+        }
+
         //banner主標
         >h2{
             font-size: map-get($title, h2);
@@ -58,9 +63,10 @@
         //最新消息 --內容
         .news_content{
 
-            display: flex;
+            @extend %flex-center;
             flex-wrap: wrap;
-            justify-content: center;
+            
+            
             
             
             .news_list{
@@ -78,6 +84,13 @@
                         font-size:$font-size;
 
                     }
+                    img{
+                        @media screen and (max-width: 768px) {
+
+                            width: 100%;
+                            }
+                    }
+                    
                   
                 }
             }
@@ -130,11 +143,15 @@
             width:  10em;
             height: 10em;
             border-radius: 50%;
+            
+         
           }
           li{
+           
             position: absolute;
             list-style: none;
             bottom: -300px;
+          
             &:nth-child(1){
                 left: 90%;
                 animation-delay: 0s;
@@ -144,7 +161,13 @@
                     width:  220px;
                     height: 220px;
                     background-color: #DBF5F8;
-                  }
+                    
+                     
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
+                }
             }
             &:nth-child(2){
                 left: 0;
@@ -155,6 +178,11 @@
                     width:  210px;
                     height: 210px;
                     background-color: #DBF5F8;
+                    
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
                 }
             }
             &:nth-child(3){
@@ -165,8 +193,14 @@
                     width:  200px;
                     height: 200px;
                     background-color: #DBF5F8;
+
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
                 }
             }
+            
         }
         li{
             animation: rotation1 25s cubic-bezier(0, 0.24, 1, 0.56) infinite;
