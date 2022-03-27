@@ -49,12 +49,23 @@
                 color: rgb(0, 189, 209, .5);
                 cursor: pointer;
                 margin: space(4) space(3) space(4) space(3);
+               
+               //i標籤hover效果 帶入information頁jitter動畫
+                &:hover {
+                    i {
+                        animation: jitter .5s infinite;
+                    }
+                }
                 i {
                     font-size: 36px;
                     // color: rgb(0, 189, 209, .5);
+                    @media screen and (max-width: 768px){
+                        font-size: 30px;
+                    }
                 }
                 
             }
+            //所在頁籤顏色變化
             .tab_item .js-i-active {
                 color: $text-color;
             }
@@ -63,12 +74,14 @@
         //最新消息 --內容
         .news_content{
 
-            @extend %flex-center;
+            display: flex;
+            justify-content: center;
+            // align-items: center;
             flex-wrap: wrap;
             
             
             
-            
+            //最新消息
             .news_list{
                     z-index: 2;
                 }
@@ -82,21 +95,20 @@
                     }
                     p{
                         font-size:$font-size;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
 
                     }
                     img{
                         @media screen and (max-width: 768px) {
 
                             width: 100%;
-                            }
+                        }
                     }
-                    
-                  
                 }
             }
-
-          
-            
             }
         }
           //查看更多
