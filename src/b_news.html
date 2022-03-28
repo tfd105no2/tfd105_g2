@@ -56,9 +56,7 @@
                 <li>{{news.create_date}}</li>
                 <li>{{n_sort_list[news.news_class]}}</li>
                 <li>{{news.news_title}}</li>
-                <li :class="{'-active2':newss[key].news_status == '0'}">
-                  {{on_off_list[news.news_status]}}
-                </li>
+                <li>{{on_off_list[news.news_status]}}</li>
                 <li>{{news.news_update}}</li>
                 <li @click="edit(key)">編輯與查看</li>
               </ul>

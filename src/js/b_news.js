@@ -138,7 +138,7 @@ var appVue = new Vue({
                 'create_date': '2021/01/01 00:00',
                 'news_class': 1,
                 'news_title': '2/14情人玩親親享有小禮物',
-                'news_status': 0,
+                'news_status': 1,
                 'news_update': '2021/03/01 16:16',
                 'news_content': '親親親親親親',
                 'news_image': '',
@@ -173,7 +173,7 @@ var appVue = new Vue({
             this.n_main_title = this.newss[index].news_title;
             this.n_main_content = this.newss[index].news_content;
 
-            this.new_img[0] = this.newss[index].news_image;
+            // this.new_img[0] = this.newss[index].news_image;
 
         },
 

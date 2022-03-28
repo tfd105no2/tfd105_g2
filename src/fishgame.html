@@ -4,6 +4,87 @@
     @@include('layout/head.html', { "title": "探索海洋" })
   </head>
   <body>
-    @@include('head.html')
+    <header class="fishgame_header">
+      <div class="nav-wrapper container">
+        <!-- logo -->
+        <div class="logo">
+          <a href="index.html">
+            <img src="./img/logo.png" alt="" />
+          </a>
+        </div>
+        <!-- menu -->
+        <ul class="menu-wrapper">
+          <li class="menu-item">
+            <a class="@@active1" href="#">最新消息</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active2" href="#">園區資訊</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active3" href="#">交通方式</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active4" href="product.html">夜宿體驗</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active5" href="#">探索海洋</a>
+          </li>
+          <li class="user-item">
+            <a href="#">
+              <i class="fas fa-user"></i>
+            </a>
+          </li>
+          <li class="user-item">
+            <a href="#">
+              <i class="fas fa-shopping-cart"></i>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"/></svg> -->
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="fishgame_wrapper">
+        <div class="fishgame_counter">
+          <p>時間:</p>
+          <p class="text-center" id="count-down-timer"></p>
+          <img src="img/fishgamecount.png" alt="" /><span>:</span>
+          <span class="fishgame_count">1</span>
+        </div>
+        <div class="fishgame_start">
+          <p>點擊小魚，將產生更多的魚</p>
+          <p>10秒內達到5隻魚，即可獲取夜宿折扣碼！</p>
+
+          <button class="fishgame_start_btn">開始遊戲</button>
+        </div>
+      </div>
+
+      <!-- 挑戰失敗時的彈窗 -->
+      <div class="fishgame_lose_pop">
+        <p>挑戰失敗</p>
+        <p>好可惜唷～再挑戰一次嗎？</p>
+        <button class="fishgame_tryAgain_btn">再試一次</button>
+        <button class="fishgame_back_btn">返回首頁</button>
+      </div>
+      <!-- 挑戰成功時的彈窗 -->
+      <div class="fishgame_win_pop">
+        <p>恭喜挑戰成功，獲得夜宿折扣碼</p>
+        <p>結帳時，輸入以下折扣碼即可享有折價</p>
+        <p>sea300</p>
+        <button class="fishgame_savecoupon_btn">儲存折扣碼</button>
+        <button class="fishgame_back_btn">返回首頁</button>
+      </div>
+
+      <!-- 儲存折扣碼是否前往登入 -->
+      <div class="fishgame_savecoupon">
+        <p>儲存折扣碼需先登入會員，您要前往登入嗎？</p>
+        <button class="fishgame_savecoupon_sure_btn">確定</button>
+        <button class="fishgame_savecoupon_cancel_btn">取消</button>
+      </div>
+    </main>
+    <!-- 遮罩 -->
+    <!-- <div class="fishgame_hide"></div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/fishgame.min.js"></script>
   </body>
 </html>

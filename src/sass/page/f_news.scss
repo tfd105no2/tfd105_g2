@@ -17,6 +17,11 @@
         height: calc(100vh - 80px);
         background-attachment: fixed;
 
+        @media screen and (max-width: 768px) {
+            background-image: url('../img/news-banner1.svg');
+            background-size: cover;
+        }
+
         //banner主標
         >h2{
             font-size: map-get($title, h2);
@@ -44,12 +49,23 @@
                 color: rgb(0, 189, 209, .5);
                 cursor: pointer;
                 margin: space(4) space(3) space(4) space(3);
+               
+               //i標籤hover效果 帶入information頁jitter動畫
+                &:hover {
+                    i {
+                        animation: jitter .5s infinite;
+                    }
+                }
                 i {
                     font-size: 36px;
                     // color: rgb(0, 189, 209, .5);
+                    @media screen and (max-width: 768px){
+                        font-size: 30px;
+                    }
                 }
                 
             }
+            //所在頁籤顏色變化
             .tab_item .js-i-active {
                 color: $text-color;
             }
@@ -59,10 +75,13 @@
         .news_content{
 
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            // align-items: center;
+            flex-wrap: wrap;
             
             
+            
+            //最新消息
             .news_list{
                     z-index: 2;
                 }
@@ -76,14 +95,20 @@
                     }
                     p{
                         font-size:$font-size;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
 
                     }
-                  
+                    img{
+                        @media screen and (max-width: 768px) {
+
+                            width: 100%;
+                        }
+                    }
                 }
             }
-
-          
-            
             }
         }
           //查看更多
@@ -130,11 +155,15 @@
             width:  10em;
             height: 10em;
             border-radius: 50%;
+            
+         
           }
           li{
+           
             position: absolute;
             list-style: none;
             bottom: -300px;
+          
             &:nth-child(1){
                 left: 90%;
                 animation-delay: 0s;
@@ -144,7 +173,13 @@
                     width:  220px;
                     height: 220px;
                     background-color: #DBF5F8;
-                  }
+                    
+                     
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
+                }
             }
             &:nth-child(2){
                 left: 0;
@@ -155,6 +190,11 @@
                     width:  210px;
                     height: 210px;
                     background-color: #DBF5F8;
+                    
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
                 }
             }
             &:nth-child(3){
@@ -165,8 +205,14 @@
                     width:  200px;
                     height: 200px;
                     background-color: #DBF5F8;
+
+                    @media screen and (max-width: 768px) {
+                        width:  120px;
+                        height: 120px;
+                    }
                 }
             }
+            
         }
         li{
             animation: rotation1 25s cubic-bezier(0, 0.24, 1, 0.56) infinite;

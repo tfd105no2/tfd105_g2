@@ -9,6 +9,7 @@
         width: 380px;
         height: calc(100vh - 80px);
         overflow: hidden;
+
         @media screen and (max-width: 768px) {
             width: 0;
         }
@@ -26,6 +27,7 @@
             width: 500px;
             margin: 0 auto;
             border-bottom: 5px solid $text-color;
+
             @media screen and (max-width: 768px) {
                 width: 100%;
                 padding: 0 space(1.5);
@@ -39,6 +41,7 @@
                 padding: space(1) space(2);
                 color: rgb(0, 189, 209, .5);
                 cursor: pointer;
+
                 @media screen and (max-width: 768px) {
                     padding: space(1) space(1);
                 }
@@ -55,6 +58,7 @@
 
         .member_form {
             margin-top: space(2);
+
             @media screen and (max-width: 768px) {
                 padding: 0 space(1.5);
             }
@@ -76,25 +80,25 @@
                 border: 1px solid $btn-color;
                 border-radius: 5px;
                 outline: none;
-            }
 
-            input:last-child {
-                display: block;
-                margin: space(1) auto 0;
-                width: auto;
-                height: auto;
-                padding: 10px 20px;
-                font-size: 16px;
-                color: $btn-color;
-                border: 1px solid $btn-color;
-                border-radius: 5px;
-                outline: none;
-                background-color: transparent;
-                cursor: pointer;
+                &:last-child {
+                    display: block;
+                    margin: space(1) auto 0;
+                    width: auto;
+                    height: auto;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    color: $btn-color;
+                    border: 1px solid $btn-color;
+                    border-radius: 5px;
+                    outline: none;
+                    background-color: transparent;
+                    cursor: pointer;
 
-                &:hover {
-                    background-color: #0080A8;
-                    color: #fff;
+                    &:hover {
+                        background-color: #0080A8;
+                        color: #fff;
+                    }
                 }
             }
 
@@ -196,8 +200,6 @@
                     text-align: center;
                     padding: 10px;
                 }
-
-
             }
         }
     }

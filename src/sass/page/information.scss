@@ -38,6 +38,35 @@ main.info_box {
             font-size: map-get($title, h6);
             color: rgb(0, 189, 209, .5);
             cursor: pointer;
+            animation: none;
+
+            &:hover {
+                i {
+                    animation: jitter .5s infinite;
+                }
+            }
+
+            @keyframes jitter {
+                0% {
+                    transform: scale(.9) rotate(0deg);
+                }
+
+                25% {
+                    transform: scale(1.2) rotate(15deg);
+                }
+
+                50% {
+                    transform: scale(.9) rotate(0deg);
+                }
+
+                75% {
+                    transform: scale(1) rotate(-15deg);
+                }
+
+                100% {
+                    transform: scale(.9) rotate(0deg);
+                }
+            }
 
             i {
                 font-size: 36px;
@@ -46,6 +75,8 @@ main.info_box {
                     font-size: 30px;
                 }
             }
+
+
         }
 
         .info_item.js-i-active {
@@ -56,6 +87,8 @@ main.info_box {
     .info_content {
         display: flex;
         justify-content: center;
+        overflow: hidden;
+        transition: 1s;
 
         // 票價資訊
         >.info_list {
@@ -206,8 +239,8 @@ main.info_box {
                 &::after {
                     content: '';
                     position: absolute;
-                    width: 300%;
-                    height: 150px;
+                    width: 200%;
+                    height: 100px;
                     left: 0;
                     bottom: 0;
                     background-image: url('../img/intro-wave.png');
@@ -352,7 +385,7 @@ main.info_box {
                     }
 
                     25% {
-                        background-position: 0 20px;
+                        background-position: 0 -20px;
                     }
 
                     50% {
@@ -360,7 +393,7 @@ main.info_box {
                     }
 
                     75% {
-                        background-position: 0 20px;
+                        background-position: 0 40px;
                     }
 
                     100% {
@@ -369,5 +402,17 @@ main.info_box {
                 }
             }
         }
+    }
+
+    .info_content.js-hide {
+        transform: scale(0);
+        opacity: 0;
+        height: 0;
+    }
+
+    .info_content.js-show {
+        transform: scale(1);
+        opacity: 1;
+        height: auto;
     }
 }
