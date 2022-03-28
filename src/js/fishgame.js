@@ -104,22 +104,21 @@ window.onload = function () {
             } else {
                 $('.fish').remove();
                 fishgame_lose_pop.style.display = 'flex';
-                fishgame_hide.style.display = 'block';
-
             }
         }, 10100);
     });
     // 再試一次
     $('.fishgame_tryAgain_btn').on('click', function () {
-        fishgame_end_pop.style.display = 'none';
-        fishgame_hide.style.display = 'none';
+        fishgame_lose_pop.style.display = 'none';
         count = 0;
         createFish();
         countdown();
         setTimeout(function () {
 
             if (count >= 5) {
-                alert('成功');
+                $('.fish').remove();
+                fishgame_win_pop.style.display = 'flex';
+                fishgame_hide.style.display = 'block';
             } else {
                 $('.fish').remove();
                 fishgame_lose_pop.style.display = 'flex';
