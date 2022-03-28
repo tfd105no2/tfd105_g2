@@ -1,0 +1,103 @@
+@import '../var/var';
+
+.f_mbloginall {
+    display: flex;
+
+    .mbloginall_img {
+        width: 380px;
+        height: calc(100vh - 80px);
+        overflow: hidden;
+
+        //套用圖片最大寬度與等比置中設定
+        img {
+            @extend %img-mw;
+        }
+    }
+
+    .mbloginall_body {
+        //20px 左右置中
+        margin: space(2) auto 0;
+        display: flex;
+        //直向排列
+        flex-direction: column;
+
+        //註冊登入切換tab
+        .mbloginall_list {
+            display: flex;
+            width: 500px;
+            margin: 0 auto;
+            border-bottom: 5px solid $text-color;
+
+            .mbloginall_item {
+                width: 50%;
+                text-align: center;
+                //24px
+                font-size: map-get($title, h6);
+                //行距1.2
+                line-height: $line-height-text;
+                //10px 20px
+                padding: space(1) space(2);
+                color: rgb(0, 189, 209, .5);
+                cursor: pointer;
+            }
+
+            .mbloginall_item .js-m-active {
+                color: red;
+            }
+
+            .mbloginall_item+.mbloginall_item {
+                border-left: 1px solid;
+            }
+        }
+
+        .register_form,
+        .login_form {
+            margin-top: space(2);
+
+            >label {
+                display: inline-block;
+                width: 30%;
+                //24px
+                font-size: map-get($title, h6);
+                //1.2
+                line-height: $line-height-text;
+                // 垂直居中對齊
+                vertical-align: middle;
+                color: $text-color;
+            }
+
+            >input {
+                width: 70%;
+                height: 30px;
+                margin: space(1) 0;
+                border: 1px solid $btn-color;
+                border-radius: 5px;
+                outline-color: none;
+                vertical-align: middle;
+                //以
+                &:last-of-type {
+                    display: block;
+                    //10px auto 0
+                    margin: space(1) auto 0;
+                    width: auto;
+                    height: auto;
+                    //10px 20px 
+                    padding: space(1) space(2);
+                    font-size: 16px;
+                    color: $btn-color;
+                    border: 1px solid $btn-color;
+                    background-color: transparent;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #0080A8;
+                        color: #fff;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}

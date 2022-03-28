@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @@include('layout/head.html', {
+    "title": "登入註冊頁-kireiumi"
+    })
+</head>
+
+<body>
+    @@include('layout/nav.html')
+    <!-- 前台登入註冊頁內容 -->
+    <section class="f_mbloginall">
+        <!-- 左側圖 -->
+        <div class="mbloginall_img">
+            <img src="img/memberlogin-bg.png" alt="memberloginsideimages">
+        </div>
+        <!-- 右側表單內容 -->
+        <div class="mbloginall_body">
+            <!-- 註冊登入切換鈕 -->
+            <ul class="mbloginall_list">
+                <li class="mbloginall_item js-m-active">會員登入</li>
+                <li class="mbloginall_item js-m-active">會員註冊</li>
+            </ul>
+            <!-- 註冊表單 -->
+            <form class="register_form" action="">
+                <label for="mbSignName">姓名</label><input type="text" id="mbSignName" placeholder="此欄位必填">
+                <br>
+                <label for="mbSignMail">註冊信箱</label><input type="text" id="mbSignMail" placeholder="此欄位必填">
+                <br>
+                <label for="mbSignPassword">密碼</label><input type="text" id="mbSignPassword" placeholder="此欄位必填">
+                <br>
+                <label for="mbCheckPassword">確認密碼</label><input type="text" id="mbCheckPassword" placeholder="此欄位必填">
+                <br>
+                <label for="mbSignpPhone">手機號碼</label><input type="text" id="mbSignpPhone" placeholder="此欄位必填">
+                <br>
+                <input type="submit" value="註冊">
+            </form>
+            <!-- 登入表單 -->
+            <form class="login_form" action="">
+                <label for="mbAccount">帳號</label><input type="text" id="mbAccount">
+                <br>
+                <label for="mbPassword">密碼</label><input type="text" id="mbPassword">
+                <br>
+                <input type="submit" value="登入">
+                <a href="f_mbforget.html">忘記密碼</a>
+                <div class="loginOther">
+                    <div class="loginOther1">
+                        <p class="loginUnderline"></p>
+                        <p>或</p>
+                        <p class="loginUnderline"></p>
+                    </div>
+                    <div class="loginOther2">
+                        <div class="loginFB">
+                            <a href="###">使用FACEBOOK登入</a>
+                        </div>
+                        <div class="loginLine">
+                            <a href="###">使用GOOGLE登入</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/f_mbloginall.min.js"></script>
+</body>
+
+</html>
