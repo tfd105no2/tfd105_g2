@@ -12,6 +12,13 @@
         @extend %img-mw ;
         height: calc(100vh - 80px);
         background-attachment: fixed;
+        
+        @media screen and (max-width: 768px) {
+            background-image: url('../img/news-banner1.svg');
+            background-size: cover;
+        }
+
+     
 
         //banner主標
         >h2{
@@ -87,6 +94,10 @@
                     border-bottom: 1px solid $link-color;
                     width: $container-width;
                     height: 0px;
+                    
+                    @media screen and (max-width: 768px) {
+                        width: 100%;
+                    }
     
                 }
             }
@@ -111,6 +122,11 @@
             display: flex;
             justify-content: space-around;
             position: relative;
+            
+            @media screen and (max-width: 768px) {
+                width: 375px;
+                margin: space(5) 0 0;
+            }
           
                 
              
@@ -125,11 +141,15 @@
                 text-align: center;
                 color:$link-color;
                 font-size: 20px;
+               
                 &:hover{
                     color: white;
                     background-color: $btn-color-hover;
-                    
                 }
+                @media screen and (max-width: 768px) {
+                    margin-bottom: space(3);  
+                }
+                
             }
             img{
                 margin-bottom: space(3);
@@ -137,6 +157,11 @@
                 &:last-child{
                     animation-delay: 1s;
                 }
+                @media screen and (max-width: 768px) {
+                    width: 30%;;
+                    
+                }
+              
             }
             @keyframes up {
                 0% {
