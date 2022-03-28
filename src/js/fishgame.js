@@ -1,7 +1,11 @@
 window.onload = function () {
     const speed = 5,
         fish = document.querySelector('.fish'),
-        counter = document.querySelector('.fishgame_counter');
+        counter = document.querySelector('.fishgame_count'),
+        fishgameWrapper = document.querySelector('.fishgame_wrapper'),
+        fishgame_end_pop = document.querySelector('.fishgame_end_pop'),
+        fishgame_hide = document.querySelector('.fishgame_hide');
+
 
     let count = 0,
         vw = window.innerWidth * .97,
@@ -20,8 +24,10 @@ window.onload = function () {
 
     function setPos(el, x, y) {
         // old coords
+        // 魚移動的座標
         const a = window.scrollX + el.getBoundingClientRect().left;
         const b = window.scrollY + el.getBoundingClientRect().top;
+
         // distance
         const ax = Math.abs(a - x);
         const by = Math.abs(b - y);
@@ -54,11 +60,12 @@ window.onload = function () {
         fish.className = 'fish';
         fish.textContent = '=';
         fish.style.filter = 'hue-rotate(' + Math.floor(Math.random() * 360) + 'deg)';
-        document.body.appendChild(fish);
+        fishgameWrapper.appendChild(fish);
         setRandomPos(fish);
         fish.addEventListener('click', createFish);
         count++;
         updateCount();
+
     }
 
     window.onresize = function () {
@@ -66,10 +73,62 @@ window.onload = function () {
         vh = window.innerHeight * .97;
     }
 
-    // createFish();
+
+    // 倒數計時
+    function countdown() {
+        let fishgame_countdown = document.getElementById("count-down-timer");
+        let count = 10;
+        fishgame_countdown.innerHTML = count;
+        let timer = null;
+        timer = setInterval(function () {
+            if (count > 0) {
+                count = count - 1;
+                fishgame_countdown.innerHTML = count;
+            } else {
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+
     $(".fishgame_start_btn").on('click', function () {
-        // console.log($(this).parent('.fishgame_start'));
         $(this).parent('.fishgame_start').hide();
         createFish();
+        countdown();
+        setTimeout(function () {
+
+            if (count >= 5) {
+                alert('成功');
+            } else {
+                $('.fish').remove();
+                fishgame_end_pop.style.display = 'flex';
+                fishgame_hide.style.display = 'block';
+
+            }
+        }, 10100);
+    });
+    // 再試一次
+    $('.fishgame_tryAgain_btn').on('click', function () {
+        fishgame_end_pop.style.display = 'none';
+        fishgame_hide.style.display = 'none';
+        count = 0;
+        createFish();
+        countdown();
+        setTimeout(function () {
+
+            if (count >= 5) {
+                alert('成功');
+            } else {
+                $('.fish').remove();
+                fishgame_end_pop.style.display = 'flex';
+                fishgame_hide.style.display = 'block';
+
+            }
+        }, 10100);
+
+    });
+
+    // 返回首頁
+    $('.fishgame_back_btn').on('click', function () {
+        location.href = "../index.html";
     })
 }

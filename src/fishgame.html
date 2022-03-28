@@ -46,8 +46,10 @@
     <main>
       <div class="fishgame_wrapper">
         <div class="fishgame_counter">
-          <img src="img/fishgamecount.png" alt="" />
-          <span>:1</span>
+          <p>時間:</p>
+          <p class="text-center" id="count-down-timer"></p>
+          <img src="img/fishgamecount.png" alt="" /><span>:</span>
+          <span class="fishgame_count">1</span>
         </div>
         <div class="fishgame_start">
           <p>點擊小魚，將產生更多的魚</p>
@@ -56,8 +58,16 @@
           <button class="fishgame_start_btn">開始遊戲</button>
         </div>
       </div>
-    </main>
 
+      <!-- 遊戲結束時的彈窗 -->
+      <div class="fishgame_end_pop">
+        <p>挑戰失敗</p>
+        <button class="fishgame_tryAgain_btn">再試一次</button>
+        <button class="fishgame_back_btn">返回首頁</button>
+      </div>
+    </main>
+    <!-- 遮罩 -->
+    <div class="fishgame_hide"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/fishgame.min.js"></script>
   </body>

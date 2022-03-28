@@ -4,7 +4,7 @@
 .fishgame_wrapper {
   background-image: url(../img/fishgame_bg.jpg);
   background-size: cover;
-  background-position: 100% 90%;
+  background-position: 100% 80%;
   height: calc(100vh - 80px);
   margin: 0;
   position: relative;
@@ -36,23 +36,67 @@
 }
 
 .fishgame_counter {
-  width: 85px;
+  width: 190px;
   color: #000;
   position: absolute;
   right: 0;
   top: 0;
   display: flex;
   align-items: center;
+  p {
+    font-size: 20px;
+  }
+  p.text-center {
+    margin-right: 10px;
+  }
   img {
     width: 40px;
     vertical-align: middle;
   }
   span {
-    font-size: 32px;
+    font-size: 20px;
     font-family: Arial;
   }
 }
 
+// 彈窗
+.fishgame_end_pop {
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #5c9fb9;
+    border: none;
+    cursor: pointer;
+  }
+}
+// 遮罩
+.fishgame_hide {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba($color: #ccc, $alpha: 0.6);
+}
 .fish {
   background-color: #f90;
   background-image: linear-gradient(90deg, #f90, #f60, #f90);

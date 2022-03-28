@@ -1,55 +1,55 @@
-Vue.component('double-check-off', {
-    template:
-        ` 
-        <div class="dbc">
-            <section></section>
-            <p>日期:{{current_edit}}</p>
-            <p>區域:海底隧道</p>
-            <p>確定要關閉該區嗎?</p>
+// Vue.component('double-check-off', {
+//     template:
+//         ` 
+//         <div class="dbc" id='root'>
+//             <section></section>
+//             <p>日期:{{current_edit}}</p>
+//             <p>區域:海底隧道</p>
+//             <p>確定要關閉該區嗎?</p>
 
-            <div>
-                <button type="button" @click='cancel'>取消</button>
-                <button type="button" @click='sure'>確認</button>
-            </div>
-        </div>                
-        `
-    ,
-    methods: {
-        sure() {
-            this.$emit('save')
+//             <div>
+//                 <button type="button" @click='cancel'>取消</button>
+//                 <button type="button" @click='sure'>確認</button>
+//             </div>
+//         </div>                
+//         `
+//     ,
+//     methods: {
+//         sure() {
+//             this.$emit('save')
 
-        },
-        cancel() {
-            this.$emit('cancel')
-        }
-    },
-});
-Vue.component('double-check-on', {
-    template:
-        ` 
-        <div class="dbc">
-            <section></section>
-            <p>日期:2022/03/22</p>
-            <p>區域:海底隧道</p>
-            <p>確定要開啟該區嗎?</p>
+//         },
+//         cancel() {
+//             this.$emit('cancel')
+//         }
+//     },
+// });
+// Vue.component('double-check-on', {
+//     template:
+//         ` 
+//         <div class="dbc">
+//             <section></section>
+//             <p>日期:2022/03/22</p>
+//             <p>區域:海底隧道</p>
+//             <p>確定要開啟該區嗎?</p>
 
-            <div>
-                <button type="button" @click='cancel'>取消</button>
-                <button type="button" @click='sure'>確認</button>
-            </div>
-        </div>                
-        `
-    ,
-    methods: {
-        sure() {
-            this.$emit('save')
-        },
-        cancel() {
-            this.$emit('cancel')
-        }
-    },
-});
-const vm = new Vue({
+//             <div>
+//                 <button type="button" @click='cancel'>取消</button>
+//                 <button type="button" @click='sure'>確認</button>
+//             </div>
+//         </div>                
+//         `
+//     ,
+//     methods: {
+//         sure() {
+//             this.$emit('save')
+//         },
+//         cancel() {
+//             this.$emit('cancel')
+//         }
+//     },
+// });
+new Vue({
     el: '#root',
     data: {
         dbcheck_off: false,
@@ -88,6 +88,7 @@ const vm = new Vue({
         edit(year, month, date) {
             this.current_edit = year + '/' + month + '/' + date;
             //console.log(year + '/' + month + '/' + date);
+            console.log(this.current_edit);
         },
 
 
@@ -249,6 +250,37 @@ const vm = new Vue({
             return data
         }
 
+    },
+    components: {
+        'double-check-off': {
+            data() {
+                return {
+                    current_edit: 111
+                }
+            },
+            template: ` 
+            <div class="dbc" id='root'>
+                <section></section>
+                <p>日期:{{current_edit}}</p>
+                <p>區域:海底隧道</p>
+                <p>確定要關閉該區嗎?</p>
+    
+                <div>
+                    <button type="button" @click='cancel'>取消</button>
+                    <button type="button" @click='sure'>確認</button>
+                </div>
+            </div>                
+            `,
+            methods: {
+                sure() {
+                    this.$emit('save')
+
+                },
+                cancel() {
+                    this.$emit('cancel')
+                }
+            },
+        }
     }
 }
 );
