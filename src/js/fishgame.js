@@ -3,7 +3,8 @@ window.onload = function () {
         fish = document.querySelector('.fish'),
         counter = document.querySelector('.fishgame_count'),
         fishgameWrapper = document.querySelector('.fishgame_wrapper'),
-        fishgame_end_pop = document.querySelector('.fishgame_end_pop'),
+        fishgame_lose_pop = document.querySelector('.fishgame_lose_pop'),
+        fishgame_win_pop = document.querySelector('.fishgame_win_pop'),
         fishgame_hide = document.querySelector('.fishgame_hide');
 
 
@@ -97,10 +98,12 @@ window.onload = function () {
         setTimeout(function () {
 
             if (count >= 5) {
-                alert('成功');
+                $('.fish').remove();
+                fishgame_win_pop.style.display = 'flex';
+                fishgame_hide.style.display = 'block';
             } else {
                 $('.fish').remove();
-                fishgame_end_pop.style.display = 'flex';
+                fishgame_lose_pop.style.display = 'flex';
                 fishgame_hide.style.display = 'block';
 
             }
@@ -119,7 +122,7 @@ window.onload = function () {
                 alert('成功');
             } else {
                 $('.fish').remove();
-                fishgame_end_pop.style.display = 'flex';
+                fishgame_lose_pop.style.display = 'flex';
                 fishgame_hide.style.display = 'block';
 
             }
@@ -127,8 +130,22 @@ window.onload = function () {
 
     });
 
+    // 儲存優惠碼
+    $('.fishgame_savecoupon_btn').on('click', function () {
+        $('.fishgame_savecoupon').css('display', 'flex');
+    });
+
+    // 儲存優惠碼--確定
+    $('.fishgame_savecoupon_sure_btn').on('click', function () {
+        location.href = 'f_member.html';
+    });
+    // 儲存優惠碼--取消
+    $('.fishgame_savecoupon_cancel_btn').on('click', function () {
+        $(this).parent().css('display', 'none');
+    });
+
     // 返回首頁
     $('.fishgame_back_btn').on('click', function () {
         location.href = "../index.html";
-    })
+    });
 }

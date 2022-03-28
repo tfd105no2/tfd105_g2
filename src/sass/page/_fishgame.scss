@@ -60,11 +60,11 @@
 }
 
 // 彈窗
-.fishgame_end_pop {
+.fishgame_lose_pop {
   width: 500px;
   height: 300px;
   border-radius: 5px;
-  background-color: #fff;
+  // background-color: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -76,6 +76,69 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p {
+    font-size: 20px;
+  }
+  button {
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #5c9fb9;
+    border: none;
+    cursor: pointer;
+  }
+}
+.fishgame_win_pop {
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  // background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 20px;
+  }
+  button {
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: #5c9fb9;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.fishgame_savecoupon {
+  border: 1px solid #00bdd1;
+  width: 500px;
+  height: 250px;
+  border-radius: 5px;
+  background-color: #edf9fb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 20px;
+  }
   button {
     margin-top: 30px;
     width: 100px;

@@ -59,15 +59,31 @@
         </div>
       </div>
 
-      <!-- 遊戲結束時的彈窗 -->
-      <div class="fishgame_end_pop">
+      <!-- 挑戰失敗時的彈窗 -->
+      <div class="fishgame_lose_pop">
         <p>挑戰失敗</p>
+        <p>好可惜唷～再挑戰一次嗎？</p>
         <button class="fishgame_tryAgain_btn">再試一次</button>
         <button class="fishgame_back_btn">返回首頁</button>
       </div>
+      <!-- 挑戰成功時的彈窗 -->
+      <div class="fishgame_win_pop">
+        <p>恭喜挑戰成功，獲得夜宿折扣碼</p>
+        <p>結帳時，輸入以下折扣碼即可享有折價</p>
+        <p>sea300</p>
+        <button class="fishgame_savecoupon_btn">儲存折扣碼</button>
+        <button class="fishgame_back_btn">返回首頁</button>
+      </div>
+
+      <!-- 儲存折扣碼是否前往登入 -->
+      <div class="fishgame_savecoupon">
+        <p>儲存折扣碼需先登入會員，您要前往登入嗎？</p>
+        <button class="fishgame_savecoupon_sure_btn">確定</button>
+        <button class="fishgame_savecoupon_cancel_btn">取消</button>
+      </div>
     </main>
     <!-- 遮罩 -->
-    <div class="fishgame_hide"></div>
+    <!-- <div class="fishgame_hide"></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/fishgame.min.js"></script>
   </body>
