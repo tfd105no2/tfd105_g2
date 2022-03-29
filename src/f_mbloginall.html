@@ -26,31 +26,32 @@
             </ul>
             <!-- 註冊表單 -->
             <form class="register_form" action="">
-                <label for="mbSignName">姓名</label><input type="text" id="mbSignName" placeholder="此欄位必填">
+                <label for="mbSignName">姓名</label><input type="text" id="mbSignName" placeholder="此欄位必填" required>
                 <br>
-                <label for="mbSignMail">註冊信箱</label><input type="text" id="mbSignMail" placeholder="此欄位必填">
+                <label for="mbSignMail">註冊信箱</label><input type="text" id="mbSignMail" placeholder="此欄位必填" required>
                 <br>
-                <label for="mbSignPassword">密碼</label><input type="text" id="mbSignPassword" placeholder="此欄位必填">
+                <label for="mbSignPassword">密碼</label><input type="text" id="mbSignPassword" placeholder="此欄位必填"
+                    required>
                 <br>
-                <label for="mbCheckPassword">確認密碼</label><input type="text" id="mbCheckPassword" placeholder="此欄位必填">
+                <label for="mbCheckPassword">確認密碼</label><input type="text" id="mbCheckPassword" placeholder="此欄位必填"
+                    required>
                 <br>
-                <label for="mbSignpPhone">手機號碼</label><input type="text" id="mbSignpPhone" placeholder="此欄位必填">
+                <label for="mbSignpPhone">手機號碼</label><input type="text" id="mbSignpPhone" placeholder="此欄位必填" required>
                 <br>
                 <input type="submit" value="註冊">
             </form>
             <!-- 登入表單 -->
             <form class="login_form" action="">
-                <label for="mbAccount">帳號</label><input type="text" id="mbAccount">
+                <label for="mbAccount">帳號</label><input type="text" id="mbAccount" required>
                 <br>
-                <label for="mbPassword">密碼</label><input type="text" id="mbPassword">
+                <label for="mbPassword">密碼</label><input type="text" id="mbPassword" required>
                 <br>
                 <input type="submit" value="登入">
-                <a href="f_mbforget.html">忘記密碼</a>
+                <!-- 忘記密碼與其他登入方式 -->
+                <a href="f_mbforget.html" class="forgetpw">忘記密碼</a>
                 <div class="loginOther">
                     <div class="loginOther1">
-                        <p class="loginUnderline"></p>
                         <p>或</p>
-                        <p class="loginUnderline"></p>
                     </div>
                     <div class="loginOther2">
                         <div class="loginFB">
