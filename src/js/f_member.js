@@ -15,7 +15,8 @@ $(function () {
         reader.onload = function () {
             $('#PicBlock img').remove();
             $('#PicBlock').append(`<img class="member_pic" src="${this.result}">`);
-        }
+        }        
+        $('#PicBlock').css('background-image', 'none');
     });
     // tab切換
     let member_item = $('#FMember .member_body .member_list li.member_item');
