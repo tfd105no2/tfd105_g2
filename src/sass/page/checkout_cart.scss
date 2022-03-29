@@ -52,6 +52,9 @@
                 border-collapse:separate;
                 border-radius: 5px;
 
+                .contentTitle{
+                    font-size: 16px;
+                }
                 a, button {
                     color: #707070;
                 }
@@ -62,9 +65,6 @@
                 td{
                     border-top: 1px solid #00BDD1;
                 }
-                .contentTitle{
-                    font-size: 16px;
-                }
                 .ticketGroup{
                     img{
                         width: 100px;
@@ -73,6 +73,7 @@
                     .ticketType{
                         text-align: left;
                     }
+                    // 數量組區塊
                     .cart_quantityInfo {
                         display: flex;
                         justify-content: center;
@@ -107,6 +108,7 @@
                         border: 1px solid #00BDD1;
                     }
                     .subtotal{
+                        width: 11rem;
                         font-weight: 600;
                     }
                     .deleteButton{
@@ -190,9 +192,8 @@
 
         // 當購物車裡沒商品的狀態
         .no_ticket{
-            // display: none;
             width: 1000px;
-            margin: 10rem auto 0;
+            margin: 0 auto;
             padding: 3rem;
             text-align: center;
 
