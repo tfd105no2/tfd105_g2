@@ -149,6 +149,7 @@
             border-radius: 5px;
             padding: .5rem 1rem;
 
+            // position: relative;
             .chooseTitle{
                 text-align: center;
                 border-bottom: 1px solid #00BDD1;
@@ -176,6 +177,14 @@
             a{
                 color: #707070;
             }
+        }
+
+        // 裝飾圖片
+        .pay_fish{
+            width: 35%;
+            position: absolute;
+            top: 400px;
+            right: 0px;
         }
     }
 }
