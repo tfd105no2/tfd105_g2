@@ -1,5 +1,4 @@
 .pay_wrapper{
-    background-color: #EDF9FB;
     height: 1000px;
     .pay_main{
         width: 1200px;
@@ -119,13 +118,12 @@
                     font-weight: 600;
                 }
                 .ticketTotal{
-                    // text-align: right;
                     .pay_btn{
                         a{
                             display: block;
                             margin: 0 auto;
                             width: 8rem;
-                            height: 2.5rem;
+                            line-height: 2.5rem;
                             
                             background-color: #00BDD1;
                             color: #fff;
@@ -171,6 +169,13 @@
             }
         }
 
+        // 返回上一步
+        .back{
+            margin-top: 1rem;
+            margin-left: 4.5rem;
+            a{
+                color: #707070;
+            }
+        }
     }
-
 }

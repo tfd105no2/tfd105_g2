@@ -1,5 +1,4 @@
 .cart_wrapper{
-    background-color: #EDF9FB;
     height: 1000px;
     .cart_main{
         width: 1200px;
@@ -186,6 +185,44 @@
                         color: #0080A8;
                     }
                 }
+            }
+        }
+
+        // 當購物車裡沒商品的狀態
+        .no_ticket{
+            // display: none;
+            width: 1000px;
+            margin: 10rem auto 0;
+            padding: 3rem;
+            text-align: center;
+
+            // background-image: linear-gradient(to top, #bef7fd 0%, #ffffff 100%);
+            background-color: rgba($color: #ffffff, $alpha: .6);
+            border: 1px solid #00BDD1;
+            border-radius: 5px;
+            .no_ticket_fish{
+                width: 12%;
+                animation: nimo 1s linear infinite;
+            }
+            @keyframes nimo{
+                0%{
+                    transform: rotate(0deg);
+                }
+                50%{
+                    transform: rotate(-10deg);
+                }
+                100%{
+                    transform: rotate(0deg);
+                }
+            }
+            a{
+                display: block;
+                margin: 1rem auto 0;
+                width: 8rem;
+                line-height: 2.5rem;
+                background-color: #00BDD1;
+                border-radius: 5px;
+                color: #fff;
             }
         }
     }
