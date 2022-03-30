@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "完成訂單"
+    })
+</head>
+
+<body>
+    <div class="complet_wrapper">
+        @@include('layout/nav.html')
+        <main class="complet_main">
+            <!-- 結帳流程進度條區塊 -->
+            <div class="cart_anv">
+                <div class="cart_item">
+                    <div class="cart_round">
+                        <p>1</p>
+                    </div>
+                    <span>查看購物車</span>
+                </div>
+                <div class="cart_item">
+                    <div class="cart_round">
+                        <p>2</p>
+                    </div>
+                    <span>確認付款</span>
+                </div>
+                <div class="cart_item  cartSelected">
+                    <div class="cart_round">
+                        <p>3</p>
+                    </div>
+                    <span>完成訂單</span>
+                </div>
+            </div>
+
+            <!-- 顯示訂單完成區塊 -->
+            <div class="orderCompleted">
+                <h3>已完成訂單!</h3>
+                <span>感謝您對本館的支持，祝福您有個愉快的體驗~</span><br>
+                <div class="orderCompleted_btn">
+                    <a href="#">查看訂單</a>
+                    <a href="#">再去逛逛</a>
+                </div>
+                <img class="complet01" src="./img/complet01.png" alt="珊瑚圖片">
+                <img class="complet02" src="./img/complet02.png" alt="珊瑚圖片">
+            </div>
+
+        </main>
+    </div>
+    @@include('layout/footer.html')
+</body>

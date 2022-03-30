@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     @@include('layout/head.html', {
@@ -18,20 +18,20 @@
                         <div class="cart_round">
                             <p>1</p>
                         </div>
-                        <p>查看購物車</p>
+                        <span>查看購物車</span>
                     </a>
                 </div>
                 <div class="cart_item cartSelected">
                     <div class="cart_round">
                         <p>2</p>
                     </div>
-                    <p>確認付款</p>
+                    <span>確認付款</span>
                 </div>
                 <div class="cart_item">
                     <div class="cart_round">
                         <p>3</p>
                     </div>
-                    <p>完成訂單</p>
+                    <span>完成訂單</span>
                 </div>
             </div>
 
@@ -88,10 +88,11 @@
                         </tr>
                         <tr class="ticketTotal">
                             <td class="noBorderTop" colspan="5"></td>
-                            <td class="pay_btn noBorderTop"><a href="#">確認付款</a></td>
+                            <td class="pay_btn noBorderTop"><a href="./checkout_complet.html">確認付款</a></td>
                         </tr>
                     </tbody>
                 </table>
+
 
                 <!-- 選擇付款方式區塊 -->
                 <div class="choose_block">
@@ -113,6 +114,11 @@
                         </label>
                     </div>
                 </div>
+            </div>
+            <div class="back">
+                <a href="./checkout_cart.html">◁返回上一步</a>
+            </div>
+            <img class="pay_fish" src="img/pay_fish.png" alt="">
         </main>
     </div>
     @@include('layout/footer.html')
