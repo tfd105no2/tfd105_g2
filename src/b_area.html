@@ -88,11 +88,13 @@
           v-if="dbcheck_off"
           @save="sss"
           @cancel="ccc"
+          :b_date="current_edit"
         ></double-check-off>
         <double-check-on
           v-if="dbcheck_on"
           @save="osss"
           @cancel="occc"
+          :b_date="current_edit"
         ></double-check-on>
       </div>
     </div>

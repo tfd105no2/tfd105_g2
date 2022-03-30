@@ -253,17 +253,38 @@ new Vue({
     },
     components: {
         'double-check-off': {
-            data() {
-                return {
-                    current_edit: 111
-                }
-            },
+            props: ['b_date'],
             template: ` 
             <div class="dbc" id='root'>
                 <section></section>
-                <p>日期:{{current_edit}}</p>
+                <p>日期:{{b_date}}</p>
                 <p>區域:海底隧道</p>
                 <p>確定要關閉該區嗎?</p>
+    
+                <div>
+                    <button type="button" @click='cancel'>取消</button>
+                    <button type="button" @click='sure'>確認</button>
+                </div>
+            </div>                
+            `,
+            methods: {
+                sure() {
+                    this.$emit('save')
+
+                },
+                cancel() {
+                    this.$emit('cancel')
+                }
+            },
+        },
+        'double-check-on': {
+            props: ['b_date'],
+            template: ` 
+            <div class="dbc" id='root'>
+                <section></section>
+                <p>日期:{{b_date}}</p>
+                <p>區域:海底隧道</p>
+                <p>確定要開啟該區嗎?</p>
     
                 <div>
                     <button type="button" @click='cancel'>取消</button>
