@@ -1,0 +1,214 @@
+.night-detail-wrapper {
+    background-color: #edf9fb;
+    main {
+        .title {
+            background-image: url("../img/ticket_title.jpg");
+            height: calc(100vh - 80px);
+            background-size: cover;
+            background-position: 50% 50%;
+            background-attachment: fixed;
+            h2 {
+                font-size: 36px;
+                color: #fff;
+                font-weight: 700;
+                text-align: center;
+                line-height: calc(100vh - 80px);
+            }
+        }
+        .tab {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 60px;
+            li {
+                padding: 0 18px;
+                a {
+                    color: rgb(0, 189, 209, 0.3);
+                    display: block;
+                    i {
+                        font-size: 48px;
+                        margin-bottom: 20px;
+                    }
+                    p {
+                        font-size: 20px;
+                    }
+                }
+            }
+            li.active,
+            li:hover {
+                a {
+                    color: #00bdd1;
+                }
+            }
+        }
+        .content-wrapper {
+            position: relative;
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                margin-top: 28px;
+                h2 {
+                    color: #00bdd1;
+                    font-size: 24px;
+                    text-align: center;
+                    padding: 30px 0 60px 0;
+                }
+                // 圖片詳情
+                .content-top {
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        width: 320px;
+                        height: 320px;
+                        object-fit: cover;
+                        object-position: 50%;
+                        margin-right: 30px;
+                    }
+                    .content-text {
+                        h3 {
+                            font-size: 24px;
+                            color: #0080a8;
+                            margin-bottom: 8px;
+                        }
+                        p {
+                            font-size: 20px;
+                            color: #5c9fb9;
+                            margin-bottom: 10px;
+                        }
+                        .bed-left {
+                            width: 105px;
+                            line-height: 30px;
+                            background-color: #0080a8;
+                            color: #fff;
+                            font-size: 16px;
+                            border-radius: 3px;
+                            text-align: center;
+                            margin-bottom: 20px;
+                        }
+                        span {
+                            font-size: 16px;
+                            margin: 0 0 8px 24px;
+                        }
+                        .notice {
+                            list-style: disc;
+                            width: 420px;
+                            margin-left: 40px;
+                            li {
+                                font-size: 14px;
+                                color: #a6a6a6;
+                            }
+                        }
+                    }
+                }
+                // 分隔線
+                hr {
+                    width: 850px;
+                    border: 1px dashed #5c9fb9;
+                    margin: 60px auto;
+                }
+                // 票種選擇
+                .content-bottom {
+                    padding-bottom: 230px;
+                    ul {
+                        margin: 0 auto;
+                        .bed-type {
+                            margin: 0 auto 25px auto;
+                            border-radius: 5px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            width: 792px;
+                            height: 75px;
+                            background-color: #00bdd1;
+                            padding: 0 18px 0 30px;
+                            p {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: #fff;
+                            }
+                            .type-right {
+                                display: flex;
+                                align-items: center;
+                                p {
+                                }
+                                .quantityInfo {
+                                    display: flex;
+                                    margin: 0 30px;
+                                    span {
+                                        button {
+                                            background-color: #fff;
+                                            border: 1px solid #00bdd1;
+                                            cursor: pointer;
+                                            height: 40px;
+                                        }
+                                        .minus {
+                                            border-right: none;
+                                            border-radius: 3px 0 0 3px;
+                                        }
+                                        .plus {
+                                            border-left: none;
+                                            border-radius: 0 3px 3px 0;
+                                        }
+                                    }
+
+                                    // 隱藏 type=number的上下箭頭
+                                    input[type="number"]::-webkit-outer-spin-button,
+                                    input[type="number"]::-webkit-inner-spin-button {
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+
+                                    input.quantity {
+                                        width: 100px;
+                                        text-align: center;
+                                        border: 1px solid #00bdd1;
+                                        height: 40px;
+                                        outline: none;
+                                        font-size: 18px;
+                                    }
+                                }
+                                .button {
+                                    width: 108px;
+                                    height: 40px;
+                                    color: #fff;
+                                    border: 1px solid #fff;
+                                    font-size: 16px;
+                                    border-radius: 3px;
+                                    background-color: #00bdd1;
+                                    cursor: pointer;
+                                    transition: all 0.5s;
+                                }
+                                .button:hover {
+                                    background-color: #0080a8;
+                                    border-color: #0080a8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 裝飾
+            .deco {
+                img {
+                    position: absolute;
+                }
+                .nig-fish {
+                    width: 450px;
+                    top: 80px;
+                    left: 900px;
+                }
+                .nig-grass {
+                    width: 150px;
+                    top: 650px;
+                    left: 30px;
+                }
+                .nig-deco {
+                    height: 100px;
+                    top: 1000px;
+                    left: -50px;
+                }
+            }
+        }
+    }
+}

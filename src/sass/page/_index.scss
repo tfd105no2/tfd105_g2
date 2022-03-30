@@ -16,18 +16,41 @@
 //
 
 .index-wrapper {
+    background-color: #edf9fb;
     main {
+        // 側邊購票
+        .ticket-side-link {
+            position: fixed;
+            right: 0;
+            bottom: 10px;
+            z-index: 1000;
+            width: 120px;
+
+            a {
+                cursor: pointer;
+                display: block;
+                transition: opacity 0.2s;
+                &:hover {
+                    opacity: 0.9;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
         // section-背景影片
         .topVisualWrap {
+            overflow: hidden;
             width: 100%;
-            min-height: 650px;
+            min-height: 530px;
             background: #000;
             position: relative;
             .movie-content {
                 z-index: 0;
                 position: absolute;
                 width: auto;
-                height: 711px;
+                height: 723px;
                 left: 0;
                 top: 0;
             }
@@ -36,7 +59,7 @@
                 left: 0;
                 top: 0;
                 width: 100%;
-                height: 711px;
+                height: 723px;
                 background-color: #007481;
                 opacity: 0.3;
                 z-index: 1;
@@ -51,7 +74,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                top: -60px;
+                top: 80px;
                 margin: auto;
                 h1 {
                     position: relative;
@@ -95,8 +118,7 @@
         }
         // section 天氣與營業時間
         .weather-time-wrap {
-            margin: 61px 0px 130px 0px;
-            padding-top: 100px;
+            margin: 100px 0px 130px 0px;
             .container {
                 // border: 1px solid red;
                 max-width: 1100px;
@@ -157,7 +179,7 @@
         .intro {
             margin-bottom: 130px;
             .container {
-                // border: 1px solid;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 background-color: rgb(255, 255, 255);
                 max-width: 1100px;
                 margin: 0 auto;
@@ -227,7 +249,7 @@
         }
         // section 最新消息
         .news {
-            margin-bottom: 200px;
+            margin-bottom: 250px;
             .container {
                 max-width: 1100px;
                 margin: 0 auto;
@@ -269,10 +291,19 @@
                     justify-content: space-between;
                     li {
                         width: calc(33.33% - 20px);
+                        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                         a {
                             position: relative;
                             display: block;
                             height: 300px;
+                            transition: all 0.5s;
+                            overflow: hidden;
+                            &:hover {
+                                opacity: 0.8;
+                                img {
+                                    transform: scale(1.5);
+                                }
+                            }
                             &::after {
                                 content: "";
                                 display: block;
@@ -286,6 +317,7 @@
                             img {
                                 width: 100%;
                                 height: 100%;
+                                transition: all 0.5s;
                             }
                             .news_text {
                                 color: #fff;
@@ -314,34 +346,103 @@
             }
         }
         // section 功能卡片
-        .function_card{
-            .container{
-                border: 1px solid red;
+        .function_card {
+            margin-bottom: 50px;
+            .container {
                 display: flex;
+                position: relative;
+                justify-content: space-between;
                 padding: 0 80px;
                 max-width: 1100px;
                 margin: 0 auto;
-                background-color: rgb(214, 214, 214);
-                .booking_card{
-                    border: 1px solid;
-                    width: calc(50% - 230px);
-                    h4{}
-                    p{}
-                    .btn_booking{
-                        a{}
+                background-color: rgb(255, 255, 255);
+                h4 {
+                    color: #46ccdb;
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 30px;
+                }
+                p {
+                    color: #9c9c9c;
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                }
+                .deco {
+                    img {
+                        width: 295px;
+                        position: absolute;
+                        top: -170px;
+                        left: -20px;
                     }
                 }
-                .map_card{
-                    border: 1px solid;
-                    width:calc(50% - 230px);
-                    h4{}
-                    p.title{}
-                    form{
-                        label{}
-                        input.input_add{}
-                        input.btn_map{}
+                .booking_card {
+                    width: 400px;
+                    height: 450px;
+                    padding: 30px 40px;
+                    box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
+                    .btn_booking {
+                        text-align: center;
+                        margin-top: 80px;
+                        a {
+                            cursor: pointer;
+                            transition: all 0.5s;
+                            display: inline-block;
+                            width: 100px;
+                            line-height: 35px;
+                            border: 2px solid #007481;
+                            background-color: #fff;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            color: #007481;
+                            text-align: center;
+                            box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
+                            &:hover {
+                                background-color: #007481;
+                                color: #fff;
+                            }
+                        }
                     }
-                    p.address{}
+                }
+                .map_card {
+                    width: 400px;
+                    height: 450px;
+                    padding: 30px 40px;
+                    box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
+                    p.title {
+                    }
+                    form {
+                        // text-align: center;
+                        input.input_add {
+                            background: none;
+                            border: none;
+                            border-bottom: 2px solid #46ccdb;
+                            width: 100%;
+                            margin: 20px 0 30px 0;
+                            font-size: 14px;
+                        }
+                        input.btn_map {
+                            display: block;
+                            width: 100px;
+                            line-height: 35px;
+                            padding: 0;
+                            background-color: #fff;
+                            border: 2px solid #007481;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            color: #007481;
+                            margin: 35px auto 0 auto;
+                            box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
+                            cursor: pointer;
+                            transition: all 0.5s;
+                            &:hover {
+                                background-color: #007481;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    p.address {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
