@@ -8,14 +8,24 @@
 }
 
 #app{
+    background-color:#EDF9FB;
     .fishh{
         width: 50px;
         cursor: pointer;
         display: flex;
         flex-direction: row-reverse;
-    }
-    .fishh:hover{
         
+    }
+    @keyframes  swing  {
+		15% { transform:  translateX(5px); }
+		40% { transform:  translateX(-5px); }
+		65% { transform:  translateX(2px); }
+		85% { transform:  translateX(-2px); }
+		100% { transform:  translateX(0px); }
+	}
+	
+    .fishh:hover{
+        animation : swing 1s 1;
     }
 }
 
@@ -337,7 +347,7 @@
                 right: 60%;
                 bottom: -25%;
                 z-index: 1;
-                // animation:  rightleft 8000ms ease-out infinite;
+                animation:  rightleft 8000ms ease-out infinite;
             }
             h3{
                 border-bottom:1px solid #00BDD1;
@@ -362,7 +372,7 @@
                 display: flex;
                 flex-direction: column;
                 z-index: 1;
-                // animation:  carpice 8000ms linear infinite;
+                animation:  carpice 8000ms linear infinite;
                 
             }
             
@@ -440,7 +450,7 @@
             top: 90%;
             background-image:  url('../img/073-01.png');
             background-repeat: no-repeat;
-            // animation:  star 10s linear infinite;
+            animation:  star 10s linear infinite;
             
         }   
     }
