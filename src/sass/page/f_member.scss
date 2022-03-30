@@ -40,6 +40,7 @@
                 line-height: $line-height-text;
                 padding: space(1) space(2);
                 color: rgb(0, 189, 209, .5);
+                white-space:nowrap;
                 cursor: pointer;
 
                 @media screen and (max-width: 768px) {
@@ -103,6 +104,7 @@
             }
 
             .member_box {
+                @extend %flex-center;
                 width: 200px;
                 height: 200px;
                 margin: 0 auto space(2);
@@ -110,6 +112,7 @@
                 background-image: url(../img/member-pic.png);
                 background-size: cover;
                 background-repeat: no-repeat;
+                background-color: #00BDD1;
 
                 img {
                     @extend %img-mw;
@@ -148,57 +151,67 @@
                 }
             }
 
-            >table {
-                border: 3px solid #00BDD1;
-
-                thead {
-                    tr {
-                        position: relative;
-
-                        th {
-                            font-size: $font-size;
-                        }
-
-                        &::after {
-                            content: "";
-                            display: block;
-                            position: absolute;
-                            width: 98%;
-                            border: 1px solid #00BDD1;
-                            bottom: 0;
-                            left: 50%;
-                            transform: translateX(-50%);
-                        }
-                    }
+            &:last-child {
+                @media screen and (max-width: 576px) {
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 375px;
+                    overflow-x: auto;
                 }
 
-                tbody {
-                    td {
-                        font-size: 16px;
-                        color: #888;
+                >table {
+                    width: 695px;
+                    border: 3px solid #00BDD1;
 
-                        button {
-                            padding: 5px 10px;
-                            border: 1px solid transparent;
-                            border-radius: 5px;
-                            outline: none;
-                            background-color: $btn-color;
-                            color: #fff;
-                            cursor: pointer;
+                    thead {
+                        tr {
+                            position: relative;
 
-                            &:hover {
-                                background-color: #fff;
-                                color: $btn-color;
-                                border: 1px solid $btn-color;
+                            th {
+                                font-size: $font-size;
+                            }
+
+                            &::after {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                width: 98%;
+                                border: 1px solid #00BDD1;
+                                bottom: 0;
+                                left: 50%;
+                                transform: translateX(-50%);
                             }
                         }
                     }
-                }
 
-                th,
-                td {
-                    text-align: center;
-                    padding: 10px;
+                    tbody {
+                        td {
+                            font-size: 16px;
+                            color: #888;
+
+                            button {
+                                padding: 5px 10px;
+                                border: 1px solid transparent;
+                                border-radius: 5px;
+                                outline: none;
+                                background-color: $btn-color;
+                                color: #fff;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: #fff;
+                                    color: $btn-color;
+                                    border: 1px solid $btn-color;
+                                }
+                            }
+                        }
+                    }
+
+                    th,
+                    td {
+                        text-align: center;
+                        padding: 10px;
+                    }
                 }
             }
         }

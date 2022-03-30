@@ -28,6 +28,8 @@ Vue.component('news-add', {
             on_off: 0,
             n_main_title: '',
             n_main_content: '',
+            b_preview: null,
+            b_image: null
         };
     },
 
@@ -68,14 +70,16 @@ Vue.component('news-add', {
                 </div>
 
                 <ul class="b_news_img">
-                    <li>
-                        <label for="">圖片:</label>
-                        <input type="file" />
-                    </li>
-                    <li class="b_img">
-                        <img src="../img/b_n_img.png" alt="" />
-                    </li>
-                </ul>
+            <li>
+              <label for="">圖片:</label>
+              <input type="file" @change="b_uploadImg" />
+            </li>
+            <li class="b_img">
+              <template v-if="b_preview">
+                <img :src="b_preview" />
+              </template>
+            </li>
+          </ul>
                 <div class="b_news_editbtn">
                     <button class="b_news_close" @click="n_close">關閉</button>
                     <button class="b_news_save" @click="n_save">儲存</button>
@@ -91,6 +95,18 @@ Vue.component('news-add', {
         },
         n_save() {
             this.$emit('nsave');
+        },
+        b_uploadImg(event) {
+            let input = event.target;
+            if (input.files) {
+                let b_reader = new FileReader();
+                b_reader.onload = (e) => {
+                    console.log(this);
+                    this.b_preview = e.target.result;
+                }
+                this.b_image = input.files[0];
+                b_reader.readAsDataURL(input.files[0]);
+            }
         },
 
     }
@@ -158,6 +174,8 @@ var appVue = new Vue({
         ],
         nowpage: 1,
         current_edit: null,
+        b_preview: null,
+        b_image: null
     },
     created: function () {
         this.showNdata(1);
@@ -176,7 +194,18 @@ var appVue = new Vue({
             // this.new_img[0] = this.newss[index].news_image;
 
         },
-
+        b_uploadImg(event) {
+            let input = event.target;
+            if (input.files) {
+                let b_reader = new FileReader();
+                b_reader.onload = (e) => {
+                    console.log(this);
+                    this.b_preview = e.target.result;
+                }
+                this.b_image = input.files[0];
+                b_reader.readAsDataURL(input.files[0]);
+            }
+        },
 
 
         sss() {

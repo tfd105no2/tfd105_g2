@@ -1,0 +1,82 @@
+.complet_wrapper{
+    height: 1000px;
+    .complet_main{
+        width: 1200px;
+        margin: 0 auto;
+
+        // 結帳流程進度條區塊
+        .cart_anv{
+            width: 75%;
+            display: flex;
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+        .cart_item{
+            width: 33.3%;
+            color: #707070;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 3px solid rgba($color: #00bdd1, $alpha: 0.5);
+        }
+        .cart_round{
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: rgba($color: #00bdd1, $alpha: 0.5);
+            color: #fff;
+            line-height: 30px;
+        }
+        // 當前頁面
+        .cartSelected{
+            .cart_round{
+                background-color: #00BDD1;
+                color: #fff;
+            }
+            color: #00BDD1;
+            border-bottom: 3px solid #00BDD1;
+        }
+
+        // 顯示訂單完成區塊
+        .orderCompleted{
+            width: 1000px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
+            line-height: 4rem;
+            color: #707070;
+
+            background-color: rgba($color: #ffffff, $alpha: .6);
+            border: 1px solid #00BDD1;
+            border-radius: 5px;
+            position: relative;
+            .orderCompleted_btn{
+                width: 40%;
+                margin: 0 auto;
+                display: flex;
+                a{
+                    display: block;
+                    margin: 1rem auto 0;
+                    width: 8rem;
+                    line-height: 2.5rem;
+                    background-color: #0080A8;
+                    border-radius: 5px;
+                    color: #fff;
+                }
+            }
+            // 裝飾珊瑚
+            .complet01{
+                width: 16%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+            .complet02{
+                width: 13%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}

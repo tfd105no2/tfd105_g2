@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('layout/head.html',{ 'title':'後台-消息管理' })
+    @@include('layout/head.html', { 'title':'後台-消息管理' })
   </head>
   <body>
     <div class="minwidth-wrapper">
@@ -115,10 +115,12 @@
           <ul class="b_news_img">
             <li>
               <label for="">圖片:</label>
-              <input type="file" />
+              <input type="file" @change="b_uploadImg" />
             </li>
             <li class="b_img">
-              <img src="../img/b_n_img.png" alt="" />
+              <template v-if="b_preview">
+                <img :src="b_preview" />
+              </template>
             </li>
           </ul>
 
