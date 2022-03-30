@@ -1,0 +1,26 @@
+footer {
+    padding: 15px 0 15px 0;
+    background-color: #dbf5f8;
+    .footer_flex {
+        .follow_icon {
+            display: flex;
+            justify-content: center;
+            a {
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h5 {
+                font-size: 14px;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}

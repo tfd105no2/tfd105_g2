@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "夜宿體驗"
+    })
+</head>
+
+<body>
+    <div class="ticket-wrapper">
+        @@include('layout/nav.html', {
+        'active4': 'active'
+        })
+        <main id="main">
+            <div class="title">
+                <h2>夜宿體驗</h2>
+            </div>
+            <!-- tab按鈕 -->
+            <ul class="tab">
+                <li class="tab-ticket active">
+                    <a href="ticket.html">
+                        <i class="fa-solid fa-ticket"></i>
+                        <p>預約訂票</p>
+                    </a>
+                </li>
+                <li class="tab-bed">
+                    <a href="night.html">
+                        <i class="fa-solid fa-bed"></i>
+                        <p>預訂夜宿</p>
+                    </a>
+                </li>
+            </ul>
+            <section class="content-wrapper">
+                <div class="container">
+                    <h2>選擇票券</h2>
+                    <!-- 卡片區 -->
+                    <ul class="ticket-type">
+                        <template v-for="item in tickets">
+                            <li>
+                                <a href="#">
+                                    <img class="ticket-top" :src="item.url" alt="">
+                                    <div class="ticket-bottom">
+                                        <div class="ticket-detail">
+                                            <h4>{{item.type}}</h4>
+                                            <p class="price">${{item.price}}</p>
+                                        </div>
+                                        <button type="button" class="button">加入購物車</button>
+                                    </div>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <!-- 裝飾 -->
+                <div class="deco">
+                    <img class="deco_chair" src="img/tic_chair.png" alt="">
+                    <img class="deco_turtle" src="img/tic_turtle.png" alt="">
+                </div>
+
+            </section>
+        </main>
+
+        <!-- modal 加入購物車 -->
+        <div class="modal modal-add">
+            <div class="modal-content">
+                <div class="add">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4>已加入購物車</h4>
+                <button type="button" class="button button-close">確定</button>
+
+            </div>
+        </div>
+    </div>
+    @@include('layout/footer.html')
+
+
+    <!-- 引入js -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/ticket.min.js"></script>
+</body>

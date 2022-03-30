@@ -1,52 +1,46 @@
 @mixin name {
-    
 }
 
-
-header{
-    
-    background: #00BDD1;
+header {
+    background: #00bdd1;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
 
-    .nav-wrapper{
+    .nav-wrapper {
         height: 80px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .logo a{
+        .logo a {
             display: block;
-            img{
+            img {
                 height: 60px;
-            }   
+            }
         }
 
-        .menu-wrapper{
+        .menu-wrapper {
             display: flex;
-            li a{
+            li a {
                 padding: 10px;
                 display: block;
                 color: #eee;
                 font-weight: 500;
                 font-size: 15px;
             }
-            li a.active{
+            li a.active {
                 color: hsl(186, 100%, 30%);
             }
-            li a:hover{
+            li a:hover {
                 color: hsl(186, 100%, 30%);
             }
-
         }
     }
-    .container{
+    .container {
         width: 100%;
         padding: 0 60px;
         margin: auto 0;
     }
-    
 }
-
-

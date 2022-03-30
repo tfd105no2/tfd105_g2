@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "夜宿體驗"
+    })
+</head>
+
+<body>
+    <div class="night-detail-wrapper">
+        @@include('layout/nav.html', {
+        'active4': 'active'
+        })
+        <main id="main">
+            <div class="title">
+                <h2>夜宿體驗</h2>
+            </div>
+            <!-- tab按鈕 -->
+            <ul class="tab">
+                <li class="tab-ticket">
+                    <a href="ticket.html">
+                        <i class="fa-solid fa-ticket"></i>
+                        <p>預約訂票</p>
+                    </a>
+                </li>
+                <li class="tab-bed active">
+                    <a href="night.html">
+                        <i class="fa-solid fa-bed"></i>
+                        <p>預訂夜宿</p>
+                    </a>
+                </li>
+            </ul>
+            <section class="content-wrapper">
+                <div class="container">
+                    <h2>預訂詳情</h2>
+                    <!-- 圖片詳情 -->
+                    <div class="content-top">
+                        <img src="img/intro-pic-01.png">
+                        <div class="content-text">
+                            <h3>海底隧道</h3>
+                            <p>預定日期: 2022/4/5 星期二</p>
+                            <div class="bed-left">剩餘15名</div>
+                            <span>注意事項</span>
+                            <ul class="notice">
+                                <li>未滿1歲之幼童與70歲以上之老年人與孕婦，基於安全考量，恕不接受預約。</li>
+                                <li>滿1歲~未滿3歲夜宿免費，不佔床，不含個人餐點及課程物品(與大人共食)，但會提供報到名牌，故請點選人數。</li>
+                                <li>本館提供沐浴乳、洗髮精、吹風機，為響應環保，請自備浴巾 、牙刷等個人用品</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 分隔線 -->
+                    <hr>
+                    <!-- 票種選擇 -->
+                    <div class="content-bottom" id="content-bottom">
+                        <ul class="type-list">
+                            <counter-component v-for="(item, key) in bedType" :person="item" :key="key">
+                            </counter-component>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 裝飾 -->
+                <div class="deco">
+                    <img class="nig-fish" src="img/nig_fish.png" alt="">
+                    <img class="nig-grass" src="img/nig_grass.png" alt="">
+                    <img class="nig-deco" src="img/nig_deco.png" alt="">
+                </div>
+
+            </section>
+
+            <!-- modal 加入購物車 -->
+            <div class="modal modal-add">
+                <div class="modal-content">
+                    <div class="add">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h4>已加入購物車</h4>
+                    <button type="button" class="button button-close">確定</button>
+
+                </div>
+            </div>
+        </main>
+    </div>
+    @@include('layout/footer.html')
+
+
+    <!-- 引入Vue -->
+    <script src="js/vue.min.js"></script>
+
+
+    <!-- x-template -->
+    <script type="text/x-template" id="counterTemplate">
+        <div>
+            <li class="bed-type">
+                <p>{{person.type}}</p>
+                <div class="type-right">
+                    <p>TWD{{person.price}}</p>
+                    <div class="quantityInfo">
+                        <span>
+                            <button @click="minus" class="minus" >-</button>
+                        </span>
+                        <input type="number" class="quantity" v-model="countz">
+                        <span>
+                            <button @click="add" class="plus">+</button>
+                        </span>
+                    </div>
+                    <button type="button" class="button ">加入購物車</button>
+                </div>
+            </li>
+        </div>
+    </script>
+
+    <!-- 引入JS -->
+    <script src="js/night_detail.min.js"></script>
+
+</body>
