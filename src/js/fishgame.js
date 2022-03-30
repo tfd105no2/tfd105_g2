@@ -136,7 +136,7 @@ window.onload = function () {
 
     // 儲存優惠碼--確定
     $('.fishgame_savecoupon_sure_btn').on('click', function () {
-        location.href = 'f_member.html';
+        location.href = 'f_mbloginall.html';
     });
     // 儲存優惠碼--取消
     $('.fishgame_savecoupon_cancel_btn').on('click', function () {
