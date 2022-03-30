@@ -3,7 +3,7 @@
 .f_mbforget {
     display: flex;
 
-    .f_mbforget_img {
+    .mbforget_img {
         width: 380px;
         height: calc(100vh - 80px);
         overflow: hidden;
@@ -18,52 +18,34 @@
         }
     }
 
-    .f_mbforget_body {
-        //20px 左右置中
-        margin: space(8) auto;
+    .mbforget_body {
+        margin: space(2) auto 0;
         display: flex;
-        width: 500px;
-        margin: 0 auto;
-        border-bottom: 5px solid $text-color;
+        flex-direction: column;
 
-        //註冊登入切換tab
-        .mbforget_body {
-            display: flex;
-            width: 500px;
+        // 忘記密碼標題
+        .mbforgettitle h2 {
+            width: 50%;
+            text-align: center;
+            //24px
+            font-size: map-get($title, h6);
+            //行距1.2
+            line-height: $line-height-text;
+            //10px 20px
+            padding: space(1) space(2);
             margin: 0 auto;
+            color: $text-color;
             border-bottom: 5px solid $text-color;
-
-
-            .mbforgettitle {
-                width: 50%;
-                text-align: center;
-                //24px
-                font-size: map-get($title, h6);
-                //行距1.2
-                line-height: $line-height-text;
-                //10px 20px
-                padding: space(1) space(2);
-                color: rgb(0, 189, 209, .5);
-                cursor: pointer;
-            }
-
-            .mbloginall_item.js-m-active {
-                color: $text-color;
-            }
-
-            .mbloginall_item+.mbloginall_item {
-                border-left: 1px solid;
-            }
+            
         }
 
+        //忘記密碼表單
         .forget_form {
             margin-top: space(2);
-            border-color: red;
-
             @media screen and (max-width: 576px) {
                 padding: 0 space(1.5);
             }
-
+            
             >label {
                 display: inline-block;
                 width: 30%;
@@ -75,7 +57,7 @@
                 vertical-align: middle;
                 color: $text-color;
             }
-
+            
             >input {
                 width: 70%;
                 height: 30px;
@@ -84,9 +66,9 @@
                 border-radius: 5px;
                 outline-color: none;
                 vertical-align: middle;
-
-                //以元素類型來選取
-                &:last-of-type {
+                
+                //送出按鈕
+                &:nth-last-child(2) {
                     display: block;
                     //10px auto 0
                     margin: space(1) auto 0;
@@ -99,117 +81,38 @@
                     border: 1px solid $btn-color;
                     background-color: transparent;
                     cursor: pointer;
-
+                    
                     &:hover {
                         background-color: #0080A8;
                         color: #fff;
                     }
                 }
-            }
-
-        }
-
-        .forgetpw {
-            text-decoration: underline;
-            color: #9E9E9E;
-            display: block;
-            text-align: right;
-
-            @media screen and (max-width: 576px) {
-                text-align: center;
-                margin: space(3);
-            }
-        }
-
-        .loginOther1 p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            text-align: center;
-            font-size: map-get($title, h6);
-            color: $text-color;
-            margin: space(5) auto;
-
-            &::before,
-            &::after {
-                flex-grow: 1;
-                height: 2px;
-                content: '';
-                background-color: #0080A8;
-                position: relative;
-                top: 0.8em;
-                margin: 0 space(1);
-            }
-        }
-
-        .loginOther2 {
-            display: flex;
-            justify-content: space-between;
-
-            @media screen and (max-width: 576px) {
-                flex-direction: column;
-                text-align: center;
-                margin: space(2) auto;
-            }
-
-            .loginFB {
-                border-color: #13637C;
-                border-width: 2px;
-                border-style: solid;
-                border-radius: 3px;
-                padding: space(0.3);
-                // background-color: #1778F2;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #0080A8;
-                    color: #fff;
+                
+                &:focus {
+                    border: 1px solid $btn-color;
+                    border-radius: 5px;
+                    outline-color: #0080A8;
                 }
-
-                a {
-                    color: $text-color;
-                    width: 180px;
-                    font-size: 20px;
-
-                    &::before {
-                        content: url(../../img/facebookicon.png);
-                        vertical-align: middle;
-                    }
-                }
-
+            }
+            
+            .linkother{
+                display: flex;
+                justify-content: space-between;
                 @media screen and (max-width: 576px) {
-                    margin: space(1.5);
+                    justify-content: space-between;
                 }
             }
-
-            .loginLine {
-                border-color: #13637C;
-                border-width: 2px;
-                border-style: solid;
-                border-radius: 3px;
-                padding: space(0.3);
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #0080A8;
-                    color: #fff;
-                }
-
-                a {
-                    color: $text-color;
-                    width: 180px;
-                    font-size: 20px;
-
-                    &::before {
-                        content: url(../../img/googleicon.png);
-                        vertical-align: middle;
-                    }
-                }
-
+            .linkother a{
+                display: flex;
+                text-decoration: underline;
+                color: #9E9E9E;
+                margin: space(3) 0;
                 @media screen and (max-width: 576px) {
-                    margin: space(1.5);
+                    text-align: center;
+                    margin: space(3) 0;
                 }
             }
         }
+    
     }
 }

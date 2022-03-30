@@ -105,6 +105,12 @@
                         background-color: #0080A8;
                         color: #fff;
                     }
+                    
+                }
+                &:focus {
+                    border: 1px solid $btn-color;
+                    border-radius: 5px;
+                    outline-color: #0080A8;
                 }
             }
 

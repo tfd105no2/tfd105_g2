@@ -14,7 +14,7 @@
     <!-- 前台忘記密碼頁內容 -->
     <section class="f_mbforget">
         <!-- 左側圖 -->
-        <div class="f_mbforget_img">
+        <div class="mbforget_img">
             <img src="img/memberlogin-bg.png" alt="memberforgetsideimages">
         </div>
         <!-- 右側表單內容 -->
@@ -25,15 +25,13 @@
             </div>
             <!-- 忘記密碼表單 -->
             <form class="forget_form" action="">
-                <label for="mbForgetMail">電子信箱</label><input type="text" id="mbForgetMail">
+                <label for="mbForgetMail">電子信箱</label><input type="text" id="mbForgetMail" placeholder="請輸入註冊電子信箱" required>
                 <br>
-                <div class="loginback">
+                <input type="submit" value="送出">
+                <div class="linkother">
                     <a href="./f_mbloginall.html">返回登入</a>
-                </div>
-                <div class="gosingup">
                     <a href="#">立即註冊</a>
                 </div>
-                <input type="submit" value="送出">
             </form>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
