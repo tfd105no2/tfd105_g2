@@ -1,9 +1,33 @@
+.maintt{
+    max-width: 1200px;
+    margin: auto;
+    @media screen and (max-width: 575.98px){
+        width: 100%;
+    }
+}
 
+#app{
+    .fishh{
+        width: 50px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .fishh:hover{
+        
+    }
+}
 
 .traffichead{
     background-color:#EDF9FB;
+    // max-width: 1200px;
+    display: flex;
+    width: 100%;
+    margin: auto;
+
     p{
         font-size: 12px;
+        color: #a6a6a6;
     }
     h1{
         font-size: 40px;
@@ -14,6 +38,7 @@
     }
     h3{
         font-size: 18px;
+        color: #0080A8;
     }
     h4{
         font-size: 16px;
@@ -24,9 +49,19 @@
         font-size: 24px;
         cursor: pointer;
     }
+    
     .fa-solid:hover{
         color: #00BDD1;
         filter: saturate(130%);
+    }
+    img{
+        width: 100%;
+    }
+    @media screen and (max-width: 575.98px){
+        h2{
+            font-size: 18px;
+        }
+        width: 100%;
     }
 
 }
@@ -35,31 +70,36 @@
 .transportation_banner{
     background-image: url('../img/hongkong-ocean-park-1.jpg');
     width: 100%;
-    height: 900px;
+    height: calc(100vh - 80px);
     background-attachment: fixed;
+    background-repeat: no-repeat;
     h1{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
+        text-align: center;
+        line-height: calc(100vh - 80px);
         color: white;
+        font-size: 40px;
     }
-
-    img{
+    @media screen and (max-width: 575.98px){
+        h1{
+            font-size: 24px;
+            // line-height: calc(100vh - 300px);
+        }
         width: 100%;
-
+        background-position: center;
+        // height: calc(100vh - 300px);
     }
+
 }
 
 // traffic   n a v ------  
 .traffic_nav{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    justify-content: space-evenly;
     font-size: 20px;
-    display: flex;
     .fa-solid{
         text-align: center;
-        margin: 80px;
+        margin: 80px 0;
         h2{
             margin-top: 10px;
         }
@@ -67,13 +107,16 @@
     .icon{
         margin-bottom: 10px;
     }
+    @media screen and (max-width: 575.98px){
+        width: 100%;
+    }
 }
 
 // time
 .traffic_time{
     width: 1200px;
     display: flex;
-    // align-items: center;
+    flex-wrap: wrap;
     margin: 0 auto;
     padding-bottom: 10px;
     justify-content: space-between;
@@ -81,10 +124,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-
-        .openwes{
-
+    
+    }
+    @media screen and (max-width: 575.98px){
+        .time_contant{
+            align-items: center;
         }
+        width: 100%;
+        padding: 0 15px;
     }
 }
 
@@ -99,15 +146,14 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 100px;
-}
+    .dashed-fish{
 
-.traffic_dashed{
-    img{
-        display: flex;
-        width: 700px;
-        position: absolute;
+        @media screen and (max-width: 575.98px){
+            display: none;
+        }
     }
 }
+
 
 
 // start map
@@ -137,6 +183,16 @@
     margin-top: 100px;
     width: 1200px;
     margin: 0 auto;
+    @media screen and (max-width: 575.98px){
+        width: 100%;
+        // padding: 0 15px;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    }
     .traffic_map{
         margin: 0 auto;
         margin-bottom: 120px;
@@ -148,14 +204,19 @@
                 line-height: 50px;
             }
         }
-        
+        @media screen and (max-width: 575.98px){
+            iframe{
+                width: 100%;
+            }
+            width: 100%;
+            
+        }
     }
     
 }
 
 // -------take the train-----
 .train_wapper{
-    // width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -174,7 +235,7 @@
         flex-direction: column;
         align-items: flex-end;
         .content{
-            width: 1200px;
+            width: 1100px;
             margin: auto;
             margin-top: 40px;
             
@@ -184,43 +245,55 @@
         }
         @keyframes upup{
             0%{
-                transform: translateY(-5%);
+                transform: translateY(-35%);
             }
-        
             50%{
-                transform: translateY(70%);
+                transform: translateY(0%);
             }
             100%{
-                transform: translateY(15%);
+                transform: translateY(-35%);
             }
         }
-        img{
-            
-            // width: 450px;
+        .seashell{
             z-index: 1;
-            animation:  upup 50s ease-in-out infinite;
-        }
-        
+            animation:  upup 5000ms ease-in-out infinite;
+        }  
     }
     .wave{
         width: 100%;
         position: absolute;
         bottom: -5%;
     }
+    @media screen and (max-width: 575.98px){
+        width: 100%;
+        .train-content{
+            width: 100%;
+            padding: 0 15px;
+            .content{
+                width: 100%;
+                h4{
+                    margin-bottom: 10px;
+
+                }
+            }
+            .seashell{
+                animation:none;
+                img{
+                    width: 100px;
+                }
+            }
+        }
+        .wave{
+            display: none;
+        }
+    }
 }
 
-// @keyframes upup{
-//     0%{
-//         transform: translateY(15%);
-//     }
 
-//     50%{
-//         transform: translateY(70%);
-//     }
-//     100%{
-//         transform: translateY(15%);
-//     }
-// }
+
+
+
+
 
 // ----drive ----- car---
 
@@ -232,8 +305,8 @@
             flex-direction: column;
             align-items: flex-end;
             position: relative;
-            .content{
-                width: 1200px;
+            .carcontent{
+                width: 1100px;
                 margin: auto;
                 margin-top: 40px;
                 h4{
@@ -246,44 +319,75 @@
 
                 }
             }
+            @keyframes rightleft{
+                0%{
+                    transform: translate(-10%,-5%);
+                }
+                50%{
+                    transform: translate(20%,-10%);
+                }
+                100%{
+                    transform: translate(30%,5%);
+                }  
+            }
             .jellyfish{
                 position: absolute;
                 right: 60%;
-                bottom: -20%;
+                bottom: -25%;
                 z-index: 1;
+                // animation:  rightleft 8000ms ease-out infinite;
             }
             h3{
                 border-bottom:1px solid #00BDD1;
             }
+            @keyframes carpice{
+                0%{
+                    transform: translate(-5%,-15%);
+                }
+                50%{
+                    transform: translate(-20%,-30%);
+                }
+                75%{
+                    transform: translate(-55%,-15%);
+                }
+                100%{
+                    transform: translate(-75%,-25%);
+                } 
+            }
             .carpice{
                 position: absolute;
+                right: -10%;
                 display: flex;
                 flex-direction: column;
                 z-index: 1;
-                img{
-                    
+                // animation:  carpice 8000ms linear infinite;
+                
+            }
+            
+    }
+    @media screen and (max-width: 575.98px){
+        .car-content{
+            width: 100%;
+            padding: 0 15px;
+            height: 600px;
+            .carcontent{
+                width: 100%;
+                h4{
+                    margin-bottom: -5px;
                 }
             }
-            img{
-              
+            .carpice{
+                display: none;
             }
+        }
+        
     }
-    .wave{
-        width: 100%;
-        position: absolute;
-        bottom: -15%;
-    }
-    
 }
 
 
 // BUS
 .train_wapper {
-    // width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 120px;
+
     .bus-content{
         background-color: #DBF5F8;
         height: 520px;
@@ -318,20 +422,50 @@
                 color: white;
             }
         }
-        .grass{
+        @keyframes star{
+            0%{
+                background-position-x: 0;
+            }
+            100%{
+                background-position-x: 50px;
+            }
+           
+        }
+        .star{
+            width: 100%;
+            height: 100%;
             position: absolute;
+            top: 90%;
+            background-image:  url('../img/073-01.png');
+            background-repeat: no-repeat;
+            // animation:  star 10s linear infinite;
+            
+        }   
+    }
+    @media screen and (max-width: 575.98px){
+        .bus-content{
+            width: 100%;
+            padding: 0 15px;
+            .content{
+                width: 100%;
+                .table{
+                    overflow-x: auto;
+                }
+            }
+            table{
+                width: 100%;
+                h3,h2{
+                    font-size: 16px;
+                }
+                
+            }
+            .star{
+                animation: none;
+            }
         }
         
     }
+    
+    
 }
 
-.star{
-    img{
-        width: 100%;
-    }
-}
-
-
-// @media screen and (max-width: 575.98px){
-//     width: 100%;
-// }

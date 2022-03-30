@@ -9,24 +9,38 @@
 </head>
 
 <body>
+  @@include('layout/nav.html')
+  <div class="transportation_banner">
+    <h1>交通指南</h1>
+  </div>
+  
+  <div id="app">
+    <div  @click="open">
+        <img src="img/18-017.png" class="fishh hide" >
+    </div>
+    <div class="player">
+        <audio id="music" loop="loop" autoplay="autoplay" src="img/OpenSeaMorning.mp3"></audio>
+    </div>
+  </div>
+
   <div class="traffichead">
-    @@include('layout/nav.html')
-    <main>
-      <div class="transportation_banner">
+    
+    <main class="maintt">
+      <!-- <div class="transportation_banner">
         <h1>交通指南</h1>
-        <!-- <img src="img/hongkong-ocean-park-1.jpg" alt=""> -->
-      </div>
+      </div> -->
   
       <!-- traffic nav -->
       <article class="traffic_nav">
-        <i class="fa-solid fa-train" data-id="1"><h2>大眾運輸</h2></i>
-        <i class="fa-solid fa-car" data-id="2"><h2>開車</h2></i>
-        <i class="fa-solid fa-bus" data-id="3"><h2>接駁車</h2></i>
+        <i class="fa-solid fa-train scroll_to " data-id="link1"><h2>大眾運輸</h2></i>
+        <i class="fa-solid fa-car scroll_to" data-id="link2"><h2>開車</h2></i>
+        <i class="fa-solid fa-bus scroll_to" data-id="link3"><h2>接駁車</h2></i>
       </article>
   
       <!-- time -->
       <article class="traffic_time">
-        <img src="img/fish.jpg" alt="" />
+        <div class="timepice"><img src="img/fish.jpg" alt="" /></div>
+        
         <section class="time_contant">
           <div class="opentime">
             <h2>營業時間</h2>
@@ -41,21 +55,16 @@
         </section>
       </article>
       <div class="traffic_dashed">
-        <img src="img/071-06.png" alt="" />
+        <div class="dashed-fish">
+          <img src="img/071-06.png" alt="" />
+        </div>
       </div>
   
       <!-------- start map go ----------->
       <div class="traffic_map_wapper">
         <form action="#" method="#">
-          <ul>
-            <li>
-              <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
-            </li>
-  
-            <li>
-              <input id="traffic_send" type="submit" value="前往" />
-            </li>
-          </ul>
+          <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
+          <input id="traffic_send" type="submit" value="前往" /> 
         </form>
   
         <article class="traffic_map">
@@ -69,8 +78,9 @@
       </div>
   
       <!---------take the train----- -->
+      
       <article class="train_wapper">
-        <i class="fa-solid fa-train" id="link1"><br>大眾運輸</i>
+        <i class="fa-solid fa-train scroll" id="link1"><br>大眾運輸</i>
         <section class="train-content">
           <div class="content">
             <h3>火車</h3>
@@ -83,8 +93,11 @@
             <h3>客運</h3>
             <h4>大都會客運 - 2088：搭乘至海科館站(終點站)下車，步行3分鐘即可抵</h4>
             <h4>首都客運 - 1579：搭乘至海科館站(終點站)下車，步行3分鐘即可抵達</h4>
-          </div>       
-          <img src="img/073-06.png" alt="">
+          </div>     
+          <div class="seashell">
+            <img src="img/073-06.png" alt="seashell">
+          </div>
+          
   
           
         </section>
@@ -119,9 +132,9 @@
   
       <!---------drive ---- car----- -->
       <article class="train_wapper">
-        <i class="fa-solid fa-car" id="link2"><br>開車</i>
-        <section class="car-content">
-          <div class="content">
+        <i class="fa-solid fa-car scroll" id="link2"><br>開車</i>
+        <section class="car-content train-content">
+          <div class="content carcontent">
             <h3>開車</h3>
             <h4>1號  南下→五甲系統→88快速道路→國道3號→南州交流道往省道台1線→經[楓港]橋接省道台26 線→[車城鄉]轉[後灣]方向抵達本館。</h4>
             <h4>3號  南下→南州交流道往省道台1線→經[楓港]橋接省道台26線→[車城鄉]轉[後灣]方向抵達本館。</h4><br>
@@ -151,7 +164,7 @@
         </section>
   
         <div class="wave">
-          <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+          <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 310" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
             .path-0{
               animation:pathAnim-0 4s;
               animation-timing-function: linear;
@@ -180,9 +193,9 @@
   
       <!---------BUS----- -->
       <article class="train_wapper">
-        <i class="fa-solid fa-bus" id="link3"><br>接駁車</i>
-        <section class="bus-content">
-          <div class="content">
+        <i class="fa-solid fa-bus scroll" id="link3"><br>接駁車</i>
+        <section class="bus-content train-content">
+          <div class="content buscontent">
             <div class="table">
               <table>
                 <tr>
@@ -306,15 +319,13 @@
               </table>
             </div>
             
-            <div class="star">
-              <img src="img/073-01.png" alt="長條泡泡">
-            </div>
           </div>
-  
-          <div class="grass">
-            <img src="img/073-10.png" alt="水草">
+          
+          <div class="star">
+            <!-- <img src="img/073-01.png" alt="長條泡泡"> -->
           </div>
         </section>
+        
       </article>
   
   
@@ -328,38 +339,9 @@
   
   @@include('layout/footer.html')
 
+  <script src="js/vue.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    // window.addEventListener("scroll", () =>{
-    //   let scroll = document.documentElement.scrollHeight - window.innerHeight;
-    //   let scrolled = window.scrollY;
-    //   console.log(scrolled);
-    // });
-
-    let train_wapper=document.getElementsByClassName("train_wapper");
-    // console.log(train_wapper);
-
-    train_wapper.addEventListener("scroll",function(){
-      let fa_solid=this.querySelectorAll(".fa-solid");
-      
-      console.log(fa_solid);
-    })
-
-    // $(function(){
-    //   $(".traffic_nav i").bind("click",function(){
-    //   let id=$(this).attr("data-id");
-
-    //   let target_top = $("#link"+id).offset().top;
-    //   let $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-      
-    //     $body.animate({
-    //         scrollTop: target_top
-    //     }, 800);
-
-    //   })
-    // })
-
-  </script>
+  <script src="js/traffic.min.js"></script>
 </body>
 
 </html>
