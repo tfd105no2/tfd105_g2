@@ -1,278 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    @@include('layout/head.html', { "title": "首頁" })
+  </head>
 
-<head>
-  @@include('layout/head.html', {
-  "title": "首頁"
-  })
-</head>
-
-<body>
-  <div class="index-wrapper">
-    @@include('layout/nav.html')
-    <main>
-      <!-- section-背景影片 -->
-      <section class="topVisualWrap">
-        <div class="top-container">
-          <!-- logo -->
-          <h1>
-            <img src="img/logo.svg" alt="">
-          </h1>
-          <h2>AQUARIUM</h2>
-          <div class="scroll-box">
-            <a href="">scroll</a>
-            <a href="">
-              <img src="https://www.sumida-aquarium.com/img/top/vector_scroll.svg" alt="">
-            </a>
+  <body>
+    <div class="index-wrapper">
+      @@include('layout/nav.html')
+      <main>
+        <!-- section-背景影片 -->
+        <section class="topVisualWrap">
+          <div class="top-container">
+            <!-- logo -->
+            <h1>
+              <img src="img/logo.svg" alt="" />
+            </h1>
+            <h2>AQUARIUM</h2>
+            <div class="scroll-box">
+              <a href="">scroll</a>
+              <a href="">
+                <img
+                  src="https://www.sumida-aquarium.com/img/top/vector_scroll.svg"
+                  alt=""
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <video class="movie-content" src="https://www.kyoto-aquarium.com/img/top/video.mp4" width="100%" height="100%"
-          autoplay loop muted playsinline></video>
-        <span class="bg"></span>
+          <video
+            class="movie-content"
+            src="https://www.kyoto-aquarium.com/img/top/video.mp4"
+            width="100%"
+            height="100%"
+            autoplay
+            loop
+            muted
+            playsinline
+          ></video>
+          <span class="bg"></span>
+        </section>
 
-      </section>
-
-      <!-- section 天氣與營業時間 -->
-      <section class="weather-time-wrap">
-        <div class="container">
-          <div class="weather">
-            <div class="weather a weather1">
-              
+        <!-- section 天氣與營業時間 -->
+        <section class="weather-time-wrap">
+          <div class="container">
+            <div class="weather">
+              <div class="weather a weather1">
                 <h1 class="location"></h1>
                 <h1 class="time"></h1>
                 <h1 class="des"></h1>
                 <img class="w_img" src="" alt="" />
                 <h1 class="Temp"></h1>
                 <h1 class="rain"></h1>
-              
-            </div>
-            <div class="weather b weather2">
-              
+              </div>
+              <div class="weather b weather2">
                 <h1 class="location"></h1>
                 <h1 class="time"></h1>
                 <h1 class="des"></h1>
                 <img class="w_imgb" src="" alt="" />
                 <h1 class="Temp"></h1>
                 <h1 class="rain"></h1>
-              
+              </div>
+            </div>
+            <div class="opentime">
+              <h3>營業時間</h3>
+              <div class="middle">
+                <div class="week">
+                  <p>週一~週五</p>
+                  <p>假日(國定假日)</p>
+                </div>
+                <div class="detail-time">
+                  <p>10:00~20:30</p>
+                  <p>09:00~22:00</p>
+                </div>
+              </div>
+              <ul class="notice">
+                <li>* 最終入場時間為閉館前1小時。</li>
+                <li>
+                  *
+                  本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。
+                </li>
+              </ul>
+              <div class="deco">
+                <img class="sea_horse" src="img/sea_horse.png" alt="" />
+              </div>
             </div>
           </div>
-          <div class="opentime">
-            <h3>營業時間</h3>
-            <div class="middle">
-              <div class="week">
-                <p>週一~週五</p>
-                <p>假日(國定假日)</p>
+        </section>
+        <!-- section 動物介紹 -->
+        <section class="intro">
+          <div class="container">
+            <div class="top">
+              <div class="text">
+                <img class="icon" src="img/jelly.svg" alt="" />
+                <h2>深海裡的贈禮</h2>
+                <p>
+                  長島海峽之旅從淡水海峽之旅從淡海峽之旅從淡河海峽之旅從淡海峽之旅從淡流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。
+                </p>
               </div>
-              <div class="detail-time">
-                <p>10:00~20:30</p>
-                <p>09:00~22:00</p>
+              <div class="pic">
+                <img src="img/intro_jelly.jpeg" alt="" />
               </div>
             </div>
-            <ul class="notice">
-              <li>* 最終入場時間為閉館前1小時。</li>
-              <li>* 本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。</li>
+            <div class="second">
+              <div class="pic">
+                <img src="img/intro_pc.jpg" alt="" />
+              </div>
+              <div class="text">
+                <img class="icon" src="img/jelly.svg" alt="" />
+                <h2>深海裡的贈禮</h2>
+                <p>
+                  長島海峽之旅從淡水河流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- section 最新消息 -->
+        <section class="news">
+          <div class="container">
+            <div class="news_title">
+              <h3>最新消息</h3>
+              <p>海洋公園隨時更新最新活動讓您能即時獲取消息！</p>
+              <div class="deco">
+                <img src="img/sealion.png" alt="" />
+              </div>
+            </div>
+            <ul class="news_row">
+              <li class="news_item">
+                <a href="">
+                  <img src="img/news_01.jpg" alt="" />
+                  <div class="news_text">
+                    <h4>White Day贈禮</h4>
+                    <p>白色情人節本館入場就贈 巧克力。</p>
+                  </div>
+                </a>
+              </li>
+              <li class="news_item">
+                <a href="">
+                  <img src="img/news_01.jpg" alt="" />
+                  <div class="news_text">
+                    <h4>新冠疫情相關</h4>
+                    <p>
+                      入館請務必戴口罩無佩戴口
+                      罩禁止入館並入館並請配合入館並請配合入館並請配合請配合量
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li class="news_item">
+                <a href="">
+                  <img src="img/news_01.jpg" alt="" />
+                  <div class="news_text">
+                    <h4>228淨灘活動</h4>
+                    <p>
+                      228連假到來，大家在海邊
+                      玩時也可以順便維護環境，本館於火星海灘舉辦淨灘....
+                    </p>
+                  </div>
+                </a>
+              </li>
             </ul>
+          </div>
+        </section>
+        <!-- section 功能卡片 -->
+        <section class="function_card">
+          <div class="container">
             <div class="deco">
-              <img class="sea_horse" src="img/sea_horse.png" alt="">
+              <img src="img/jelly02.png" alt="" />
+            </div>
+            <div class="booking_card">
+              <h4>夜宿體驗</h4>
+              <p>
+                海洋公園強力推出室內夜宿體驗，讓您擁有最近距離的感受，與您喜愛的海底總動員一起入睡！
+              </p>
+              <p>歡迎大朋友&小朋友，立即預訂區域，與海洋夜未眠！</p>
+              <div class="btn_booking">
+                <a href="night.html">預訂</a>
+              </div>
+            </div>
+            <div class="map_card">
+              <h4>如何到這裡</h4>
+              <p class="title">使用這張方便的地圖，直接引導您前往海洋公園!</p>
+              <form action="#" method="get" target="_blank">
+                <input
+                  class="input_add"
+                  type="text"
+                  name="map_card"
+                  id="map_card"
+                  placeholder="請輸入你的位置"
+                />
+                <p class="address">目的地:</p>
+                <p class="address">台北市中山區南京東路三段219號</p>
+                <input class="btn_map" type="submit" value="前往" />
+              </form>
             </div>
           </div>
+        </section>
+        <!-- 側邊購票 -->
+        <div class="ticket-side-link">
+          <a href="ticket.html">
+            <img src="img/tic_fixed.png" alt="" />
+          </a>
         </div>
-      </section>
-      <!-- section 動物介紹 -->
-      <section class="intro">
-        <div class="container">
-          <div class="top">
-            <div class="text">
-              <img class="icon" src="img/jelly.svg" alt="">
-              <h2>深海裡的贈禮</h2>
-              <p>長島海峽之旅從淡水海峽之旅從淡海峽之旅從淡河海峽之旅從淡海峽之旅從淡流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。</p>
-            </div>
-            <div class="pic">
-              <img src="img/intro_jelly.jpeg" alt="">
-            </div>
-          </div>
-          <div class="second">
-            <div class="pic">
-              <img src="img/intro_pc.jpg" alt="">
-            </div>
-            <div class="text">
-              <img class="icon" src="img/jelly.svg" alt="">
-              <h2>深海裡的贈禮</h2>
-              <p>長島海峽之旅從淡水河流和鹽沼的淺水區開始，然後進入越來越深的棲息地，直至開闊的海洋。</p>
-            </div>
+        <div class="deco_wave">
+          <svg
+            width="100%"
+            height="100%"
+            id="svg"
+            viewBox="0 0 1440 300"
+            xmlns="http://www.w3.org/2000/svg"
+            class="transition duration-300 ease-in-out delay-150"
+          >
+            <style>
+              .path-0 {
+                animation: pathAnim-0 4s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+              }
 
-          </div>
+              @keyframes pathAnim-0 {
+                0% {
+                  d: path(
+                    "M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z"
+                  );
+                }
+
+                25% {
+                  d: path(
+                    "M 0,500 C 0,500 0,166 0,166 C 164.13333333333333,199.2 328.26666666666665,232.4 498,218 C 667.7333333333333,203.6 843.0666666666666,141.6 1001,125 C 1158.9333333333334,108.4 1299.4666666666667,137.2 1440,166 C 1440,166 1440,500 1440,500 Z"
+                  );
+                }
+
+                50% {
+                  d: path(
+                    "M 0,500 C 0,500 0,166 0,166 C 197.7333333333333,183.2 395.4666666666666,200.4 536,208 C 676.5333333333334,215.6 759.8666666666668,213.60000000000002 901,205 C 1042.1333333333332,196.39999999999998 1241.0666666666666,181.2 1440,166 C 1440,166 1440,500 1440,500 Z"
+                  );
+                }
+
+                75% {
+                  d: path(
+                    "M 0,500 C 0,500 0,166 0,166 C 122.39999999999998,186.26666666666665 244.79999999999995,206.53333333333333 411,213 C 577.2,219.46666666666667 787.2,212.13333333333333 966,202 C 1144.8,191.86666666666667 1292.4,178.93333333333334 1440,166 C 1440,166 1440,500 1440,500 Z"
+                  );
+                }
+
+                100% {
+                  d: path(
+                    "M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z"
+                  );
+                }
+              }
+            </style>
+            <defs>
+              <linearGradient id="gradient" x1="66%" y1="3%" x2="34%" y2="97%">
+                <stop offset="5%" stop-color="#b4edf688"></stop>
+                <stop offset="95%" stop-color="#dbf5f888"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              d="M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z"
+              stroke="none"
+              stroke-width="0"
+              fill="url(#gradient)"
+              class="transition-all duration-300 ease-in-out delay-150 path-0"
+            ></path>
+            <style>
+              .path-1 {
+                animation: pathAnim-1 4s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+              }
+
+              @keyframes pathAnim-1 {
+                0% {
+                  d: path(
+                    "M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z"
+                  );
+                }
+
+                25% {
+                  d: path(
+                    "M 0,500 C 0,500 0,333 0,333 C 154.93333333333334,350.8666666666667 309.8666666666667,368.7333333333333 480,356 C 650.1333333333333,343.2666666666667 835.4666666666667,299.93333333333334 998,291 C 1160.5333333333333,282.06666666666666 1300.2666666666667,307.5333333333333 1440,333 C 1440,333 1440,500 1440,500 Z"
+                  );
+                }
+
+                50% {
+                  d: path(
+                    "M 0,500 C 0,500 0,333 0,333 C 140.40000000000003,321.26666666666665 280.80000000000007,309.53333333333336 465,324 C 649.1999999999999,338.46666666666664 877.2,379.1333333333333 1047,385 C 1216.8,390.8666666666667 1328.4,361.93333333333334 1440,333 C 1440,333 1440,500 1440,500 Z"
+                  );
+                }
+
+                75% {
+                  d: path(
+                    "M 0,500 C 0,500 0,333 0,333 C 181.06666666666666,347.5333333333333 362.1333333333333,362.06666666666666 516,367 C 669.8666666666667,371.93333333333334 796.5333333333333,367.2666666666667 946,360 C 1095.4666666666667,352.7333333333333 1267.7333333333333,342.8666666666667 1440,333 C 1440,333 1440,500 1440,500 Z"
+                  );
+                }
+
+                100% {
+                  d: path(
+                    "M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z"
+                  );
+                }
+              }
+            </style>
+            <defs>
+              <linearGradient id="gradient" x1="66%" y1="3%" x2="34%" y2="97%">
+                <stop offset="5%" stop-color="#b4edf6ff"></stop>
+                <stop offset="95%" stop-color="#dbf5f8ff"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              d="M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z"
+              stroke="none"
+              stroke-width="0"
+              fill="url(#gradient)"
+              class="transition-all duration-300 ease-in-out delay-150 path-1"
+            ></path>
+          </svg>
         </div>
-      </section>
-      <!-- section 最新消息 -->
-      <section class="news">
-        <div class="container">
-          <div class="news_title">
-            <h3>最新消息</h3>
-            <p>海洋公園隨時更新最新活動讓您能即時獲取消息！</p>
-            <div class="deco">
-              <img src="img/sealion.png" alt="">
-            </div>
-          </div>
-          <ul class="news_row">
-            <li class="news_item">
-              <a href="">
-                <img src="img/news_01.jpg" alt="">
-                <div class="news_text">
-                  <h4>White Day贈禮</h4>
-                  <p>白色情人節本館入場就贈
-                    巧克力。</p>
-                </div>
-              </a>
-            </li>
-            <li class="news_item">
-              <a href="">
-                <img src="img/news_01.jpg" alt="">
-                <div class="news_text">
-                  <h4>新冠疫情相關</h4>
-                  <p>入館請務必戴口罩無佩戴口
-                    罩禁止入館並入館並請配合入館並請配合入館並請配合請配合量</p>
-                </div>
-              </a>
-            </li>
-            <li class="news_item">
-              <a href="">
-                <img src="img/news_01.jpg" alt="">
-                <div class="news_text">
-                  <h4>228淨灘活動</h4>
-                  <p>228連假到來，大家在海邊
-                    玩時也可以順便維護環境，本館於火星海灘舉辦淨灘....</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <!-- section 功能卡片 -->
-      <section class="function_card">
-        <div class="container">
-          <div class="deco">
-            <img src="img/jelly02.png" alt="">
-          </div>
-          <div class="booking_card">
-            <h4>夜宿體驗</h4>
-            <p>海洋公園強力推出室內夜宿體驗，讓您擁有最近距離的感受，與您喜愛的海底總動員一起入睡！</p>
-            <p>歡迎大朋友&小朋友，立即預訂區域，與海洋夜未眠！</p>
-            <div class="btn_booking">
-              <a href="night.html">預訂</a>
-            </div>
-          </div>
-          <div class="map_card">
-            <h4>如何到這裡</h4>
-            <p class="title">使用這張方便的地圖，直接引導您前往海洋公園!</p>
-            <form action="#" method="get" target="_blank">
-              <input class="input_add" type="text" name="map_card" id="map_card" placeholder="請輸入你的位置">
-              <p class="address">目的地:</p>
-              <p class="address">台北市中山區南京東路三段219號</p>
-              <input class="btn_map" type="submit" value="前往">
-            </form>
-          </div>
-        </div>
-      </section>
-      <!-- 側邊購票 -->
-      <div class="ticket-side-link">
-        <a href="ticket.html">
-          <img src="img/tic_fixed.png" alt="">
-        </a>
-      </div>
-      <div class="deco_wave">
-        <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg"
-          class="transition duration-300 ease-in-out delay-150">
-          <style>
-            .path-0 {
-              animation: pathAnim-0 4s;
-              animation-timing-function: linear;
-              animation-iteration-count: infinite;
-            }
+      </main>
+      @@include('layout/footer.html')
+    </div>
 
-            @keyframes pathAnim-0 {
-              0% {
-                d: path("M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z");
-              }
-
-              25% {
-                d: path("M 0,500 C 0,500 0,166 0,166 C 164.13333333333333,199.2 328.26666666666665,232.4 498,218 C 667.7333333333333,203.6 843.0666666666666,141.6 1001,125 C 1158.9333333333334,108.4 1299.4666666666667,137.2 1440,166 C 1440,166 1440,500 1440,500 Z");
-              }
-
-              50% {
-                d: path("M 0,500 C 0,500 0,166 0,166 C 197.7333333333333,183.2 395.4666666666666,200.4 536,208 C 676.5333333333334,215.6 759.8666666666668,213.60000000000002 901,205 C 1042.1333333333332,196.39999999999998 1241.0666666666666,181.2 1440,166 C 1440,166 1440,500 1440,500 Z");
-              }
-
-              75% {
-                d: path("M 0,500 C 0,500 0,166 0,166 C 122.39999999999998,186.26666666666665 244.79999999999995,206.53333333333333 411,213 C 577.2,219.46666666666667 787.2,212.13333333333333 966,202 C 1144.8,191.86666666666667 1292.4,178.93333333333334 1440,166 C 1440,166 1440,500 1440,500 Z");
-              }
-
-              100% {
-                d: path("M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z");
-              }
-            }
-          </style>
-          <defs>
-            <linearGradient id="gradient" x1="66%" y1="3%" x2="34%" y2="97%">
-              <stop offset="5%" stop-color="#b4edf688"></stop>
-              <stop offset="95%" stop-color="#dbf5f888"></stop>
-            </linearGradient>
-          </defs>
-          <path
-            d="M 0,500 C 0,500 0,166 0,166 C 189.7333333333333,162.8 379.4666666666666,159.6 550,152 C 720.5333333333334,144.4 871.8666666666666,132.4 1017,134 C 1162.1333333333334,135.6 1301.0666666666666,150.8 1440,166 C 1440,166 1440,500 1440,500 Z"
-            stroke="none" stroke-width="0" fill="url(#gradient)"
-            class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
-          <style>
-            .path-1 {
-              animation: pathAnim-1 4s;
-              animation-timing-function: linear;
-              animation-iteration-count: infinite;
-            }
-
-            @keyframes pathAnim-1 {
-              0% {
-                d: path("M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z");
-              }
-
-              25% {
-                d: path("M 0,500 C 0,500 0,333 0,333 C 154.93333333333334,350.8666666666667 309.8666666666667,368.7333333333333 480,356 C 650.1333333333333,343.2666666666667 835.4666666666667,299.93333333333334 998,291 C 1160.5333333333333,282.06666666666666 1300.2666666666667,307.5333333333333 1440,333 C 1440,333 1440,500 1440,500 Z");
-              }
-
-              50% {
-                d: path("M 0,500 C 0,500 0,333 0,333 C 140.40000000000003,321.26666666666665 280.80000000000007,309.53333333333336 465,324 C 649.1999999999999,338.46666666666664 877.2,379.1333333333333 1047,385 C 1216.8,390.8666666666667 1328.4,361.93333333333334 1440,333 C 1440,333 1440,500 1440,500 Z");
-              }
-
-              75% {
-                d: path("M 0,500 C 0,500 0,333 0,333 C 181.06666666666666,347.5333333333333 362.1333333333333,362.06666666666666 516,367 C 669.8666666666667,371.93333333333334 796.5333333333333,367.2666666666667 946,360 C 1095.4666666666667,352.7333333333333 1267.7333333333333,342.8666666666667 1440,333 C 1440,333 1440,500 1440,500 Z");
-              }
-
-              100% {
-                d: path("M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z");
-              }
-            }
-          </style>
-          <defs>
-            <linearGradient id="gradient" x1="66%" y1="3%" x2="34%" y2="97%">
-              <stop offset="5%" stop-color="#b4edf6ff"></stop>
-              <stop offset="95%" stop-color="#dbf5f8ff"></stop>
-            </linearGradient>
-          </defs>
-          <path
-            d="M 0,500 C 0,500 0,333 0,333 C 166.8,372.33333333333337 333.6,411.6666666666667 506,394 C 678.4,376.3333333333333 856.4000000000001,301.66666666666663 1013,282 C 1169.6,262.33333333333337 1304.8,297.6666666666667 1440,333 C 1440,333 1440,500 1440,500 Z"
-            stroke="none" stroke-width="0" fill="url(#gradient)"
-            class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
-        </svg>
-      </div>
-
-
-    </main>
     @@include('layout/footer.html')
-  </div>
-  
-  @@include('layout/footer.html')
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="js/index.min.js"></script>
-</body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
