@@ -1,11 +1,6 @@
-.f_member .member_head img {
+.f_member .member_head img, .f_member .member_body .member_form .member_box img {
   display: block;
   max-width: 100%;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .f_member {
@@ -13,11 +8,183 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #EDF9FB;
 }
 
 .f_member .member_head {
   width: 380px;
-  height: 100vh;
+  height: calc(100vh - 80px);
   overflow: hidden;
+}
+
+.f_member .member_body {
+  margin: 20px auto 0;
+}
+
+.f_member .member_body .member_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  border-bottom: 5px solid #00bdd1;
+}
+
+.f_member .member_body .member_list .member_item {
+  width: calc(100% / 3);
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.4;
+  padding: 10px 20px;
+  color: rgba(0, 189, 209, 0.5);
+  cursor: pointer;
+}
+
+.f_member .member_body .member_list .member_item.js-m-active {
+  color: #00bdd1;
+}
+
+.f_member .member_body .member_list .member_item + .member_item {
+  border-left: 1px solid;
+}
+
+.f_member .member_body .member_form {
+  margin-top: 20px;
+}
+
+.f_member .member_body .member_form label {
+  display: inline-block;
+  width: 30%;
+  font-size: 24px;
+  line-height: 1.4;
+  vertical-align: middle;
+  color: #00bdd1;
+}
+
+.f_member .member_body .member_form input {
+  vertical-align: middle;
+  width: 70%;
+  height: 30px;
+  margin: 10px 0;
+  border: 1px solid #5C9FB9;
+  border-radius: 5px;
+  outline: none;
+}
+
+.f_member .member_body .member_form input:last-child {
+  display: block;
+  margin: 10px auto 0;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #5C9FB9;
+  border: 1px solid #5C9FB9;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.f_member .member_body .member_form input:last-child:hover {
+  background-color: #0080A8;
+  color: #fff;
+}
+
+.f_member .member_body .member_form .member_box {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  background-image: url(../img/member-pic.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.f_member .member_body .member_form .member_file {
+  display: none;
+}
+
+.f_member .member_body .member_form .member_choose {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #5C9FB9;
+  border: 1px solid #5C9FB9;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.f_member .member_body .member_form .member_choose:hover {
+  background-color: #0080A8;
+  color: #fff;
+}
+
+.f_member .member_body .member_form .member_forget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #00BDD1;
+}
+
+.f_member .member_body .member_form .member_forget:hover {
+  color: #0080A8;
+}
+
+.f_member .member_body .member_form > table {
+  border: 3px solid #00BDD1;
+}
+
+.f_member .member_body .member_form > table thead tr {
+  position: relative;
+}
+
+.f_member .member_body .member_form > table thead tr th {
+  font-size: 20px;
+}
+
+.f_member .member_body .member_form > table thead tr::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 98%;
+  border: 1px solid #00BDD1;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.f_member .member_body .member_form > table tbody td {
+  font-size: 16px;
+  color: #888;
+}
+
+.f_member .member_body .member_form > table tbody td button {
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  background-color: #5C9FB9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.f_member .member_body .member_form > table tbody td button:hover {
+  background-color: #fff;
+  color: #5C9FB9;
+  border: 1px solid #5C9FB9;
+}
+
+.f_member .member_body .member_form > table th,
+.f_member .member_body .member_form > table td {
+  text-align: center;
+  padding: 10px;
 }
 /*# sourceMappingURL=f_member.css.map */
