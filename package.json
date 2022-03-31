@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "安裝套件": "npm install",
     "開發": "gulp",
-    "壓縮圖片" : "gulp mini_img"
+    "壓縮圖片": "gulp mini_img"
   },
   "author": "",
   "license": "ISC",
