@@ -1,6 +1,7 @@
 .night-wrapper {
     background-color: #edf9fb;
     main {
+        overflow-x: hidden;
         .title {
             background-image: url("../img/ticket_title.jpg");
             height: calc(100vh - 80px);
