@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    @@include('layout/head.html')
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
   <head>
     @@include('layout/head.html',{ "title":"交通指南" })
@@ -22,62 +12,65 @@
     />
   </head>
 
-  <body>
-    @@include('layout/nav.html')
-    <div class="transportation_banner">
-      <h1>交通指南</h1>
+<body>
+  @@include('layout/nav.html')
+  <div class="transportation_banner">
+    <h1>交通指南</h1>
+  </div>
+  
+  <!-- music -->
+  <div id="app">
+    <div class="play" @click="open">
+        <img src="img/18-017.png" class="fishh hide">
     </div>
 
-    <div id="app">
-      <div @click="open">
-        <img src="img/18-017.png" class="fishh hide" />
+  <!----------------------- my main------------------- -->
+  <div class="traffichead">
+    
+    <main class="maintt">
+      <!-- traffic nav -->
+      <article class="traffic_nav">
+        <i class="fa-solid fa-train scroll_to " data-id="link1"><h2>大眾運輸</h2></i>
+        <i class="fa-solid fa-car scroll_to" data-id="link2"><h2>開車</h2></i>
+        <i class="fa-solid fa-bus scroll_to" data-id="link3"><h2>接駁車</h2></i>
+      </article>
+  
+      <!-- time -->
+      <article class="traffic_time">
+        <div class="timepice"><img src="img/fish.jpg" alt="" /></div>
+        
+        <section class="time_contant">
+          <div class="opentime">
+            <h2>營業時間</h2>
+          </div>
+          
+          <h3>週一~週五 10:00~20:30 <br>
+          假日(國定假日) 09:00~22:00</h3>
+          <div class="openwes">
+            <p>* 最終入場時間為閉館前1小時。</p>
+            <p>*本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。</p>
+          </div>
+        </section>
+      </article>
+      <div class="traffic_dashed">
+        <div class="dashed-fish">
+          <img src="img/071-06.png" alt="" />
+        </div>
       </div>
-      <div class="player">
-        <audio
-          id="music"
-          loop="loop"
-          autoplay="autoplay"
-          src="img/OpenSeaMorning.mp3"
-        ></audio>
-      </div>
-    </div>
-
-    <div class="traffichead">
-      <main class="maintt">
-        <!-- <div class="transportation_banner">
-        <h1>交通指南</h1>
-      </div> -->
-
-        <!-- traffic nav -->
-        <article class="traffic_nav">
-          <i class="fa-solid fa-train scroll_to" data-id="link1"
-            ><h2>大眾運輸</h2></i
-          >
-          <i class="fa-solid fa-car scroll_to" data-id="link2"><h2>開車</h2></i>
-          <i class="fa-solid fa-bus scroll_to" data-id="link3"
-            ><h2>接駁車</h2></i
-          >
-        </article>
-
-        <!-- time -->
-        <article class="traffic_time">
-          <div class="timepice"><img src="img/fish.jpg" alt="" /></div>
-
-          <section class="time_contant">
-            <div class="opentime">
-              <h2>營業時間</h2>
-            </div>
-
-            <h3>
-              週一~週五 10:00~20:30 <br />
-              假日(國定假日) 09:00~22:00
-            </h3>
-            <div class="openwes">
-              <p>* 最終入場時間為閉館前1小時。</p>
-              <p>
-                *本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。
-              </p>
-            </div>
+  
+      <!-------- start map go ----------->
+      <div class="traffic_map_wapper">
+        <form action="#" method="#">
+          <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
+          <input id="traffic_send" type="submit" value="前往" /> 
+        </form>
+  
+        <article class="traffic_map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9041.486248627809!2d121.5293230783774!3d25.064052295902638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a969d447cd57%3A0x1b4c930c704cd1ae!2sBeApe%20Restaurant!5e0!3m2!1szh-TW!2stw!4v1643603760451!5m2!1szh-TW!2stw" width="1200" height="250"
+            style="border: 0" allowfullscreen="" loading="lazy" data-aos="fade-up"></iframe>
+          <section class="traffic_address">
+            <h2>地址：台北市中山區南京東路三段219號</h2>
           </section>
         </article>
         <div class="traffic_dashed">
