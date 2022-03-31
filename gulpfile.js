@@ -6,10 +6,38 @@ const {
     watch
 } = require('gulp');
 
+
+function task_default(cb) {
+    console.log('gulp ok');
+    cb();
+}
+
+exports.default = task_default;
+
+
+//A 任務
+function task_a(cb) {
+    console.log('a mission');
+    cb();
+}
+// B 任務
+function task_b(cb) {
+    console.log('b mission');
+    cb();
+}
+
+//有順序
+exports.async = series(task_a, task_b);
+//同時執行任務
+exports.sync = parallel(task_a, task_b);
+
 // 搬檔案
 function package() {
-    return src('src/img/*').pipe(dest('dist/img'))
+    return src('src/style.css').pipe(dest('dist'))
 }
+
+exports.p = package;
+
 const rename = require('gulp-rename');
 
 // css minify
@@ -65,12 +93,16 @@ exports.allcss = concatall_css;
 // sass 編譯
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 
 
 function sassstyle() {
     return src('./src/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
         // .pipe(sass.sync({
         //    outputStyle: 'compressed'  //gulp sass 內建壓縮
         // }).on('error', sass.logError))
@@ -104,6 +136,18 @@ function watchall() {
 }
 exports.w = watchall
 
+// 清除舊檔案
+
+const clean = require('gulp-clean');
+
+function clear() {
+    return src('dist', { read: false, allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+        .pipe(clean({ force: true })); //強制刪除檔案 
+}
+
+
+exports.cls = clear
+
 
 
 const browserSync = require('browser-sync');
@@ -119,14 +163,22 @@ function browser(done) {
         port: 3000
     });
     watch(['src/*.html', 'src/layout/*.html',], includeHTML).on('change', reload);
-    watch(['src/css/*.css'], sassstyle).on('change', reload);
     watch(['src/sass/*.scss', 'src/sass/**/*.scss'], sassstyle).on('change', reload);
-    watch(['src/js/*.js', 'src/js/**/*.js'], minijs).on('change', reload);
-    watch(['src/img/*.*', 'src/img/**/*.*'], package).on('change', reload);
     done();
 }
 
 
+
+
+//css加上前綴 解決跨瀏覽器的問題
+function auto_css() {
+    return src('src/css/main.css')
+        .pipe(autoprefixer({
+            cascade: false
+        })).pipe(dest('dist'));
+}
+
+exports.autoprefix = auto_css
 
 // 圖片壓縮
 const imagemin = require('gulp-imagemin');
@@ -134,8 +186,36 @@ const imagemin = require('gulp-imagemin');
 function min_images() {
     return src('src/img/*.*')
         .pipe(imagemin())
-        .pipe(dest('dist/images'))
+        .pipe(dest('dist/img'))
 }
 
-exports.mini_img = min_images;
-exports.default = series(parallel(includeHTML, sassstyle, minijs, package), browser)   
+
+exports.mini_img = min_images
+
+// js 瀏覽器適應 babel es6 -> es5
+
+const babel = require('gulp-babel');
+
+function babel5() {
+    return src('src/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(dest('dist/js'));
+}
+
+exports.es5 = babel5
+
+
+
+
+
+
+
+// 開發用   
+exports.default = browser;
+
+// 上線
+
+exports.online = series(clear, parallel(includeHTML, sassstyle, babel5, min_images))
