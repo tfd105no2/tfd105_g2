@@ -2,7 +2,6 @@ let scroll_to = document.querySelectorAll(".scroll_to");
 // console.log(scroll_to[0].offsetTop);
 scroll_to.forEach((item) => {
   item.addEventListener("click", () => {
-    alert(11);
     let target_top = document.getElementById(item.getAttribute("data-id"));
     let offsetTop = target_top.getBoundingClientRect().top + window.scrollY - target_top.clientHeight - 10
     window.scroll({
