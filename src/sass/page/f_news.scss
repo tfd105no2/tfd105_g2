@@ -120,7 +120,8 @@
             text-align: center;
             color: $text-color;
             font-size: map-get($title, h5);
-            margin: 0 auto space(4);
+            margin: 0 auto;
+            padding-bottom: 20px;
             position: relative;
             cursor: pointer;
             &::after{

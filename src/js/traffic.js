@@ -1,12 +1,13 @@
-let scroll_to=document.querySelectorAll(".scroll_to");
-  // console.log(scroll_to[0].offsetTop);
-  scroll_to.forEach((item)=>{
-    item.addEventListener("click", () =>{
-      let target_top=document.getElementById(item.getAttribute("data-id"));
-      let offsetTop = target_top.getBoundingClientRect().top + window.scrollY - target_top.clientHeight - 10
-      window.scroll({
-        top: offsetTop,
-        behavior: "smooth"
+let scroll_to = document.querySelectorAll(".scroll_to");
+// console.log(scroll_to[0].offsetTop);
+scroll_to.forEach((item) => {
+  item.addEventListener("click", () => {
+    alert(11);
+    let target_top = document.getElementById(item.getAttribute("data-id"));
+    let offsetTop = target_top.getBoundingClientRect().top + window.scrollY - target_top.clientHeight - 10
+    window.scroll({
+      top: offsetTop,
+      behavior: "smooth"
     });
 
   })
@@ -16,23 +17,23 @@ let scroll_to=document.querySelectorAll(".scroll_to");
 new Vue({
   el: '#app',
   data() {
-    return {          
+    return {
     }
   },
   methods: {
-    open(){
+    open() {
       let music = document.getElementById('music');
       let fishh = document.querySelectorAll('.fishh');
       console.log(fishh);
 
-      if(music.paused){
+      if (music.paused) {
         music.play();
-   
-        fishh.forEach(element => {            
+
+        fishh.forEach(element => {
           element.classList.remove('hide');
         });
-                  
-      }else{
+
+      } else {
         music.pause();
 
         fishh.forEach(element => {
