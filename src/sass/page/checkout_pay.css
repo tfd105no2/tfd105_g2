@@ -1,0 +1,165 @@
+.pay_wrapper {
+  background-color: #EDF9FB;
+  height: 1000px;
+}
+
+.pay_wrapper .pay_main {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.pay_wrapper .pay_main .cart_anv {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.pay_wrapper .pay_main .cart_item {
+  width: 33.3%;
+  color: #707070;
+  text-align: center;
+  line-height: 50px;
+  border-bottom: 3px solid rgba(0, 189, 209, 0.5);
+}
+
+.pay_wrapper .pay_main .cart_item a {
+  color: #707070;
+}
+
+.pay_wrapper .pay_main .cart_round {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: rgba(0, 189, 209, 0.5);
+  color: #fff;
+  line-height: 30px;
+}
+
+.pay_wrapper .pay_main .cartSelected {
+  color: #00BDD1;
+  border-bottom: 3px solid #00BDD1;
+}
+
+.pay_wrapper .pay_main .cartSelected .cart_round {
+  background-color: #00BDD1;
+  color: #fff;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content {
+  width: 65%;
+  background-color: #fff;
+  margin-right: 3rem;
+  text-align: center;
+  color: #707070;
+  border: 1px solid #00BDD1;
+  border-collapse: separate;
+  border-radius: 5px;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content a, .pay_wrapper .pay_main .cart_contentWrapper .cart_content button {
+  color: #707070;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content th, .pay_wrapper .pay_main .cart_contentWrapper .cart_content td {
+  vertical-align: middle;
+  padding: 6px;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content td {
+  border-top: 1px solid #00BDD1;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .contentTitle {
+  font-size: 16px;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup img {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .ticketType {
+  text-align: left;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .cart_quantityInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .quantity:focus {
+  outline: 0;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup button {
+  background-color: #fff;
+  border: 1px solid #00BDD1;
+  cursor: pointer;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .minus {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .plus {
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup input::-webkit-outer-spin-button,
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #00BDD1;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .subtotal {
+  font-weight: 600;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .deleteButton {
+  font-size: 2.5rem;
+  border: none;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketTotal {
+  text-align: right;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .noBorderTop {
+  border-top: 1px solid #fff;
+}
+
+.pay_wrapper .pay_main .a {
+  width: 25%;
+  height: 250px;
+  background-color: #DBF5F8;
+}
+/*# sourceMappingURL=checkout_pay.css.map */
