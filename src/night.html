@@ -1,78 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    @@include('layout/head.html', { "title": "夜宿體驗" })
+  </head>
 
-<head>
-    @@include('layout/head.html', {
-    "title": "夜宿體驗"
-    })
-</head>
-
-<body>
+  <body>
     <div class="night-wrapper" id="night-wrapper">
-        @@include('layout/nav.html', {
-        'active4': 'active'
-        })
-        <main id="main">
-            <div class="title">
-                <h2>夜宿體驗</h2>
-            </div>
-            <ul class="tab">
-                <li class="tab-ticket">
-                    <a href="ticket.html">
-                        <i class="fa-solid fa-ticket"></i>
-                        <p>預約訂票</p>
-                    </a>
-                </li>
-                <li class="tab-bed active">
-                    <a href="night.html">
-                        <i class="fa-solid fa-bed"></i>
-                        <p>預訂夜宿</p>
-                    </a>
-                </li>
-            </ul>
-            <!-- 選擇日期 -->
-            <section class="content-wrapper">
-                <div class="container">
-                    <h2>選擇預訂日期</h2>
+      @@include('layout/nav.html', { 'active4': 'active' })
+      <main id="main">
+        <div class="title">
+          <h2>夜宿體驗</h2>
+        </div>
+        <ul class="tab">
+          <li class="tab-ticket">
+            <a href="ticket.html">
+              <i class="fa-solid fa-ticket"></i>
+              <p>預約訂票</p>
+            </a>
+          </li>
+          <li class="tab-bed active">
+            <a href="night.html">
+              <i class="fa-solid fa-bed"></i>
+              <p>預訂夜宿</p>
+            </a>
+          </li>
+        </ul>
+        <!-- 選擇日期 -->
+        <section class="content-wrapper">
+          <div class="container">
+            <h2>選擇預訂日期</h2>
 
-                    <!-- 日曆 -->
-                    <div class="b_area_calendar">
-                        <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
-                        <div>
-                            <!-- <button @click="adjustYear(-1)">上一年</button> -->
-                            <button @click="adjustMonth(-1)">上個月</button>
-                            <!-- <button @click="setToday">今天</button> -->
-                            <button @click="adjustMonth(1)">下個月</button>
-                            <!-- <button @click="adjustYear(1)">下一年</button> -->
-                        </div>
-                        <div class="b_area_weekDay">
-                            <div>日</div>
-                            <div>一</div>
-                            <div>二</div>
-                            <div>三</div>
-                            <div>四</div>
-                            <div>五</div>
-                            <div>六</div>
-                        </div>
-                        <div class="b_area_week" v-for="i in 6">
-                            <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{
+            <!-- 日曆 -->
+            <div class="b_area_calendar">
+              <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
+              <div>
+                <!-- <button @click="adjustYear(-1)">上一年</button> -->
+                <button @click="adjustMonth(-1)">上個月</button>
+                <!-- <button @click="setToday">今天</button> -->
+                <button @click="adjustMonth(1)">下個月</button>
+                <!-- <button @click="adjustYear(1)">下一年</button> -->
+              </div>
+              <div class="b_area_weekDay">
+                <div>日</div>
+                <div>一</div>
+                <div>二</div>
+                <div>三</div>
+                <div>四</div>
+                <div>五</div>
+                <div>六</div>
+              </div>
+              <div class="b_area_week" v-for="i in 6">
+                <div
+                  class="day"
+                  v-for="j in 7"
+                  :data-date="calendarMonth[(i-1)*7+j-1].date"
+                  :class="{
                                       b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
                                       b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
-                                }" @click="edit">
-                                <div class="b_area_booking_status">進行中</div>
-                                <div class="b_area_circle_status active"></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- 裝飾 -->
-                    <div class="deco">
-                        <img class="nig-fish" src="img/nig_fish.png" alt="">
-                        <img class="nig-grass" src="img/nig_grass.png" alt="">
-                        <img class="nig-deco" src="img/nig_deco.png" alt="">
-                    </div>
+                                }"
+                  @click="edit"
+                >
+                  <div class="b_area_booking_status">進行中</div>
+                  <div class="b_area_circle_status active"></div>
                 </div>
+              </div>
             </section>
         </main>
 
@@ -102,13 +93,48 @@
                     </template>
                 </ul>
             </div>
+
+            <!-- 裝飾 -->
+            <div class="deco">
+              <img class="nig-fish" src="img/nig_fish.png" alt="" />
+              <img class="nig-grass" src="img/nig_grass.png" alt="" />
+              <img class="nig-deco" src="img/nig_deco.png" alt="" />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- modal 選擇區域 -->
+      <div class="modal" v-if="current_edit !== null">
+        <div class="modal-content">
+          <!-- 選擇日期 -->
+          <div class="date">
+            2022/3/30
+            <span class="close" @click="f_out">
+              <i class="fas fa-times-circle"></i>
+            </span>
+          </div>
+          <h4>選擇夜宿區域</h4>
+          <!-- 卡片區 -->
+          <ul id="ticket-type">
+            <template v-for="item in area">
+              <li>
+                <a href="night_detail.html">
+                  <img class="ticket-top" :src="item.url" alt="" />
+                  <div class="ticket-bottom">
+                    <h4>{{item.type}}</h4>
+                    <p class="num">剩餘 {{item.num}} 位</p>
+                  </div>
+                </a>
+              </li>
+            </template>
+          </ul>
         </div>
-
-
+      </div>
     </div>
     @@include('layout/footer.html')
 
-
-    <script src="js/vue.min.js"></script>
-    <script src="js/night.min.js"></script>
-</body>
+    <script src="js/vue.js"></script>
+    <script src="js/night.js"></script>
+  </body>
+</html>
