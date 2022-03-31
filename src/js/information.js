@@ -22,6 +22,8 @@ $(function () {
             if (tab_infoid == that.attr('id')) {
                 that.removeClass('js-hide');
                 that.addClass('js-show');
+                // 預設顯示
+                that.addClass('js-active');
             } else {
                 that.removeClass('js-show');
                 that.addClass('js-hide');
