@@ -11,14 +11,6 @@
   <div class="index-wrapper">
     @@include('layout/nav.html')
     <main>
-
-      <!-- 側邊購票 -->
-      <div class="ticket-side-link">
-        <a href="ticket.html" class="">
-          <img src="img/tic_fixed.png" alt="">
-        </a>
-      </div>
-
       <!-- section-背景影片 -->
       <section class="topVisualWrap">
         <div class="top-container">
@@ -164,6 +156,12 @@
           </div>
         </div>
       </section>
+      <!-- 側邊購票 -->
+      <div class="ticket-side-link">
+        <a href="ticket.html">
+          <img src="img/tic_fixed.png" alt="">
+        </a>
+      </div>
       <div class="deco_wave">
         <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg"
           class="transition duration-300 ease-in-out delay-150">
@@ -250,8 +248,9 @@
 
 
     </main>
+    @@include('layout/footer.html')
   </div>
-  @@include('layout/footer.html')
+  
 </body>
 
 </html>
