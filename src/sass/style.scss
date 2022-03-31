@@ -2,12 +2,12 @@
 @import "base/basic.scss";
 
 @import "layout/nav";
-@import "layout/footer";
+@import "layout/_footer.scss";
 
 @import "page/index";
 @import "page/ticket";
-@import "page/night_detail";
 @import "page/night";
+@import "page/night_detail";
 
 @import "page/back_login.scss";
 @import "page/b_member";
@@ -27,3 +27,5 @@
 @import "page/b_area";
 @import "page/f_mbloginall.scss";
 @import "page/f_mbforget.scss";
+
+
