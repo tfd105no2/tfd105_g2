@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    @@include('layout/head.html')
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
 <head>
   @@include('layout/head.html',{
@@ -24,22 +14,20 @@
     <h1>交通指南</h1>
   </div>
   
+  <!-- music -->
   <div id="app">
-    <div  @click="open">
-        <img src="img/18-017.png" class="fishh hide" >
+    <div class="play" @click="open">
+        <img src="img/18-017.png" class="fishh hide">
     </div>
     <div class="player">
         <audio id="music" loop="loop" autoplay="autoplay" src="img/OpenSeaMorning.mp3"></audio>
     </div>
   </div>
 
+  <!----------------------- my main------------------- -->
   <div class="traffichead">
     
     <main class="maintt">
-      <!-- <div class="transportation_banner">
-        <h1>交通指南</h1>
-      </div> -->
-  
       <!-- traffic nav -->
       <article class="traffic_nav">
         <i class="fa-solid fa-train scroll_to " data-id="link1"><h2>大眾運輸</h2></i>
