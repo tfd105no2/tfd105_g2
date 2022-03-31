@@ -125,4 +125,17 @@ function browser(done) {
     watch(['src/img/*.*', 'src/img/**/*.*'], package).on('change', reload);
     done();
 }
+
+
+
+// 圖片壓縮
+const imagemin = require('gulp-imagemin');
+
+function min_images() {
+    return src('src/img/*.*')
+        .pipe(imagemin())
+        .pipe(dest('dist/images'))
+}
+
+exports.mini_img = min_images;
 exports.default = series(parallel(includeHTML, sassstyle, minijs, package), browser)   
