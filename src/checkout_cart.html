@@ -1,146 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    @@include('layout/head.html', { "title": "購物車" })
-  </head>
 
-  <body>
-    <div class="cart_wrapper">
-      @@include('layout/nav.html')
-      <main id="root" class="cart_main">
-        <!-- 結帳流程進度條區塊 -->
-        <div class="cart_anv">
-          <div class="cart_item cartSelected">
-            <div class="cart_round">
-              <p>1</p>
-            </div>
-            <span>查看購物車</span>
+<head>
+  @@include('layout/head.html', { 'title': '購物車' })
+</head>
+
+<body>
+  <div class="cart_wrapper">
+    @@include('layout/nav.html', { 'active7': 'active' })
+    <main id="root" class="cart_main">
+      <!-- 結帳流程進度條區塊 -->
+      <div class="cart_anv">
+        <div class="cart_item cartSelected">
+          <div class="cart_round">
+            <p>1</p>
           </div>
-          <div class="cart_item">
-            <div class="cart_round">
-              <p>2</p>
-            </div>
-            <span>確認付款</span>
-          </div>
-          <div class="cart_item">
-            <div class="cart_round">
-              <p>3</p>
-            </div>
-            <span>完成訂單</span>
-          </div>
+          <span>查看購物車</span>
         </div>
+        <div class="cart_item">
+          <div class="cart_round">
+            <p>2</p>
+          </div>
+          <span>確認付款</span>
+        </div>
+        <div class="cart_item">
+          <div class="cart_round">
+            <p>3</p>
+          </div>
+          <span>完成訂單</span>
+        </div>
+      </div>
 
-        <!-- 購物車內容區塊 -->
-        <div v-if="products.length" class="cart_contentWrapper">
-          <!-- 內容明細區塊 -->
-          <table class="cart_content">
-            <thead class="contentTitle">
-              <tr>
-                <th colspan="2">品名</th>
-                <th>單價</th>
-                <th>數量</th>
-                <th>小計</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="product in products" class="ticketGroup">
-                <td class="ticketImg">
-                  <img v-bind:src="product.img" alt="票券圖片" />
-                </td>
-                <td class="ticketType">
-                  <a href="#"
-                    >{{product.name}}<br />{{product.date}}{{product.area}}</a
-                  >
-                </td>
-                <td>NT$<span>{{product.unitPrice}}</span></td>
-                <!-- 數量組區塊 -->
-                <td>
-                  <div class="cart_quantityInfo">
-                    <span
-                      ><button @click="minus(product)" class="minus">
-                        -
-                      </button></span
-                    >
-                    <div>
-                      <input
-                        v-model.number="product.quantity"
-                        :min="1"
-                        type="number"
-                        class="quantity"
-                      />
-                    </div>
-                    <span
-                      ><button @click="plus(product)" class="plus">
-                        +
-                      </button></span
-                    >
+      <!-- 購物車內容區塊 -->
+      <div v-if="products.length" class="cart_contentWrapper">
+        <!-- 內容明細區塊 -->
+        <table class="cart_content">
+          <thead class="contentTitle">
+            <tr>
+              <th colspan="2">品名</th>
+              <th>單價</th>
+              <th>數量</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="product in products" class="ticketGroup">
+              <td class="ticketImg">
+                <img v-bind:src="product.img" alt="票券圖片" />
+              </td>
+              <td class="ticketType">
+                <a href="#">{{product.name}}<br />{{product.date}}{{product.area}}</a>
+              </td>
+              <td>NT$<span>{{product.unitPrice}}</span></td>
+              <!-- 數量組區塊 -->
+              <td>
+                <div class="cart_quantityInfo">
+                  <span><button @click="minus(product)" class="minus">
+                      -
+                    </button></span>
+                  <div>
+                    <input v-model.number="product.quantity" :min="1" type="number" class="quantity" />
                   </div>
-                </td>
-                <td class="subtotal">
-                  NT$<span>{{product.unitPrice * product.quantity}}</span>
-                </td>
-                <td>
-                  <button @click="remove(product.id)" class="deleteButton">
-                    ×
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <span><button @click="plus(product)" class="plus">
+                      +
+                    </button></span>
+                </div>
+              </td>
+              <td class="subtotal">
+                NT$<span>{{product.unitPrice * product.quantity}}</span>
+              </td>
+              <td>
+                <button @click="remove(product.id)" class="deleteButton">
+                  ×
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-          <!-- 購物車總額區塊 -->
-          <div class="cart_detail">
-            <div class="total">
-              <span>商品總額</span>
-              <div>NT$<span>{{totalPrice()}}</span></div>
+        <!-- 購物車總額區塊 -->
+        <div class="cart_detail">
+          <div class="total">
+            <span>商品總額</span>
+            <div>NT$<span>{{totalPrice()}}</span></div>
+          </div>
+          <!-- 折扣碼 -->
+          <div class="discountCode">
+            <div>
+              <input type="text" class="discountCode_box" readonly/>
             </div>
-            <!-- 折扣碼輸入框 -->
-            <div class="discountCode">
-              <div>
-                <input
-                  type="text"
-                  class="discountCode_box"
-                  placeholder="請輸入折扣碼"
-                />
-              </div>
-              <span
-                ><button type="submit" class="discountCode_btn">
-                  使用
-                </button></span
-              >
-            </div>
-            <div class="discount">
-              <span>折扣</span>
-              <div>-NT$<span>{{score}}</span></div>
-            </div>
-            <div class="line"></div>
-            <!-- 分隔線 -->
-            <div class="payable">
-              <span>應付金額</span>
-              <div>NT$<span>{{payable()}}</span></div>
-            </div>
-            <div class="next">
-              <a href="./checkout_pay.html">前往結帳</a>
-            </div>
+            <span>
+              <button type="submit" class="discountCode_btn">
+                使用
+              </button>
+            </span>
+          </div>
+          <div class="discount">
+            <span>折扣</span>
+            <div>-NT$<span>{{score}}</span></div>
+          </div>
+          <div class="line"></div>
+          <!-- 分隔線 -->
+          <div class="payable">
+            <span>應付金額</span>
+            <div>NT$<span>{{payable()}}</span></div>
+          </div>
+          <div class="next">
+            <a href="./checkout_pay.html">前往結帳</a>
           </div>
         </div>
+      </div>
 
-        <!-- 當購物車裡沒商品的狀態 -->
-        <div v-else class="no_ticket">
-          <img
-            class="no_ticket_fish"
-            src="img/cart_nimo.png"
-            alt="小丑魚圖片"
-          />
-          <h3>購物車內空空的唷~</h3>
-          <a href="#">來去逛逛</a>
-        </div>
-      </main>
-    </div>
-    @@include('layout/footer.html')
+      <!-- 當購物車裡沒商品的狀態 -->
+      <div v-else class="no_ticket">
+        <img class="no_ticket_fish" src="img/cart_nimo.png" alt="小丑魚圖片" />
+        <h3>購物車內空空的唷~</h3>
+        <a href="./ticket.html">來去逛逛</a>
+      </div>
+    </main>
+  </div>
+  @@include('layout/footer.html')
 
-    <!-- 引入js -->
-    <script src="js/vue.js"></script>
-    <script src="js/checkout_cart.js"></script>
-  </body>
+  <!-- 引入js -->
+  <script src="js/vue.js"></script>
+  <script src="js/checkout_cart.js"></script>
+</body>
+
 </html>
