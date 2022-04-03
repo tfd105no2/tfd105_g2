@@ -36,60 +36,59 @@
             <!-- 確認付款內容區塊 -->
             <div class="cart_contentWrapper">
                 <!-- 內容明細區塊 -->
-                <table class="cart_content">
-                    <thead class="contentTitle">
-                        <tr>
-                            <th colspan="3">品名</th>
-                            <th>單價</th>
-                            <th>數量</th>
-                            <th>小計</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="ticketGroup">
-                            <td class="ticketImg">
-                                <img src="img/ticket01.jpeg" alt="票券圖片">
-                            </td>
-                            <td class="ticketType" colspan="2"><a href="#">全票</a></td>
-                            <td>NT$<span>550</span></td>
-                            <!-- 數量組區塊 -->
-                            <td>
-                                <div class="cart_quantityInfo">
-                                    <span>1</span>
-                                </div>
-                            </td>
-                            <td class="subtotal">NT$<span>550</span></td>
-                        </tr>
-                        <tr class="ticketGroup">
-                            <td class="ticketImg">
-                                <img src="img/ticket02.jpg" alt="票券圖片">
-                            </td>
-                            <td class="ticketType" colspan="2"><a href="#">夜宿體驗-全票<br>大洋池親近區</a></td>
-                            <td>NT$<span>3180</span></td>
-                            <td>
-                                <div class="cart_quantityInfo">
-                                    <span>1</span>
-                                </div>
-                            </td>
-                            <td class="subtotal">NT$<span>3180</span></td>
-                        </tr>
-                        <!-- 確認金額區塊 -->
-                        <tr class="ticketTotal">
-                            <td colspan="4"></td>
-                            <td>折扣金額</td>
-                            <td>-NT$<span>0</span></td>
-                        </tr>
-                        <tr class="ticketTotal">
-                            <td class="noBorderTop" colspan="4"></td>
-                            <td class="noBorderTop">付款金額</td>
-                            <td class="noBorderTop subtotal">NT$<span>3730</span></td>
-                        </tr>
-                        <tr class="ticketTotal">
-                            <td class="noBorderTop" colspan="5"></td>
-                            <td class="pay_btn noBorderTop"><a href="./checkout_complet.html">確認付款</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="cart_content">
+                    <table class="cart_table">
+                        <thead class="contentTitle">
+                            <tr>
+                                <th colspan="3">品名</th>
+                                <th>單價</th>
+                                <th>數量</th>
+                                <th>小計</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="ticketGroup">
+                                <td class="ticketImg">
+                                    <img src="img/ticket01.jpeg" alt="票券圖片">
+                                </td>
+                                <td class="ticketType" colspan="2"><a href="#">全票</a></td>
+                                <td>NT$<span>550</span></td>
+                                <!-- 數量組區塊 -->
+                                <td>
+                                    <div class="cart_quantityInfo">
+                                        <span>1</span>
+                                    </div>
+                                </td>
+                                <td class="subtotal">NT$<span>550</span></td>
+                            </tr>
+                            <tr class="ticketGroup">
+                                <td class="ticketImg">
+                                    <img src="img/ticket02.jpg" alt="票券圖片">
+                                </td>
+                                <td class="ticketType" colspan="2"><a href="#">夜宿體驗-全票<br>大洋池親近區</a></td>
+                                <td>NT$<span>3180</span></td>
+                                <td>
+                                    <div class="cart_quantityInfo">
+                                        <span>1</span>
+                                    </div>
+                                </td>
+                                <td class="subtotal">NT$<span>3180</span></td>
+                            </tr>
+                            <!-- 確認金額區塊 -->
+                            <tr class="ticketTotal">
+                                <td colspan="4"></td>
+                                <td>折扣金額</td>
+                                <td>-NT$<span>0</span></td>
+                            </tr>
+                            <tr class="ticketTotal">
+                                <td class="noBorderTop" colspan="4"></td>
+                                <td class="noBorderTop">付款金額</td>
+                                <td class="noBorderTop subtotal">NT$<span>3730</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 
 
                 <!-- 選擇付款方式區塊 -->
@@ -110,6 +109,9 @@
                             <img src="img/linepay.png" alt="Line Pay icon">
                             <span>Line Pay</span>
                         </label>
+                    </div>
+                    <div class="pay_btn">
+                        <a href="./checkout_complet.html">確認付款</a>
                     </div>
                 </div>
             </div>
