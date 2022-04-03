@@ -15,6 +15,11 @@
         //套用圖片最大寬度與等比置中設定
         img {
             @extend %img-mw;
+            width: 380px;
+            position: fixed;
+            @media screen and (max-width: 768px) {
+                width: 0;
+            }
         }
     }
 
