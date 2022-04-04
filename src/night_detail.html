@@ -94,7 +94,8 @@
           <li class="bed-type">
               <p>{{person.type}}</p>
               <div class="type-right">
-                  <p>TWD{{person.price}}</p>
+                  <p class="price"> TWD{{person.price}}</p>
+                  <button type="button" class="button ">加入購物車</button>
                   <div class="quantityInfo">
                       <span>
                           <button @click="minus" class="minus" >-</button>
@@ -104,7 +105,6 @@
                           <button @click="add" class="plus">+</button>
                       </span>
                   </div>
-                  <button type="button" class="button ">加入購物車</button>
               </div>
           </li>
       </div>

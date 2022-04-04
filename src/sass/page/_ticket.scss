@@ -1,5 +1,12 @@
+@mixin mobile {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
 .ticket-wrapper {
     background-color: #edf9fb;
+
     main {
         .title {
             background-image: url("../img/ticket_title.jpg");
@@ -19,7 +26,7 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            margin-top: 60px;
+            margin: 60px 0 28px 0;
             li {
                 margin: 0 30px;
                 a {
@@ -50,72 +57,96 @@
             background-size: 180px;
             background-repeat: no-repeat;
             background-position: 0px 360px;
+            @include mobile {
+                background-size: 140px;
+                background-position: -10px 1140px;
+            }
             .container {
                 max-width: 1100px;
                 height: 500px;
                 margin: 0 auto;
-                margin-top: 28px;
+                @include mobile {
+                    height: 1260px;
+                    padding: 0 15px;
+                }
                 h2 {
                     color: #00bdd1;
                     font-size: 24px;
                     text-align: center;
-                    padding: 30px 0 60px 0;
+                    padding: 30px 0;
                 }
                 .ticket-type {
                     display: flex;
                     justify-content: space-between;
+                    @include mobile {
+                        display: block;
+                    }
                     li {
                         border-radius: 6px;
                         overflow: hidden;
                         width: 260px;
-                        a {
+                        height: 240px;
+
+                        @include mobile {
+                            margin: 0 auto;
+                            margin-bottom: 30px;
+                            width: 300px;
+                        }
+                        img {
                             display: block;
-                            height: 240px;
-                            img {
-                                display: block;
-                                width: 100%;
-                                height: 160px;
-                            }
-                            .ticket-bottom {
-                                padding: 15px;
-                                height: 82px;
-                                background-color: #fff;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: flex-end;
-                                .ticket-detail {
-                                    h4 {
-                                        font-size: 18px;
-                                    }
-                                    p {
-                                        font-size: 16px;
-                                    }
+                            width: 100%;
+                            height: 160px;
+                            object-fit: cover;
+                            transition: all 0.5s;
+                        }
+                        &:hover img {
+                            filter: opacity(0.8);
+                        }
+                        .ticket-bottom {
+                            padding: 15px;
+                            height: 82px;
+                            background-color: #fff;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-end;
+                            .ticket-detail {
+                                h4 {
+                                    font-size: 18px;
                                 }
-                                .button {
+                                p {
                                     font-size: 16px;
-                                    width: 102px;
-                                    height: 32px;
-                                    background-color: #00bdd1;
-                                    color: #fff;
-                                    border: none;
-                                    border-radius: 3px;
-                                    cursor: pointer;
-                                    transition: all 0.5s;
                                 }
-                                .button:hover {
-                                    background-color: #0080a8;
-                                }
+                            }
+                            .button {
+                                font-size: 16px;
+                                width: 102px;
+                                height: 32px;
+                                background-color: #00bdd1;
+                                color: #fff;
+                                border: none;
+                                border-radius: 3px;
+                                cursor: pointer;
+                                transition: all 0.5s;
+                            }
+                            .button:hover {
+                                background-color: #0080a8;
                             }
                         }
                     }
                 }
             }
+            // 裝飾
             .deco {
                 .deco_chair {
                     width: 327px;
                     position: absolute;
                     top: 380px;
                     left: 930px;
+                    @include mobile {
+                        width: 200px;
+                        top: 1200px;
+                        left: 170px;
+                    }
                 }
                 .deco_turtle {
                     width: 130px;
@@ -123,6 +154,11 @@
                     bottom: 400px;
                     left: 1010px;
                     transform: rotate(220deg);
+                    @include mobile {
+                        width: 70px;
+                        top: -30px;
+                        left: 290px;
+                    }
                 }
             }
         }

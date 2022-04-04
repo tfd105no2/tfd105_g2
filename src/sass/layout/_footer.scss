@@ -1,7 +1,17 @@
+@mixin mobile {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
 footer {
     padding: 15px 0 15px 0;
     background-color: #dbf5f8;
-    .footer_flex {
+    text-align: center;
+    .footer_wrapper {
+        @include mobile {
+            padding: 0 15px;
+        }
         .follow_icon {
             display: flex;
             justify-content: center;
