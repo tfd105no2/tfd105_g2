@@ -1,29 +1,39 @@
-.pay_wrapper{
+.pay_wrapper {
     background-color: #EDF9FB;
+    width: 100%;
     height: 100%;
     padding-bottom: 10rem;
-    .pay_main{
-        width: 1200px;
+
+    .pay_main {
+        max-width: 1200px;
         margin: 0 auto;
 
         // 結帳流程進度條區塊
-        .cart_anv{
+        .cart_anv {
             width: 75%;
             display: flex;
             margin: 0 auto;
             padding: 5rem 0;
         }
-        .cart_item{
+        @media screen and (max-width: 575.98px) {
+            .cart_anv {
+                width: 90%;
+            }
+        }
+
+        .cart_item {
             width: 33.3%;
             color: #707070;
             text-align: center;
             line-height: 50px;
             border-bottom: 3px solid rgba($color: #00bdd1, $alpha: 0.5);
-            a{
+
+            a {
                 color: #707070;
             }
         }
-        .cart_round{
+
+        .cart_round {
             width: 30px;
             height: 30px;
             margin: 0 auto;
@@ -32,161 +42,219 @@
             color: #fff;
             line-height: 30px;
         }
-        .cartSelected{
-            .cart_round{
+
+        .cartSelected {
+            .cart_round {
                 background-color: #00BDD1;
                 color: #fff;
             }
+
             color: #00BDD1;
             border-bottom: 3px solid #00BDD1;
         }
 
         // 確認付款內容區塊
-        .cart_contentWrapper{
+        .cart_contentWrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
             display: flex;
             justify-content: center;
-            
-            // 內容明細區塊
-            .cart_content{
-                width: 65%;
-                background-color: #fff;
-                margin-right: 3rem;
-                text-align: center;
-                color: #707070;
-                border: 1px solid #00BDD1;
-                border-collapse:separate;
-                border-radius: 5px;
+            flex-wrap: wrap;
+            gap: 3rem;
 
-                a, button {
+            // 內容明細區塊
+            .cart_content {
+                flex: 1;
+                overflow-x: auto;
+
+                @media screen and (max-width: 575.98px) {
+                    .cart_table {
+                        min-width: 700px;
+                    }
+                }
+
+                .cart_table {
+                    width: 100%;
+                    background-color: #fff;
+                    text-align: center;
                     color: #707070;
-                }
-                th, td{
-                    vertical-align:middle;
-                    padding: 6px;
-                }
-                td{
-                    border-top: 1px solid #00BDD1;
-                }
-                .contentTitle{
-                    font-size: 16px;
-                }
-                .ticketGroup{
-                    img{
-                        width: 100px;
-                        border-radius: 5px;
+                    border: 1px solid #00BDD1;
+                    border-collapse: separate;
+                    border-radius: 5px;
+
+                    a,
+                    button {
+                        color: #707070;
                     }
-                    .ticketType{
-                        text-align: left;
+
+                    th,
+                    td {
+                        vertical-align: middle;
+                        padding: 6px;
                     }
-                    .cart_quantityInfo {
-                        display: flex;
-                        justify-content: center;
+
+                    td {
+                        border-top: 1px solid #00BDD1;
                     }
-                    .quantity:focus{
-                        outline: 0;
+
+                    .contentTitle {
+                        font-size: 16px;
                     }
-                    button{
-                        background-color: #fff;
-                        border: 1px solid #00BDD1;
-                        cursor: pointer;
-                    }
-                    .minus{
-                        border-right: none;
-                        border-radius: 5px 0 0 5px;
-                    }
-                    .plus{
-                        border-left: none;
-                        border-radius: 0 5px 5px 0;
-                    }
-                    input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                        margin: 0;
-                    }
-                    input[type=number] {
-                        -moz-appearance: textfield;
-                    }
-                    input{
-                        width: 50px;
-                        text-align: center;
-                        border: 1px solid #00BDD1;
-                    }
-                    .deleteButton{
-                        font-size: 2.5rem;
-                        border: none;
-                    }
-                }
-                .subtotal{
-                    font-weight: 600;
-                }
-                .ticketTotal{
-                    .pay_btn{
-                        a{
-                            display: block;
-                            margin: 0 auto;
-                            width: 8rem;
-                            line-height: 2.5rem;
-                            
-                            background-color: #00BDD1;
-                            color: #fff;
+
+                    .ticketGroup {
+                        img {
+                            width: 100px;
                             border-radius: 5px;
-                            font-size: 1.4rem;
+                        }
+
+                        .ticketType {
+                            text-align: left;
+                        }
+
+                        .cart_quantityInfo {
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .quantity:focus {
+                            outline: 0;
+                        }
+
+                        button {
+                            background-color: #fff;
+                            border: 1px solid #00BDD1;
+                            cursor: pointer;
+                        }
+
+                        .minus {
+                            border-right: none;
+                            border-radius: 5px 0 0 5px;
+                        }
+
+                        .plus {
+                            border-left: none;
+                            border-radius: 0 5px 5px 0;
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        input[type=number] {
+                            -moz-appearance: textfield;
+                        }
+
+                        input {
+                            width: 50px;
                             text-align: center;
+                            border: 1px solid #00BDD1;
+                        }
+
+                        .deleteButton {
+                            font-size: 2.5rem;
+                            border: none;
                         }
                     }
-                }
-                .noBorderTop{
-                    border-top: 1px solid #fff;
+
+                    .subtotal {
+                        font-weight: 600;
+                    }
+
+                    .ticketTotal {
+                        
+                    }
+
+                    .noBorderTop {
+                        border-top: 1px solid #fff;
+                    }
                 }
             }
         }
 
         // 選擇付款方式區塊
-        .choose_block{
+        .choose_block {
             width: 25%;
-            height: 150px;
+            height: 180px;
             color: #707070;
             background-color: #DBF5F8;
             border: 1px solid #00BDD1;
             border-radius: 5px;
             padding: .5rem 1rem;
 
-            // position: relative;
-            .chooseTitle{
+            position: relative;
+            .chooseTitle {
                 text-align: center;
                 border-bottom: 1px solid #00BDD1;
                 line-height: 3rem;
                 margin-bottom: 2rem;
             }
-            .choose{
-                line-height: 0rem;
-                margin-bottom: 1.5rem;
 
-                // border: 1px solid red;
-                img{
+            .choose {
+                // display: block;
+                width: 18rem;
+                line-height: 0rem;
+                // margin-bottom: 1.5rem;
+                margin: 0 auto 1.5rem;
+
+                img {
                     width: 8rem;
                 }
-                input{
+
+                input {
                     accent-color: #0080A8;
                 }
+            }
+            .pay_btn {
+                border-top: 1px solid #00BDD1;
+                a {
+                    display: block;
+                    margin: 1rem auto;
+                    width: 8rem;
+                    line-height: 2.5rem;
+
+                    background-color: #00BDD1;
+                    color: #fff;
+                    border-radius: 5px;
+                    font-size: 1.4rem;
+                    text-align: center;
+                }
+            }
+        }
+        @media screen and (max-width: 575.98px) {
+            .choose_block {
+                width: 100%;
             }
         }
 
         // 返回上一步
-        .back{
+        .back {
             margin-top: 1rem;
-            margin-left: 4.5rem;
-            a{
+            margin-left: 6.5rem;
+
+            a {
                 color: #707070;
+            }
+        }
+        @media screen and (max-width: 575.98px){
+            .back{
+                margin-left: 2rem;
             }
         }
 
         // 裝飾圖片
-        .pay_fish{
+        .pay_fish {
             width: 35%;
             position: absolute;
-            top: 400px;
+            top: 430px;;
             right: 0px;
+        }
+        @media screen and (max-width: 575.98px){
+            .pay_fish{
+            display: none;
+            }
         }
     }
 }
