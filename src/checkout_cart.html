@@ -34,49 +34,52 @@
       <!-- 購物車內容區塊 -->
       <div v-if="products.length" class="cart_contentWrapper">
         <!-- 內容明細區塊 -->
-        <table class="cart_content">
-          <thead class="contentTitle">
-            <tr>
-              <th colspan="2">品名</th>
-              <th>單價</th>
-              <th>數量</th>
-              <th>小計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="product in products" class="ticketGroup">
-              <td class="ticketImg">
-                <img v-bind:src="product.img" alt="票券圖片" />
-              </td>
-              <td class="ticketType">
-                <a href="#">{{product.name}}<br />{{product.date}}{{product.area}}</a>
-              </td>
-              <td>NT$<span>{{product.unitPrice}}</span></td>
-              <!-- 數量組區塊 -->
-              <td>
-                <div class="cart_quantityInfo">
-                  <span><button @click="minus(product)" class="minus">
-                      -
-                    </button></span>
-                  <div>
-                    <input v-model.number="product.quantity" :min="1" type="number" class="quantity" />
+        <div class="cart_content">
+          <table class="cart_table">
+            <thead class="contentTitle">
+              <tr>
+                <th colspan="2">品名</th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="product in products" class="ticketGroup">
+                <td class="ticketImg">
+                  <img v-bind:src="product.img" alt="票券圖片" />
+                </td>
+                <td class="ticketType">
+                  <a href="#">{{product.name}}<br />{{product.date}}{{product.area}}</a>
+                </td>
+                <td>NT$<span>{{product.unitPrice}}</span></td>
+                <!-- 數量組區塊 -->
+                <td>
+                  <div class="cart_quantityInfo">
+                    <span><button @click="minus(product)" class="minus">
+                        -
+                      </button></span>
+                    <div>
+                      <input v-model.number="product.quantity" :min="1" type="number" class="quantity" />
+                    </div>
+                    <span><button @click="plus(product)" class="plus">
+                        +
+                      </button></span>
                   </div>
-                  <span><button @click="plus(product)" class="plus">
-                      +
-                    </button></span>
-                </div>
-              </td>
-              <td class="subtotal">
-                NT$<span>{{product.unitPrice * product.quantity}}</span>
-              </td>
-              <td>
-                <button @click="remove(product.id)" class="deleteButton">
-                  ×
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td class="subtotal">
+                  NT$<span>{{product.unitPrice * product.quantity}}</span>
+                </td>
+                <td>
+                  <button @click="remove(product.id)" class="deleteButton">
+                    ×
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
 
         <!-- 購物車總額區塊 -->
         <div class="cart_detail">
@@ -86,9 +89,7 @@
           </div>
           <!-- 折扣碼 -->
           <div class="discountCode">
-            <div>
-              <input type="text" class="discountCode_box" readonly/>
-            </div>
+            <input type="text" class="discountCode_box" readonly />
             <span>
               <button type="submit" class="discountCode_btn">
                 使用

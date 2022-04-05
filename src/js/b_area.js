@@ -54,12 +54,48 @@ new Vue({
     data: {
         dbcheck_off: false,
         dbcheck_on: false,
+        b_area_current: 'b_area_current',
+        flag: 0,
+        b_area_origin: 'b_area_origin',
         mainbtn: [
             { name: "會員管理", url: "b_member.html" },
             { name: "訂單管理", url: "b_order.html" },
             { name: "消息管理", url: "b_news.html" },
             { name: "房間管理", url: "b_area.html" },
             { name: "訂票管理", url: "b_ticket.html" },
+
+        ],
+        area: [
+            {
+                type: '海底隧道',
+                num: 20,
+                url: 'img/intro-pic-01.png',
+            },
+            {
+                type: '大洋池親近區',
+                num: 10,
+                url: 'img/intro-pic-01.png',
+            },
+            {
+                type: '小白鯨區',
+                num: 8,
+                url: 'img/intro-pic-01.png',
+            },
+            {
+                type: '海藻森林',
+                num: 3,
+                url: 'img/intro-pic-01.png',
+            },
+            {
+                type: '極地區',
+                num: 8,
+                url: 'img/intro-pic-01.png',
+            },
+            {
+                type: '鯊魚區',
+                num: 5,
+                url: 'img/intro-pic-01.png',
+            },
 
         ],
 
@@ -77,6 +113,7 @@ new Vue({
         },
 
         current_edit: null,
+        current_area: '海底隧道'
     },
     created: function () {
         this.showMdata(1);
@@ -88,10 +125,15 @@ new Vue({
         edit(year, month, date) {
             this.current_edit = year + '/' + month + '/' + date;
             //console.log(year + '/' + month + '/' + date);
-            console.log(this.current_edit);
+            // console.log(this.current_edit);
         },
 
-
+        handlerBorder(i) {
+            // console.log(i)
+            this.flag = i;
+            this.current_area = this.area[i].type;
+            console.log(this.current_area);
+        },
         f_close() {
             this.dbcheck_off = true;
             // this.current_edit = null;
@@ -253,12 +295,12 @@ new Vue({
     },
     components: {
         'double-check-off': {
-            props: ['b_date'],
+            props: ['b_date', 'b_area'],
             template: ` 
             <div class="dbc" id='root'>
                 <section></section>
                 <p>日期:{{b_date}}</p>
-                <p>區域:海底隧道</p>
+                <p>區域:{{b_area}}</p>
                 <p>確定要關閉該區嗎?</p>
     
                 <div>
@@ -278,12 +320,12 @@ new Vue({
             },
         },
         'double-check-on': {
-            props: ['b_date'],
+            props: ['b_date', 'b_area'],
             template: ` 
             <div class="dbc" id='root'>
                 <section></section>
                 <p>日期:{{b_date}}</p>
-                <p>區域:海底隧道</p>
+                <p>區域:{{b_area}}</p>
                 <p>確定要開啟該區嗎?</p>
     
                 <div>
