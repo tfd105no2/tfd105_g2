@@ -1,6 +1,7 @@
 .cart_wrapper {
   background-color: #EDF9FB;
-  height: 1000px;
+  height: 100%;
+  padding-bottom: 10rem;
 }
 
 .cart_wrapper .cart_main {
@@ -65,6 +66,10 @@
   border-radius: 5px;
 }
 
+.cart_wrapper .cart_main .cart_contentWrapper .cart_content .contentTitle {
+  font-size: 16px;
+}
+
 .cart_wrapper .cart_main .cart_contentWrapper .cart_content a, .cart_wrapper .cart_main .cart_contentWrapper .cart_content button {
   color: #707070;
 }
@@ -76,10 +81,6 @@
 
 .cart_wrapper .cart_main .cart_contentWrapper .cart_content td {
   border-top: 1px solid #00BDD1;
-}
-
-.cart_wrapper .cart_main .cart_contentWrapper .cart_content .contentTitle {
-  font-size: 16px;
 }
 
 .cart_wrapper .cart_main .cart_contentWrapper .cart_content .ticketGroup img {
@@ -137,6 +138,7 @@
 }
 
 .cart_wrapper .cart_main .cart_contentWrapper .cart_content .ticketGroup .subtotal {
+  width: 11rem;
   font-weight: 600;
 }
 
@@ -240,5 +242,66 @@
   line-height: 2.5rem;
   text-align: center;
   color: #0080A8;
+}
+
+.cart_wrapper .cart_main .no_ticket {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #00BDD1;
+  border-radius: 5px;
+}
+
+.cart_wrapper .cart_main .no_ticket .no_ticket_fish {
+  width: 12%;
+  -webkit-animation: nimo 1s linear infinite;
+          animation: nimo 1s linear infinite;
+}
+
+@-webkit-keyframes nimo {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes nimo {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+.cart_wrapper .cart_main .no_ticket h3 {
+  font-size: 2rem;
+  color: #0080A8;
+}
+
+.cart_wrapper .cart_main .no_ticket a {
+  display: block;
+  margin: 1rem auto 0;
+  width: 8rem;
+  line-height: 2.5rem;
+  background-color: #00BDD1;
+  border-radius: 5px;
+  color: #fff;
 }
 /*# sourceMappingURL=checkout_cart.css.map */
