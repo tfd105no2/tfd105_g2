@@ -23,7 +23,6 @@
 
 .index-wrapper {
     background-color: #edf9fb;
-    overflow: hidden;
     .container {
         max-width: 1100px;
         margin: 0 auto;
@@ -32,6 +31,7 @@
         }
     }
     main {
+        overflow: hidden;
         // section-背景影片
         .topVisualWrap {
             overflow: hidden;
