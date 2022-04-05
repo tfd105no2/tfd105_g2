@@ -30,17 +30,32 @@
       <section class="content-wrapper">
         <div class="container">
           <h2>選擇預訂日期</h2>
-
+          <!-- 日曆顏色說明 -->
+          <div class="state_color_list">
+            <div class="active_color_item">
+              <div class="circle"></div>
+              <p>進行中</p>
+            </div>
+            <div class="full_color_item">
+              <div class="circle"></div>
+              <p>已額滿</p>
+            </div>
+          </div>
           <!-- 日曆 -->
           <div class="b_area_calendar">
-            <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
-            <div>
-              <!-- <button @click="adjustYear(-1)">上一年</button> -->
-              <button @click="adjustMonth(-1)">上個月</button>
-              <!-- <button @click="setToday">今天</button> -->
-              <button @click="adjustMonth(1)">下個月</button>
-              <!-- <button @click="adjustYear(1)">下一年</button> -->
+            <div class="date_title">
+              <button @click="adjustMonth(-1)">
+                <i class="fas fa-angle-left"></i> </button>
+              <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
+              <button @click="adjustMonth(1)">
+                <i class="fas fa-angle-right"></i>
+              </button>
             </div>
+
+            <!-- <button @click="adjustYear(-1)">上一年</button> -->
+            <!-- <button @click="setToday">今天</button> -->
+            <!-- <button @click="adjustYear(1)">下一年</button> -->
+
             <div class="b_area_weekDay">
               <div>日</div>
               <div>一</div>
