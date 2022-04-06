@@ -13,7 +13,7 @@
             width: 75%;
             display: flex;
             margin: 0 auto;
-            padding: 15rem 0 5rem;
+            padding: 5rem 0;
         }
         @media screen and (max-width: 575.98px) {
             .cart_anv {
@@ -256,5 +256,10 @@
             display: none;
             }
         }
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .pay_wrapper{
+        padding-bottom: 15rem;
     }
 }
