@@ -253,7 +253,7 @@
         .pay_fish {
             width: 35%;
             position: absolute;
-            top: 430px;
+            top: 450px;;
             right: 0px;
         }
         @media screen and (max-width: 575.98px) {
@@ -261,5 +261,10 @@
                 display: none;
             }
         }
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .pay_wrapper{
+        padding-bottom: 15rem;
     }
 }

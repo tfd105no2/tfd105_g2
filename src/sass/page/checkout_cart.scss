@@ -240,6 +240,7 @@
         .no_ticket {
             width: 85%;
             margin: 0 auto;
+            margin-bottom: 10rem;
             padding: 3rem;
             text-align: center;
 
@@ -285,5 +286,15 @@
                 color: #fff;
             }
         }
+        @media screen and (max-width: 575.98px) {
+            .no_ticket{
+                margin-bottom: 25rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .cart_wrapper{
+        padding-bottom: 15rem;
     }
 }
