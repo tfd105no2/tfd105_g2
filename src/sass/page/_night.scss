@@ -1,10 +1,16 @@
+@mixin mobile {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
 .night-wrapper {
     background-color: #edf9fb;
     main {
         overflow-x: hidden;
         .title {
             background-image: url("../img/ticket_title.jpg");
-            height: calc(100vh - 80px);
+            height: 100vh;
             background-size: cover;
             background-position: 50% 50%;
             background-attachment: fixed;
@@ -20,15 +26,15 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            margin-top: 60px;
+            margin: 60px 0 28px 0;
             li {
-                padding: 0 18px;
+                margin: 0 30px;
                 a {
                     color: rgb(0, 189, 209, 0.3);
                     display: block;
                     i {
-                        font-size: 48px;
-                        margin-bottom: 20px;
+                        font-size: 36px;
+                        margin-bottom: 10px;
                     }
                     p {
                         font-size: 20px;
@@ -49,12 +55,14 @@
             .container {
                 max-width: 1100px;
                 margin: 0 auto;
-                margin-top: 28px;
+                @include mobile {
+                    padding: 0 15px;
+                }
                 h2 {
                     color: #00bdd1;
                     font-size: 24px;
                     text-align: center;
-                    padding: 30px 0 60px 0;
+                    padding: 30px 0;
                 }
             }
 
@@ -67,16 +75,31 @@
                     width: 450px;
                     top: 80px;
                     left: 900px;
+                    @include mobile {
+                        width: 150px;
+                        top: 60px;
+                        left: 250px;
+                    }
                 }
                 .nig-grass {
                     width: 150px;
                     top: 520px;
                     left: 30px;
+                    @include mobile {
+                        width: 40px;
+                        top: 540px;
+                        left: 10px;
+                    }
                 }
                 .nig-deco {
                     height: 100px;
                     top: 850px;
                     left: -50px;
+                    @include mobile {
+                        height: 50px;
+                        top: 620px;
+                        left: -40px;
+                    }
                 }
             }
         }
@@ -85,14 +108,72 @@
 
 // 日曆!!!!!!
 .night-wrapper {
+    // 日曆顏色說明
+    .state_color_list {
+        display: flex;
+        padding: 10px 150px;
+        @include mobile {
+            padding: 10px 0;
+        }
+        & > div {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .active_color_item {
+            .circle {
+                background-color: green;
+            }
+        }
+        .full_color_item {
+            .circle {
+                background-color: red;
+            }
+        }
+    }
+
     .b_area_calendar {
         margin: 0 auto;
         border: 3px solid #0080a8;
         width: 800px;
         text-align: center;
-        h1 {
-            font-size: 28px;
+        @include mobile {
+            width: 100%;
         }
+        .date_title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            i {
+                color: #00bdd1;
+                font-size: 18px;
+            }
+            h1 {
+                font-size: 28px;
+                margin: 0 50px;
+                color: #797979;
+                @include mobile {
+                    font-size: 20px;
+                }
+            }
+            button {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                background-color: #fff;
+                cursor: pointer;
+            }
+        }
+
         .b_area_weekDay,
         .b_area_week {
             display: flex;
@@ -122,6 +203,11 @@
             &:first-child {
                 border-left: none;
             }
+            @include mobile {
+                margin: 0;
+                height: 50px;
+                display: block;
+            }
         }
         .b_area_week > div:before {
             position: absolute;
@@ -135,6 +221,9 @@
         }
         .b_area_booking_status {
             margin-top: 30px;
+            @include mobile {
+                display: none;
+            }
         }
 
         .b_area_circle_status {
@@ -142,6 +231,13 @@
             height: 10px;
             border-radius: 50%;
             background-color: green;
+            @include mobile {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                bottom: 10px;
+            }
         }
 
         .b_area_today {
@@ -173,6 +269,9 @@
         height: 100vh;
         overflow: auto;
         padding-top: 20px;
+        @include mobile {
+            margin: 0;
+        }
         .modal-content {
             margin: 0 auto;
             border-radius: 5px;
@@ -180,6 +279,9 @@
             width: 1080px;
             background-color: #dbf5f8;
             text-align: center;
+            @include mobile {
+                width: 320px;
+            }
             .date {
                 position: relative;
                 font-size: 18px;
@@ -215,11 +317,19 @@
                 flex-wrap: wrap;
                 margin-top: 10px;
                 padding: 0 30px;
+                @include mobile {
+                    display: block;
+                    padding: 0 15px;
+                }
                 li {
                     width: 315px;
                     overflow: hidden;
                     border-radius: 5px;
                     margin-bottom: 30px;
+                    @include mobile {
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
                     a {
                         display: block;
                         height: 100%;
@@ -229,6 +339,9 @@
                             height: 120px;
                             object-fit: cover;
                             object-position: 50% 70%;
+                            @include mobile {
+                                margin: 0;
+                            }
                         }
                         .ticket-bottom {
                             height: 60px;
@@ -248,5 +361,3 @@
         }
     }
 }
-
-

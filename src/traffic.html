@@ -3,30 +3,32 @@
 
   <head>
     @@include('layout/head.html',{ "title":"交通指南" })
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
   </head>
 
 <body>
-  @@include('layout/nav.html')
-  <div class="transportation_banner">
-    <h1>交通指南</h1>
-  </div>
-  
+  @@include('layout/nav.html', { 'active3': 'active' })
+
   <!-- music -->
   <div id="app">
     <div class="play" @click="open">
-        <img src="img/18-017.png" class="fishh hide">
+        <img src="img/18-017.png" class="conch close">
+        <ul class="bubble">
+          <li class="bb hide"></li>
+          <li class="bb hide"></li>
+          <li class="bb hide"></li>
+          <li class="bb hide"></li>
+          <li class="bb hide"></li>
+      </ul>
     </div>
-
+      <div class="player">
+        <audio id="music" loop src="img/OpenSeaMorning.mp3"></audio>
+    </div>
+  </div>
   <!----------------------- my main------------------- -->
   <div class="traffichead">
-    
+    <div class="transportation_banner">
+      <h1>交通指南</h1>
+    </div>
     <main class="maintt">
       <!-- traffic nav -->
       <article class="traffic_nav">
@@ -62,49 +64,17 @@
       <div class="traffic_map_wapper">
         <form action="#" method="#">
           <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
-          <input id="traffic_send" type="submit" value="前往" /> 
+          <input id="traffic_btn" type="submit" value="前往" /> 
         </form>
   
         <article class="traffic_map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9041.486248627809!2d121.5293230783774!3d25.064052295902638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a969d447cd57%3A0x1b4c930c704cd1ae!2sBeApe%20Restaurant!5e0!3m2!1szh-TW!2stw!4v1643603760451!5m2!1szh-TW!2stw" width="1200" height="250"
-            style="border: 0" allowfullscreen="" loading="lazy" data-aos="fade-up"></iframe>
-          <section class="traffic_address">
-            <h2>地址：台北市中山區南京東路三段219號</h2>
-          </section>
-        </article>
-        <div class="traffic_dashed">
-          <div class="dashed-fish">
-            <img src="img/071-06.png" alt="" />
-          </div>
-        </div>
-
-        <!-------- start map go ----------->
-        <div class="traffic_map_wapper">
-          <form action="#" method="#">
-            <input
-              id="traffic_address"
-              type="text"
-              placeholder="輸入目前的地址"
-            />
-            <input id="traffic_send" type="submit" value="前往" />
-          </form>
-
-          <article class="traffic_map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9041.486248627809!2d121.5293230783774!3d25.064052295902638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a969d447cd57%3A0x1b4c930c704cd1ae!2sBeApe%20Restaurant!5e0!3m2!1szh-TW!2stw!4v1643603760451!5m2!1szh-TW!2stw"
-              width="1200"
-              height="250"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              data-aos="fade-up"
-            ></iframe>
+          <div class="map_wapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4086.478531104386!2d121.54327503909204!3d25.052850008154042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1648884512677!5m2!1szh-TW!2stw" width="1200" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <section class="traffic_address">
               <h2>地址：台北市中山區南京東路三段219號</h2>
             </section>
-          </article>
-        </div>
+          </div>
+        </article>
 
         <!---------take the train----- -->
 
@@ -226,10 +196,14 @@
                   南下→省道台9線→經[達仁鄉]過[楓港]接省道台26線→[車城鄉]轉[後灣]方向抵達本館。
                 </h4>
               </div>
-            </div>
-            <div class="carpice">
-              <img src="img/032-09.png" alt="泡泡" />
-              <img src="img/18-021.png" alt="河豚" />
+              <div class="carpice">
+                <ul class="bubble2">
+                  <li class="bb"></li>
+                  <li class="bb"></li>
+                  <li class="bb"></li>
+                </ul>
+                <img src="img/18-021.png" alt="河豚" />
+              </div>
             </div>
 
             <div class="jellyfish">
@@ -429,7 +403,6 @@
     @@include('layout/footer.html')
 
     <script src="js/vue.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="js/traffic.js"></script>
   </body>
 </html>

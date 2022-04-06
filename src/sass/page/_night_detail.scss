@@ -1,10 +1,16 @@
+@mixin mobile {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
 .night-detail-wrapper {
     background-color: #edf9fb;
     main {
         overflow-x: hidden;
         .title {
             background-image: url("../img/ticket_title.jpg");
-            height: calc(100vh - 80px);
+            height: 100vh;
             background-size: cover;
             background-position: 50% 50%;
             background-attachment: fixed;
@@ -20,15 +26,15 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            margin-top: 60px;
+            margin: 60px 0 28px 0;
             li {
-                padding: 0 18px;
+                margin: 0 30px;
                 a {
                     color: rgb(0, 189, 209, 0.3);
                     display: block;
                     i {
-                        font-size: 48px;
-                        margin-bottom: 20px;
+                        font-size: 36px;
+                        margin-bottom: 10px;
                     }
                     p {
                         font-size: 20px;
@@ -47,23 +53,31 @@
             .container {
                 max-width: 1100px;
                 margin: 0 auto;
-                margin-top: 28px;
+                @include mobile {
+                    padding: 0 15px;
+                }
                 h2 {
                     color: #00bdd1;
                     font-size: 24px;
                     text-align: center;
-                    padding: 30px 0 60px 0;
+                    padding: 30px 0;
                 }
                 // 圖片詳情
                 .content-top {
                     display: flex;
                     justify-content: center;
+                    @include mobile {
+                        display: block;
+                    }
                     img {
                         width: 320px;
                         height: 320px;
                         object-fit: cover;
                         object-position: 50%;
                         margin-right: 30px;
+                        @include mobile {
+                            width: 100%;
+                        }
                     }
                     .content-text {
                         h3 {
@@ -89,11 +103,18 @@
                         span {
                             font-size: 16px;
                             margin: 0 0 8px 24px;
+                            @include mobile {
+                                margin-left: 0px;
+                            }
                         }
                         .notice {
                             list-style: disc;
                             width: 420px;
                             margin-left: 40px;
+                            @include mobile {
+                                width: calc(100% - 20px);
+                                margin-left: 20px;
+                            }
                             li {
                                 font-size: 14px;
                                 color: #a6a6a6;
@@ -106,12 +127,18 @@
                     width: 850px;
                     border: 1px dashed #5c9fb9;
                     margin: 60px auto;
+                    @include mobile {
+                        width: 100%;
+                    }
                 }
                 // 票種選擇
                 .content-bottom {
                     padding-bottom: 230px;
                     ul {
                         margin: 0 auto;
+                        @include mobile {
+                            width: 100%;
+                        }
                         .bed-type {
                             margin: 0 auto 25px auto;
                             border-radius: 5px;
@@ -122,19 +149,45 @@
                             height: 75px;
                             background-color: #00bdd1;
                             padding: 0 18px 0 30px;
+                            @include mobile {
+                                width: 100%;
+                                height: 100%;
+                                padding: 10px;
+                                // 垂直基線對齊
+                                align-items: baseline;
+                            }
                             p {
                                 font-size: 18px;
                                 font-weight: 700;
                                 color: #fff;
+                                flex-grow: 1;
+                                // 固定左邊寬度, 禁止被壓縮
+                                flex-shrink: 0;
+                                @include mobile {
+                                    font-size: 16px;
+                                }
                             }
                             .type-right {
                                 display: flex;
                                 align-items: center;
-                                p {
+                                @include mobile {
+                                    // 斷行
+                                    flex-wrap: wrap;
+                                    justify-content: flex-end;
+                                }
+                                .price {
+                                    order: 1;
+                                    flex-grow: 0;
+                                    padding-right: 10px;
                                 }
                                 .quantityInfo {
                                     display: flex;
                                     margin: 0 30px;
+                                    order: 2;
+                                    @include mobile {
+                                        order: 3;
+                                        margin: 8px 0 0 0;
+                                    }
                                     span {
                                         button {
                                             background-color: #fff;
@@ -169,6 +222,7 @@
                                     }
                                 }
                                 .button {
+                                    order: 3;
                                     width: 108px;
                                     height: 40px;
                                     color: #fff;
@@ -178,6 +232,9 @@
                                     background-color: #00bdd1;
                                     cursor: pointer;
                                     transition: all 0.5s;
+                                    @include mobile {
+                                        order: 2;
+                                    }
                                 }
                                 .button:hover {
                                     background-color: #0080a8;
@@ -198,16 +255,31 @@
                     width: 450px;
                     top: 80px;
                     left: 900px;
+                    @include mobile {
+                        width: 200px;
+                        top: 90px;
+                        left: 240px;
+                    }
                 }
                 .nig-grass {
                     width: 150px;
                     top: 650px;
                     left: 30px;
+                    @include mobile {
+                        width: 70px;
+                        top: 1300px;
+                        left: 0px;
+                    }
                 }
                 .nig-deco {
                     height: 100px;
                     top: 1000px;
                     left: -50px;
+                    @include mobile {
+                        height: 50px;
+                        top: 1450px;
+                        left: -40px;
+                    }
                 }
             }
         }

@@ -1,3 +1,9 @@
+@mixin mobile {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
 @keyframes scrollMarkMove {
     0% {
         transform: translate(0, 0);
@@ -17,31 +23,47 @@
 
 .index-wrapper {
     background-color: #edf9fb;
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        @include mobile {
+            padding: 0 15px;
+        }
+    }
     main {
+        overflow: hidden;
         // section-背景影片
         .topVisualWrap {
             overflow: hidden;
             width: 100%;
-            min-height: 530px;
+            height: 100vh;
             background: #000;
             position: relative;
+            @include mobile {
+                margin: 0;
+            }
             .movie-content {
                 z-index: 0;
                 position: absolute;
-                width: auto;
-                height: 723px;
+                object-fit: cover;
                 left: 0;
                 top: 0;
+                @include mobile {
+                    margin: 0;
+                }
             }
             span.bg {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
-                height: 723px;
+                height: 100%;
                 background-color: #007481;
                 opacity: 0.3;
                 z-index: 1;
+                @include mobile {
+                    margin: 0;
+                }
             }
             .top-container {
                 text-align: center;
@@ -53,8 +75,11 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                top: 80px;
+                top: 150px;
                 margin: auto;
+                @include mobile {
+                    width: 100%;
+                }
                 h1 {
                     position: relative;
                     margin-bottom: 24px;
@@ -98,24 +123,73 @@
         // section 天氣與營業時間
         .weather-time-wrap {
             margin: 100px 0px 130px 0px;
+            @include mobile {
+                margin: 60px 0;
+            }
             .container {
                 // border: 1px solid red;
                 max-width: 1100px;
                 margin: 0 auto;
                 display: flex;
                 justify-content: space-between;
-                .weather {
+                align-items: flex-start;
+                @include mobile {
+                    display: block;
+                }
+                .weathers {
                     display: flex;
                     justify-content: center;
-                    .weather1{
-                        display: flex;
-                        flex-direction: column;
-                        background-color: #afc;
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                    @include mobile {
+                        margin-bottom: 60px;
                     }
-                    .weather2{
+                    .weather {
+                        width: 244px;
+                        height: 340px;
                         display: flex;
                         flex-direction: column;
-                        background-color: rgb(226, 130, 236);
+                        align-items: center;
+                        padding: 15px;
+                        .location {
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                            @include mobile {
+                                font-size: 18px;
+                                margin-bottom: 6px;
+                            }
+                        }
+                        .time {
+                            margin-bottom: 20px;
+                            @include mobile {
+                                text-align: center;
+                                margin-bottom: 0;
+                                line-height: 1.3;
+                                font-size: 14px;
+                            }
+                        }
+
+                        img {
+                            width: 130px;
+                            margin: 20px 0 30px 0;
+                            @include mobile {
+                                margin: 8px 0;
+                                width: 80px;
+                            }
+                        }
+                        @include mobile {
+                            height: 250px;
+                        }
+                    }
+                    .weather1 {
+                        background-color: #5c9fb9;
+                    }
+                    .weather2 {
+                        background-color: #00bdd1;
                     }
                 }
                 .opentime {
@@ -132,11 +206,22 @@
                         position: absolute;
                         left: 0;
                         top: 240px;
+                        @include mobile {
+                            top: 155px;
+                        }
+                    }
+                    @include mobile {
+                        width: 100%;
+                        padding: 15px;
                     }
                     h3 {
                         font-size: 30px;
                         color: #00bdd1;
                         margin-bottom: 40px;
+                        @include mobile {
+                            font-size: 26px;
+                            margin-bottom: 20px;
+                        }
                     }
                     .middle {
                         font-size: 20px;
@@ -144,11 +229,9 @@
                         display: flex;
                         justify-content: space-between;
                         margin-bottom: 70px;
-                        .week {
-                            // border: 1px solid;
-                        }
-                        .detail-time {
-                            // border: 1px solid;
+                        @include mobile {
+                            font-size: 18px;
+                            margin-bottom: 40px;
                         }
                     }
                     .notice {
@@ -160,6 +243,12 @@
                             position: absolute;
                             top: 90px;
                             left: -30px;
+                            @include mobile {
+                                left: 280px;
+                                top: 240px;
+                                width: 60px;
+                                transform: rotateY(180deg);
+                            }
                         }
                     }
                 }
@@ -168,28 +257,58 @@
         // section 動物介紹
         .intro {
             margin-bottom: 130px;
+            @include mobile {
+                margin-bottom: 0px;
+            }
             .container {
                 box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 background-color: rgb(255, 255, 255);
                 max-width: 1100px;
                 margin: 0 auto;
-                .top {
-                    // border: 1px solid;
+                border-radius: 5px;
+                overflow: hidden;
+                @include mobile {
+                    box-shadow: none;
+                    background-color: #edf9fb;
+                }
+                i {
+                    font-size: 30px;
+                    color: #5c9fb9;
+                    margin-bottom: 8px;
+                    @include mobile {
+                        font-size: 20px;
+                    }
+                }
+                h2 {
+                    color: #46ccdb;
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin-bottom: 18px;
+                    @include mobile {
+                        font-size: 20px;
+                    }
+                }
+                & > div {
                     display: flex;
+                    @include mobile {
+                        display: block;
+                        margin-bottom: 70px;
+                        padding: 15px;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                    }
+                }
+                .top {
                     .text {
                         text-align: center;
                         width: 40%;
                         padding: 30px;
-                        // border: 1px solid red;
-                        img {
-                            width: 60px;
+                        order: 1;
+                        @include mobile {
+                            width: 100%;
                         }
-                        h2 {
-                            color: #46ccdb;
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 18px;
-                        }
+
                         p {
                             color: #00bdd1;
                             font-size: 15px;
@@ -197,7 +316,10 @@
                     }
                     .pic {
                         width: 60%;
-                        // border: 1px solid red;
+                        order: 2;
+                        @include mobile {
+                            width: 100%;
+                        }
                         img {
                             display: block;
                             width: 100%;
@@ -205,21 +327,12 @@
                     }
                 }
                 .second {
-                    display: flex;
-                    // border: 1px solid;
                     .text {
                         text-align: center;
                         width: 40%;
                         padding: 30px;
-                        // border: 1px solid red;
-                        img {
-                            width: 60px;
-                        }
-                        h2 {
-                            color: #46ccdb;
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 18px;
+                        @include mobile {
+                            width: 100%;
                         }
                         p {
                             color: #00bdd1;
@@ -228,7 +341,9 @@
                     }
                     .pic {
                         width: 60%;
-                        // border: 1px solid red;
+                        @include mobile {
+                            width: 100%;
+                        }
                         img {
                             display: block;
                             width: 100%;
@@ -239,18 +354,26 @@
         }
         // section 最新消息
         .news {
-            margin-bottom: 250px;
+            margin-bottom: 100px;
             .container {
                 max-width: 1100px;
                 margin: 0 auto;
-                // border: 1px solid red;
+                @include mobile {
+                    padding: 30px 15px;
+                    background-color: #fff;
+                }
                 .news_title {
                     position: relative;
                     margin-bottom: 140px;
-                    // border: 1px solid red;
+                    @include mobile {
+                        margin: 0;
+                    }
                     h3 {
                         color: #00bdd1;
                         font-size: 30px;
+                        @include mobile {
+                            font-size: 26px;
+                        }
                     }
                     p {
                         color: #5c9fb9;
@@ -264,6 +387,12 @@
                             position: absolute;
                             top: 100px;
                             left: -90px;
+                            @include mobile {
+                                top: 110px;
+                                width: 140px;
+                                left: 0;
+                                height: 3px;
+                            }
                         }
                     }
                     .deco {
@@ -273,15 +402,30 @@
                             top: -220px;
                             left: 630px;
                             z-index: 1;
+                            @include mobile {
+                                top: -160px;
+                                left: 180px;
+                                width: 180px;
+                            }
                         }
                     }
                 }
                 .news_row {
                     display: flex;
                     justify-content: space-between;
+                    @include mobile {
+                        display: block;
+                        margin-top: 50px;
+                    }
                     li {
                         width: calc(33.33% - 20px);
-                        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        border-radius: 3px;
+                        overflow: hidden;
+                        @include mobile {
+                            width: 100%;
+                            margin-bottom: 30px;
+                        }
                         a {
                             position: relative;
                             display: block;
@@ -338,6 +482,12 @@
         // section 功能卡片
         .function_card {
             margin-bottom: 50px;
+            // background-color: #fff;
+            background-image: url("../img/index_bg001.jpg");
+            padding: 100px 0;
+            @include mobile {
+                padding: 60px 0;
+            }
             .container {
                 display: flex;
                 position: relative;
@@ -345,7 +495,10 @@
                 padding: 0 80px;
                 max-width: 1100px;
                 margin: 0 auto;
-                background-color: rgb(255, 255, 255);
+                @include mobile {
+                    display: block;
+                    padding: 0 15px;
+                }
                 h4 {
                     color: #46ccdb;
                     font-size: 20px;
@@ -358,18 +511,30 @@
                     margin-bottom: 20px;
                 }
                 .deco {
-                    img {
-                        width: 295px;
-                        position: absolute;
-                        top: -170px;
-                        left: -20px;
+                    width: 295px;
+                    position: absolute;
+                    top: -170px;
+                    left: -20px;
+                    @include mobile {
+                        width: 200px;
+                        top: -180px;
+                        left: -40px;
                     }
                 }
-                .booking_card {
+                & > div {
+                    background-color: #fff;
+                    border-radius: 5px;
                     width: 400px;
                     height: 450px;
                     padding: 30px 40px;
                     box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
+                    @include mobile {
+                        padding: 20px;
+                        margin-bottom: 60px;
+                        width: 100%;
+                    }
+                }
+                .booking_card {
                     .btn_booking {
                         text-align: center;
                         margin-top: 80px;
@@ -394,12 +559,6 @@
                     }
                 }
                 .map_card {
-                    width: 400px;
-                    height: 450px;
-                    padding: 30px 40px;
-                    box-shadow: 0 8px 20px 0 rgb(0 0 0 / 10%);
-                    p.title {
-                    }
                     form {
                         // text-align: center;
                         input.input_add {
@@ -409,6 +568,7 @@
                             width: 100%;
                             margin: 20px 0 30px 0;
                             font-size: 14px;
+                            outline: none;
                         }
                         input.btn_map {
                             display: block;
@@ -437,13 +597,16 @@
             }
         }
 
+        //  側邊購票
         .ticket-side-link {
             position: fixed;
             right: 0;
-            bottom: 10px;
+            bottom: 40px;
             z-index: 1000;
             width: 120px;
-
+            @include mobile {
+                width: 100px;
+            }
             a {
                 cursor: pointer;
                 display: block;

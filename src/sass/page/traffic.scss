@@ -1,5 +1,4 @@
 .maintt{
-    max-width: 1200px;
     margin: auto;
     @media screen and (max-width: 575.98px){
         width: 100%;
@@ -8,7 +7,15 @@
 
 // musicc
 #app{
-    background-color:#EDF9FB;
+    background-color: transparent;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 2;
+    width: 50px;
+    @media screen and (max-width: 575.98px){
+        display: none;
+    }
     .play{
         @keyframes musicup{
             0%{
@@ -27,10 +34,13 @@
                 transform: translateY(0%);
             }
         }
-        .fishh{
+        .conch{
             width: 50px;
             cursor: pointer;
             animation: musicup 8000ms linear infinite;
+        }
+        .close{
+            animation: none;
         }
         @keyframes  swing  {
             15% { 
@@ -49,9 +59,112 @@
                 transform:  translateX(0px); 
             }
         }
-        
-        .fishh:hover{
+        &:hover{
             animation : swing 1s 1;
+        }
+        .bubble{
+            position:absolute;
+            top:50%;
+            right: -5%;
+            z-index:0;
+            .bb{
+                position:absolute;
+                list-style:none;
+                display:block;
+                background:rgba(43, 141, 216, 0.453);
+                box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.5);
+                bottom:20px; 
+                border-radius:100%;
+            }
+            .bb:before {
+                position: absolute;
+                left: 20%;
+                top: 21%;
+                width: 25%;
+                content: '';
+                background: rgba(255, 255, 255, 0.667);
+                display: block;
+                height: 25%;
+                border-radius: 100%;
+            }
+            @keyframes bubble-ani {
+                0%{
+                    transform:translateY(30px);
+                }
+                100%{
+                    transform:translateX(20px);
+                }
+            }
+            .bb:nth-child(1){
+                width:10px;
+                height:10px;
+                left:6%;
+                // animation-duration:21s;
+                animation:bubble-ani 4000ms linear infinite;
+            }
+            @keyframes bubble {
+                0%{
+                    transform:translateY(30px);
+                }
+                100%{
+                    transform:translateX(20px);
+                }
+            }
+            .bb:nth-child(2){
+                width:15px;
+                height:15px;
+                left:7%;
+                animation-delay: 1.5s;
+                animation:bubble 6000ms linear infinite;
+            }
+            @keyframes bub {
+                0%{
+                    transform:translateY(20px);
+                }
+                100%{
+                    transform:translateX(20px);
+                }
+            }
+            .bb:nth-child(3){
+                width:9px;
+                height:9px;
+                left:9%;
+                animation-delay:2s;
+                animation:bub 4000ms linear infinite;
+            }
+            @keyframes bubu {
+                0%{
+                    transform:translateY(25px);
+                }
+                100%{
+                    transform:translateX(40px);
+                }
+            }
+            .bb:nth-child(4){
+                width:12px;
+                height:12px;
+                left:15%;
+                animation-delay:2s;
+                animation:bubu 5000ms linear infinite;
+            }
+            @keyframes bubue {
+                0%{
+                    transform:translateY(15px);
+                }
+                100%{
+                    transform:translateX(35px);
+                }
+            }
+            .bb:nth-child(5){
+                width:15px;
+                height:15px;
+                left:15%;
+                animation:bubue 4000ms linear infinite;
+            }
+            .hide{
+                animation: none;
+                display: none;
+            }
         }
     }
 }
@@ -59,8 +172,7 @@
 // body
 .traffichead{
     background-color:#EDF9FB;
-    // max-width: 1200px;
-    display: flex;
+    // display: flex;
     width: 100%;
     margin: auto;
     p{
@@ -84,13 +196,6 @@
     }
     .fa-solid{
         color: #00BDD1;
-        font-size: 24px;
-        cursor: pointer;
-    }
-    
-    .fa-solid:hover{
-        color: #00BDD1;
-        filter: saturate(130%);
     }
     img{
         width: 100%;
@@ -108,14 +213,15 @@
 .transportation_banner{
     background-image: url('../img/hongkong-ocean-park-1.jpg');
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
     h1{
         text-align: center;
-        line-height: calc(100vh - 80px);
+        line-height: 100vh;
         color: white;
-        font-size: 40px;
+        font-size: 36px;
+        font-weight: 700;
     }
     @media screen and (max-width: 575.98px){
         h1{
@@ -132,13 +238,20 @@
 // traffic   n a v ------  
 .traffic_nav{
     display: flex;
-    // justify-content: center;
-    justify-content: space-evenly;
+    justify-content: center;
     font-size: 20px;
-    .fa-solid{
+    i{
         text-align: center;
-        margin: 80px 0;
+        margin: 80px 30px;
+        font-size: 36px;
+        cursor: pointer;
+        &:hover{
+            color: rgba(0, 189, 209, 0.5)
+        }
         h2{
+            &:hover{
+                color: rgba(0, 189, 209, 0.5)
+            }
             margin-top: 10px;
         }
     }
@@ -195,59 +308,67 @@
 
 
 // start map
-#traffic_address{
-    width: 300px;
-    height: 30px;
-    padding-left: 5px;
-    border: 0;
-    border-bottom: 2px solid #0080A8;
-    margin-bottom: 20px;
-    font-size: 16px;
-    background-color: #EDF9FB;
-    
-}
-
-
-#traffic_send{
-    width: 100px;
-	height: 30px;
-	background-color: #EDF9FB;
-	color: #00BDD1;
-	border: 1px solid #0080A8;
-    cursor: pointer;
-}
-
 .traffic_map_wapper{
     margin-top: 100px;
-    width: 1200px;
+    // width: 1200px;
     margin: 0 auto;
     @media screen and (max-width: 575.98px){
         width: 100%;
-        // padding: 0 15px;
         form{
-            display: flex;
-            flex-direction: column;
+            width: 100%;
             align-items: center;
-            margin-bottom: 20px;
+            flex-direction: column;
+            #traffic_address{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    form{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        #traffic_address{
+            width: 300px;
+            height: 30px;
+            margin-right: 10px;
+            border: 0;
+            border-bottom: 2px solid #0080A8;
+            font-size: 16px;
+            background-color: #EDF9FB;
+        }
+        #traffic_btn{
+            width: 100px;
+            height: 30px;
+            background-color: #EDF9FB;
+            color: #00BDD1;
+            border: 1px solid #0080A8;
+            cursor: pointer;
+            &:hover {
+                background-color: #007481;
+                color: #fff;
+            }
         }
     }
     .traffic_map{
-        margin: 0 auto;
+        display: flex;
+        justify-content: center;
         margin-bottom: 120px;
-        .traffic_address{
+        .map_wapper{
             background-color: #B4EDF6;
-            height: 50px;      
-            h2{
-                text-align: center;
-                line-height: 50px;
+            .traffic_address{
+                height: 50px;      
+                h2{
+                    text-align: center;
+                    line-height: 45px;
+                }
             }
-        }
-        @media screen and (max-width: 575.98px){
-            iframe{
+            @media screen and (max-width: 575.98px){
+                iframe{
+                    width: 100%;
+                }
                 width: 100%;
+                
             }
-            width: 100%;
-            
         }
     }
     
@@ -265,6 +386,7 @@
         flex-direction: column;
         align-items: center;
         margin-bottom: 20px;
+        font-size: 24px;
     }
     .train-content{
         background-color: #DBF5F8;
@@ -337,7 +459,7 @@
 
 .train_wapper{
     .car-content{
-        background-color: #DBF5F8;
+            background-color: #DBF5F8;
             height: 520px;
             display: flex;
             flex-direction: column;
@@ -347,12 +469,10 @@
                 width: 1100px;
                 margin: auto;
                 margin-top: 40px;
-         
                 .car_three{
                     .three-end{
                         margin-bottom: 20px;
                     }
-
                 }
             }
             @keyframes rightleft{
@@ -392,14 +512,64 @@
             }
             .carpice{
                 position: absolute;
-                right: -10%;
+                right: 5%;
                 display: flex;
                 flex-direction: column;
                 z-index: 1;
                 animation:  carpice 8000ms linear infinite;
-                
-            }
-            
+                .bubble2{
+                    position:absolute;
+                    top: 20%;
+                    left: -5%;
+                    li.bb{
+                        position:absolute;
+                        list-style:none;
+                        display:block;
+                        background:rgba(43, 141, 216, 0.453);
+                        box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.5);
+                        bottom:20px; 
+                        border-radius:100%;
+                    }
+                    .bb:before {
+                        position: absolute;
+                        left: 20%;
+                        top: 21%;
+                        width: 25%;
+                        content: '';
+                        background: rgba(255, 255, 255, 0.667);
+                        display: block;
+                        height: 25%;
+                        border-radius: 100%;
+                    }
+                    @keyframes bubble-ani {
+                        0%{
+                            transform:translateY(30px);
+                        }
+                        100%{
+                            transform:translateX(-10px);
+                        }
+                    }
+                    .bb:nth-child(1){
+                        width:15px;
+                        height:15px;
+                        bottom: 10%;
+                        right: 20%;
+                        animation:bubble-ani 4000ms linear infinite;
+                    }
+                    .bb:nth-child(2){
+                        width:20px;
+                        height:20px;
+                        bottom: 5px;
+                        animation:bubble-ani 6000ms linear infinite;
+                    }
+                    .bb:nth-child(3){
+                        width:13px;
+                        height:13px;
+                        bottom: 20px;
+                        animation:bubble-ani 4000ms linear infinite;
+                    }
+                }
+            }    
     }
     @media screen and (max-width: 575.98px){
         .car-content{
@@ -423,7 +593,6 @@
 
 // BUS
 .train_wapper {
-
     .bus-content{
         background-color: #DBF5F8;
         height: 520px;
@@ -492,8 +661,7 @@
                 width: 100%;
                 h3,h2{
                     font-size: 16px;
-                }
-                
+                }         
             }
             .star{
                 animation: none;
