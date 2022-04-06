@@ -38,9 +38,21 @@ $(function () {
             // scroll至該項頂端顯示
             if (dY > $(this).offset().top) {
                 $(this).addClass('js-active');
+
+                // 垂直視差
+                $(this).addClass('js-float');
+                let that = $(this);
+                setTimeout(function () {
+                    that.removeClass('js-float');
+                }, 300)
+
             } else {
                 $(this).removeClass('js-active')
             }
+
+
+
         });
     });
+
 });
