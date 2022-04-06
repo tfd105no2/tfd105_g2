@@ -213,12 +213,12 @@
 .transportation_banner{
     background-image: url('../img/hongkong-ocean-park-1.jpg');
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
     h1{
         text-align: center;
-        line-height: calc(100vh - 80px);
+        line-height: 100vh;
         color: white;
         font-size: 36px;
         font-weight: 700;
