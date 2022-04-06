@@ -5,7 +5,7 @@
 
     .register_head {
         width: 380px;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 80px);      
         overflow: hidden;
 
         @media screen and (max-width: 768px) {
@@ -15,6 +15,7 @@
         img {
             @extend %img-mw;
             width: 380px;
+            height: calc(100vh - 80px);
             position: fixed;
 
             @media screen and (max-width: 768px) {
@@ -64,6 +65,7 @@
         .login_form {
             position: relative;
             margin-top: space(2);
+            text-align: center;
 
             >label {
                 display: inline-block;
@@ -72,16 +74,24 @@
                 line-height: $line-height-text;
                 vertical-align: middle;
                 color: $text-color;
+                text-align: left;
             }
 
             >input {
                 vertical-align: middle;
-                width: 70%;
+                width: 50%;
                 height: 30px;
                 margin: space(1) 0;
                 border: 1px solid $btn-color;
                 border-radius: 5px;
                 outline: none;
+                @media screen and (max-width: 768px) {
+                    width: 70%;
+                }
+            }
+
+            >input.textError {
+                border-color: red;
             }
 
             >input:last-of-type {
@@ -211,13 +221,15 @@
                     line-height: $line-height-text;
                     vertical-align: middle;
                     color: $text-color;
+                    text-align: left;
                 }
 
                 >input {
                     vertical-align: middle;
-                    width: 70%;
+                    width: 60%;
                     height: 30px;
                     margin: space(1) 0;
+                    margin-left: 10%;
                     border: 1px solid $btn-color;
                     border-radius: 5px;
                     outline: none;
