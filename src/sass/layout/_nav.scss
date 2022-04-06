@@ -5,12 +5,13 @@
 }
 
 header {
-    background: #00bdd1;
-    position: sticky;
+    background: rgb(0, 189, 209, 0);
+    position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 9;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 
     .nav-wrapper {
         height: 80px;

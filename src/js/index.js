@@ -59,15 +59,19 @@ $.ajax({
     // weatherValue是String,用+轉換成Number
     switch (+weatherValue) {
       case 3:
-        $(".w_img").attr("src", "weather_03.svg");
-
+        $(".w_img").attr("src", "img/weather_03.svg");
         break;
+
       case 4:
         $(".w_img").attr("src", "img/weather_04.svg");
         break;
-      case 9:
-        $(".w_img").attr("src", "weather_08.svg");
 
+      case 5:
+        $(".w-img").attr("src", "img/weather_05.svg");
+        break;
+
+      case 9:
+        $(".w_img").attr("src", "img/weather_08.svg");
         break;
 
       default:
@@ -75,14 +79,19 @@ $.ajax({
     }
     switch (+weatherValueb) {
       case 3:
-        $(".w_img").attr("src", "weather_03.svg");
-
+        $(".w_imgb").attr("src", "img/weather_03.svg");
         break;
-      case 4:
-        $(".w_img").attr("src", "img/weather_04.svg");
-      case 9:
-        $(".w_img").attr("src", "weather_08.svg");
 
+      case 4:
+        $(".w_imgb").attr("src", "img/weather_04.svg");
+        break;
+
+      case 5:
+        $(".w_imgb").attr("src", "img/weather_05.svg");
+        break;
+
+      case 9:
+        $(".w_imgb").attr("src", "img/weather_08.svg");
         break;
 
       default:
