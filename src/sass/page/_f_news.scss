@@ -14,20 +14,20 @@
         background-image:url('../img/news-banner1.png') ;
         background-size: cover;
         @extend %img-mw ;
-        height: calc(100vh - 80px);
+        height: 100vh;
         background-attachment: fixed;
 
         @media screen and (max-width: 768px) {
-            background-image: url('../img/news-banner1.svg');
-            background-size: cover;
+            background-image: url('../img/news-banner1.svg'); 
         }
 
         //banner主標
-        >h2{
-            font-size: map-get($title, h2);
+        >h3{
+            font-size: map-get($title, h3);
             text-align: center;
-            line-height: calc(100vh - 80px);
+            line-height:100vh;
             color: #fff;
+            font-weight: 700;
 
         }
     }
@@ -96,12 +96,17 @@
                         width: 50%;
                     }
                     @media screen and (max-width: 768px) {
-                        width: 75%;
+                        width: 100%;
+                        padding: 0 space(1.5) space(10);
                     }
 
                     h6{
                         font-size: map-get($title, h6);
                         color: $text-color;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
                     }
                     p{
                         font-size:$font-size;
@@ -126,8 +131,7 @@
             text-align: center;
             color: $text-color;
             font-size: map-get($title, h5);
-            margin: 0 auto;
-            padding-bottom: 20px;
+            padding-bottom: space(12);
             position: relative;
             cursor: pointer;
             &::after{
