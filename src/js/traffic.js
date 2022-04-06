@@ -2,7 +2,6 @@ let scroll_to = document.querySelectorAll(".scroll_to");
 // console.log(scroll_to[0].offsetTop);
 scroll_to.forEach((item) => {
   item.addEventListener("click", () => {
-    alert(11);
     let target_top = document.getElementById(item.getAttribute("data-id"));
     let offsetTop = target_top.getBoundingClientRect().top + window.scrollY - target_top.clientHeight - 10
     window.scroll({
@@ -23,22 +22,35 @@ new Vue({
   methods: {
     open() {
       let music = document.getElementById('music');
-      let fishh = document.querySelectorAll('.fishh');
-      console.log(fishh);
+      let conch = document.querySelectorAll('.conch');
+      let bb=document.querySelectorAll('.bb');
+      console.log(conch);
 
       if (music.paused) {
         music.play();
 
-        fishh.forEach(element => {
-          element.classList.remove('hide');
+        conch.forEach(element => {
+          element.classList.remove('close');
         });
+
+        bb.forEach(element => {
+                            
+          element.classList.remove('hide');
+
+      });
+
 
       } else {
         music.pause();
 
-        fishh.forEach(element => {
+        conch.forEach(element => {
+          element.classList.add('close');
+        });
+
+        bb.forEach(element => {
           element.classList.add('hide');
         });
+
       }
     }
   },
