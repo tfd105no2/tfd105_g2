@@ -1,13 +1,19 @@
-@import '../var/var';
+@import "../var/var";
+
+.f_mbloginall_wrapper {
+    // header 固定背景色
+    header {
+        background: #00bdd1 !important;
+        position: sticky;
+    }
+}
 
 .f_mbloginall {
     display: flex;
-
     .mbloginall_img {
         width: 380px;
         height: calc(100vh - 80px);
         overflow: hidden;
-
         @media screen and (max-width: 768px) {
             width: 0;
         }
@@ -30,15 +36,12 @@
         //直向排列
         flex-direction: column;
 
-
-
         //註冊登入切換tab
         .mbloginall_list {
             display: flex;
             width: 500px;
             margin: 0 auto;
             border-bottom: 5px solid $text-color;
-
 
             .mbloginall_item {
                 width: 50%;
@@ -49,7 +52,7 @@
                 line-height: $line-height-text;
                 //10px 20px
                 padding: space(1) space(2);
-                color: rgb(0, 189, 209, .5);
+                color: rgb(0, 189, 209, 0.5);
                 cursor: pointer;
             }
 
@@ -57,7 +60,7 @@
                 color: $text-color;
             }
 
-            .mbloginall_item+.mbloginall_item {
+            .mbloginall_item + .mbloginall_item {
                 border-left: 1px solid;
             }
         }
@@ -70,7 +73,7 @@
                 padding: 0 space(1.5);
             }
 
-            >label {
+            > label {
                 display: inline-block;
                 width: 30%;
                 //24px
@@ -82,7 +85,7 @@
                 color: $text-color;
             }
 
-            >input {
+            > input {
                 width: 70%;
                 height: 30px;
                 margin: space(1) 0;
@@ -98,7 +101,7 @@
                     margin: space(1) auto 0;
                     width: auto;
                     height: auto;
-                    //10px 20px 
+                    //10px 20px
                     padding: space(1) space(2);
                     font-size: 16px;
                     color: $btn-color;
@@ -107,23 +110,21 @@
                     cursor: pointer;
 
                     &:hover {
-                        background-color: #0080A8;
+                        background-color: #0080a8;
                         color: #fff;
                     }
-                    
                 }
                 &:focus {
                     border: 1px solid $btn-color;
                     border-radius: 5px;
-                    outline-color: #0080A8;
+                    outline-color: #0080a8;
                 }
             }
-
         }
 
         .forgetpw {
             text-decoration: underline;
-            color: #9E9E9E;
+            color: #9e9e9e;
             display: block;
             text-align: right;
 
@@ -146,8 +147,8 @@
             &::after {
                 flex-grow: 1;
                 height: 2px;
-                content: '';
-                background-color: #0080A8;
+                content: "";
+                background-color: #0080a8;
                 position: relative;
                 top: 0.8em;
                 margin: 0 space(1);
@@ -165,7 +166,7 @@
             }
 
             .loginFB {
-                border-color: #13637C;
+                border-color: #13637c;
                 border-width: 2px;
                 border-style: solid;
                 border-radius: 3px;
@@ -174,7 +175,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: #0080A8;
+                    background-color: #0080a8;
                     color: #fff;
                 }
 
@@ -195,7 +196,7 @@
             }
 
             .loginLine {
-                border-color: #13637C;
+                border-color: #13637c;
                 border-width: 2px;
                 border-style: solid;
                 border-radius: 3px;
@@ -203,7 +204,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: #0080A8;
+                    background-color: #0080a8;
                     color: #fff;
                 }
 

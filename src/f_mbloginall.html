@@ -10,7 +10,9 @@
 </head>
 
 <body>
-    @@include('layout/nav.html')
+    <div class="f_mbloginall_wrapper">
+        @@include('layout/nav.html', { 'active6': 'active' })
+    </div>
     <!-- 前台登入註冊頁內容 -->
     <section class="f_mbloginall">
         <!-- 左側圖 -->
@@ -62,8 +64,10 @@
                 </div>
             </form>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="js/f_mbloginall.js"></script>
+    </section>
+    @@include('layout/footer.html')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/f_mbloginall.js"></script>
 </body>
 
 </html>
