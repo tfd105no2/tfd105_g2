@@ -74,7 +74,9 @@
         //最新消息 --內容
         .news_content{
             width: 1200px;
-           
+            @media screen and (max-width: 1194px) {
+                width: 100%;
+            }
           
             
             
@@ -84,13 +86,18 @@
                     justify-content: center;
                     flex-wrap: wrap; 
                     z-index: 2;
-                   
-                   
                 }
                 .news_item{
-                  
+                    
                     width: calc(100% / 3);
-                    margin:0 auto space(10);
+                    padding:0 space(1) space(10);
+                    
+                    @media screen and (max-width: 1000px) {
+                        width: 50%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        width: 75%;
+                    }
 
                     h6{
                         font-size: map-get($title, h6);
@@ -102,13 +109,12 @@
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
+                        
 
                     }
-                    img{
-                        @media screen and (max-width: 768px) {
-
-                            width: 100%;
-                        }
+                    img{    
+                        display: block;
+                        width: 100%;
                     }
                 }
             }
