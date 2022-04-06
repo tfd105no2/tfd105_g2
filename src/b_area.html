@@ -68,12 +68,18 @@
           <p>{{current_edit}}</p>
           <p>選擇夜宿區域</p>
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
+            <template v-for="(item,index) in area">
+              <li
+                @click="handlerBorder(index)"
+                :class="{b_area_current:flag==index,b_area_origin}"
+              >
+                <img class="ticket-top" :src="item.url" />
+                <div class="ticket-bottom">
+                  <h4>{{item.type}}</h4>
+                  <p class="num">剩餘 {{item.num}} 位</p>
+                </div>
+              </li>
+            </template>
           </ul>
 
           <div class="b_area_editbtn">
@@ -89,12 +95,14 @@
           @save="sss"
           @cancel="ccc"
           :b_date="current_edit"
+          :b_area="current_area"
         ></double-check-off>
         <double-check-on
           v-if="dbcheck_on"
           @save="osss"
           @cancel="occc"
           :b_date="current_edit"
+          :b_area="current_area"
         ></double-check-on>
       </div>
     </div>

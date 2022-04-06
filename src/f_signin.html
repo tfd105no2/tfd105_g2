@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/head.html', {
+    "title": "登入/註冊"
+    })
+</head>
+
+<body>
+    @@include('layout/nav.html')
+
+
+    <div id="app" class="f_register">
+
+        <div class="register_head">
+            <img src="img/memberlogin-bg.png" alt="memberloginsideimages">
+        </div>
+
+        <div class="register_body">
+            <ul class="register_list">
+                <li class="register_item" @click="show='login'" :class="signin">會員登入</li>
+                <li class="register_item" @click="show='register'" :class="signup">會員註冊</li>
+            </ul>
+    
+            <keep-alive>
+                <component :is="show"></component>
+            </keep-alive>
+        </div>
+        
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/f_signin.js"></script>
+</body>
+
+</html>

@@ -2,14 +2,12 @@
 <html lang="zh-Hant">
 
 <head>
-    @@include('layout/head.html', {
-    "title": "完成訂單"
-    })
+    @@include('layout/head.html', { 'title': '完成訂單' })
 </head>
 
 <body>
     <div class="complet_wrapper">
-        @@include('layout/nav.html')
+        @@include('layout/nav.html', { 'active7': 'active' })
         <main class="complet_main">
             <!-- 結帳流程進度條區塊 -->
             <div class="cart_anv">
@@ -38,7 +36,7 @@
                 <h3>已完成訂單!</h3>
                 <span>感謝您對本館的支持，祝福您有個愉快的體驗~</span><br>
                 <div class="orderCompleted_btn">
-                    <a href="#">查看訂單</a>
+                    <a href="./f_mbloginall.html">查看訂單</a>
                     <a href="./index.html">再去逛逛</a>
                 </div>
                 <img class="complet01" src="./img/complet01.png" alt="珊瑚圖片">

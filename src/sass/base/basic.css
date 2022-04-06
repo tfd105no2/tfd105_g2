@@ -10,12 +10,12 @@ html {
 
 body {
   line-height: 1.6;
-  font-family: 'Noto Sans TC','微软雅黑','Microsoft YaHei',sans-serif;
+  font-family: "Noto Sans TC", "微软雅黑", "Microsoft YaHei", sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
   background-color: white;
   color: #333;
-  letter-spacing: .25rem;
+  letter-spacing: 0.15rem;
 }
 
 a {

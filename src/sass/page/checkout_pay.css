@@ -1,6 +1,7 @@
 .pay_wrapper {
   background-color: #EDF9FB;
-  height: 1000px;
+  height: 100%;
+  padding-bottom: 10rem;
 }
 
 .pay_wrapper .pay_main {
@@ -140,26 +141,74 @@
   border: 1px solid #00BDD1;
 }
 
-.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .subtotal {
-  font-weight: 600;
-}
-
 .pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketGroup .deleteButton {
   font-size: 2.5rem;
   border: none;
 }
 
-.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketTotal {
-  text-align: right;
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .subtotal {
+  font-weight: 600;
+}
+
+.pay_wrapper .pay_main .cart_contentWrapper .cart_content .ticketTotal .pay_btn a {
+  display: block;
+  margin: 0 auto;
+  width: 8rem;
+  line-height: 2.5rem;
+  background-color: #00BDD1;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .pay_wrapper .pay_main .cart_contentWrapper .cart_content .noBorderTop {
   border-top: 1px solid #fff;
 }
 
-.pay_wrapper .pay_main .a {
+.pay_wrapper .pay_main .choose_block {
   width: 25%;
-  height: 250px;
+  height: 150px;
+  color: #707070;
   background-color: #DBF5F8;
+  border: 1px solid #00BDD1;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+}
+
+.pay_wrapper .pay_main .choose_block .chooseTitle {
+  text-align: center;
+  border-bottom: 1px solid #00BDD1;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.pay_wrapper .pay_main .choose_block .choose {
+  line-height: 0rem;
+  margin-bottom: 1.5rem;
+}
+
+.pay_wrapper .pay_main .choose_block .choose img {
+  width: 8rem;
+}
+
+.pay_wrapper .pay_main .choose_block .choose input {
+  accent-color: #0080A8;
+}
+
+.pay_wrapper .pay_main .back {
+  margin-top: 1rem;
+  margin-left: 4.5rem;
+}
+
+.pay_wrapper .pay_main .back a {
+  color: #707070;
+}
+
+.pay_wrapper .pay_main .pay_fish {
+  width: 35%;
+  position: absolute;
+  top: 400px;
+  right: 0px;
 }
 /*# sourceMappingURL=checkout_pay.css.map */
