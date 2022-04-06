@@ -22,6 +22,7 @@ $(function () {
         var v = ($(this).scrollTop()) / 200;
         $("header").css('backgroundColor', `rgb(0, 189, 209,${v})`)
 
+        // 條件固定值
         if (v >= 0.35) {
             v = 0.35;
             $("header").css('boxShadow', `0 0 5px rgba(0, 0, 0, ${v})`)
