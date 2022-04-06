@@ -10,8 +10,8 @@ $(function () {
 
     // 點擊黑背景, 也可關閉
     $(".ham-bg").on("click", function (e) {
-        $(".ham-nav").slideToggle(600);
-        $(".ham-bg").slideToggle();
+        $(".ham-nav").slideToggle(650);
+        $(".ham-bg").slideToggle(660);
     })
 
     // 

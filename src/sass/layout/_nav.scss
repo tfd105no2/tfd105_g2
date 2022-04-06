@@ -26,7 +26,7 @@ header {
             img {
                 height: 60px;
                 @include mobile {
-                    height: 50px;
+                    height: 38px;
                 }
             }
         }
@@ -61,6 +61,7 @@ header {
 
     .hamburger {
         display: none;
+        z-index: 1;
         @include mobile {
             display: block;
         }
@@ -68,7 +69,7 @@ header {
     // 漢堡黑背景
     .ham-bg {
         position: fixed;
-        top: 60px;
+        top: 0px;
         left: 0;
         width: 100%;
         height: 100vh;
@@ -79,14 +80,14 @@ header {
     // 漢堡 nav
     .ham-nav {
         position: fixed;
-        top: 60px;
+        top: 0px;
         left: 0;
         width: 100%;
         // height: 100vh;
         background-color: rgb(0, 189, 209, 0.95);
         display: none;
         .container {
-            padding: 20px 40px;
+            padding: 80px 40px;
             ul {
                 border: 1px solid rgb(0, 189, 209, 0.95);
                 li {
