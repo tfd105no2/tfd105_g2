@@ -161,8 +161,8 @@
 
 //彈出
 .b_area_edit {
-  width: 750px;
-  height: 80%;
+  width: 850px;
+  // height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,13 +179,37 @@
   }
   ul {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    text-align: center;
+    margin-top: 10px;
+    padding: 0 30px;
     li {
-      width: 230px;
-      margin: 0 10px;
-      margin-bottom: 10px;
-      background-color: #bfa;
+      box-sizing: border-box;
+      width: 245px;
+      overflow: hidden;
+      border-radius: 5px;
+      margin-bottom: 30px;
+        img {
+            display: block;
+            width: 242px;
+            height: 120px;
+            object-fit: cover;
+            object-position: 50% 70%;
+            cursor: pointer;
+        }
+        .ticket-bottom {
+            height: 60px;
+            background-color: #fff;
+            h4 {
+                font-size: 18px;
+                color: #0080a8;
+            }
+            p {
+                font-size: 14px;
+                color: #9e9e9e;
+            }
+        }
+      
     }
   }
 }
@@ -205,6 +229,7 @@
   display: flex;
   justify-content: center;
   column-gap: 30px;
+  margin-bottom: 10px;
 }
 
 .b_area_editbtn button {
@@ -228,4 +253,12 @@
   /* display: none; */
   width: 100%;
   height: 100%;
+}
+
+.b_area_current{
+  border: 3px solid red !important;
+}
+
+.b_area_origin{
+  border: 3px solid white;
 }

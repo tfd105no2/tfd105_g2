@@ -1,6 +1,6 @@
 .back_login {
   width: 500px;
-  height: 400px;
+  height: 360px;
   border-radius: 5px;
   margin: 100px auto;
   background-color: #aae0ff;
@@ -19,7 +19,7 @@
 .back_logo {
   width: 150px;
   height: 150px;
-  margin-bottom: 40px;
+  margin: 10px 0;
 }
 
 .back_logo img {
@@ -37,7 +37,7 @@
 }
 
 .back_login h2 {
-  font-size: 36px;
+  font-size: 28px;
   margin: 10px 0;
 }
 

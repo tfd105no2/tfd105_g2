@@ -22,6 +22,8 @@ $(function () {
             if (tab_infoid == that.attr('id')) {
                 that.removeClass('js-hide');
                 that.addClass('js-show');
+                // 預設顯示
+                that.addClass('js-active');
             } else {
                 that.removeClass('js-show');
                 that.addClass('js-hide');
@@ -36,9 +38,21 @@ $(function () {
             // scroll至該項頂端顯示
             if (dY > $(this).offset().top) {
                 $(this).addClass('js-active');
+
+                // 垂直視差
+                $(this).addClass('js-float');
+                let that = $(this);
+                setTimeout(function () {
+                    that.removeClass('js-float');
+                }, 300)
+
             } else {
                 $(this).removeClass('js-active')
             }
+
+
+
         });
     });
+
 });

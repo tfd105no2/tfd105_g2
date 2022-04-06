@@ -272,21 +272,26 @@ main.info_box {
                 }
 
                 .js-slide {
+                    position: relative;
                     transition: 1s;
                     opacity: 0;
                 }
 
                 .js-slide-l {
-                    transform: translateX(-50px);
+                    left: -50px;
                 }
 
                 .js-slide-r {
-                    transform: translateX(50px);
+                    left: 50px;
                 }
 
                 .js-active {
-                    transform: translateY(0);
+                    left: 0;
                     opacity: 1;
+                }
+
+                .js-float {
+                    transform: translateY(50px);
                 }
             }
 

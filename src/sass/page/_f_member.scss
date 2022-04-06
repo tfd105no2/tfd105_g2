@@ -16,6 +16,11 @@
 
         img {
             @extend %img-mw;
+            width: 380px;
+            position: fixed;
+            @media screen and (max-width: 768px) {
+                width: 0;
+            }
         }
     }
 
@@ -112,7 +117,6 @@
                 background-image: url(../img/member-pic.png);
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-color: #00BDD1;
 
                 img {
                     @extend %img-mw;

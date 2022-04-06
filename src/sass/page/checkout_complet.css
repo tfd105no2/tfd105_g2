@@ -1,0 +1,98 @@
+.complet_wrapper {
+  background-color: #EDF9FB;
+  height: 100%;
+  padding-bottom: 10rem;
+}
+
+.complet_wrapper .complet_main {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.complet_wrapper .complet_main .cart_anv {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.complet_wrapper .complet_main .cart_item {
+  width: 33.3%;
+  color: #707070;
+  text-align: center;
+  line-height: 50px;
+  border-bottom: 3px solid rgba(0, 189, 209, 0.5);
+}
+
+.complet_wrapper .complet_main .cart_round {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: rgba(0, 189, 209, 0.5);
+  color: #fff;
+  line-height: 30px;
+}
+
+.complet_wrapper .complet_main .cartSelected {
+  color: #00BDD1;
+  border-bottom: 3px solid #00BDD1;
+}
+
+.complet_wrapper .complet_main .cartSelected .cart_round {
+  background-color: #00BDD1;
+  color: #fff;
+}
+
+.complet_wrapper .complet_main .orderCompleted {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: center;
+  line-height: 4rem;
+  color: #707070;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #00BDD1;
+  border-radius: 5px;
+  position: relative;
+}
+
+.complet_wrapper .complet_main .orderCompleted h3 {
+  font-size: 2rem;
+  color: #0080A8;
+}
+
+.complet_wrapper .complet_main .orderCompleted .orderCompleted_btn {
+  width: 40%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.complet_wrapper .complet_main .orderCompleted .orderCompleted_btn a {
+  display: block;
+  margin: 1rem auto 0;
+  width: 8rem;
+  line-height: 2.5rem;
+  background-color: #0080A8;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.complet_wrapper .complet_main .orderCompleted .complet01 {
+  width: 16%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.complet_wrapper .complet_main .orderCompleted .complet02 {
+  width: 13%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/*# sourceMappingURL=checkout_complet.css.map */

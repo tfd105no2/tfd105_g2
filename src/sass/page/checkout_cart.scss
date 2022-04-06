@@ -1,25 +1,35 @@
-.cart_wrapper{
+.cart_wrapper {
     background-color: #EDF9FB;
-    height: 1000px;
-    .cart_main{
-        width: 1200px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10rem;
+
+    .cart_main {
+        max-width: 1200px;
         margin: 0 auto;
 
         // 結帳流程進度條區塊
-        .cart_anv{
+        .cart_anv {
             width: 75%;
             display: flex;
             margin: 0 auto;
             padding: 5rem 0;
         }
-        .cart_item{
+        @media screen and (max-width: 575.98px) {
+            .cart_anv {
+                width: 90%;
+            }
+        }
+
+        .cart_item {
             width: 33.3%;
             color: #707070;
             text-align: center;
             line-height: 50px;
             border-bottom: 3px solid rgba($color: #00bdd1, $alpha: 0.5);
         }
-        .cart_round{
+
+        .cart_round {
             width: 30px;
             height: 30px;
             margin: 0 auto;
@@ -28,100 +38,119 @@
             color: #fff;
             line-height: 30px;
         }
-        .cartSelected{
-            .cart_round{
+
+        .cartSelected {
+            .cart_round {
                 background-color: #00BDD1;
                 color: #fff;
             }
+
             color: #00BDD1;
             border-bottom: 3px solid #00BDD1;
         }
 
         // 購物車內容區塊
-        .cart_contentWrapper{
+        .cart_contentWrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
             display: flex;
             justify-content: center;
-            
-            // 內容明細區塊
-            .cart_content{
-                width: 65%;
-                background-color: #fff;
-                margin-right: 3rem;
-                text-align: center;
-                color: #707070;
-                border: 1px solid #00BDD1;
-                border-collapse:separate;
-                border-radius: 5px;
+            flex-wrap: wrap;
+            gap: 3rem;
 
-                .contentTitle{
-                    font-size: 16px;
+            // 內容明細區塊
+            .cart_content {
+                flex: 1;
+                overflow-x: auto;
+
+                @media screen and (max-width: 575.98px) {
+                    .cart_table {
+                        min-width: 700px;
+                    }
                 }
-                a, button {
+                .cart_table {
+                    width: 100%;
+                    background-color: #fff;
+                    text-align: center;
                     color: #707070;
-                }
-                th, td{
-                    vertical-align:middle;
-                    padding: 6px;
-                }
-                td{
-                    border-top: 1px solid #00BDD1;
-                }
-                .ticketGroup{
-                    img{
-                        width: 100px;
-                        border-radius: 5px;
+                    border: 1px solid #00BDD1;
+                    border-collapse: separate;
+                    border-radius: 5px;
+
+                    .contentTitle {
+                        font-size: 16px;
                     }
-                    .ticketType{
-                        text-align: left;
+                    a,
+                    button {
+                        color: #707070;
                     }
-                    // 數量組區塊
-                    .cart_quantityInfo {
-                        display: flex;
-                        justify-content: center;
+                    th,
+                    td {
+                        vertical-align: middle;
+                        padding: 6px;
                     }
-                    .quantity:focus{
-                        outline: 0;
+                    td {
+                        border-top: 1px solid #00BDD1;
                     }
-                    button{
-                        background-color: #fff;
-                        border: 1px solid #00BDD1;
-                        cursor: pointer;
-                    }
-                    .minus{
-                        border-right: none;
-                        border-radius: 5px 0 0 5px;
-                    }
-                    .plus{
-                        border-left: none;
-                        border-radius: 0 5px 5px 0;
-                    }
-                    input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                        margin: 0;
-                    }
-                    input[type=number] {
-                        -moz-appearance: textfield;
-                    }
-                    input{
-                        width: 50px;
-                        text-align: center;
-                        border: 1px solid #00BDD1;
-                    }
-                    .subtotal{
-                        width: 11rem;
-                        font-weight: 600;
-                    }
-                    .deleteButton{
-                        font-size: 2.5rem;
-                        border: none;
+                    .ticketGroup {
+                        img {
+                            width: 100px;
+                            border-radius: 5px;
+                        }
+
+                        .ticketType {
+                            text-align: left;
+                        }
+
+                        // 數量組區塊
+                        .cart_quantityInfo {
+                            display: flex;
+                            justify-content: center;
+                        }
+                        .quantity:focus {
+                            outline: 0;
+                        }
+                        button {
+                            background-color: #fff;
+                            border: 1px solid #00BDD1;
+                            cursor: pointer;
+                        }
+                        .minus {
+                            border-right: none;
+                            border-radius: 5px 0 0 5px;
+                        }
+                        .plus {
+                            border-left: none;
+                            border-radius: 0 5px 5px 0;
+                        }
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                        input[type=number] {
+                            -moz-appearance: textfield;
+                        }
+                        input {
+                            width: 50px;
+                            text-align: center;
+                            border: 1px solid #00BDD1;
+                        }
+                        .subtotal {
+                            // width: 11rem;
+                            font-weight: 600;
+                        }
+                        .deleteButton {
+                            font-size: 2.5rem;
+                            border: none;
+                        }
                     }
                 }
             }
 
             // 購物車總額區塊
-            .cart_detail{
-                width: 25%;
+            .cart_detail {
                 height: 300px;
                 border-radius: 5px;
                 background-color: #00BDD1;
@@ -131,26 +160,27 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-
-                .total{
+                .total {
                     display: flex;
                     justify-content: space-between;
                 }
-                // 折扣碼輸入框
-                .discountCode{
+
+                // 折扣碼
+                .discountCode {
                     display: flex;
-                    .discountCode_box{
-                        width: 19.9rem;
+
+                    .discountCode_box {
+                        flex: 1;
                         height: 2.5rem;
                         background-color: #DBF5F8;
                         border-radius: 5px 0 0 5px;
                         border: none;
                         padding: 0.6rem;
                     }
-                    .discountCode_box:focus{
+                    .discountCode_box:focus {
                         outline: 0;
                     }
-                    .discountCode_btn{
+                    .discountCode_btn {
                         height: 2.5rem;
                         background-color: #DBF5F8;
                         border-radius: 0 5px 5px 0;
@@ -160,26 +190,28 @@
                         cursor: pointer;
                     }
                 }
-                .discount{
+                .discount {
                     display: flex;
                     justify-content: space-between;
                 }
+
                 // 分隔線
-                .line{
+                .line {
                     width: 100%;
                     height: 0.8px;
                     background-color: #fff;
                     margin: 0 auto;
                 }
-                .payable{
+                .payable {
                     display: flex;
                     justify-content: space-between;
                     font-size: 1.5rem;
                 }
-                .next{
+                .next {
                     background-color: #DBF5F8;
                     border-radius: 5px;
-                    a{
+
+                    a {
                         display: block;
                         width: 100%;
                         height: 2.5rem;
@@ -189,39 +221,54 @@
                     }
                 }
             }
+
+            @media screen and (max-width: 575.98px) {
+                .cart_detail {
+                    width: 100%;
+                }
+            }
         }
 
         // 當購物車裡沒商品的狀態
-        .no_ticket{
-            width: 1000px;
+        .no_ticket {
+            width: 85%;
             margin: 0 auto;
             padding: 3rem;
             text-align: center;
 
-            // background-image: linear-gradient(to top, #bef7fd 0%, #ffffff 100%);
             background-color: rgba($color: #ffffff, $alpha: .6);
             border: 1px solid #00BDD1;
             border-radius: 5px;
-            .no_ticket_fish{
+
+            .no_ticket_fish {
                 width: 12%;
                 animation: nimo 1s linear infinite;
             }
-            @keyframes nimo{
-                0%{
+            @media screen and (max-width: 575.98px){
+                .no_ticket_fish{
+                    width: 20%;
+                }
+            }
+
+            @keyframes nimo {
+                0% {
                     transform: rotate(0deg);
                 }
-                50%{
+
+                50% {
                     transform: rotate(-10deg);
                 }
-                100%{
+
+                100% {
                     transform: rotate(0deg);
                 }
             }
-            h3{
+
+            h3 {
                 font-size: 2rem;
                 color: #0080A8;
             }
-            a{
+            a {
                 display: block;
                 margin: 1rem auto 0;
                 width: 8rem;
