@@ -520,7 +520,7 @@
                 .bubble2{
                     position:absolute;
                     top: 20%;
-                    left: -10%;
+                    left: -5%;
                     li.bb{
                         position:absolute;
                         list-style:none;
@@ -552,22 +552,22 @@
                     .bb:nth-child(1){
                         width:15px;
                         height:15px;
-                        left:6%;
+                        bottom: 10%;
+                        right: 20%;
                         animation:bubble-ani 4000ms linear infinite;
                     }
                     .bb:nth-child(2){
                         width:20px;
                         height:20px;
-                        left:7%;
+                        bottom: 5px;
                         animation:bubble-ani 6000ms linear infinite;
                     }
                     .bb:nth-child(3){
                         width:13px;
                         height:13px;
-                        left:9%;
+                        bottom: 20px;
                         animation:bubble-ani 4000ms linear infinite;
                     }
-                    
                 }
             }    
     }
