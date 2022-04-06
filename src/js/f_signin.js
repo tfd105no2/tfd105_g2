@@ -12,7 +12,9 @@ Vue.component("login", {
         <label for="pwd">密碼</label><input type="text" id="pwd" v-model="pwd">
         <br>
         <input type="submit" value="登入" @click="login">
-        <a @click="forget">忘記密碼</a>
+        <div>
+            <a @click="forget">忘記密碼</a>
+        </div>
         <p>或</p>
         <div class="login_other">
             <button>繼續使用 <i class="fa-brands fa-facebook"></i> 登入</button>
@@ -22,7 +24,7 @@ Vue.component("login", {
             <span @click="forgetClose"><i class="fa-solid fa-xmark"></i></span>
             <p>忘記密碼</p>
             <label for="mail">電子信箱</label><input type="text" id="mail">
-            <input type="submit" value="送出">
+            <input type="button" value="送出">
         </div>
     </form>
     `,
@@ -181,13 +183,9 @@ Vue.component("login", {
     });
 
 $(document).on('click', (e) => {
-    let forget_box = $('#forget_box');
-    // console.log(forget_box.is(e.target))
-    console.log("A")
-    if (!forget_box.is(e.target)) {
-        console.log("B")
+    // 關閉forget_box
+    if($(e.target).hasClass('mask')) {
         $('#forget_box').hide();
         $('.f_register').removeClass('mask');
     }
-
 })

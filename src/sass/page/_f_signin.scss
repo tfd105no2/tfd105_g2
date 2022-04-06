@@ -34,6 +34,7 @@
             width: 500px;
             margin: 0 auto;
             border-bottom: 5px solid $text-color;
+
             @media screen and (max-width: 768px) {
                 width: 100%;
                 padding: 0 space(1.5);
@@ -103,14 +104,15 @@
                 }
             }
 
-            >a {
-                display: block;
+            >div {
                 text-align: right;
-                color: #777;
-                cursor: pointer;
+                a {
+                    color: #777;
+                    cursor: pointer;
 
-                &:hover {
-                    color: #0080A8;
+                    &:hover {
+                        color: #0080A8;
+                    }
                 }
             }
 
@@ -157,6 +159,7 @@
                     @media screen and (max-width: 576px) {
                         padding: space(.5) space(1);
                         margin-right: 20px;
+
                         &:last-child {
                             margin-right: 0;
                         }
@@ -166,7 +169,7 @@
                         background-color: #0080A8;
                         color: #fff;
                     }
-                }                
+                }
             }
 
             .forget_box {
