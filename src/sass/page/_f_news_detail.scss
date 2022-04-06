@@ -125,7 +125,7 @@
             
             @media screen and (max-width: 768px) {
                 width: 375px;
-                margin: space(5) 0 0;
+                margin: space(5) auto 0;
             }
           
                 
@@ -157,10 +157,10 @@
                 &:last-child{
                     animation-delay: 1s;
                 }
-                @media screen and (max-width: 768px) {
-                    width: 30%;;
+                
+                    width: 40%;
                     
-                }
+                
               
             }
             @keyframes up {
