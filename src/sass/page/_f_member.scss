@@ -1,9 +1,12 @@
 @import '../var/var';
-
+.f_member_header header{
+    background-color: #00bdd1 !important;
+}
 .f_member {
     max-width: 100%;
     display: flex;
     background-color: #EDF9FB;
+    height: 800px;
 
     .member_head {
         width: 380px;
@@ -25,7 +28,7 @@
     }
 
     .member_body {
-        margin: space(2) auto 0;
+        margin: space(9) auto 0;
 
         .member_list {
             display: flex;
