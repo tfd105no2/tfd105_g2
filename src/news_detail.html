@@ -4,14 +4,14 @@
     @@include('layout/head.html', { "title": "最新消息" })
   </head>
   <body>
-    @@include('layout/nav.html')
+    @@include('layout/nav.html', { 'active1': 'active' })
     <div id="news_detail">
       <div class="wrapper">
         <h3 class="news_title">最新消息</h3>
       </div>
       <div class="bake">
         <a href="./news.html">最新消息</a>
-        <a href="#">限定活動</a>
+        <a href="/news.html">限定活動</a>
         <a href="#">White Day贈禮</a>
       </div>
 
