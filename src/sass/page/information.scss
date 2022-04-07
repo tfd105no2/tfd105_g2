@@ -2,7 +2,7 @@
 
 .info_banner {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     background-image: url('../img/info-bg.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,9 +13,10 @@
     }
 
     >h2.info_title {
-        font-size: map-get($title, h2);
+        font-size: map-get($title, h3);
+        font-weight: $font-weight;
         text-align: center;
-        line-height: calc(100vh - 80px);
+        line-height: 100vh;
         color: #fff;
     }
 }
@@ -26,7 +27,7 @@ main.info_box {
 
     >.info_list {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
 
         @media screen and (max-width: 768px) {
             justify-content: space-between;
@@ -34,11 +35,18 @@ main.info_box {
         }
 
         .info_item {
+            margin: 0 30px;
             text-align: center;
             font-size: map-get($title, h6);
             color: rgb(0, 189, 209, .5);
             cursor: pointer;
             animation: none;
+
+            >h3 {
+                font-size: 20px;
+                line-height: 1;
+                margin-top: 10px;
+            }
 
             &:hover {
                 i {

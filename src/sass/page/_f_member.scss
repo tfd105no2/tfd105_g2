@@ -7,7 +7,7 @@
 
     .member_head {
         width: 380px;
-        height: calc(100vh - 80px);
+        height: 100vh;
         overflow: hidden;
 
         @media screen and (max-width: 768px) {
