@@ -59,17 +59,20 @@ Vue.component("login", {
                 password: "",
                 ckpwd: "",
                 phone: "",
-                reg_data: {},
                 emailError: false,
+                emailErrMsg: '',
                 passwordError: false,
+                passErrMsg: '',
+                ckpwdError: false,
+                ckpwdErrMsg: '',
             }
         },
         watch: {
-            email: function () {
-                var isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            email: function (e) {
+                let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (!isMail.test(this.email)) {
                     this.emailError = true;
-                    this.emailErrMsg = 'email格式錯誤';
+                    this.emailErrMsg = 'email格式錯誤';                    
                 } else {
                     this.emailError = false;
                 }
@@ -93,16 +96,24 @@ Vue.component("login", {
                     this.passwordError = false;
                 }
             },
+            ckpwd: function () {
+                if(this.ckpwd != this.password) {
+                    this.ckpwdError = true;
+                    this.ckpwdErrMsg = '確認密碼不符';
+                } else {
+                    this.ckpwdError = false;
+                }
+            },
         },
         template: `
     <form class="register_form">
         <label for="username">姓名</label><input type="text" id="username" v-model="username">
         <br>
-        <label for="email">註冊信箱</label><input type="text" id="email" v-model="email">
+        <label for="email">註冊信箱</label><input type="text" id="email" v-model="email" :class="{textError:emailError}">
         <br>
-        <label for="password">密碼</label><input type="text" id="password" v-model="password">
+        <label for="password">密碼</label><input type="text" id="password" v-model="password" :class="{textError:passwordError}">
         <br>
-        <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd">
+        <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}">
         <br>
         <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone">
         <br>
@@ -116,7 +127,7 @@ Vue.component("login", {
                 let include = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
                 let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (this.username != '' && this.email != '' && this.password != '' && this.ckpwd != '' && this.phone != '') {
-                    if (!this.emailError && !this.passwordError) {
+                    if (!this.emailError && !this.passwordError && !this.ckpwdError) {
                         $.ajax({
                             type: "POST",
                             url: "php/member_sign.php",
@@ -142,22 +153,22 @@ Vue.component("login", {
                         })
                     } else if (!isMail.test(this.email)) {
                         alert('email格式錯誤');
-                    } else if (!isText.test(this.username)) {
+                    } else if (!isText.test(this.password)) {
                         alert('密碼請勿包含特殊字元');
                     } else if (this.password.length < 6) {
                         alert('密碼請勿少於6個字');
                     } else if (this.password.length > 15) {
-                        alert('密碼請勿超過15個字')
+                        alert('密碼請勿超過15個字');
                     } else if (!include.test(this.password)) {
-                        alert('密碼至少包括一個大小寫字母或數字')
+                        alert('密碼至少包括一個大小寫字母或數字');
+                    } else if (this.ckpwd != this.password) {
+                        alert('確認密碼與密碼不符');
                     }
                 } else {
-                    alert('資料未填完整')
+                    alert('資料未填完整');
                 }
             },
         },
-
-
     }),
     new Vue({
         el: "#app",

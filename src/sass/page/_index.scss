@@ -605,7 +605,7 @@
             z-index: 1000;
             width: 120px;
             @include mobile {
-                width: 100px;
+                display: none;
             }
             a {
                 cursor: pointer;
