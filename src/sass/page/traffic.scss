@@ -224,13 +224,8 @@
         font-weight: 700;
     }
     @media screen and (max-width: 575.98px){
-        h1{
-            font-size: 24px;
-            // line-height: calc(100vh - 300px);
-        }
         width: 100%;
         background-position: center;
-        // height: calc(100vh - 300px);
     }
 
 }
@@ -618,6 +613,7 @@
             margin: auto;
             .bustitle , th , td{
                 border: 1px solid #00BDD1;
+                // font-size: 18px;
                 h2{
                     color: white;
                 }
@@ -658,18 +654,17 @@
                 }
             }
             table{
-                width: 100%;
-                h3,h2{
-                    font-size: 16px;
-                }         
+                // width: 100%;   
+                td{
+                    font-size: 18px;
+                }  
             }
             .star{
                 animation: none;
+                top: 92%;
             }
         }
         
     }
-    
-    
 }
 

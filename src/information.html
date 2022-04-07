@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    @@include('layout/nav.html')
+    @@include('layout/nav.html', { 'active2': 'active' })
 
     <div class="info_banner">
       <h2 class="info_title">園區資訊</h2>
@@ -240,6 +240,8 @@
         </div>
       </div>
     </main>
+
+    @@include('layout/footer.html')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/information.js"></script>

@@ -21,16 +21,16 @@ $(function () {
             login_form.show();
         }
     })
-    
+
     // 註冊
-    $('#registerForm').on('submit', function(e){
+    $('#registerForm').on('submit', function (e) {
         e.preventDefault();
         let name_data = $('#mbSignName').val();
         let mail_data = $('#mbSignMail').val();
         let pwd_data = $('#mbSignPassword').val();
         let ckpwd_data = $('#mbCheckPassword').val();
         let phone_data = $('#mbSignpPhone').val();
-        
+
         let reg_data = {
             'username': name_data,
             'email': mail_data,
@@ -41,10 +41,10 @@ $(function () {
 
         let registerData = JSON.parse(sessionStorage.getItem('registerData'));
 
-        if(registerData) {
+        if (registerData) {
             let compare = true;
 
-            if(compare) {
+            if (compare) {
                 // sessionStorage.setItem('registerData', JSON.stringify(reg_data));
 
             }
@@ -55,17 +55,38 @@ $(function () {
                 type: "POST",
                 url: "member_sign.php",
                 data: getData,
-                success: function(data) {
-                    if(data != "") {
+                success: function (data) {
+                    if (data != "") {
                         alert(data);
                     }
                 },
-                error: function() {
+                error: function () {
                     alert("錯誤");
                 }
             });
 
         }
     })
+
+    //密碼顯示隱藏
+    var input = document.querySelector('#mbPassword')
+    var imgs = document.getElementById('eyes');
+    //判斷每次點選的效果
+    var flag = 0;
+    imgs.onclick = function () {
+        if (flag == 0) {
+            input.type = 'text';
+            eyes.src = '../img/openeye.png'; //睜眼圖
+            flag = 1;
+        } else {
+            input.type = 'password';
+            eyes.src = '../img/closeeye.png'; //閉眼圖
+            flag = 0;
+        }
+    }
+
+    //忘記密碼彈窗
+    let forgetPassword = document.querySelector('.forgetpw')
+    let btnAdd = document.querySelector('.button');
 
 })

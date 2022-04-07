@@ -49,9 +49,6 @@ $(function () {
             } else {
                 $(this).removeClass('js-active')
             }
-
-
-
         });
     });
 
