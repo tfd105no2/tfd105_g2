@@ -1,12 +1,12 @@
 Vue.component("login", {
-    data() {
-        return {
-            acc: '',
-            pwd: '',
-            pwdEye: 'open',
-        }
-    },
-    template: `
+        data() {
+            return {
+                acc: '',
+                pwd: '',
+                pwdEye: 'open',
+            }
+        },
+        template: `
     <form class="login_form">
         <div>
             <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
@@ -35,44 +35,44 @@ Vue.component("login", {
         </div>
     </form>
     `,
-    methods: {
-        login(e) {
-            e.preventDefault();
-            location.href = 'f_member.html';
-            $.ajax({
-                type: 'POST',
-                url: "php/member_login.php",
-                data: {
-                    acc: this.acc,
-                    pwd: this.pwd,
+        methods: {
+            login(e) {
+                e.preventDefault();
+                location.href = 'f_member.html';
+                $.ajax({
+                    type: 'POST',
+                    url: "php/member_login.php",
+                    data: {
+                        acc: this.acc,
+                        pwd: this.pwd,
+                    }
+                })
+            },
+            forget(e) {
+                e.preventDefault();
+                $('#forget_box').show();
+                $('.f_register').addClass('mask');
+            },
+            forgetClose() {
+                $('#forget_box').hide();
+                $('.f_register').removeClass('mask');
+            },
+        },
+        computed: {
+            openEye() {
+                if (this.pwdEye == 'open') {
+                    return 'js-eye';
                 }
-            })
+                $('#pwd').attr('type', 'text')
+            },
+            closeEye() {
+                if (this.pwdEye == 'close') {
+                    return 'js-eye';
+                }
+                $('#pwd').attr('type', 'password')
+            },
         },
-        forget(e) {
-            e.preventDefault();
-            $('#forget_box').show();
-            $('.f_register').addClass('mask');
-        },
-        forgetClose() {
-            $('#forget_box').hide();
-            $('.f_register').removeClass('mask');
-        },
-    },
-    computed: {
-        openEye() {
-            if (this.pwdEye == 'open') {
-                return 'js-eye';
-            }
-            $('#pwd').attr('type', 'text')
-        },
-        closeEye() {
-            if (this.pwdEye == 'close') {
-                return 'js-eye';
-            }
-            $('#pwd').attr('type', 'password')
-        },
-    },
-}),
+    }),
     Vue.component("register", {
         data() {
             return {
@@ -87,10 +87,12 @@ Vue.component("login", {
                 passErrMsg: '',
                 ckpwdError: false,
                 ckpwdErrMsg: '',
+                phoneError: false,
+                phoneErrMsg: '',
             }
         },
         watch: {
-            email: function (e) {
+            email: function () {
                 let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (!isMail.test(this.email)) {
                     this.emailError = true;
@@ -126,9 +128,21 @@ Vue.component("login", {
                 if (this.ckpwd != this.password) {
                     this.ckpwdError = true;
                     this.ckpwdErrMsg = '確認密碼不符';
+                } else if (this.password.length < 6) {
+                    this.passwordError = true;
+                    this.passErrMsg = '請勿少於6個字';
                 } else {
                     this.ckpwdError = false;
                     this.passwordError = false;
+                }
+            },
+            phone: function () {
+                let isPhone = /^09[0-9]{8}$/;
+                if (!isPhone.test(this.phone)) {
+                    this.phoneError = true;
+                    this.phoneErrMsg = '手機格式錯誤';
+                } else {
+                    this.phoneError = false;
                 }
             },
         },
@@ -142,7 +156,7 @@ Vue.component("login", {
         <br>
         <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}">
         <br>
-        <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone">
+        <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone" :class="{textError:phoneError}">
         <br>
         <input type="submit" value="註冊" @click="register">
     </form>
@@ -153,8 +167,9 @@ Vue.component("login", {
                 let isText = /^[a-zA-Z0-9]+$/;
                 let include = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
                 let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                let isPhone = /^09[0-9]{8}$/;
                 if (this.username != '' && this.email != '' && this.password != '' && this.ckpwd != '' && this.phone != '') {
-                    if (!this.emailError && !this.passwordError && !this.ckpwdError) {
+                    if (!this.emailError && !this.passwordError && !this.ckpwdError && !this.phoneError) {
                         $.ajax({
                             type: "POST",
                             url: "php/member_sign.php",
@@ -188,39 +203,38 @@ Vue.component("login", {
                             }
                         })
                     } else if (!isMail.test(this.email)) {
-                        // alert('email格式錯誤');
                         swal({
                             title: "email格式錯誤",
                             type: "warning"
                         });
                     } else if (!isText.test(this.password)) {
-                        // alert('密碼請勿包含特殊字元');
                         swal({
                             title: "密碼請勿包含特殊字元",
                             type: "warning"
                         });
                     } else if (this.password.length < 6) {
-                        // alert('密碼請勿少於6個字');
                         swal({
                             title: "密碼請勿少於6個字",
                             type: "warning"
                         });
                     } else if (this.password.length > 15) {
-                        // alert('密碼請勿超過15個字');
                         swal({
                             title: "密碼請勿超過15個字",
                             type: "warning"
                         });
                     } else if (!include.test(this.password)) {
-                        // alert('密碼至少包括一個大小寫字母或數字');
                         swal({
                             title: "密碼至少包括一個大小寫字母或數字",
                             type: "warning"
                         });
                     } else if (this.ckpwd != this.password) {
-                        // alert('確認密碼與密碼不符');
                         swal({
                             title: "確認密碼與密碼不符",
+                            type: "warning"
+                        });
+                    } else if (!isPhone.test(this.phone)) {
+                        swal({
+                            title: "手機格式不符",
                             type: "warning"
                         });
                     }
