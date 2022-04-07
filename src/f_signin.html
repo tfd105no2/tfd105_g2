@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    @@include('layout/head.html', { "title": "登入/註冊" })
+  </head>
 
-<head>
-    @@include('layout/head.html', {
-    "title": "登入/註冊"
-    })
-</head>
-
-<body>
-    @@include('layout/nav.html')
-
-
+  <body>
+    <div class="f_signin_header">
+      @@include('layout/nav.html',{ 'active6': 'active' })
+    </div>
     <div id="f_sign" class="f_register">
+      <div class="register_head">
+        <img src="img/memberlogin-bg.png" alt="memberloginsideimages" />
+      </div>
 
-        <div class="register_head">
-            <img src="img/memberlogin-bg.png" alt="memberloginsideimages">
-        </div>
+      <div class="register_body">
+        <ul class="register_list">
+          <li class="register_item" @click="show='login'" :class="signin">
+            會員登入
+          </li>
+          <li class="register_item" @click="show='register'" :class="signup">
+            會員註冊
+          </li>
+        </ul>
 
-        <div class="register_body">
-            <ul class="register_list">
-                <li class="register_item" @click="show='login'" :class="signin">會員登入</li>
-                <li class="register_item" @click="show='register'" :class="signup">會員註冊</li>
-            </ul>
-    
-            <keep-alive>
-                <component :is="show"></component>
-            </keep-alive>
-        </div>
-        
+        <keep-alive>
+          <component :is="show"></component>
+        </keep-alive>
+      </div>
     </div>
 
     @@include('layout/footer.html')
@@ -36,6 +35,5 @@
     <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/f_signin.js"></script>
-</body>
-
+  </body>
 </html>

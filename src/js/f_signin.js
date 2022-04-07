@@ -1,12 +1,12 @@
 Vue.component("login", {
-        data() {
-            return {
-                acc: '',
-                pwd: '',
-                pwdEye: 'open',
-            }
-        },
-        template: `
+    data() {
+        return {
+            acc: '',
+            pwd: '',
+            pwdEye: 'open',
+        }
+    },
+    template: `
     <form class="login_form">
         <div>
             <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
@@ -35,43 +35,44 @@ Vue.component("login", {
         </div>
     </form>
     `,
-        methods: {
-            login(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: "php/member_login.php",
-                    data: {
-                        acc: this.acc,
-                        pwd: this.pwd,
-                    }
-                })
-            },
-            forget(e) {
-                e.preventDefault();
-                $('#forget_box').show();
-                $('.f_register').addClass('mask');
-            },
-            forgetClose() {
-                $('#forget_box').hide();
-                $('.f_register').removeClass('mask');
-            },
-        },
-        computed: {
-            openEye() {
-                if (this.pwdEye == 'open') {
-                    return 'js-eye';
+    methods: {
+        login(e) {
+            e.preventDefault();
+            location.href = 'f_member.html';
+            $.ajax({
+                type: 'POST',
+                url: "php/member_login.php",
+                data: {
+                    acc: this.acc,
+                    pwd: this.pwd,
                 }
-                $('#pwd').attr('type', 'text')
-            },
-            closeEye() {
-                if (this.pwdEye == 'close') {
-                    return 'js-eye';
-                }
-                $('#pwd').attr('type', 'password')
-            },
+            })
         },
-    }),
+        forget(e) {
+            e.preventDefault();
+            $('#forget_box').show();
+            $('.f_register').addClass('mask');
+        },
+        forgetClose() {
+            $('#forget_box').hide();
+            $('.f_register').removeClass('mask');
+        },
+    },
+    computed: {
+        openEye() {
+            if (this.pwdEye == 'open') {
+                return 'js-eye';
+            }
+            $('#pwd').attr('type', 'text')
+        },
+        closeEye() {
+            if (this.pwdEye == 'close') {
+                return 'js-eye';
+            }
+            $('#pwd').attr('type', 'password')
+        },
+    },
+}),
     Vue.component("register", {
         data() {
             return {
