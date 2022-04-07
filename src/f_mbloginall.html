@@ -40,30 +40,49 @@
             </form>
             <!-- 登入表單 -->
             <form class="login_form" action="">
-                <label for="mbAccount">帳號</label><input type="text" id="mbAccount" required>
+                <label for="mbAccount">帳號</label><input type="text" id="mbAccount" placeholder="請輸入註冊電子信箱" required>
                 <br>
-                <label for="mbPassword">密碼</label><input type="text" id="mbPassword" required>
+                <label for="mbPassword">密碼</label><input type="password" id="mbPassword" required>
+                <!--預設閉眼圖-->
+                <label><img src="img/closeeye.png" alt="" id="eyes"></label>
                 <br>
                 <input type="submit" value="登入">
                 <!-- 忘記密碼與其他登入方式 -->
-                <a href="f_mbforget.html" class="forgetpw">忘記密碼</a>
+                <a href="#" class="forgetpw">忘記密碼</a>
                 <div class="loginOther">
                     <div class="loginOther1">
-                        <p>或</p>
+                        <p>OR</p>
                     </div>
                     <div class="loginOther2">
-                        <div class="loginFB">
-                            <a href="###">使用FACEBOOK登入</a>
-                        </div>
-                        <div class="loginLine">
-                            <a href="###">使用GOOGLE登入</a>
-                        </div>
+                        <a href="###"></a>
+                        <div class="loginFB">使用FACEBOOK登入</div></a>
+                        <a href="###"></a>
+                        <div class="loginGOOGLE">使用GOOGLE登入</div></a>
                     </div>
                 </div>
             </form>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="js/f_mbloginall.js"></script>
+        
+        <!-- 忘記密碼彈窗 -->
+        <div class="forget hide" id="forget">
+            <div class="forget-content">
+                <h4>忘記密碼</h4>
+                <form class="forget_form" action="">
+                    <label for="mbForgetMail">電子信箱</label><input type="text" id="mbForgetMail" placeholder="請輸入註冊電子信箱" required>
+                    <br>
+                    <input type="submit" value="送出" id="fgsubmit">
+                    <div class="back">
+                        <a href="#">返回登入與註冊</a>
+                    </div>
+                </form>
+                <div class="closebtn"><img src="./img/close.png" alt=""></div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="js/f_mbloginall.js"></script>
 </body>
 
 </html>
