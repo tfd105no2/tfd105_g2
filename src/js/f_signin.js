@@ -1,18 +1,25 @@
 Vue.component("login", {
         data() {
             return {
-                acc: "",
-                pwd: ""
+                acc: '',
+                pwd: '',
+                pwdEye: 'open',
             }
         },
         template: `
     <form class="login_form">
-        <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">
-        <br>
-        <label for="pwd">密碼</label><input type="text" id="pwd" v-model="pwd">
-        <br>
-        <input type="submit" value="登入" @click="login">
         <div>
+            <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
+        </div>        
+        <div class="login_pwd">
+            <label for="pwd">密碼</label><input type="password" id="pwd" v-model="pwd">
+            <i class="fa-solid fa-eye" @click="pwdEye='open'" :class="openEye"></i>
+            <i class="fa-solid fa-eye-slash" @click="pwdEye='close'" :class="closeEye"></i>
+        </div>
+        <div class="login_btn">
+            <input type="submit" value="登入" @click="login">
+        </div>
+        <div class="forget_pwd">
             <a @click="forget">忘記密碼</a>
         </div>
         <p>或</p>
@@ -48,7 +55,21 @@ Vue.component("login", {
             forgetClose() {
                 $('#forget_box').hide();
                 $('.f_register').removeClass('mask');
-            }
+            },
+        },
+        computed: {
+            openEye() {
+                if (this.pwdEye == 'open') {
+                    return 'js-eye';
+                }
+                $('#pwd').attr('type', 'text')
+            },
+            closeEye() {
+                if (this.pwdEye == 'close') {
+                    return 'js-eye';
+                }
+                $('#pwd').attr('type', 'password')
+            },
         },
     }),
     Vue.component("register", {
@@ -72,7 +93,7 @@ Vue.component("login", {
                 let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (!isMail.test(this.email)) {
                     this.emailError = true;
-                    this.emailErrMsg = 'email格式錯誤';                    
+                    this.emailErrMsg = 'email格式錯誤';
                 } else {
                     this.emailError = false;
                 }
@@ -92,16 +113,21 @@ Vue.component("login", {
                 } else if (!include.test(this.password)) {
                     this.passwordError = true;
                     this.passErrMsg = '至少包括一個大小寫字母或數字';
+                } else if (this.password != this.ckpwd) {
+                    this.ckpwdError = true;
+                    this.ckpwdErrMsg = '確認密碼不符';
                 } else {
                     this.passwordError = false;
+                    this.ckpwdError = false;
                 }
             },
             ckpwd: function () {
-                if(this.ckpwd != this.password) {
+                if (this.ckpwd != this.password) {
                     this.ckpwdError = true;
                     this.ckpwdErrMsg = '確認密碼不符';
                 } else {
                     this.ckpwdError = false;
+                    this.passwordError = false;
                 }
             },
         },
@@ -140,38 +166,74 @@ Vue.component("login", {
                             },
                             success: function (data) {
                                 if (data == '註冊成功') {
-                                    alert('註冊成功')
-
+                                    swal({
+                                        title: "註冊成功",
+                                        type: "success"
+                                    });
+                                    // 轉址登入頁
                                 } else {
-                                    alert('該賬號已被註冊')
+                                    swal({
+                                        title: "帳號已被註冊",
+                                        type: "error"
+                                    });
                                 }
                             },
                             error: function (data) {
                                 console.log(data)
-                                alert('連線失敗')
+                                swal({
+                                    title: "連線失敗",
+                                    type: "error"
+                                });
                             }
                         })
                     } else if (!isMail.test(this.email)) {
-                        alert('email格式錯誤');
+                        // alert('email格式錯誤');
+                        swal({
+                            title: "email格式錯誤",
+                            type: "warning"
+                        });
                     } else if (!isText.test(this.password)) {
-                        alert('密碼請勿包含特殊字元');
+                        // alert('密碼請勿包含特殊字元');
+                        swal({
+                            title: "密碼請勿包含特殊字元",
+                            type: "warning"
+                        });
                     } else if (this.password.length < 6) {
-                        alert('密碼請勿少於6個字');
+                        // alert('密碼請勿少於6個字');
+                        swal({
+                            title: "密碼請勿少於6個字",
+                            type: "warning"
+                        });
                     } else if (this.password.length > 15) {
-                        alert('密碼請勿超過15個字');
+                        // alert('密碼請勿超過15個字');
+                        swal({
+                            title: "密碼請勿超過15個字",
+                            type: "warning"
+                        });
                     } else if (!include.test(this.password)) {
-                        alert('密碼至少包括一個大小寫字母或數字');
+                        // alert('密碼至少包括一個大小寫字母或數字');
+                        swal({
+                            title: "密碼至少包括一個大小寫字母或數字",
+                            type: "warning"
+                        });
                     } else if (this.ckpwd != this.password) {
-                        alert('確認密碼與密碼不符');
+                        // alert('確認密碼與密碼不符');
+                        swal({
+                            title: "確認密碼與密碼不符",
+                            type: "warning"
+                        });
                     }
                 } else {
-                    alert('資料未填完整');
+                    swal({
+                        title: "資料未填完整",
+                        type: "warning"
+                    });
                 }
             },
         },
     }),
     new Vue({
-        el: "#app",
+        el: "#f_sign",
         data: {
             show: "login"
         },
@@ -195,7 +257,7 @@ Vue.component("login", {
 
 $(document).on('click', (e) => {
     // 關閉forget_box
-    if($(e.target).hasClass('mask')) {
+    if ($(e.target).hasClass('mask')) {
         $('#forget_box').hide();
         $('.f_register').removeClass('mask');
     }
