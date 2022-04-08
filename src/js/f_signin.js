@@ -99,6 +99,7 @@ Vue.component("login", {
                     this.emailErrMsg = 'email格式錯誤';
                 } else {
                     this.emailError = false;
+                    this.emailErrMsg = '';
                 }
             },
             password: function () {
@@ -106,34 +107,28 @@ Vue.component("login", {
                 let include = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
                 if (!isText.test(this.password)) {
                     this.passwordError = true;
-                    this.passErrMsg = '請勿包含特殊字元';
+                    this.passErrMsg = '密碼請勿包含特殊字元';
                 } else if (this.password.length < 6) {
                     this.passwordError = true;
-                    this.passErrMsg = '請勿少於6個字';
+                    this.passErrMsg = '密碼請勿少於6個字';
                 } else if (this.password.length > 15) {
                     this.passwordError = true;
-                    this.passErrMsg = '請勿超過15個字';
+                    this.passErrMsg = '密碼請勿超過15個字';
                 } else if (!include.test(this.password)) {
                     this.passwordError = true;
-                    this.passErrMsg = '至少包括一個大小寫字母或數字';
-                } else if (this.password != this.ckpwd) {
-                    this.ckpwdError = true;
-                    this.ckpwdErrMsg = '確認密碼不符';
+                    this.passErrMsg = '密碼至少包括一個大小寫字母或數字';
                 } else {
                     this.passwordError = false;
-                    this.ckpwdError = false;
+                    this.passErrMsg = '';
                 }
             },
             ckpwd: function () {
                 if (this.ckpwd != this.password) {
                     this.ckpwdError = true;
                     this.ckpwdErrMsg = '確認密碼不符';
-                } else if (this.password.length < 6) {
-                    this.passwordError = true;
-                    this.passErrMsg = '請勿少於6個字';
                 } else {
                     this.ckpwdError = false;
-                    this.passwordError = false;
+                    this.ckpwdErrMsg = '';
                 }
             },
             phone: function () {
@@ -143,6 +138,7 @@ Vue.component("login", {
                     this.phoneErrMsg = '手機格式錯誤';
                 } else {
                     this.phoneError = false;
+                    this.phoneErrMsg = '';
                 }
             },
         },
@@ -164,12 +160,8 @@ Vue.component("login", {
         methods: {
             register(e) {
                 e.preventDefault();
-                let isText = /^[a-zA-Z0-9]+$/;
-                let include = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
-                let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-                let isPhone = /^09[0-9]{8}$/;
                 if (this.username != '' && this.email != '' && this.password != '' && this.ckpwd != '' && this.phone != '') {
-                    if (!this.emailError && !this.passwordError && !this.ckpwdError && !this.phoneError) {
+                    if (!this.emailError && !this.passwordError && !this.ckpwdError && !this.phoneError && this.password == this.ckpwd) {
                         $.ajax({
                             type: "POST",
                             url: "php/member_sign.php",
@@ -202,39 +194,31 @@ Vue.component("login", {
                                 });
                             }
                         })
-                    } else if (!isMail.test(this.email)) {
+                    } else if (this.password != this.ckpwd) {
+                        this.ckpwdError = true;
+                        this.ckpwdErrMsg = '確認密碼不符';
                         swal({
-                            title: "email格式錯誤",
+                            title: `${this.ckpwdErrMsg}`,
                             type: "warning"
                         });
-                    } else if (!isText.test(this.password)) {
+                    } else if (this.emailError) {
                         swal({
-                            title: "密碼請勿包含特殊字元",
+                            title: `${this.emailErrMsg}`,
                             type: "warning"
                         });
-                    } else if (this.password.length < 6) {
+                    } else if (this.passwordError) {
                         swal({
-                            title: "密碼請勿少於6個字",
+                            title: `${this.passErrMsg}`,
                             type: "warning"
                         });
-                    } else if (this.password.length > 15) {
+                    } else if (this.ckpwdError) {
                         swal({
-                            title: "密碼請勿超過15個字",
+                            title: `${this.ckpwdErrMsg}`,
                             type: "warning"
                         });
-                    } else if (!include.test(this.password)) {
+                    } else if (this.phoneError) {
                         swal({
-                            title: "密碼至少包括一個大小寫字母或數字",
-                            type: "warning"
-                        });
-                    } else if (this.ckpwd != this.password) {
-                        swal({
-                            title: "確認密碼與密碼不符",
-                            type: "warning"
-                        });
-                    } else if (!isPhone.test(this.phone)) {
-                        swal({
-                            title: "手機格式不符",
+                            title: `${this.phoneErrMsg}`,
                             type: "warning"
                         });
                     }
