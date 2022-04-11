@@ -366,6 +366,8 @@ main.info_box {
                     animation: swim 15s linear infinite, jump 15s linear infinite;
 
                     @media screen and (max-width: 576px) {
+                        width: 120px;
+                        height: 60px;
                         animation-duration: 8s;
                     }
                 }
