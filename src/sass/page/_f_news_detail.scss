@@ -125,7 +125,7 @@
             position: relative;
             
             @media screen and (max-width: 768px) {
-                width: 375px;
+            
                 margin: space(5) auto 0;
             }
           
@@ -142,24 +142,30 @@
                 text-align: center;
                 color:$link-color;
                 font-size: 20px;
+
                
                 &:hover{
                     color: white;
                     background-color: $btn-color-hover;
                 }
                 @media screen and (max-width: 768px) {
-                    margin-bottom: space(3);  
+                    margin-bottom: space(3);
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    font-size: 18px;  
                 }
                 
             }
             img{
                 margin-bottom: space(8.5);
                 animation: up 3s linear infinite;
+                width: 40%;
                 &:last-child{
                     animation-delay: 1s;
                 }
                 
-                    width: 40%;
+                    
                     
                 
               

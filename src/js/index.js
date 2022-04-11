@@ -57,46 +57,59 @@ $.ajax({
 
     // 根據weatherValue判斷天氣圖片要用哪張
     // weatherValue是String,用+轉換成Number
-    switch (+weatherValue) {
-      case 3:
-        $(".w_img").attr("src", "img/weather_03.svg");
-        break;
+    // switch (+weatherValue) {
+    //   case 2:
+    //     $(".w_img").attr("src", "img/weather_03.svg");
+    //     break;
+    //   case 3:
+    //     $(".w_img").attr("src", "img/weather_03.svg");
+    //     break;
 
-      case 4:
-        $(".w_img").attr("src", "img/weather_04.svg");
-        break;
+    //   case 4:
+    //     $(".w_img").attr("src", "img/weather_04.svg");
+    //     break;
 
-      case 5:
-        $(".w-img").attr("src", "img/weather_05.svg");
-        break;
+    //   case 5:
+    //     $(".w-img").attr("src", "img/weather_05.svg");
+    //     break;
 
-      case 9:
-        $(".w_img").attr("src", "img/weather_08.svg");
-        break;
+    //   case 9:
+    //     $(".w_img").attr("src", "img/weather_08.svg");
+    //     break;
 
-      default:
-        break;
+    //   default:
+    //     break;
+    // }
+    if (+weatherValue > 0) {
+      $(".w_img").attr("src", "img/weather_03.svg");
     }
-    switch (+weatherValueb) {
-      case 3:
-        $(".w_imgb").attr("src", "img/weather_03.svg");
-        break;
-
-      case 4:
-        $(".w_imgb").attr("src", "img/weather_04.svg");
-        break;
-
-      case 5:
-        $(".w_imgb").attr("src", "img/weather_05.svg");
-        break;
-
-      case 9:
-        $(".w_imgb").attr("src", "img/weather_08.svg");
-        break;
-
-      default:
-        break;
+    if (+weatherValueb > 0) {
+      $(".w_imgb").attr("src", "img/weather_04.svg");
     }
+    // switch (+weatherValueb) {
+    //   case 2:
+    //     $(".w_imgb").attr("src", "img/weather_03.svg");
+    //     break;
+
+    //   case 3:
+    //     $(".w_imgb").attr("src", "img/weather_03.svg");
+    //     break;
+
+    //   case 4:
+    //     $(".w_imgb").attr("src", "img/weather_04.svg");
+    //     break;
+
+    //   case 5:
+    //     $(".w_imgb").attr("src", "img/weather_05.svg");
+    //     break;
+
+    //   case 9:
+    //     $(".w_imgb").attr("src", "img/weather_08.svg");
+    //     break;
+
+    //   default:
+    //     break;
+    // }
 
     // 把資料塞進html
     $(".a .location").text(location);
