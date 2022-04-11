@@ -4,6 +4,7 @@ Vue.component("login", {
                 acc: '',
                 pwd: '',
                 pwdEye: 'open',
+                userMail: '',
             }
         },
         template: `
@@ -30,23 +31,50 @@ Vue.component("login", {
         <div class="forget_box" id="forget_box">
             <span @click="forgetClose"><i class="fa-solid fa-xmark"></i></span>
             <p>忘記密碼</p>
-            <label for="mail">電子信箱</label><input type="text" id="mail">
-            <input type="button" value="送出">
+            <label for="mail">電子信箱</label><input type="text" id="mail" v-model="userMail">
+            <input type="button" value="送出" @click="sendMail">
         </div>
     </form>
     `,
         methods: {
             login(e) {
                 e.preventDefault();
-                location.href = 'f_member.html';
-                $.ajax({
-                    type: 'POST',
-                    url: "php/member_login.php",
-                    data: {
-                        acc: this.acc,
-                        pwd: this.pwd,
-                    }
-                })
+                if (this.acc != '' && this.pwd != '') {
+                    location.href = 'f_member.html';
+                    $.ajax({
+                        type: 'POST',
+                        url: "php/member_login.php",
+                        data: {
+                            acc: this.acc,
+                            pwd: this.pwd,
+                        },
+                        success: function (data) {
+                            if (data == '登入成功') {
+                                swal({
+                                    title: "登入成功",
+                                    type: "success"
+                                });
+                            } else {
+                                swal({
+                                    title: "帳號或密碼錯誤",
+                                    type: "error"
+                                });
+                            }
+                        },
+                        error: function (data) {
+                            console.log(data)
+                            swal({
+                                title: "連線失敗",
+                                type: "error"
+                            });
+                        }
+                    })
+                } else {
+                    swal({
+                        title: "請輸入帳號密碼",
+                        type: "warning"
+                    });
+                }
             },
             forget(e) {
                 e.preventDefault();
@@ -57,6 +85,17 @@ Vue.component("login", {
                 $('#forget_box').hide();
                 $('.f_register').removeClass('mask');
             },
+            sendMail() {
+                Email.send({
+                    SecureToken: "33a2472a-670c-4970-ac82-e921284d39a3",
+                    To: `${this.userMail}`,
+                    From: "mm7217373@gmail.com",
+                    Subject: "忘記密碼",
+                    Body: "testtesttesttesttesttest"
+                }).then(
+                    message => alert(message)
+                );
+            }
         },
         computed: {
             openEye() {
@@ -194,6 +233,7 @@ Vue.component("login", {
                                 });
                             }
                         })
+                        // 額外判斷當確認密碼輸入完成，又重改密碼的時候
                     } else if (this.password != this.ckpwd) {
                         this.ckpwdError = true;
                         this.ckpwdErrMsg = '確認密碼不符';
