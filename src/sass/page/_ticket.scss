@@ -167,7 +167,6 @@
 // modal 彈窗
 .ticket-wrapper {
     .modal {
-        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -210,5 +209,16 @@
                 background-color: #0080a8;
             }
         }
+    }
+
+    // Vue tansition樣式
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
     }
 }
