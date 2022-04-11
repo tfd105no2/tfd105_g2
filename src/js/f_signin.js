@@ -87,7 +87,7 @@ Vue.component("login", {
             },
             sendMail() {
                 Email.send({
-                    SecureToken: "33a2472a-670c-4970-ac82-e921284d39a3",
+                    SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
                     To: `${this.userMail}`,
                     From: "mm7217373@gmail.com",
                     Subject: "忘記密碼",
