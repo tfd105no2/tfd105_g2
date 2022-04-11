@@ -50,7 +50,7 @@ new Vue({
             day: 0
         },
 
-        current_edit: null,
+        current_edit: false,
     },
     created: function () {
         this.showMdata(1);
@@ -65,7 +65,7 @@ new Vue({
         },
         f_out() {
             this.current_edit = null;
-            edit_z.style.opacity = 0;
+            // edit_z.style.opacity = 0;
         },
         showMdata(gopage) {
             console.log(gopage);
