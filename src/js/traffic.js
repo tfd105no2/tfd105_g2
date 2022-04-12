@@ -12,9 +12,19 @@ scroll_to.forEach((item) => {
   })
 })
 
+// new Vue({
+//   el: '#traffic_nav',
+//   data() {
+//     return {
+      
+//     }
+//   },
+
+// })
+
 
 new Vue({
-  el: '#app',
+  el: '#music1',
   data() {
     return {
     }
@@ -55,3 +65,4 @@ new Vue({
     }
   },
 });
+
