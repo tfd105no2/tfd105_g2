@@ -236,7 +236,7 @@
   padding: 15px 20px;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 30px;
   color: #333;
   font-weight: bold;
@@ -255,10 +255,7 @@
   appearance: none;
   outline: none;
   background: none;
-  background-image: url("../img/select.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
+  
 }
 
 .b_order_order_information {

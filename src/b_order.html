@@ -88,7 +88,7 @@
           <ul class="b_order_total_status">
             <li>
               付款狀態:
-              <select name="pay_status" id="" v-model="o_pay">
+              <select name="pay_status" id="" v-model="o_pay" disabled>
                 <option value="0">未付款</option>
                 <option value="1">已付款</option>
                 <option value="2">付款失敗</option>
@@ -99,7 +99,7 @@
 
             <li>
               訂單狀態:
-              <select name="order_status" id="" v-model="o_form">
+              <select name="order_status" id="" v-model="o_form" disabled>
                 <option value="0">處理中</option>
                 <option value="1">已確認</option>
                 <option value="2">已完成</option>
@@ -107,14 +107,14 @@
               </select>
             </li>
 
-            <li>
+            <!-- <li>
               夜宿狀態:
               <select name="status_status" id="" v-model="o_check">
                 <option value="0">未報到</option>
                 <option value="1">已報到</option>
                 <option value="2">已過期</option>
               </select>
-            </li>
+            </li> -->
           </ul>
 
           <ul class="b_order_order_information">
