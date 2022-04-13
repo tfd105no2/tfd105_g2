@@ -6,32 +6,38 @@ new Vue({
         // modal area
         area: [
             {
-                type: '海底隧道',
-                num: 20,
+                id: 21,
+                area: '海底隧道',
+                bed_num: 20,
                 url: 'img/intro-pic-01.png',
             },
             {
-                type: '大洋池親近區',
-                num: 10,
+                id: 22,
+                area: '大洋池親近區',
+                bed_num: 10,
                 url: 'img/intro-pic-01.png',
             },
             {
-                type: '小白鯨區',
-                num: 8,
+                id: 23,
+                area: '小白鯨區',
+                bed_num: 8,
                 url: 'img/intro-pic-01.png',
             },
             {
-                type: '海藻森林',
-                num: 3,
+                id: 24,
+                area: '海藻森林',
+                bed_num: 3,
                 url: 'img/intro-pic-01.png',
             },
             {
-                type: '極地區',
-                num: 8,
+                id: 25,
+                area: '極地區',
+                bed_num: 8,
                 url: 'img/intro-pic-01.png',
             },
             {
-                type: '鯊魚區',
+                id: 26,
+                area: '鯊魚區',
                 num: 5,
                 url: 'img/intro-pic-01.png',
             },
@@ -95,6 +101,33 @@ new Vue({
                 this.calendar.month = month
             }
 
+        },
+        // 點擊要取當天 月日
+        checkDate(e) {
+            console.log(e.target);
+            console.log(this.calendar.month + 1);
+            console.log(e.target.getAttribute("data-date"));
+            this.current_edit = !this.current_edit
+        },
+        // ??
+        addcart(item) {
+            let checkData = JSON.parse(localStorage.getItem("checkData"));
+
+            let obj = {
+                'id': item.id,
+                'area': item.area,
+                'bed_num': item.bed_num,
+                'img': item.url,
+            }
+
+            if (checkData) {
+                checkData.push(obj);
+            } else {
+                checkData = [obj];
+            }
+
+            // 回存localstorage
+            localStorage.setItem("checkData", JSON.stringify(checkData))
         }
     },
     computed: {

@@ -51,11 +51,26 @@ new Vue({
                 'img': item.url,
             }
 
-            // 先取出 localstorage ,判斷原本有無
+            // 先取出 localstorage ,判斷原本有無陣列
             let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
             if (ticketsData) {
-                ticketsData.push(obj);
-            } else {
+                // 再繼續判斷 原本localstorage 裡是否已加入過該商品
+                // 先用map取出ticketsData內的 id 陣列 ,再用 indexOf 查找是否包含該id
+                // 有的話返回索引值, 沒有的話返回 -1 
+
+                let index = ticketsData.map(function (x) {
+                    return x.id;
+                }).indexOf(item.id);
+
+                if (index != -1) {
+                    console.log(index);
+                    ticketsData[index].quantity += 1;
+                } else {
+                    ticketsData.push(obj);
+                }
+
+            }
+            else {
                 ticketsData = [obj];
             }
 

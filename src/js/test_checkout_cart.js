@@ -1,26 +1,7 @@
 new Vue({
     el: '#root',
     data: {
-        products: [
-            // {
-            //     id: 1,
-            //     name: '全票',
-            //     // date: '2022/03/22',
-            //     // area: '大洋池親近區',
-            //     img: 'img/ticket01.jpeg',
-            //     unitPrice: 550,
-            //     quantity: 1,
-            // },
-            // {
-            //     id: 2,
-            //     name: '夜宿體驗-全票',
-            //     date: '2022/03/14',
-            //     area: '大洋池親近區',
-            //     img: 'img/ticket02.jpg',
-            //     unitPrice: 3180,
-            //     quantity: 1,
-            // }
-        ],
+        products: [],
         score: 100,
     },
     created: function () {
@@ -32,15 +13,21 @@ new Vue({
         minus: function (product) {
             if (product.quantity > 1) {
                 product.quantity--;
+                // 存回localstorage
+                localStorage.setItem("ticketsData", JSON.stringify(this.products));
             }
         },
         plus: function (product) {
             product.quantity++;
+            // 存回localstorage
+            localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },
         remove: function (id) {
             let index = this.products.map(x => x.id).indexOf(id);
             this.products.splice(index, 1);
             console.log(this.products);
+            // 存回localstorage
+            localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },
         totalPrice: function () {
             let sum = 0;
@@ -58,9 +45,7 @@ new Vue({
             pay = sum - this.score;
             return pay;
         },
-        finallist: function () {
-            localStorage.setItem('ticketsData', JSON.stringify(this.products))
-        },
+
     },
 }
 );

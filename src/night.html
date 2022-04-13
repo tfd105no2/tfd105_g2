@@ -69,9 +69,9 @@
               <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{
                                       b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
                                       b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
-                                }" @click="current_edit = !current_edit">
-                <div class="b_area_booking_status">進行中</div>
-                <div class="b_area_circle_status active"></div>
+                                }" @click="checkDate">
+                <div class="b_area_booking_status" :data-date="calendarMonth[(i-1)*7+j-1].date">進行中</div>
+                <div class="b_area_circle_status active" :data-date="calendarMonth[(i-1)*7+j-1].date"></div>
               </div>
             </div>
           </div>
@@ -99,12 +99,12 @@
             <!-- 卡片區 -->
             <ul id="ticket-type">
               <template v-for="item in area">
-                <li>
+                <li @click="addcart(item)">
                   <a href="night_detail.html">
                     <img class="ticket-top" :src="item.url" alt="">
                     <div class="ticket-bottom">
-                      <h4>{{item.type}}</h4>
-                      <p class="num">剩餘 {{item.num}} 位</p>
+                      <h4>{{item.area}}</h4>
+                      <p class="num">剩餘 {{item.bed_num}} 位</p>
                     </div>
                   </a>
                 </li>
