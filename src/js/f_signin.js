@@ -39,8 +39,7 @@ Vue.component("login", {
         methods: {
             login(e) {
                 e.preventDefault();
-                if (this.acc != '' && this.pwd != '') {
-                    location.href = 'f_member.html';
+                if (this.acc != '' && this.pwd != '') {                    
                     $.ajax({
                         type: 'POST',
                         url: "php/member_login.php",
@@ -53,7 +52,9 @@ Vue.component("login", {
                                 swal({
                                     title: "登入成功",
                                     type: "success"
-                                });
+                                }, function(){
+                                    location.href = 'f_member.html';
+                                });                                
                             } else {
                                 swal({
                                     title: "帳號或密碼錯誤",
@@ -87,11 +88,15 @@ Vue.component("login", {
             },
             sendMail() {
                 Email.send({
-                    SecureToken: "33a2472a-670c-4970-ac82-e921284d39a3",
+                    SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
                     To: `${this.userMail}`,
                     From: "mm7217373@gmail.com",
-                    Subject: "忘記密碼",
-                    Body: "testtesttesttesttesttest"
+                    Subject: "Kireiumi Park 忘記密碼",
+                    Body: `
+                        <div>您的密碼:_______</div>
+                        <div>請點擊以下網址重新登入</div>
+                        https://tibamef2e.com/tfd105/g2/f_signin.html
+                    `,
                 }).then(
                     message => alert(message)
                 );
@@ -216,8 +221,9 @@ Vue.component("login", {
                                     swal({
                                         title: "註冊成功",
                                         type: "success"
+                                    }, function(){
+                                        location.href = 'f_signin.html';
                                     });
-                                    // 轉址登入頁
                                 } else {
                                     swal({
                                         title: "帳號已被註冊",
