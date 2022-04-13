@@ -39,7 +39,7 @@ Vue.component("login", {
         methods: {
             login(e) {
                 e.preventDefault();
-                if (this.acc != '' && this.pwd != '') {                    
+                if (this.acc != '' && this.pwd != '') {
                     $.ajax({
                         type: 'POST',
                         url: "php/member_login.php",
@@ -52,9 +52,10 @@ Vue.component("login", {
                                 swal({
                                     title: "登入成功",
                                     type: "success"
-                                }, function(){
+                                }, function () {
+                                    sessionStorage.setItem('account', acc.value);
                                     location.href = 'f_member.html';
-                                });                                
+                                });
                             } else {
                                 swal({
                                     title: "帳號或密碼錯誤",
@@ -87,19 +88,50 @@ Vue.component("login", {
                 $('.f_register').removeClass('mask');
             },
             sendMail() {
-                Email.send({
-                    SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
-                    To: `${this.userMail}`,
-                    From: "mm7217373@gmail.com",
-                    Subject: "Kireiumi Park 忘記密碼",
-                    Body: `
-                        <div>您的密碼:_______</div>
-                        <div>請點擊以下網址重新登入</div>
-                        https://tibamef2e.com/tfd105/g2/f_signin.html
-                    `,
-                }).then(
-                    message => alert(message)
-                );
+                if (this.userMail != '') {
+                    $.ajax({
+                        type: 'POST',
+                        url: "php/send_pwd.php",
+                        data: {
+                            mail: this.userMail,
+                        },
+                        success: function (data) {
+                            if (data == '查無此信箱') {
+                                swal({
+                                    title: "查無此信箱",
+                                    type: "error"
+                                });
+                            } else {
+                                let pwd = JSON.parse(data)
+                                Email.send({
+                                    SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
+                                    To: `${this.userMail}`,
+                                    From: "mm7217373@gmail.com",
+                                    Subject: "Kireiumi Park 忘記密碼",
+                                    Body: `
+                                    <div>您的密碼:${pwd[0].password}</div>
+                                    <div>請點擊以下網址重新登入</div>
+                                    https://tibamef2e.com/tfd105/g2/f_signin.html
+                                `,
+                                }).then(
+                                    message => alert(message)
+                                );
+                            }
+                        },
+                        error: function (data) {
+                            console.log(data)
+                            swal({
+                                title: "連線失敗",
+                                type: "error"
+                            });
+                        },
+                    })
+                } else {
+                    swal({
+                        title: "請輸入信箱",
+                        type: "warning"
+                    });
+                }
             }
         },
         computed: {
@@ -221,7 +253,7 @@ Vue.component("login", {
                                     swal({
                                         title: "註冊成功",
                                         type: "success"
-                                    }, function(){
+                                    }, function () {
                                         location.href = 'f_signin.html';
                                     });
                                 } else {
