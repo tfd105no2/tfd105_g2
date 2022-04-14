@@ -2,12 +2,89 @@
 <html lang="zh-Hant">
 
 <head>
-    @@include('layout/head.html', { 'title': '確認付款' })
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>確認付款</title>
+    <!-- 引入外部文件 -->
+    <!-- 通用的css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- fontawesome v5.15.4 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- --------------------CSS與JS分隔線---------------------------------- -->
+    <!-- 引入Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 引入 vue -->
+    <script src="js/vue.js"></script>
 </head>
 
 <body>
     <div class="pay_wrapper">
-        @@include('layout/nav.html', { 'active7': 'active' })
+        <header>
+            <div class="nav-wrapper container">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo.svg" alt="" />
+                    </a>
+                </div>
+                <!-- menu -->
+                <ul class="menu-wrapper">
+                    <li class="menu-item">
+                        <a class="@@active1" href="news.html">最新消息</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="@@active2" href="information.html">園區資訊</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="@@active3" href="traffic.html">交通方式</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="@@active4" href="ticket.html">夜宿體驗</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="@@active5" href="fishgame.html">探索海洋</a>
+                    </li>
+                    <li class="user-item">
+                        <a class="@@active6" href="f_signin.html">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="user-item">
+                        <a class="active" href="checkout_cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 漢堡選單 -->
+                <button class="hamburger hamburger--squeeze" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+
+                <!--漢堡 nav-->
+                <div class="ham-bg"></div>
+                <div class="ham-nav">
+                    <div class="container">
+                        <ul>
+                            <li><a href="news.html">最新消息</a></li>
+                            <li><a href="information.html">園區資訊</a></li>
+                            <li><a href="traffic.html">交通方式</a></li>
+                            <li><a href="ticket.html">夜宿體驗</a></li>
+                            <li><a href="fishgame.html">探索海洋</a></li>
+                            <li><a href="f_signin.html">會員中心</a></li>
+                            <li><a href="checkout_cart.html">購物車</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         <main id="root" class="pay_main">
             <!-- 結帳流程進度條區塊 -->
             <div class="cart_anv">
@@ -49,9 +126,9 @@
                         <tbody>
                             <tr v-for="product in products" class="ticketGroup">
                                 <td class="ticketImg">
-                                    <img :src="product.img" alt="票券圖片">
+                                    <img :src="product.image" alt="票券圖片">
                                 </td>
-                                <td class="ticketType" colspan="2"><a href="#">{{product.status}}</a></td>
+                                <td class="ticketType" colspan="2"><a href="#">{{product.ticket_role_name}}</a></td>
                                 <td>NT$<span>{{product.price}}</span></td>
                                 <!-- 數量組區塊 -->
                                 <td>
@@ -108,7 +185,34 @@
             <img class="pay_fish" src="img/pay_fish.png" alt="">
         </main>
     </div>
-    @@include('layout/footer.html')
+    <footer>
+        <div class="footer_wrapper">
+            <!-- wave -->
+            <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+            <div class="follow_icon">
+                <a href="#" target="_blank">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <div class="content">
+                <h5>電話：(02)-2712-0589</h5>
+                <h5>地址：台北市中山區南京東路三段219號</h5>
+                <p>本網站為緯育TibaMe前端設計工程師班第70期學員專題作品，本平台僅供學習、展示之用</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/checkout_pay.js"></script>

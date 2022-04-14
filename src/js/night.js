@@ -6,39 +6,39 @@ new Vue({
         // modal area
         area: [
             {
-                id: 21,
+                id: 91,
                 area: '海底隧道',
-                bed_num: 20,
+                bed_num: 30,
                 url: 'img/intro-pic-01.png',
             },
             {
-                id: 22,
+                id: 92,
                 area: '大洋池親近區',
-                bed_num: 10,
+                bed_num: 30,
                 url: 'img/intro-pic-01.png',
             },
             {
-                id: 23,
+                id: 93,
                 area: '小白鯨區',
-                bed_num: 8,
+                bed_num: 30,
                 url: 'img/intro-pic-01.png',
             },
             {
-                id: 24,
+                id: 94,
                 area: '海藻森林',
-                bed_num: 3,
+                bed_num: 30,
                 url: 'img/intro-pic-01.png',
             },
             {
-                id: 25,
+                id: 95,
                 area: '極地區',
-                bed_num: 8,
+                bed_num: 30,
                 url: 'img/intro-pic-01.png',
             },
             {
-                id: 26,
+                id: 96,
                 area: '鯊魚區',
-                num: 5,
+                num: 30,
                 url: 'img/intro-pic-01.png',
             },
 
@@ -109,26 +109,7 @@ new Vue({
             console.log(e.target.getAttribute("data-date"));
             this.current_edit = !this.current_edit
         },
-        // ??
-        addcart(item) {
-            let checkData = JSON.parse(localStorage.getItem("checkData"));
 
-            let obj = {
-                'id': item.id,
-                'area': item.area,
-                'bed_num': item.bed_num,
-                'img': item.url,
-            }
-
-            if (checkData) {
-                checkData.push(obj);
-            } else {
-                checkData = [obj];
-            }
-
-            // 回存localstorage
-            localStorage.setItem("checkData", JSON.stringify(checkData))
-        }
     },
     computed: {
         calendarFirstDay() {

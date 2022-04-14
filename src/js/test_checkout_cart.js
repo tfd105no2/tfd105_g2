@@ -4,9 +4,14 @@ new Vue({
         products: [],
         score: 100,
     },
-    created: function () {
-        let tasks = JSON.parse(localStorage.getItem("ticketsData"))
-        this.products = tasks;
+    mounted() {
+        let tasks = JSON.parse(localStorage.getItem("ticketsData"));
+
+        // 如果localstorage有值,就賦值products 
+        // 沒有就不變動,依然為空陣列
+        if (tasks) {
+            this.products = tasks;
+        }
         console.log(this.products);
     },
     methods: {

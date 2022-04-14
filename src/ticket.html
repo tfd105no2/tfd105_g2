@@ -2,12 +2,89 @@
 <html lang="en">
 
 <head>
-  @@include('layout/head.html', { "title": "夜宿體驗" })
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夜宿體驗</title>
+  <!-- 引入外部文件 -->
+  <!-- 通用的css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- fontawesome v5.15.4 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- --------------------CSS與JS分隔線---------------------------------- -->
+  <!-- 引入Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- 引入 vue -->
+  <script src="js/vue.js"></script>
 </head>
 
 <body>
   <div class="ticket-wrapper">
-    @@include('layout/nav.html', { 'active4': 'active' })
+    <header>
+      <div class="nav-wrapper container">
+        <!-- logo -->
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo.svg" alt="" />
+          </a>
+        </div>
+        <!-- menu -->
+        <ul class="menu-wrapper">
+          <li class="menu-item">
+            <a class="@@active1" href="news.html">最新消息</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active2" href="information.html">園區資訊</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active3" href="traffic.html">交通方式</a>
+          </li>
+          <li class="menu-item">
+            <a class="active" href="ticket.html">夜宿體驗</a>
+          </li>
+          <li class="menu-item">
+            <a class="@@active5" href="fishgame.html">探索海洋</a>
+          </li>
+          <li class="user-item">
+            <a class="@@active6" href="f_signin.html">
+              <i class="fas fa-user"></i>
+            </a>
+          </li>
+          <li class="user-item">
+            <a class="@@active7" href="checkout_cart.html">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- 漢堡選單 -->
+        <button class="hamburger hamburger--squeeze" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+
+        <!--漢堡 nav-->
+        <div class="ham-bg"></div>
+        <div class="ham-nav">
+          <div class="container">
+            <ul>
+              <li><a href="news.html">最新消息</a></li>
+              <li><a href="information.html">園區資訊</a></li>
+              <li><a href="traffic.html">交通方式</a></li>
+              <li><a href="ticket.html">夜宿體驗</a></li>
+              <li><a href="fishgame.html">探索海洋</a></li>
+              <li><a href="f_signin.html">會員中心</a></li>
+              <li><a href="checkout_cart.html">購物車</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main id="main">
       <div class="title">
         <h2>夜宿體驗</h2>
@@ -34,10 +111,10 @@
           <ul class="ticket-type">
             <template v-for="item in ticketsData">
               <li>
-                <img class="ticket-top" :src="item.url" alt="" />
+                <img class="ticket-top" :src="item.image" alt="" />
                 <div class="ticket-bottom">
                   <div class="ticket-detail">
-                    <h4 class="status">{{item.status}}</h4>
+                    <h4 class="status">{{item.ticket_role_name}}</h4>
                     <p class="price">${{item.price}}</p>
                   </div>
                   <button type="button" class="button" v-on:click="addcart(item)">加入購物車</button>
@@ -68,8 +145,37 @@
 
     </main>
   </div>
-  @@include('layout/footer.html')
+  <footer>
+    <div class="footer_wrapper">
+      <!-- wave -->
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
 
+      <div class="follow_icon">
+        <a href="#" target="_blank">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="content">
+        <h5>電話：(02)-2712-0589</h5>
+        <h5>地址：台北市中山區南京東路三段219號</h5>
+        <p>本網站為緯育TibaMe前端設計工程師班第70期學員專題作品，本平台僅供學習、展示之用</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- 引入js -->
   <script src="js/ticket.js"></script>
 </body>
