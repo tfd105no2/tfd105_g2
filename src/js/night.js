@@ -4,45 +4,7 @@ new Vue({
     el: '#night-wrapper',
     data: {
         // modal area
-        area: [
-            {
-                id: 91,
-                area: '海底隧道',
-                bed_num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-            {
-                id: 92,
-                area: '大洋池親近區',
-                bed_num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-            {
-                id: 93,
-                area: '小白鯨區',
-                bed_num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-            {
-                id: 94,
-                area: '海藻森林',
-                bed_num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-            {
-                id: 95,
-                area: '極地區',
-                bed_num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-            {
-                id: 96,
-                area: '鯊魚區',
-                num: 30,
-                url: 'img/intro-pic-01.png',
-            },
-
-        ],
+        area: [],
         today: {
             year: 0,
             month: 0,
@@ -136,6 +98,17 @@ new Vue({
             }
             return data
         }
+    },
+    mounted() {
+        axios.get("php/night.php")
+            .then(res => {
+                // console.log(res.data);
+                this.area = res.data;
+                console.log(this.area);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 });

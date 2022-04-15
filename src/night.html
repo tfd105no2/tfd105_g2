@@ -177,11 +177,12 @@
             <ul id="ticket-type">
               <template v-for="item in area">
                 <li>
-                  <a :href="'night_detail.php?id='+item.id">
-                    <img class="ticket-top" :src="item.url" alt="">
+                  <a :href="'night_detail.php?id=' +item.area_id">
+                    <!-- 要補上綁定img -->
+                    <img class="ticket-top" src="img/intro-pic-01.png" alt="">
                     <div class="ticket-bottom">
-                      <h4>{{item.area}}</h4>
-                      <p class="num">剩餘 {{item.bed_num}} 位</p>
+                      <h4>{{item.names}}</h4>
+                      <p class="num">剩餘 {{item.bed_count}} 位</p>
                     </div>
                   </a>
                 </li>
@@ -221,6 +222,8 @@
       </div>
     </div>
   </footer>
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/nav.js"></script>
 
   <script src="js/night.js"></script>
