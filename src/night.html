@@ -2,89 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>夜宿體驗</title>
-  <!-- 引入外部文件 -->
-  <!-- 通用的css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- fontawesome v5.15.4 -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- --------------------CSS與JS分隔線---------------------------------- -->
-  <!-- 引入Jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- 引入 vue -->
-  <script src="js/vue.js"></script>
+  @@include('layout/head.html', { "title": "夜宿訂票" })
 </head>
 
 <body>
   <div class="night-wrapper" id="night-wrapper">
-    <header>
-      <div class="nav-wrapper container">
-        <!-- logo -->
-        <div class="logo">
-          <a href="index.html">
-            <img src="img/logo.svg" alt="" />
-          </a>
-        </div>
-        <!-- menu -->
-        <ul class="menu-wrapper">
-          <li class="menu-item">
-            <a class="@@active1" href="news.html">最新消息</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active2" href="information.html">園區資訊</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active3" href="traffic.html">交通方式</a>
-          </li>
-          <li class="menu-item">
-            <a class="active" href="ticket.html">夜宿體驗</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active5" href="fishgame.html">探索海洋</a>
-          </li>
-          <li class="user-item">
-            <a class="@@active6" href="f_signin.html">
-              <i class="fas fa-user"></i>
-            </a>
-          </li>
-          <li class="user-item">
-            <a class="@@active7" href="checkout_cart.html">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-        </ul>
-        <!-- 漢堡選單 -->
-        <button class="hamburger hamburger--squeeze" type="button">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </button>
-
-        <!--漢堡 nav-->
-        <div class="ham-bg"></div>
-        <div class="ham-nav">
-          <div class="container">
-            <ul>
-              <li><a href="news.html">最新消息</a></li>
-              <li><a href="information.html">園區資訊</a></li>
-              <li><a href="traffic.html">交通方式</a></li>
-              <li><a href="ticket.html">夜宿體驗</a></li>
-              <li><a href="fishgame.html">探索海洋</a></li>
-              <li><a href="f_signin.html">會員中心</a></li>
-              <li><a href="checkout_cart.html">購物車</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-
+    @@include('layout/nav.html',{ 'active4': 'active' })
     <main id="main">
       <div class="title">
         <h2>夜宿體驗</h2>
@@ -103,6 +26,7 @@
           </a>
         </li>
       </ul>
+
       <!-- 選擇日期 -->
       <section class="content-wrapper">
         <div class="container">
@@ -142,17 +66,24 @@
               <div>五</div>
               <div>六</div>
             </div>
+
             <div class="b_area_week" v-for="i in 6">
               <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{
-                                      b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
-                                      b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
-                                }" @click="checkDate">
+                            b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
+                            b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
+                      }"
+                @click="edit(calendarMonth[(i-1)*7+j-1].year,(calendarMonth[(i-1)*7+j-1].month)+1,calendarMonth[(i-1)*7+j-1].date)">
                 <div class="b_area_booking_status" :data-date="calendarMonth[(i-1)*7+j-1].date">進行中</div>
                 <div class="b_area_circle_status active" :data-date="calendarMonth[(i-1)*7+j-1].date"></div>
               </div>
             </div>
+
           </div>
         </div>
+
+
+
+
         <!-- 裝飾 -->
         <div class="deco">
           <img class="nig-fish" src="img/nig_fish.png" alt="" />
@@ -163,12 +94,12 @@
 
       <!-- modal 選擇區域 -->
       <transition>
-        <div class="modal" v-if="current_edit">
+        <div class="modal" v-if="current_edit !== null">
           <div class="modal-content">
             <!-- 選擇日期 -->
             <div class="date">
-              2022/3/30
-              <span class="close" @click="current_edit = !current_edit">
+              {{current_edit}}
+              <span class="close" @click="f_out">
                 <i class="fas fa-times-circle"></i>
               </span>
             </div>

@@ -2,89 +2,12 @@
 <html lang="zh-Hant">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>購物車</title>
-  <!-- 引入外部文件 -->
-  <!-- 通用的css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- fontawesome v5.15.4 -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- --------------------CSS與JS分隔線---------------------------------- -->
-  <!-- 引入Jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- 引入 vue -->
-  <script src="js/vue.js"></script>
+  @@include('layout/head.html', { "title": "查看購物車" })
 </head>
 
 <body>
   <div class="cart_wrapper">
-    <header>
-      <div class="nav-wrapper container">
-        <!-- logo -->
-        <div class="logo">
-          <a href="index.html">
-            <img src="img/logo.svg" alt="" />
-          </a>
-        </div>
-        <!-- menu -->
-        <ul class="menu-wrapper">
-          <li class="menu-item">
-            <a class="@@active1" href="news.html">最新消息</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active2" href="information.html">園區資訊</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active3" href="traffic.html">交通方式</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active4" href="ticket.html">夜宿體驗</a>
-          </li>
-          <li class="menu-item">
-            <a class="@@active5" href="fishgame.html">探索海洋</a>
-          </li>
-          <li class="user-item">
-            <a class="@@active6" href="f_signin.html">
-              <i class="fas fa-user"></i>
-            </a>
-          </li>
-          <li class="user-item">
-            <a class="active" href="checkout_cart.html">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-        </ul>
-        <!-- 漢堡選單 -->
-        <button class="hamburger hamburger--squeeze" type="button">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </button>
-
-        <!--漢堡 nav-->
-        <div class="ham-bg"></div>
-        <div class="ham-nav">
-          <div class="container">
-            <ul>
-              <li><a href="news.html">最新消息</a></li>
-              <li><a href="information.html">園區資訊</a></li>
-              <li><a href="traffic.html">交通方式</a></li>
-              <li><a href="ticket.html">夜宿體驗</a></li>
-              <li><a href="fishgame.html">探索海洋</a></li>
-              <li><a href="f_signin.html">會員中心</a></li>
-              <li><a href="checkout_cart.html">購物車</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-
+    @@include('layout/nav.html', { 'active7': 'active' })
     <main id="root" class="cart_main">
       <!-- 結帳流程進度條區塊 -->
       <div class="cart_anv">

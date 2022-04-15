@@ -1,10 +1,15 @@
 
-// Vue
 new Vue({
-    el: '#night-wrapper',
+    el: '#main',
     data: {
-        // modal area
+        dbcheck_off: false,
+        dbcheck_on: false,
+        b_area_current: 'b_area_current',
+        flag: 0,
+        b_area_origin: 'b_area_origin',
+
         area: [],
+
         today: {
             year: 0,
             month: 0,
@@ -18,30 +23,136 @@ new Vue({
             day: 0
         },
 
-        current_edit: false,
+        current_edit: null,
+        current_area: '海底隧道'
     },
     created: function () {
         this.showMdata(1);
     },
     mounted() {
-        this.setToday()
+        this.setToday();
+        axios.get("php/night.php")
+            .then(res => {
+                // console.log(res.data);
+                this.area = res.data;
+                console.log(this.area);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     },
     methods: {
-        edit(index) {
-            // this.current_edit = index;
-            this.current_edit = 'aa';
+        edit(year, month, date) {
+            this.current_edit = year + '/' + month + '/' + date;
+            //console.log(year + '/' + month + '/' + date);
+            // console.log(this.current_edit);
+        },
+
+        handlerBorder(i) {
+            // console.log(i)
+            this.flag = i;
+            this.current_area = this.area[i].type;
+            console.log(this.current_area);
+        },
+        f_close() {
+            this.dbcheck_off = true;
+            // this.current_edit = null;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 0;
+        },
+        f_open() {
+            this.dbcheck_on = true;
+            // this.current_edit = null;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 0;
         },
         f_out() {
+
             this.current_edit = null;
-            // edit_z.style.opacity = 0;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 0;
         },
+
+        sss() {
+            this.current_edit = null;
+            this.dbcheck_off = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+
+        },
+
+        ccc() {
+            // this.current_edit = null;
+            this.dbcheck_off = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+        },
+        osss() {
+            this.current_edit = null;
+            this.dbcheck_on = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+
+        },
+
+        occc() {
+            // this.current_edit = null;
+            this.dbcheck_on = false;
+            let edit_z = document.querySelector('.b_area_edit');
+            edit_z.style.opacity = 1;
+        },
+
+
+        f_save() {
+
+            let n_index = this.$data.current_edit;
+
+            this.current_edit = null;
+
+            // $.ajax({
+            //     method: "POST",
+            //     url: "../php/n-member_update.php",
+            //     data: {
+            //         account: this.members[n_index].account, // 哪筆會員
+            //         member_status: this.members[n_index].member_status, // 更新的會員狀態
+            //     },
+            //     dataType: "text",
+            //     success: function (response) {
+            //         alert("更新成功");
+            //     },
+            //     error: function (exception) {
+            //         alert("發生錯誤: " + exception.status);
+            //     }
+            // });
+
+        },
+        log_out() {
+            location.href = "back_login.html"
+        },
+
         showMdata(gopage) {
             console.log(gopage);
             if (isNaN(gopage)) return;
             this.nowpage = gopage;
+
+            // $.ajax({
+            //     method: "POST",
+            //     url: "../php/getMemberData.php",
+            //     data: {
+            //         page: gopage,
+            //     },
+            //     dataType: "json",
+            //     success: function (response) {
+            //         appVue.pages = response[0];
+            //         appVue.members = response[1];
+            //     },
+            //     error: function (exception) {
+            //         alert("發生錯誤: " + exception.status);
+            //     },
+            // });
         },
         setToday() {
-            const date = new Date()
+            const date = new Date();
             this.today.year = this.calendar.year = date.getFullYear()
             this.today.month = this.calendar.month = date.getMonth() // 0~11
             this.today.date = this.calendar.date = date.getDate()
@@ -63,17 +174,19 @@ new Vue({
                 this.calendar.month = month
             }
 
-        },
-        // 點擊要取當天 月日
-        checkDate(e) {
-            console.log(e.target);
-            console.log(this.calendar.month + 1);
-            console.log(e.target.getAttribute("data-date"));
-            this.current_edit = !this.current_edit
-        },
+        }
 
     },
     computed: {
+        // monthFirstDay(){
+        //   const date = new Date(this.calendar.year,this.calendar.month,1)
+        //   return {
+        //     year:date.getFullYear(),// this.calendar.year
+        //     month:date.getMonth(),// this.calendar.month
+        //     date:date.getDate(),// 1
+        //     day:date.getDay(),
+        //   }
+        // },
         calendarFirstDay() {
             const mDate = new Date(this.calendar.year, this.calendar.month, 1)
             const date = new Date(this.calendar.year, this.calendar.month, 1 - mDate.getDay())
@@ -98,20 +211,12 @@ new Vue({
             }
             return data
         }
+
     },
-    mounted() {
-        axios.get("php/night.php")
-            .then(res => {
-                // console.log(res.data);
-                this.area = res.data;
-                console.log(this.area);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
 
-});
+}
+);
 
-// JS
+
+
 
