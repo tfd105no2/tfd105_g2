@@ -8,7 +8,7 @@
 <body>
     <div class="pay_wrapper">
         @@include('layout/nav.html', { 'active7': 'active' })
-        <main class="pay_main">
+        <main id="root" class="pay_main">
             <!-- 結帳流程進度條區塊 -->
             <div class="cart_anv">
                 <div class="cart_item">
@@ -47,43 +47,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="ticketGroup">
+                            <tr v-for="product in products" class="ticketGroup">
                                 <td class="ticketImg">
-                                    <img src="img/ticket01.jpeg" alt="票券圖片">
+                                    <img :src="product.img" alt="票券圖片">
                                 </td>
-                                <td class="ticketType" colspan="2"><a href="#">全票</a></td>
-                                <td>NT$<span>550</span></td>
+                                <td class="ticketType" colspan="2"><a href="#">{{product.status}}</a></td>
+                                <td>NT$<span>{{product.price}}</span></td>
                                 <!-- 數量組區塊 -->
                                 <td>
                                     <div class="cart_quantityInfo">
-                                        <span>1</span>
+                                        <span>{{product.quantity}}</span>
                                     </div>
                                 </td>
-                                <td class="subtotal">NT$<span>550</span></td>
-                            </tr>
-                            <tr class="ticketGroup">
-                                <td class="ticketImg">
-                                    <img src="img/ticket02.jpg" alt="票券圖片">
-                                </td>
-                                <td class="ticketType" colspan="2"><a href="#">夜宿體驗-全票<br>大洋池親近區</a></td>
-                                <td>NT$<span>3180</span></td>
-                                <td>
-                                    <div class="cart_quantityInfo">
-                                        <span>1</span>
-                                    </div>
-                                </td>
-                                <td class="subtotal">NT$<span>3180</span></td>
+                                <td class="subtotal">NT$<span>{{ product.quantity * product.price}}</span></td>
                             </tr>
                             <!-- 確認金額區塊 -->
                             <tr class="ticketTotal">
                                 <td colspan="4"></td>
                                 <td>折扣金額</td>
-                                <td>-NT$<span>0</span></td>
+                                <td>-NT$<span>{{score}}</span></td>
                             </tr>
                             <tr class="ticketTotal">
                                 <td class="noBorderTop" colspan="4"></td>
                                 <td class="noBorderTop">付款金額</td>
-                                <td class="noBorderTop subtotal">NT$<span>3730</span></td>
+                                <td class="noBorderTop subtotal">NT$<span>{{payable()}}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -98,20 +85,20 @@
                     </div>
                     <div class="choose">
                         <label>
-                            <input type="radio" name="choose" value="creditcard">
+                            <input checked type="radio" name="choose" value="creditcard" v-model="payway">
                             <img src="img/creditcard.png" alt="信用卡icon">
                             <span>信用卡</span>
                         </label>
                     </div>
                     <div class="choose">
                         <label>
-                            <input type="radio" name="choose" value="linepay">
+                            <input type="radio" name="choose" value="linepay" v-model="payway">
                             <img src="img/linepay.png" alt="Line Pay icon">
                             <span>Line Pay</span>
                         </label>
                     </div>
                     <div class="pay_btn">
-                        <a href="./checkout_complet.html">確認付款</a>
+                        <a v-on:click="post" href="./checkout_complet.html">確認付款</a>
                     </div>
                 </div>
             </div>
@@ -122,6 +109,9 @@
         </main>
     </div>
     @@include('layout/footer.html')
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/checkout_pay.js"></script>
 </body>
 
 </html>

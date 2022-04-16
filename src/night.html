@@ -69,9 +69,9 @@
               <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{
                                       b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
                                       b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
-                                }" @click="edit">
-                <div class="b_area_booking_status">進行中</div>
-                <div class="b_area_circle_status active"></div>
+                                }" @click="checkDate">
+                <div class="b_area_booking_status" :data-date="calendarMonth[(i-1)*7+j-1].date">進行中</div>
+                <div class="b_area_circle_status active" :data-date="calendarMonth[(i-1)*7+j-1].date"></div>
               </div>
             </div>
           </div>
@@ -85,32 +85,34 @@
       </section>
 
       <!-- modal 選擇區域 -->
-      <div class="modal" v-if="current_edit != null">
-        <div class="modal-content">
-          <!-- 選擇日期 -->
-          <div class="date">
-            2022/3/30
-            <span class="close" @click="f_out">
-              <i class="fas fa-times-circle"></i>
-            </span>
+      <transition>
+        <div class="modal" v-if="current_edit">
+          <div class="modal-content">
+            <!-- 選擇日期 -->
+            <div class="date">
+              2022/3/30
+              <span class="close" @click="current_edit = !current_edit">
+                <i class="fas fa-times-circle"></i>
+              </span>
+            </div>
+            <h4>選擇夜宿區域</h4>
+            <!-- 卡片區 -->
+            <ul id="ticket-type">
+              <template v-for="item in area">
+                <li @click="addcart(item)">
+                  <a href="night_detail.html">
+                    <img class="ticket-top" :src="item.url" alt="">
+                    <div class="ticket-bottom">
+                      <h4>{{item.area}}</h4>
+                      <p class="num">剩餘 {{item.bed_num}} 位</p>
+                    </div>
+                  </a>
+                </li>
+              </template>
+            </ul>
           </div>
-          <h4>選擇夜宿區域</h4>
-          <!-- 卡片區 -->
-          <ul id="ticket-type">
-            <template v-for="item in area">
-              <li>
-                <a href="night_detail.html">
-                  <img class="ticket-top" :src="item.url" alt="">
-                  <div class="ticket-bottom">
-                    <h4>{{item.type}}</h4>
-                    <p class="num">剩餘 {{item.num}} 位</p>
-                  </div>
-                </a>
-              </li>
-            </template>
-          </ul>
         </div>
-      </div>
+      </transition>
 
     </main>
 

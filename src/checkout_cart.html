@@ -50,9 +50,9 @@
                   <img v-bind:src="product.img" alt="票券圖片" />
                 </td>
                 <td class="ticketType">
-                  <a href="#">{{product.name}}<br />{{product.date}}{{product.area}}</a>
+                  <a href="#">{{product.status}}<br />{{product.date}}{{product.area}}</a>
                 </td>
-                <td>NT$<span>{{product.unitPrice}}</span></td>
+                <td>NT$<span>{{product.price}}</span></td>
                 <!-- 數量組區塊 -->
                 <td>
                   <div class="cart_quantityInfo">
@@ -68,7 +68,7 @@
                   </div>
                 </td>
                 <td class="subtotal">
-                  NT$<span>{{product.unitPrice * product.quantity}}</span>
+                  NT$<span>{{product.price * product.quantity}}</span>
                 </td>
                 <td>
                   <button @click="remove(product.id)" class="deleteButton">
@@ -124,7 +124,7 @@
 
   <!-- 引入js -->
   <script src="js/vue.js"></script>
-  <script src="js/checkout_cart.js"></script>
+  <script src="js/test_checkout_cart.js"></script>
 </body>
 
 </html>

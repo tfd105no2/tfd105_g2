@@ -8,7 +8,7 @@
 <body>
   <div class="night-detail-wrapper">
     @@include('layout/nav.html', { 'active4': 'active' })
-    <main id="maindd">
+    <main id="main">
       <div class="title">
         <h2>夜宿體驗</h2>
       </div>
@@ -32,11 +32,11 @@
           <h2>預訂詳情</h2>
           <!-- 圖片詳情 -->
           <div class="content-top">
-            <img src="img/intro-pic-01.png" />
+            <img :src="checkArea[0].url" />
             <div class="content-text">
-              <h3>{{checkData[checkData.length-1].area}}</h3>
+              <h3>{{checkArea[0].area}}</h3>
               <p>預定日期: 2022/4/5 星期二</p>
-              <div class="bed-left">剩餘{{checkData[checkData.length-1].bed_num}}名</div>
+              <div class="bed-left">剩餘{{checkArea[0].num}}名</div>
               <span>注意事項</span>
               <ul class="notice">
                 <li>
@@ -57,22 +57,9 @@
           <!-- 票種選擇 -->
           <div class="content-bottom" id="content-bottom">
             <ul class="type-list">
-              <li class="bed-type" v-for="item in bedType">
-                <p>{{item.status}}</p>
-                <div class="type-right">
-                  <p class="price"> TWD{{item.price}}</p>
-                  <button type="button" class="button" @click="addcart(item)">加入購物車</button>
-                  <div class="quantityInfo">
-                    <span>
-                      <button class="minus" @click="minus(item)">-</button>
-                    </span>
-                    <input type="number" class="quantity" v-model="item.quantity">
-                    <span>
-                      <button class="plus" @click="plus(item)">+</button>
-                    </span>
-                  </div>
-                </div>
-              </li>
+              <counter-component v-for="(item, key) in bedType" :person="item" :key="key" @modalpop="pop"
+                @minuspop="minus" @pluspop="plus">
+              </counter-component>
             </ul>
           </div>
         </div>
@@ -91,7 +78,7 @@
             <i class="fas fa-check"></i>
           </div>
           <h4>已加入購物車</h4>
-          <button type="button" class="button button-close" @click="modal = !modal">確定</button>
+          <button type="button" class="button button-close" @click="pop">確定</button>
         </div>
       </div>
     </main>
@@ -102,6 +89,28 @@
 
   <!-- 引入Vue -->
   <script src="js/vue.js"></script>
+
+  <!-- x-template -->
+  <script type="text/x-template" id="counterTemplate">
+      <div>
+          <li class="bed-type">
+              <p>{{person.type}}</p>
+              <div class="type-right">
+                  <p class="price"> TWD{{person.price}}</p>
+                  <button type="button" class="button" @click="$emit('modalpop')" >加入購物車</button>
+                  <div class="quantityInfo">
+                      <span>
+                          <button @click="$emit('minuspop', person)" class="minus" >-</button>
+                      </span>
+                      <input type="number" class="quantity" v-model="person.num">
+                      <span>
+                          <button @click="$emit('pluspop', person)" class="plus">+</button>
+                      </span>
+                  </div>
+              </div>
+          </li>
+      </div>
+    </script>
 
   <!-- 引入JS -->
   <script src="js/night_detail.js"></script>

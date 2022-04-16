@@ -1,79 +1,75 @@
 
-// 元件
-Vue.component('counter-component', {
-    data() {
-        return {
-            countz: 0
-        }
-    },
-    methods: {
-        minus() {
-            if (this.countz > 0) {
-                this.countz -= 1;
-            }
-        },
-        add() {
-            this.countz += 1;
-        }
-    },
-    props: ["person"],
-    template: "#counterTemplate",
-})
-
-// 
+//
 new Vue({
-    el: '#content-bottom',
+    el: '#maindd',
     data: {
-        // count: 3,
+        modal: false,
+        checkData: [
+            // {
+            //     id: 21,
+            //     area: "u;3隧道",
+            //     bed_num: 20,
+            //     img: "img/intro-pic-01.png",
+            // }
+        ],
         bedType: [
             {
-                type: '成人票',
+                id: 20,
+                type: '夜宿票',
+                status: '成人票',
                 price: 3180,
+                quantity: 0,
             },
             {
-                type: '兒童票',
+                id: 20,
+                type: '夜宿票',
+                status: '兒童票',
                 price: 1890,
+                quantity: 0,
             },
             {
-                type: '幼童票',
+                id: 20,
+                type: '夜宿票',
+                status: '幼童票',
                 price: 0,
+                quantity: 0,
             },
             {
-                type: '博愛票',
+                id: 20,
+                type: '夜宿票',
+                status: '博愛票',
                 price: 1890,
+                quantity: 0,
             },
         ],
     },
     methods: {
+        addcart(item) {
+            this.modal = !this.modal;
+
+            let obj = {
+                'id': item.id,
+                'type': item.type,
+                'status': item.status,
+                'price': item.price,
+                'quantity': item.quantity,
+                'img': item.url,
+            }
+        },
+        minus(item) {
+            if (item.quantity > 0) {
+                item.quantity--;
+            }
+        },
+        plus(item) {
+            item.quantity++;
+        }
     },
-});
+    created() {
+        let checkData = JSON.parse(localStorage.getItem("checkData"));
+        this.checkData = checkData;
+        console.log(this.checkData);
 
-// JS
-let typeList = document.querySelector('.type-list');
-let btnClose = document.querySelector('.button-close');
-let modalAdd = document.querySelector('.modal-add');
-let btnAdd = document.querySelector('.button');
-
-// 打開modal
-typeList.addEventListener('click', function (e) {
-    if (e.target == btnAdd) {
-        modalAdd.style.display = "block";
     }
 });
-
-// 關閉modal
-btnClose.addEventListener('click', function (e) {
-    // 避免冒泡事件 往上傳到父層 modalAdd
-    e.stopPropagation();
-    modalAdd.style.display = "none";
-})
-
-// 點擊空白處 關閉modal
-modalAdd.addEventListener('click', function (e) {
-    if (e.target == modalAdd) {
-        modalAdd.style.display = "none";
-    }
-
-})
-
 
