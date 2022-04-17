@@ -89,8 +89,9 @@
                     z-index: 2;
                 }
                 .news_item{
-                    width: calc(100% / 3);
+                    max-width: calc(100% / 3);
                     padding:0 space(1) space(10);
+                    height: 234px;  
                     &:hover{
                         p{
                             color:$btn-color-hover;
@@ -126,8 +127,10 @@
 
                     }
                     img{    
-                        display: block;
-                        width: 100%;
+                        @extend %img-mw;
+                        height: auto;
+                        max-height: 234px;
+                        margin: 0 auto;
                     }
                 }
             }
