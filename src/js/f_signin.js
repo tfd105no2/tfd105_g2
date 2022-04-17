@@ -52,7 +52,7 @@ Vue.component("login", {
                                 swal({
                                     title: "登入成功",
                                     type: "success"
-                                }, function () {
+                                }).then(function () {
                                     sessionStorage.setItem('account', acc.value);
                                     location.href = 'f_member.html';
                                 });
@@ -98,7 +98,7 @@ Vue.component("login", {
                         success: function (data) {
                             if (data == '查無此信箱') {
                                 swal({
-                                    title: "查無此信箱",
+                                    title: "此信箱尚未註冊",
                                     type: "error"
                                 });
                             } else {
