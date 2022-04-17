@@ -1,6 +1,169 @@
-.entrance_wrapper{
-    
-    .entrance_main{
+.entrance_wrapper {
+    .entrance_main {
+        position: relative;
+        font-size: 24px;
 
+        // logo 區塊
+        .entrance_logo {
+            width: 170px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        // 前台按鈕區塊
+        .front_btn_wrapper {
+            position: relative; // 給a連結定位的父層
+            position: absolute;
+            top: 35%;
+            left: 20%;
+            z-index: 99;
+
+            // 變形蟲層01
+            .amoeba_layer01 {
+                position: absolute;
+                top: -5px;
+                width: 15vw;
+                height: 15vw;
+                opacity: .7;
+                background: linear-gradient(90deg,
+                        #4e74bf,
+                        #a8edea);
+                background-size: 1600% 1600%;
+                animation: morph01 10s ease-in-out infinite alternate,
+            }
+
+            // 變形蟲層02
+            .amoeba_layer02 {
+                position: absolute;
+                left: 10px;
+                width: 15vw;
+                height: 15vw;
+                opacity: .7;
+                background: linear-gradient(90deg,
+                        #ffffff,
+                        #8ec5fc);
+                background-size: 1600% 1600%;
+                animation: morph02 10s ease-in-out infinite alternate,
+            }
+
+            // 前台連結
+            .front_btn {
+                position: absolute;
+                display: block;
+                width: 15vw;
+                line-height: 15vw;
+                text-align: center;
+                color: #4e74bf;
+                z-index: 100;
+
+                border-radius: 50%;
+                // border: 2px solid white;
+            }
+
+        }
+
+        // 後台按鈕
+        .back_btn_wrapper {
+            position: absolute;
+            top: 35%;
+            right: 37%;
+            z-index: 99;
+
+            // 變形蟲層01
+            .amoeba_layer01 {
+                position: absolute;
+                top: -5px;
+                width: 15vw;
+                height: 15vw;
+                opacity: .7;
+                background: linear-gradient(90deg,
+                        #ffffff,
+                        #8ec5fc);
+                background-size: 1600% 1600%;
+                animation: morph01 10s ease-in-out infinite alternate,
+            }
+
+            // 變形蟲層02
+            .amoeba_layer02 {
+                position: absolute;
+                left: 10px;
+                width: 15vw;
+                height: 15vw;
+                opacity: .7;
+                background: linear-gradient(90deg,
+                        #4e74bf,
+                        #a8edea);
+                background-size: 1600% 1600%;
+                animation: morph02 10s ease-in-out infinite alternate,
+            }
+
+            // 後台連結
+            .back_btn {
+                position: absolute;
+                display: block;
+                width: 15vw;
+                line-height: 15vw;
+                text-align: center;
+                color: #fff;
+                z-index: 100;
+
+                border-radius: 50%;
+                // border: 2px solid white;
+            }
+
+        }
+
+        // 背景影片
+        .entrance_bg {
+            .entrance_bg_content {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                display: block;
+                z-index: 0;
+            }
+        }
+    }
+}
+
+@keyframes morph01 {
+
+    0%,
+    100% {
+        border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
+    }
+    20% {
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    40% {
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+    60% {
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    80% {
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+}
+
+@keyframes morph02 {
+
+    0%,
+    100% {
+        border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
+    }
+    20% {
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    40% {
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+    60% {
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    80% {
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
     }
 }
