@@ -93,7 +93,6 @@
                 }
                 .news_item{
                     width: calc(100% / 3);
-                    max-width: 380px;
                     padding:0 space(1) space(10);
                     &:hover{
                         p{
@@ -104,16 +103,24 @@
                     
                     @media screen and (max-width: 1000px) {
                         width: 50%;
+                        max-width: 600px;
                     }
                     @media screen and (max-width: 768px) {
                         width: 100%;
+                        max-width: 380px;
                         padding: 0 space(1.5) space(10);
                     }
                     a{
                         .news_item_content{
                             max-width: 380px;
                             margin: 0 auto;
-                        }
+                            @media screen and (max-width: 1000px) {
+                                max-width: 600px;
+                            }
+                            @media screen and (max-width: 768px) {
+                                max-width: 380px;
+                            }
+                        }   
                     }
                     
                     h6{
