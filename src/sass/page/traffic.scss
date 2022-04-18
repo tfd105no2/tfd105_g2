@@ -260,7 +260,7 @@
 }
 
 // time
-.traffic_time{
+#traffic_time{
     width: 1200px;
     display: flex;
     flex-wrap: wrap;
@@ -314,7 +314,7 @@
             width: 100%;
             align-items: center;
             flex-direction: column;
-            #traffic_address{
+            .input_address{
                 margin-bottom: 20px;
             }
         }
@@ -323,7 +323,7 @@
         margin-bottom: 20px;
         display: flex;
         justify-content: center;
-        #traffic_address{
+        .input_address{
             width: 300px;
             height: 30px;
             margin-right: 10px;
