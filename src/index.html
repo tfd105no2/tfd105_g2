@@ -168,11 +168,13 @@
           <div class="map_card">
             <h4>如何到這裡</h4>
             <p class="title">使用這張方便的地圖，直接引導您前往海洋公園!</p>
-            <form action="#" method="get" target="_blank">
-              <input class="input_add" type="text" name="map_card" id="map_card" placeholder="請輸入你的位置" />
+            <form action="//maps.google.com/maps" method="get" target="_blank">
+              <input class="input_add" name="saddr" type="text" id="saddr" value="" placeholder="輸入目前所在位置">
               <p class="address">目的地:</p>
               <p class="address">台北市中山區南京東路三段219號</p>
-              <input class="btn_map" type="submit" value="前往" />
+              <input type="submit" class="btn_map" value="前往">
+              <input name="daddr" value="台北市中山區南京東路三段219號" type="hidden">
+              <input name="hl" value="zh-TW" type="hidden">
             </form>
           </div>
         </div>
@@ -188,7 +190,7 @@
   </div>
   @@include('layout/footer.html')
 
-  
+
   <script src="js/index.js"></script>
 </body>
 
