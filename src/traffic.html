@@ -11,7 +11,7 @@
   <!-- music -->
   <div id="music1">
     <div class="play" @click="open">
-        <img src="img/18-017.png" class="conch close">
+        <img :src="img" class="conch close">
         <ul class="bubble">
           <li class="bb hide"></li>
           <li class="bb hide"></li>
@@ -29,28 +29,28 @@
     <div class="transportation_banner">
       <h1>交通指南</h1>
     </div>
-    <main class="maintt">
+    <main class="maintt" id="app">
       <!-- traffic nav -->
       <article class="traffic_nav">
-        <i class="fa-solid fa-train scroll_to " data-id="link1"><h2>大眾運輸</h2></i>
-        <i class="fa-solid fa-car scroll_to" data-id="link2"><h2>開車</h2></i>
-        <i class="fa-solid fa-bus scroll_to" data-id="link3"><h2>接駁車</h2></i>
+        <i class="fa-solid fa-train scroll_to " data-id="link1" @click="jump(index)"><h2>大眾運輸</h2></i>
+        <i class="fa-solid fa-car scroll_to" data-id="link2" @click="jump(index)"><h2>開車</h2></i>
+        <i class="fa-solid fa-bus scroll_to" data-id="link3" @click="jump(index)"><h2>接駁車</h2></i>
       </article>
   
       <!-- time -->
-      <article class="traffic_time">
-        <div class="timepice"><img src="img/fish.jpg" alt="" /></div>
+      <article id="traffic_time">
+        <div class="timepice"><img :src="img" alt="fishtime"/></div>
         
         <section class="time_contant">
           <div class="opentime">
-            <h2>營業時間</h2>
+            <h2>{{title}}</h2>
           </div>
           
-          <h3>週一~週五 10:00~20:30 <br>
-          假日(國定假日) 09:00~22:00</h3>
+          <h3>{{weekday}} <br>
+          {{holiday}}</h3>
           <div class="openwes">
-            <p>* 最終入場時間為閉館前1小時。</p>
-            <p>*本館全年無休，若遇任何天候或其它因素而休館將另行公告，敬請留意本館最新消息。</p>
+            <p>{{narrative}}</p>
+            <p>{{narrative2}}</p> 
           </div>
         </section>
       </article>
@@ -62,11 +62,12 @@
   
       <!-------- start map go ----------->
       <div class="traffic_map_wapper">
-        <form action="#" method="#">
-          <input id="traffic_address" type="text" placeholder="輸入目前的地址"/>
-          <input id="traffic_btn" type="submit" value="前往" /> 
+        <form action="//maps.google.com/maps" method="get" target="_blank">
+          <input class="input_address" name="saddr" type="text"  id="saddr" value="" placeholder="輸入目前所在位置">
+          <input type="submit" id="traffic_btn" value="前往">
+          <input name="daddr" value="台北市中山區南京東路三段219號" type="hidden">
+          <input name="hl" value="zh-TW" type="hidden">
         </form>
-  
         <article class="traffic_map">
           <div class="map_wapper">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4086.478531104386!2d121.54327503909204!3d25.052850008154042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1648884512677!5m2!1szh-TW!2stw" width="1200" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -164,7 +165,7 @@
 
         <!---------drive ---- car----- -->
         <article class="train_wapper">
-          <i class="fa-solid fa-car scroll1" id="link2"><br />開車</i>
+          <i class="fa-solid fa-car scroll1" id="link2" @scroll="onScroll"><br />開車</i>
           <section class="car-content train-content">
             <div class="content carcontent">
               <h3>開車</h3>
