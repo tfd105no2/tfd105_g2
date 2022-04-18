@@ -87,9 +87,13 @@
                     justify-content: start;
                     flex-wrap: wrap; 
                     z-index: 2;
+                    @media screen and (max-width: 768px) {
+                        justify-content: center;
+                    }
                 }
                 .news_item{
-                    max-width: calc(100% / 3);
+                    width: calc(100% / 3);
+                    max-width: 380px;
                     padding:0 space(1) space(10);
                     &:hover{
                         p{
@@ -104,6 +108,12 @@
                     @media screen and (max-width: 768px) {
                         width: 100%;
                         padding: 0 space(1.5) space(10);
+                    }
+                    a{
+                        .news_item_content{
+                            max-width: 380px;
+                            margin: 0 auto;
+                        }
                     }
                     
                     h6{
@@ -126,11 +136,14 @@
 
                     }
                     img{    
-                        @extend %img-mw;
-                        width: 100%;
+                        display: block;
                         height: auto;
+                        width: 100%;
                         max-height: 234px;
                         margin: 0 auto;
+                        object-fit: cover;
+                        
+                        
                     }
                 }
             }
