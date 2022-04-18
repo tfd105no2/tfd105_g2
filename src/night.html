@@ -42,22 +42,20 @@
               <p>已額滿</p>
             </div>
           </div>
+
           <!-- 日曆 -->
-          <div class="b_area_calendar">
+          <div class="canlendar">
             <div class="date_title">
               <button @click="adjustMonth(-1)">
                 <i class="fas fa-angle-left"></i> </button>
-              <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
+              <h1>{{canlendar.year}} 年 {{canlendar.month + 1}} 月</h1>
               <button @click="adjustMonth(1)">
                 <i class="fas fa-angle-right"></i>
               </button>
             </div>
 
-            <!-- <button @click="adjustYear(-1)">上一年</button> -->
-            <!-- <button @click="setToday">今天</button> -->
-            <!-- <button @click="adjustYear(1)">下一年</button> -->
 
-            <div class="b_area_weekDay">
+            <div class="weekDay">
               <div>日</div>
               <div>一</div>
               <div>二</div>
@@ -67,18 +65,28 @@
               <div>六</div>
             </div>
 
-            <div class="b_area_week" v-for="i in 6">
-              <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{
-                            b_area_today:calendarMonth[(i-1)*7+j-1].year === today.year && calendarMonth[(i-1)*7+j-1].month === today.month && calendarMonth[(i-1)*7+j-1].date === today.date,
-                            b_area_other:calendarMonth[(i-1)*7+j-1].month !== calendar.month
-                      }"
-                @click="edit(calendarMonth[(i-1)*7+j-1].year,(calendarMonth[(i-1)*7+j-1].month)+1,calendarMonth[(i-1)*7+j-1].date)">
-                <div class="b_area_booking_status" :data-date="calendarMonth[(i-1)*7+j-1].date">進行中</div>
-                <div class="b_area_circle_status active" :data-date="calendarMonth[(i-1)*7+j-1].date"></div>
+            <!-- 畫表格 總共6行 42天 -->
+            <div class="week" v-for="i in 6">
+              <!-- 把 canlendarMonth陣列值 分別塞進去格子-->
+              <!-- 添加今日 非該月份 的樣式 -->
+              <div @click="pop" :data-index="(i-1)*7+(j-1)" class="day" v-for="j in 7"
+                :data-date="canlendarMonth[(i-1)*7+(j-1)].date" :class="{
+                  'today': today.year == canlendarMonth[(i-1)*7+(j-1)].year && today.month == canlendarMonth[(i-1)*7+(j-1)].month && today.date == canlendarMonth[(i-1)*7+(j-1)].date,
+                  'other': canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month,
+                  'full': full_date.includes(canlendarMonth[(i-1)*7+(j-1)].date) && canlendarMonth[(i-1)*7+(j-1)].month == canlendar.month
+              }">
+
+                <div class="booking_status" v-if="canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month">已截止
+                </div>
+                <div class="booking_status" v-else-if="full_date.includes(canlendarMonth[(i-1)*7+(j-1)].date)">
+                  已額滿</div>
+                <div class="booking_status" v-else>進行中</div>
+                <div class="circle_status"></div>
+
               </div>
             </div>
-
           </div>
+
         </div>
 
 
@@ -92,14 +100,16 @@
         </div>
       </section>
 
+
+
       <!-- modal 選擇區域 -->
       <transition>
-        <div class="modal" v-if="current_edit !== null">
+        <div class="modal" v-if="modal">
           <div class="modal-content">
             <!-- 選擇日期 -->
             <div class="date">
-              {{current_edit}}
-              <span class="close" @click="f_out">
+              {{current_edit.year}}年/{{current_edit.month + 1}}月/{{current_edit.date}}日
+              <span class="close" @click="modal = !modal">
                 <i class="fas fa-times-circle"></i>
               </span>
             </div>
@@ -109,8 +119,7 @@
               <template v-for="item in area">
                 <li>
                   <a :href="'night_detail.php?id=' +item.area_id">
-                    <!-- 要補上綁定img -->
-                    <img class="ticket-top" src="img/intro-pic-01.png" alt="">
+                    <img class="ticket-top" :src="item.img" alt="">
                     <div class="ticket-bottom">
                       <h4>{{item.names}}</h4>
                       <p class="num">剩餘 {{item.bed_count}} 位</p>
@@ -122,6 +131,7 @@
           </div>
         </div>
       </transition>
+
 
     </main>
 

@@ -138,7 +138,7 @@
         }
     }
 
-    .b_area_calendar {
+    .canlendar {
         margin: 0 auto;
         border: 3px solid #0080a8;
         width: 800px;
@@ -174,23 +174,22 @@
             }
         }
 
-        .b_area_weekDay,
-        .b_area_week {
+        .weekDay,
+        .week {
             display: flex;
             border-bottom: 1px solid #00bdd1;
         }
-        .b_area_weekDay > div {
+        .weekDay > div {
             flex: 1 1 0%;
             line-height: 30px;
         }
-        .b_area_week {
+        .week {
             /*border-right: 1px solid #00bdd1;*/
             &:last-child {
                 border-bottom: none;
             }
         }
-        .b_area_week > div {
-            cursor: pointer;
+        .week > div {
             position: relative;
             flex: 1 1 0%;
             height: 90px;
@@ -209,7 +208,14 @@
                 display: block;
             }
         }
-        .b_area_week > div:before {
+
+        // hover樣式
+        .week > div:not(.other):not(.full):hover {
+            cursor: pointer;
+            box-shadow: inset 0px 0px 10px rgb(0, 174, 255);
+        }
+
+        .week > div:before {
             position: absolute;
             content: attr(data-date);
             top: 0;
@@ -219,14 +225,14 @@
             display: block;
             width: 30px;
         }
-        .b_area_booking_status {
-            margin-top: 30px;
+        .booking_status {
+            margin-top: 15px;
             @include mobile {
                 display: none;
             }
         }
 
-        .b_area_circle_status {
+        .circle_status {
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -240,16 +246,26 @@
             }
         }
 
-        .b_area_today {
+        // 今日樣式
+        .today {
             color: #333;
             background-color: #94d8e5;
         }
 
-        .b_area_other {
+        // 其他月份樣式
+        .other {
             color: #bbb;
             background-color: #ddd;
-            .b_area_circle_status {
+            .circle_status {
                 background-color: #b9b9b9;
+            }
+        }
+
+        // 額滿樣式
+        .full {
+            background-color: rgb(255, 201, 201);
+            .circle_status {
+                background-color: red;
             }
         }
     }
