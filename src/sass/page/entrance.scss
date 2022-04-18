@@ -27,10 +27,7 @@
                 width: 15vw;
                 height: 15vw;
                 opacity: .7;
-                background: linear-gradient(90deg,
-                        #4e74bf,
-                        #a8edea);
-                background-size: 1600% 1600%;
+                background-color: #4e74bf;
                 animation: morph01 10s ease-in-out infinite alternate,
             }
 
@@ -41,10 +38,7 @@
                 width: 15vw;
                 height: 15vw;
                 opacity: .7;
-                background: linear-gradient(90deg,
-                        #ffffff,
-                        #8ec5fc);
-                background-size: 1600% 1600%;
+                background-color: #fff;
                 animation: morph02 10s ease-in-out infinite alternate,
             }
 
@@ -59,9 +53,13 @@
                 z-index: 100;
 
                 border-radius: 50%;
+                transition: .5s;
                 // border: 2px solid white;
             }
-
+            .front_btn:hover{
+                color: #99b1e1;
+                text-shadow: 0 0 10px #fff;
+            }
         }
 
         // 後台按鈕
@@ -78,10 +76,7 @@
                 width: 15vw;
                 height: 15vw;
                 opacity: .7;
-                background: linear-gradient(90deg,
-                        #ffffff,
-                        #8ec5fc);
-                background-size: 1600% 1600%;
+                background-color: #fff;
                 animation: morph01 10s ease-in-out infinite alternate,
             }
 
@@ -92,10 +87,7 @@
                 width: 15vw;
                 height: 15vw;
                 opacity: .7;
-                background: linear-gradient(90deg,
-                        #4e74bf,
-                        #a8edea);
-                background-size: 1600% 1600%;
+                background-color: #4e74bf;
                 animation: morph02 10s ease-in-out infinite alternate,
             }
 
@@ -110,9 +102,12 @@
                 z-index: 100;
 
                 border-radius: 50%;
+                transition: .5s;
                 // border: 2px solid white;
             }
-
+            .back_btn:hover{
+                text-shadow: 0 0 10px #fff;
+            }
         }
 
         // 背景影片
@@ -165,5 +160,17 @@
     }
     80% {
         border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+}
+
+// RWD
+@media screen and (max-width: 575.98px) {
+    .entrance_main{
+        .entrance_logo{
+            width: 25vw !important;
+        }
+        .front_btn, .back_btn{
+            font-size: 16px;
+        }
     }
 }
