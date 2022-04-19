@@ -30,4 +30,9 @@ $(function () {
             $("header").css('boxShadow', `0 0 5px rgba(0, 0, 0, ${v})`)
         }
     })
+
+    let loginUser = sessionStorage.getItem('account');
+    if (loginUser) {
+        $('#signBtn').attr('href', 'f_member.html')
+    }
 })
