@@ -64,7 +64,6 @@ Vue.component("login", {
                             }
                         },
                         error: function (data) {
-                            console.log(data)
                             swal({
                                 title: "連線失敗",
                                 type: "error"
@@ -92,6 +91,7 @@ Vue.component("login", {
                     $.ajax({
                         type: 'POST',
                         url: "php/send_pwd.php",
+                        dataType: 'json',
                         data: {
                             mail: this.userMail,
                         },
@@ -102,14 +102,13 @@ Vue.component("login", {
                                     type: "error"
                                 });
                             } else {
-                                let pwd = JSON.parse(data)
                                 Email.send({
                                     SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
                                     To: `${this.userMail}`,
                                     From: "mm7217373@gmail.com",
                                     Subject: "Kireiumi Park 忘記密碼",
                                     Body: `
-                                    <div>您的密碼:${pwd[0].password}</div>
+                                    <div>您的密碼:${data[0].password}</div>
                                     <div>請點擊以下網址重新登入</div>
                                     https://tibamef2e.com/tfd105/g2/f_signin.html
                                 `,
@@ -119,7 +118,6 @@ Vue.component("login", {
                             }
                         },
                         error: function (data) {
-                            console.log(data)
                             swal({
                                 title: "連線失敗",
                                 type: "error"
@@ -269,7 +267,7 @@ Vue.component("login", {
                                     swal({
                                         title: "註冊成功",
                                         type: "success"
-                                    }, function () {
+                                    }).then(function() {
                                         location.href = 'f_signin.html';
                                     });
                                 } else {
@@ -280,7 +278,6 @@ Vue.component("login", {
                                 }
                             },
                             error: function (data) {
-                                console.log(data)
                                 swal({
                                     title: "連線失敗",
                                     type: "error"
