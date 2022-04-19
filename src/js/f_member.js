@@ -121,7 +121,6 @@ $(function () {
             email: userEmail,
         },
         success: function (data) {
-            // console.log(data[0].order_id)
             for (let i = 0; i < data.length; i++) {
                 if (data[i].order_status == 1) {
                     data[i].order_status = '已確認'
@@ -134,7 +133,7 @@ $(function () {
                     <td>${data[i].createdate}</td>
                     <td>${data[i].order_status}</td>
                     <td>${data[i].total}</td>
-                    <td><button>查看</button></td>
+                    <td><button class="checkTicket" value="${i}" type="button">查看</button></td>
                     <td><button class="checkDetail" value="${i}" type="button">查看明細</button></td>
                     <td><button>取消</button></td>
                 </tr>
@@ -154,6 +153,47 @@ $(function () {
                                     if (res[index] != undefined) {
                                         swal({
                                             title: "訂單",
+                                            html: `
+                                            <table class="checkTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>票券類型</th>
+                                                        <th>數量</th>
+                                                        <th>金額</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>${res[index].ticket_role_name}</td>
+                                                        <td>${res[index].Purchase_amount}</td>
+                                                        <td>${res[index].price}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>`,
+                                        });
+                                    } else {
+                                        swal({
+                                            title: "查無資料",
+                                            type: "error"
+                                        });
+                                    }
+                                }
+                            })
+                        }
+                    })
+                    $('.checkTicket').each(function (index) {
+                        if ($(e.target).hasClass('checkTicket') && $(e.target).val() == index) {
+                            $.ajax({
+                                type: 'POST',
+                                url: 'php/member_order_detail.php',
+                                dataType: 'json',
+                                data: {
+                                    orderId: data[i].order_id,
+                                },
+                                success: function (res) {
+                                    if (res[index] != undefined) {
+                                        swal({
+                                            title: "入場憑證",
                                             html: `
                                             <table class="checkTable">
                                                 <thead>

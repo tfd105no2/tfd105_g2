@@ -19,16 +19,16 @@ $(function () {
     $.ajax({
         type: 'POST',
         url: 'php/news_notice.php',
+        dataType: 'json',
         success: function (data) {
-            let getData = JSON.parse(data);
-            for (let i = 0; i < getData.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 $('#parkList').append(`
                 <li class="news_item">
-                    <a href="./news_detail.html?id=${getData[i].id}">
-                        <img src="${getData[i].News_image}" alt="news${i}">
+                    <a href="./news_detail.html?id=${data[i].id}">
+                        <img src="${data[i].News_image}" alt="news${i}">
                         <div class="news_item_content">
-                            <h6>${getData[i].News_title}</h6>
-                            <p>${getData[i].News_document}</p>
+                            <h6>${data[i].News_title}</h6>
+                            <p>${data[i].News_document}</p>
                         </div>
                     </a>
                 </li>
@@ -40,16 +40,16 @@ $(function () {
     $.ajax({
         type: 'POST',
         url: 'php/news_event.php',
+        dataType: 'json',
         success: function (data) {
-            let getData = JSON.parse(data);
-            for (let i = 0; i < getData.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 $('#activeList').append(`
                 <li class="news_item">
-                    <a href="./news_detail.html?id=${getData[i].id}">
-                        <img src="${getData[i].News_image}" alt="news${i}">
+                    <a href="./news_detail.html?id=${data[i].id}">
+                        <img src="${data[i].News_image}" alt="news${i}">
                         <div class="news_item_content">
-                            <h6>${getData[i].News_title}</h6>
-                            <p>${getData[i].News_document}</p>
+                            <h6>${data[i].News_title}</h6>
+                            <p>${data[i].News_document}</p>
                         </div>
                     </a>
                 </li>

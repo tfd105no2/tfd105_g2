@@ -6,21 +6,20 @@ $(function () {
     $.ajax({
         type: 'POST',
         url: 'php/news_detail.php',
+        dataType: 'json',
         data: {
             id: news_id
         },
-        success: function(res) {
-            let getRes = JSON.parse(res)
-            console.log(getRes)
+        success: function(res) {            
             $('#detailBox').append(`
-            <img src="${getRes[0].News_image}" alt="${getRes[0].News_title}">
+            <img src="${res[0].News_image}" alt="${res[0].News_title}">
             <div class="text_area">
-                <h6>${getRes[0].News_update}</h6>
-                <h5>${getRes[0].News_title}</h5>
-                <p>${getRes[0].News_document}</p>
+                <h6>${res[0].News_update}</h6>
+                <h5>${res[0].News_title}</h5>
+                <p>${res[0].News_document}</p>
                 <div class="back">
                     <img src="img/news_detail_bg1.png" alt="backgroundPic1">
-                    <a href="./newnews.html">返回</a>
+                    <a href="./news.html">返回</a>
                     <img src="img/news_detail_bg2.png" alt="backgroundPic2">
                 </div>
             </div>
