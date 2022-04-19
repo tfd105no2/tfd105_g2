@@ -75,6 +75,8 @@ $(function () {
                             swal({
                                 title: "修改成功",
                                 type: "success"
+                            }).then(function () {
+                                location.href = 'f_member.html';
                             });
                         }
                     }
@@ -191,26 +193,14 @@ $(function () {
                                     orderId: data[i].order_id,
                                 },
                                 success: function (res) {
+                                    let url = window.location.href;
+                                    let newUrl = url.replace('f_member.html', '')
                                     if (res[index] != undefined) {
                                         swal({
                                             title: "入場憑證",
                                             html: `
-                                            <table class="checkTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>票券類型</th>
-                                                        <th>數量</th>
-                                                        <th>金額</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>${res[index].ticket_role_name}</td>
-                                                        <td>${res[index].Purchase_amount}</td>
-                                                        <td>${res[index].price}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>`,
+                                            <img src="https://chart.googleapis.com/chart?cht=qr&chs=120x120&choe=UTF-8&chld=H|0&chl=${newUrl}${res[index].qrcode}">
+                                            `,
                                         });
                                     } else {
                                         swal({
