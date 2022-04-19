@@ -4,9 +4,14 @@ new Vue({
         products: [],
         score: 100,
     },
-    created: function () {
-        let tasks = JSON.parse(localStorage.getItem("ticketsData"))
-        this.products = tasks;
+    mounted() {
+        let tasks = JSON.parse(localStorage.getItem("ticketsData"));
+
+        // 如果localstorage有值,就賦值products 
+        // 沒有就不變動,依然為空陣列
+        if (tasks) {
+            this.products = tasks;
+        }
         console.log(this.products);
     },
     methods: {
@@ -22,10 +27,10 @@ new Vue({
             // 存回localstorage
             localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },
-        remove: function (id) {
-            let index = this.products.map(x => x.id).indexOf(id);
+        remove: function (c) {
+            let index = this.products.map(x => x.identify).indexOf(c);
+            console.log(index);
             this.products.splice(index, 1);
-            console.log(this.products);
             // 存回localstorage
             localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },

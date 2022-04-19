@@ -5,7 +5,7 @@ new Vue({
         score: 100,
         payway: 'creditcard',
     },
-    created() {
+    mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
         this.products = tasks;
         console.log(this.products);
@@ -25,7 +25,10 @@ new Vue({
             axios.post("../php/order.php",
                 {
                     order_id: order_id,
+                    qrcode: order_id,
                     payway: this.payway,
+                    order_status: '已完成',
+                    payment_status: '已付款',
                     order_create: new Date(),
                     productList: this.products,
                     total_price: this.payable(),

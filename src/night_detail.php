@@ -1,14 +1,60 @@
+<?php
+
+  // 傳來的變數
+  $id = $_GET["id"];
+  $year = $_GET["year"];
+  $month = $_GET["month"];
+  $date = $_GET["date"];
+
+  // echo $a;
+
+  //MySQL相關資訊
+  $db_host = "127.0.0.1";
+  $db_user = "root";
+  $db_pass = "password";
+  $db_select = "team2_db";
+
+  //建立資料庫連線物件
+  $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
+
+  //建立PDO物件，並放入指定的相關資料
+  $pdo = new PDO($dsn, $db_user, $db_pass);
+
+  //建立SQL
+       // 檢驗帳號 是否存在資料庫內
+       $sql = " SELECT * FROM area WHERE area_id = '$id'";
+
+       //執行並查詢，會回傳查詢結果的物件(即statement)，必須使用fetch、fetchAll...等方式取得資料
+       $statement = $pdo->query($sql);
+
+       //抓出全部且依照順序封裝成一個二維陣列
+       $data = $statement->fetchAll();
+      //  print_r( $data);
+      //  echo "<br>";
+
+        // 將二維陣列取出 顯示其值
+        $b="";
+        $c="";
+        foreach($data as $index => $row){
+          $area_name = $row["names"];
+          $bed_count = $row["bed_count"];
+          $img = $row["img"];
+      }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  @@include('layout/head.html', { "title": "夜宿體驗" })
+  @@include('layout/head.html', { "title": "夜宿區域詳細頁" })
 </head>
 
 <body>
   <div class="night-detail-wrapper">
-    @@include('layout/nav.html', { 'active4': 'active' })
-    <main id="maindd">
+  @@include('layout/nav.html',{ 'active4': 'active' })
+    <main id="main" v-cloak>
       <div class="title">
         <h2>夜宿體驗</h2>
       </div>
@@ -32,11 +78,11 @@
           <h2>預訂詳情</h2>
           <!-- 圖片詳情 -->
           <div class="content-top">
-            <img src="img/intro-pic-01.png" />
+            <img class="title_img" src="<?php echo $img; ?>" />
             <div class="content-text">
-              <h3>{{checkData[checkData.length-1].area}}</h3>
-              <p>預定日期: 2022/4/5 星期二</p>
-              <div class="bed-left">剩餘{{checkData[checkData.length-1].bed_num}}名</div>
+              <h3 class="ssr"><?php echo $area_name; ?></h3>
+              <p>預訂日期: <span class="overnight_date"><?php echo $year; ?>/<?php echo $month +1; ?>/<?php echo $date; ?></span> 星期二</p>
+              <div class="bed-left">剩餘<?php echo $bed_count; ?>名</div>
               <span>注意事項</span>
               <ul class="notice">
                 <li>
@@ -58,10 +104,10 @@
           <div class="content-bottom" id="content-bottom">
             <ul class="type-list">
               <li class="bed-type" v-for="item in bedType">
-                <p>{{item.status}}</p>
+                <p>{{item.ticket_role_name}}</p>
                 <div class="type-right">
                   <p class="price"> TWD{{item.price}}</p>
-                  <button type="button" class="button" @click="addcart(item)">加入購物車</button>
+                  <button @click="addcart(item)" type="button" class="button" >加入購物車</button>
                   <div class="quantityInfo">
                     <span>
                       <button class="minus" @click="minus(item)">-</button>
@@ -97,11 +143,40 @@
     </main>
 
   </div>
-  @@include('layout/footer.html')
+  <footer>
+    <div class="footer_wrapper">
+        <!-- wave -->
+        <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+        <div class="follow_icon">
+            <a href="#" target="_blank">
+                <i class="fab fa-facebook-square"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <div class="content">
+            <h5>電話：(02)-2712-0589</h5>
+            <h5>地址：台北市中山區南京東路三段219號</h5>
+            <p>本網站為緯育TibaMe前端設計工程師班第70期學員專題作品，本平台僅供學習、展示之用</p>
+        </div>
+    </div>
+</footer>
+<script src="js/nav.js"></script>
 
 
   <!-- 引入Vue -->
   <script src="js/vue.js"></script>
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <!-- 引入JS -->
   <script src="js/night_detail.js"></script>

@@ -8,7 +8,7 @@
 <body>
   <div class="ticket-wrapper">
     @@include('layout/nav.html', { 'active4': 'active' })
-    <main id="main">
+    <main id="main" v-cloak>
       <div class="title">
         <h2>夜宿體驗</h2>
       </div>
@@ -34,10 +34,10 @@
           <ul class="ticket-type">
             <template v-for="item in ticketsData">
               <li>
-                <img class="ticket-top" :src="item.url" alt="" />
+                <img class="ticket-top" :src="item.image" alt="" />
                 <div class="ticket-bottom">
                   <div class="ticket-detail">
-                    <h4 class="status">{{item.status}}</h4>
+                    <h4 class="status">{{item.ticket_role_name}}</h4>
                     <p class="price">${{item.price}}</p>
                   </div>
                   <button type="button" class="button" v-on:click="addcart(item)">加入購物車</button>
@@ -68,8 +68,37 @@
 
     </main>
   </div>
-  @@include('layout/footer.html')
+  <footer>
+    <div class="footer_wrapper">
+      <!-- wave -->
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
 
+      <div class="follow_icon">
+        <a href="#" target="_blank">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="content">
+        <h5>電話：(02)-2712-0589</h5>
+        <h5>地址：台北市中山區南京東路三段219號</h5>
+        <p>本網站為緯育TibaMe前端設計工程師班第70期學員專題作品，本平台僅供學習、展示之用</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- 引入js -->
   <script src="js/ticket.js"></script>
 </body>
