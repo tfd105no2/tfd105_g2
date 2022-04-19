@@ -48,7 +48,7 @@
           <label for="MemberCfPw">確認密碼</label
           ><input type="text" id="MemberCfPw" />
           <br />
-          <input type="submit" value="確認修改" />
+          <input type="submit" value="確認修改" id="changePwd" />
         </form>
         <form id="Tab03" class="member_form" action="#">
           <table>
@@ -57,20 +57,13 @@
                 <th>訂單編號</th>
                 <th>訂購日期</th>
                 <th>訂單狀態</th>
+                <th>訂單金額</th>
                 <th>入場憑證</th>
                 <th>訂購明細</th>
                 <th>取消訂單</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>20220001</td>
-                <td>2022/02/21</td>
-                <td>付款成功</td>
-                <td><button>查看</button></td>
-                <td><button>查看明細</button></td>
-                <td><button>取消</button></td>
-              </tr>
+            <tbody id="oderDetail">              
             </tbody>
           </table>
         </form>
@@ -79,6 +72,7 @@
 
     @@include('layout/footer.html')
 
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/f_member.js"></script>
   </body>

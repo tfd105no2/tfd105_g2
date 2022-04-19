@@ -97,6 +97,7 @@ main.info_box {
         justify-content: center;
         overflow: hidden;
         transition: 1s;
+        margin-bottom: space(4);
 
         // 票價資訊
         >.info_list {
