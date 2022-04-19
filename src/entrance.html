@@ -2,14 +2,39 @@
 <html lang="zh-Hant">
 
 <head>
-  @@include('layout/head.html', { 'title': '入口' })
+    @@include('layout/head.html', { 'title': '入口' })
 </head>
 
 <body>
     <div class="entrance_wrapper">
         <main class="entrance_main">
-            123
+
+            <!-- 前台按鈕 -->
+            <div class="front_btn_wrapper">
+                <div class="amoeba_layer01"></div>
+                <div class="amoeba_layer02"></div>
+                <a class="front_btn" href="./index.html">前台</a>
+            </div>
+
+            <!-- logo 區塊 -->
+            <div class="entrance_logo">
+                <img src="./img/logo.svg" alt="">
+            </div>
+
+            <!-- 後台按鈕 -->
+            <div class="back_btn_wrapper">
+                <div class="amoeba_layer01"></div>
+                <div class="amoeba_layer02"></div>
+                <a class="back_btn" href="./back_login.html">後台</a>
+            </div>
+
+            <!-- 背景影片 -->
+            <div class="entrance_bg">
+                <video class="entrance_bg_content" src="./img/entrance_bg.mp4" width="100%" height="100%" autoplay loop
+                    muted></video>
+            </div>
         </main>
     </div>
 </body>
+
 </html>

@@ -52,7 +52,7 @@ Vue.component("login", {
                                 swal({
                                     title: "登入成功",
                                     type: "success"
-                                }, function () {
+                                }).then(function () {
                                     sessionStorage.setItem('account', acc.value);
                                     location.href = 'f_member.html';
                                 });
@@ -98,7 +98,7 @@ Vue.component("login", {
                         success: function (data) {
                             if (data == '查無此信箱') {
                                 swal({
-                                    title: "查無此信箱",
+                                    title: "此信箱尚未註冊",
                                     type: "error"
                                 });
                             } else {
@@ -157,6 +157,8 @@ Vue.component("login", {
                 password: "",
                 ckpwd: "",
                 phone: "",
+                userError: false,
+                userErrMsg: '',
                 emailError: false,
                 emailErrMsg: '',
                 passwordError: false,
@@ -168,6 +170,15 @@ Vue.component("login", {
             }
         },
         watch: {
+            username: function() {
+                if(this.username.length < 2) {
+                    this.userError = true;
+                    this.userErrMsg = '姓名字數少於2';
+                } else {
+                    this.userError = false;
+                    this.userErrMsg = '';
+                }
+            },
             email: function () {
                 let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (!isMail.test(this.email)) {
@@ -220,15 +231,20 @@ Vue.component("login", {
         },
         template: `
     <form class="register_form">
-        <label for="username">姓名</label><input type="text" id="username" v-model="username">
+        <label for="username">姓名</label><input type="text" id="username" v-model="username" :class="{textError:userError}" placeholder="需大於兩個字">        
+        <span class="errorMsg">{{userErrMsg}}</span>
         <br>
-        <label for="email">註冊信箱</label><input type="text" id="email" v-model="email" :class="{textError:emailError}">
+        <label for="email">註冊信箱</label><input type="text" id="email" v-model="email" :class="{textError:emailError}" placeholder="需符合email格式">
+        <span class="errorMsg">{{emailErrMsg}}</span>
         <br>
-        <label for="password">密碼</label><input type="text" id="password" v-model="password" :class="{textError:passwordError}">
+        <label for="password">密碼</label><input type="text" id="password" v-model="password" :class="{textError:passwordError}" placeholder="密碼長度需<15且>6">
+        <span class="errorMsg">{{passErrMsg}}</span>
         <br>
-        <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}">
+        <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}" placeholder="需等於密碼">
+        <span class="errorMsg">{{ckpwdErrMsg}}</span>
         <br>
-        <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone" :class="{textError:phoneError}">
+        <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone" :class="{textError:phoneError}" placeholder="需符合手機格式">
+        <span class="errorMsg">{{phoneErrMsg}}</span>
         <br>
         <input type="submit" value="註冊" @click="register">
     </form>

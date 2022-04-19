@@ -4,6 +4,7 @@
 }
 .f_register {
     display: flex;
+    margin-bottom: space(10);
 
     .register_head {
         width: 380px;
@@ -73,6 +74,15 @@
             margin-top: space(2);
             text-align: center;
 
+            >.errorMsg {
+                display: block;
+                height: 20px;
+                font-size: 12px;
+                color: red;
+                text-align: left;
+                margin-left: 40%;
+            }
+
             >label, >div label {
                 display: inline-block;
                 width: 30%;
@@ -86,8 +96,7 @@
             >input, >div input {
                 vertical-align: middle;
                 width: 50%;
-                height: 30px;
-                margin: space(1) 0;
+                height: 30px;                
                 border: 1px solid $btn-color;
                 border-radius: 5px;
                 outline: none;
@@ -282,7 +291,11 @@
                 }
             }
         }
-
+        .login_form {
+            >div input {
+                margin: space(1) 0;
+            }
+        }
     }
 }
 

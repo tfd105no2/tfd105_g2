@@ -15,7 +15,7 @@ $(function () {
         reader.onload = function () {
             $('#PicBlock img').remove();
             $('#PicBlock').append(`<img class="member_pic" src="${this.result}">`);
-        }        
+        }
         $('#PicBlock').css('background-image', 'none');
     });
     // tab切換
@@ -31,5 +31,164 @@ $(function () {
         let tab_id = $(this).data('tab');
         $('#' + tab_id).show();
     });
+
+    // 會員資料
+    let userEmail = sessionStorage.getItem('account');
+    $.ajax({
+        type: 'POST',
+        url: 'php/member.php',
+        dataType: 'json',
+        data: {
+            email: userEmail,
+        },
+        success: function (data) {
+            $('#MemberAccount').val(data[0].email);
+            $('#MemberName').val(data[0].Name);
+            $('#MemberPhone').val(data[0].phone_number);
+            $('#MemberCoupon').val(data[0].coupon);
+        },
+    });
+
+    // 修改密碼
+    let oldPwd = $('#MemberPassword');
+    let newPwd = $('#MemberNewPw');
+    let cekPwd = $('#MemberCfPw');
+
+    $('#changePwd').on('click', function (e) {
+        e.preventDefault();
+        if (oldPwd.val() != '' && newPwd.val() != '' && cekPwd.val() != '') {
+            if (newPwd.val() != cekPwd.val()) {
+                swal({
+                    title: "確認密碼錯誤",
+                    type: "error"
+                });
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/change_password.php',
+                    data: {
+                        email: userEmail,
+                        newPwd: $('#MemberNewPw').val(),
+                    },
+                    success: function (res) {
+                        if (res == '更新成功') {
+                            swal({
+                                title: "修改成功",
+                                type: "success"
+                            });
+                        }
+                    }
+                });
+            }
+        } else {
+            swal({
+                title: "資料未填完整",
+                type: "error"
+            });
+        }
+    })
+
+    // 更新資料
+    $('#updateButton').on('click', function (e) {
+        e.preventDefault();
+        let newName = $('#MemberName').val();
+        let newPhone = $('#MemberPhone').val();
+        $.ajax({
+            type: 'POST',
+            url: 'php/member_update.php',
+            data: {
+                mail: userEmail,
+                name: newName,
+                phone: newPhone,
+            },
+            success: function (res) {
+                if (res == '更新成功') {
+                    swal({
+                        title: "修改成功",
+                        type: "success"
+                    });
+                }
+            }
+        });
+    })
+
+    // 訂單查詢
+    $.ajax({
+        type: 'POST',
+        url: 'php/member_order.php',
+        dataType: 'json',
+        data: {
+            email: userEmail,
+        },
+        success: function (data) {
+            // console.log(data[0].order_id)
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].order_status == 1) {
+                    data[i].order_status = '已確認'
+                } else {
+                    data[i].order_status = '已取消'
+                }
+                $('#oderDetail').append(`
+                <tr>
+                    <td>${data[i].order_id}</td>
+                    <td>${data[i].createdate}</td>
+                    <td>${data[i].order_status}</td>
+                    <td>${data[i].total}</td>
+                    <td><button>查看</button></td>
+                    <td><button class="checkDetail" value="${i}" type="button">查看明細</button></td>
+                    <td><button>取消</button></td>
+                </tr>
+                `)
+
+                $(document).on('click', function (e) {
+                    $('.checkDetail').each(function (index) {
+                        if ($(e.target).hasClass('checkDetail') && $(e.target).val() == index) {
+                            $.ajax({
+                                type: 'POST',
+                                url: 'php/member_order_detail.php',
+                                dataType: 'json',
+                                data: {
+                                    orderId: data[i].order_id,
+                                },
+                                success: function (res) {
+                                    if (res[index] != undefined) {
+                                        swal({
+                                            title: "訂單",
+                                            html: `
+                                            <table class="checkTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>票券類型</th>
+                                                        <th>數量</th>
+                                                        <th>金額</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>${res[index].ticket_role_name}</td>
+                                                        <td>${res[index].Purchase_amount}</td>
+                                                        <td>${res[index].price}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>`,
+                                        });
+                                    } else {
+                                        swal({
+                                            title: "查無資料",
+                                            type: "error"
+                                        });
+                                    }
+                                }
+                            })
+                        }
+                    })
+                })
+            }
+        },
+    });
+
+
+
+
 
 });
