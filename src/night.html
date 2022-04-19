@@ -8,7 +8,7 @@
 <body>
   <div class="night-wrapper" id="night-wrapper">
     @@include('layout/nav.html',{ 'active4': 'active' })
-    <main id="main">
+    <main id="main" v-cloak>
       <div class="title">
         <h2>夜宿體驗</h2>
       </div>
@@ -118,7 +118,8 @@
             <ul id="ticket-type">
               <template v-for="item in area">
                 <li>
-                  <a :href="'night_detail.php?id=' +item.area_id">
+                  <a
+                    :href="'night_detail.php?id=' +item.area_id+ '&year=' + current_edit.year + '&month=' + current_edit.month+ '&date=' + current_edit.date ">
                     <img class="ticket-top" :src="item.img" alt="">
                     <div class="ticket-bottom">
                       <h4>{{item.names}}</h4>

@@ -6,46 +6,26 @@ new Vue({
         modal: false,
         areaInfo: {
             name: "",
-            image: "img/intro-pic-01.png",
+            image: "",
+            overnight_date: "",
         },
-        bedType: [
-            {
-                id: 21,
-                ticket_role_name: '成人票',
-                price: 3180,
-                quantity: 0,
-            },
-            {
-                id: 22,
-                ticket_role_name: '兒童票',
-                price: 1890,
-                quantity: 0,
-            },
-            {
-                id: 23,
-                ticket_role_name: '幼童票',
-                price: 0,
-                quantity: 0,
-            },
-            {
-                id: 24,
-                ticket_role_name: '博愛票',
-                price: 1890,
-                quantity: 0,
-            },
-        ],
+        bedType: [],
+
     },
     methods: {
         addcart(item) {
             this.modal = !this.modal;
-
+            // 建立識別編號
+            let identify_id = Date.now().toString().slice(-6);
             let obj = {
+                'identify': identify_id,
                 'area_name': this.areaInfo.name,
                 'ticket_role_id': item.id,
                 'ticket_role_name': item.ticket_role_name,
                 'price': item.price,
                 'quantity': item.quantity,
-                // 'image': item.url,
+                'image': this.areaInfo.image,
+                'overnight_date': this.areaInfo.overnight_date,
             }
 
             let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
@@ -82,9 +62,34 @@ new Vue({
         }
     },
     mounted() {
+
+        // 取區域票類型
+        axios.get('php/night_role.php')
+            .then(res => {
+                this.bedType = res.data;
+
+            })
+
+        // 取目前區域名稱
         this.areaInfo.name = $('.ssr').text();
         console.log(this.areaInfo.name);
+        // 去目前區域圖路徑
+        this.areaInfo.image = $('.title_img').attr("src");
+        console.log(this.areaInfo.image);
 
+        // 取目前夜宿日期
+        let date = $('.overnight_date').text().split("/");
+        if (date[1] < 10 && date[2] < 10) {
+            date[1] = '0' + date[1];
+            date[2] = '0' + date[2];
+        } else if (date[1] < 10 && date[2] > 10) {
+            date[1] = '0' + date[1];
+        } else if (date[1] > 10 && date[2] < 10) {
+            date[2] = '0' + date[2];
+        };
+        console.log(date);
+        this.areaInfo.overnight_date = date.join("-");
+        console.log(this.areaInfo.overnight_date);
     }
 });
 

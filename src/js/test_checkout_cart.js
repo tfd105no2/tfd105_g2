@@ -27,10 +27,10 @@ new Vue({
             // 存回localstorage
             localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },
-        remove: function (id) {
-            let index = this.products.map(x => x.id).indexOf(id);
+        remove: function (c) {
+            let index = this.products.map(x => x.identify).indexOf(c);
+            console.log(index);
             this.products.splice(index, 1);
-            console.log(this.products);
             // 存回localstorage
             localStorage.setItem("ticketsData", JSON.stringify(this.products));
         },

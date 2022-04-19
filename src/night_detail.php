@@ -1,7 +1,11 @@
 <?php
 
   // 傳來的變數
-  $a = $_GET["id"];
+  $id = $_GET["id"];
+  $year = $_GET["year"];
+  $month = $_GET["month"];
+  $date = $_GET["date"];
+
   // echo $a;
 
   //MySQL相關資訊
@@ -18,7 +22,7 @@
 
   //建立SQL
        // 檢驗帳號 是否存在資料庫內
-       $sql = " SELECT * FROM area WHERE area_id = '$a'";
+       $sql = " SELECT * FROM area WHERE area_id = '$id'";
 
        //執行並查詢，會回傳查詢結果的物件(即statement)，必須使用fetch、fetchAll...等方式取得資料
        $statement = $pdo->query($sql);
@@ -34,9 +38,9 @@
         foreach($data as $index => $row){
           $area_name = $row["names"];
           $bed_count = $row["bed_count"];
+          $img = $row["img"];
       }
 ?>
-
 
 
 
@@ -50,7 +54,7 @@
 <body>
   <div class="night-detail-wrapper">
   @@include('layout/nav.html',{ 'active4': 'active' })
-    <main id="main">
+    <main id="main" v-cloak>
       <div class="title">
         <h2>夜宿體驗</h2>
       </div>
@@ -74,10 +78,10 @@
           <h2>預訂詳情</h2>
           <!-- 圖片詳情 -->
           <div class="content-top">
-            <img src="img/intro-pic-01.png" />
+            <img class="title_img" src="<?php echo $img; ?>" />
             <div class="content-text">
               <h3 class="ssr"><?php echo $area_name; ?></h3>
-              <p>預定日期: 2022/4/5 星期二</p>
+              <p>預訂日期: <span class="overnight_date"><?php echo $year; ?>/<?php echo $month +1; ?>/<?php echo $date; ?></span> 星期二</p>
               <div class="bed-left">剩餘<?php echo $bed_count; ?>名</div>
               <span>注意事項</span>
               <ul class="notice">
@@ -171,6 +175,8 @@
 
   <!-- 引入Vue -->
   <script src="js/vue.js"></script>
+  <!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <!-- 引入JS -->
   <script src="js/night_detail.js"></script>

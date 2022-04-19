@@ -29,11 +29,9 @@ new Vue({
         this.setToday();
 
         // 取彈窗區域基本資料
-        axios.get("php/night.php")
+        axios.get("php/night_info.php")
             .then(res => {
-                // console.log(res.data);
                 this.area = res.data;
-                console.log(this.area);
             })
             .catch(err => {
                 console.log(err);
@@ -101,9 +99,7 @@ new Vue({
 
             // mDate 該月份第一天
             let mDate = new Date(this.canlendar.year, this.canlendar.month, 1);
-            console.log(`該月份第一天${mDate}`);
             const date = new Date(this.canlendar.year, this.canlendar.month, 1 - mDate.getDay());
-            console.log(`月曆上第一天${date}`);
             return {
                 year: date.getFullYear(), // this.canlendar.year
                 month: date.getMonth(), // this.canlendar.month
