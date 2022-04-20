@@ -34,10 +34,15 @@ new Vue({
         if (ticketsData) {
             this.cartNum = ticketsData.length;
         }
-    },
-
+    }
 })
 
+$(function () {
+    let loginUser = sessionStorage.getItem('account');
+    if (loginUser) {
+        $('#signBtn').attr('href', 'f_member.html')
+    }
+})
 
 // $(function () {
 //     $("button.hamburger").on("click", function (e) {
