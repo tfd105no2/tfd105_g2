@@ -142,83 +142,76 @@ $(function () {
                 `)
 
                 $(document).on('click', function (e) {
-                    $('.checkDetail').each(function (index) {
-                        if ($(e.target).hasClass('checkDetail') && $(e.target).val() == index) {
-                            $.ajax({
-                                type: 'POST',
-                                url: 'php/member_order_detail.php',
-                                dataType: 'json',
-                                data: {
-                                    orderId: data[i].order_id,
-                                },
-                                success: function (res) {
-                                    if (res[index] != undefined) {
-                                        swal({
-                                            title: "訂單",
-                                            html: `
-                                            <table class="checkTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>票券類型</th>
-                                                        <th>數量</th>
-                                                        <th>金額</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>${res[index].ticket_role_name}</td>
-                                                        <td>${res[index].Purchase_amount}</td>
-                                                        <td>${res[index].price}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>`,
-                                        });
-                                    } else {
-                                        swal({
-                                            title: "查無資料",
-                                            type: "error"
-                                        });
-                                    }
+                    if ($(e.target).hasClass('checkDetail') && $(e.target).val() == i) {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'php/member_order_detail.php',
+                            dataType: 'json',
+                            data: {
+                                orderId: data[i].order_id,
+                            },
+                            success: function (res) {
+                                if (res[0] != undefined) {
+                                    swal({
+                                        title: "訂單",
+                                        html: `
+                                        <table class="checkTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>票券類型</th>
+                                                    <th>數量</th>
+                                                    <th>金額</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>${res[0].ticket_role_name}</td>
+                                                    <td>${res[0].Purchase_amount}</td>
+                                                    <td>${res[0].price}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>`,
+                                    });
+                                } else {
+                                    swal({
+                                        title: "查無資料",
+                                        type: "error"
+                                    });
                                 }
-                            })
-                        }
-                    })
-                    $('.checkTicket').each(function (index) {
-                        if ($(e.target).hasClass('checkTicket') && $(e.target).val() == index) {
-                            $.ajax({
-                                type: 'POST',
-                                url: 'php/member_order_detail.php',
-                                dataType: 'json',
-                                data: {
-                                    orderId: data[i].order_id,
-                                },
-                                success: function (res) {
-                                    let url = window.location.href;
-                                    let newUrl = url.replace('f_member.html', '')
-                                    if (res[index] != undefined) {
-                                        swal({
-                                            title: "入場憑證",
-                                            html: `
-                                            <img src="https://chart.googleapis.com/chart?cht=qr&chs=120x120&choe=UTF-8&chld=H|0&chl=${newUrl}${res[index].qrcode}">
+                            }
+                        })
+                    }
+
+                    if ($(e.target).hasClass('checkTicket') && $(e.target).val() == i) {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'php/member_order_detail.php',
+                            dataType: 'json',
+                            data: {
+                                orderId: data[i].order_id,
+                            },
+                            success: function (res) {
+                                let url = window.location.href;
+                                let newUrl = url.replace('f_member.html', '')
+                                if (res[0] != undefined) {
+                                    swal({
+                                        title: "入場憑證",
+                                        html: `
+                                            <img src="https://chart.googleapis.com/chart?cht=qr&chs=120x120&choe=UTF-8&chld=H|0&chl=${newUrl}${res[0].qrcode}">
                                             `,
-                                        });
-                                    } else {
-                                        swal({
-                                            title: "查無資料",
-                                            type: "error"
-                                        });
-                                    }
+                                    });
+                                } else {
+                                    swal({
+                                        title: "查無資料",
+                                        type: "error"
+                                    });
                                 }
-                            })
-                        }
-                    })
+                            }
+                        })
+                    }
                 })
             }
         },
     });
-
-
-
-
 
 });

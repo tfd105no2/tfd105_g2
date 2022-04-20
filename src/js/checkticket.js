@@ -22,19 +22,25 @@ new Vue({
         });
     },
     template: `
-    <div>
+    <div class="ckContent">
         <table>
-            <thead>
-            <tr>
-                <th>票券編號</th>
-                <th>購買日期</th>
-                <th>票種</th>
-                <th>狀態</th>
-                <th>使用時間</th>
-            </tr>
+            <thead class="ckTable_head">
+                <tr>
+                    <th>票券編號</th>
+                    <th>購買日期</th>
+                    <th>票種</th>
+                    <th>狀態</th>
+                    <th>使用時間</th>
+                </tr>
             </thead>
             <tbody>
-
+                <tr>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                </tr>
             </tbody>
         </table>
     </div>
