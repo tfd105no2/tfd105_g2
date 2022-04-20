@@ -2,6 +2,15 @@
 
 $(function () {
 
+    // 折扣馬歸戶
+    $.ajax({
+        type: 'POST',
+        url: 'php/get_coupon.php',
+        success: function (data) {
+            $('#MemberCoupon').val(data);
+        }
+    });
+
     // 選擇圖片
     $('#ChoosePic').on('click', function () {
         $('#PicInput').click();

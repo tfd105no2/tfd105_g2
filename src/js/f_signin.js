@@ -88,6 +88,7 @@ Vue.component("login", {
             },
             sendMail() {
                 if (this.userMail != '') {
+                    let email = this.userMail;
                     $.ajax({
                         type: 'POST',
                         url: "php/send_pwd.php",
@@ -96,6 +97,7 @@ Vue.component("login", {
                             mail: this.userMail,
                         },
                         success: function (data) {
+                            console.log('success: ' + data);
                             if (data == '查無此信箱') {
                                 swal({
                                     title: "此信箱尚未註冊",
@@ -104,7 +106,7 @@ Vue.component("login", {
                             } else {
                                 Email.send({
                                     SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
-                                    To: `${this.userMail}`,
+                                    To: `${email}`,
                                     From: "mm7217373@gmail.com",
                                     Subject: "Kireiumi Park 忘記密碼",
                                     Body: `
@@ -118,6 +120,7 @@ Vue.component("login", {
                             }
                         },
                         error: function (data) {
+                            console.log('errorMsg: ' + data);
                             swal({
                                 title: "連線失敗",
                                 type: "error"
