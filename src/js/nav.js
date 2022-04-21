@@ -1,4 +1,4 @@
-new Vue({
+var vue_instance = new Vue({
     el: '#nav',
     data: {
         toggle: false,
@@ -11,6 +11,13 @@ new Vue({
             // 黑背景
             $(".ham-bg").slideToggle(580);
         },
+        setCart() {
+            // 購物車數量
+            let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
+            if (ticketsData) {
+                this.cartNum = ticketsData.length;
+            }
+        }
     },
     mounted() {
         $(window).scroll(function (e) {
@@ -28,12 +35,8 @@ new Vue({
                 $("header").css('boxShadow', `0 0 5px rgba(0, 0, 0, ${v})`)
             }
         })
-
         // 購物車數量
-        let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
-        if (ticketsData) {
-            this.cartNum = ticketsData.length;
-        }
+        this.setCart();
     }
 })
 
