@@ -3,13 +3,13 @@
 $(function () {
 
     // 折扣馬歸戶
-    $.ajax({
-        type: 'POST',
-        url: 'php/get_coupon.php',
-        success: function (data) {
-            $('#MemberCoupon').val(data);
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'php/get_coupon.php',
+    //     success: function (data) {
+    //         $('#MemberCoupon').val(data);
+    //     }
+    // });
 
     // 選擇圖片
     $('#ChoosePic').on('click', function () {
@@ -160,33 +160,34 @@ $(function () {
                                 orderId: data[i].order_id,
                             },
                             success: function (res) {
-                                if (res[0] != undefined) {
-                                    swal({
-                                        title: "訂單",
-                                        html: `
-                                        <table class="checkTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>票券類型</th>
-                                                    <th>數量</th>
-                                                    <th>金額</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>${res[0].ticket_role_name}</td>
-                                                    <td>${res[0].Purchase_amount}</td>
-                                                    <td>${res[0].price}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>`,
-                                    });
-                                } else {
-                                    swal({
-                                        title: "查無資料",
-                                        type: "error"
-                                    });
+                                let contentHead = `
+                                <table class="checkTable">
+                                    <thead>
+                                        <tr>
+                                            <th>票券類型</th>
+                                            <th>數量</th>
+                                            <th>金額</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                `;
+                                let contentBody = '';
+                                let contentfoot = `</tbody></table>`;
+                                for (let j = 0; j < res.length; j++) {
+                                    contentBody += `
+                                        <tr>
+                                            <td>${res[j].ticket_role_name}</td>
+                                            <td>${res[j].Purchase_amount}</td>
+                                            <td>${res[j].price}</td>
+                                        </tr>
+                                        `                            
                                 }
+                                swal({
+                                    title: "訂單",
+                                    html: `
+                                    ${contentHead + contentBody + contentfoot}
+                                        `,
+                                });
                             }
                         })
                     }
@@ -200,9 +201,12 @@ $(function () {
                                 orderId: data[i].order_id,
                             },
                             success: function (res) {
+                                console.log(res[0])
+                                console.log(res[0].qrcode)
                                 let url = window.location.href;
                                 let newUrl = url.replace('f_member.html', '')
                                 if (res[0] != undefined) {
+                                    console.log(res[0])
                                     swal({
                                         title: "入場憑證",
                                         html: `
