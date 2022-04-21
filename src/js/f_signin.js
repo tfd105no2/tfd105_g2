@@ -115,7 +115,10 @@ Vue.component("login", {
                                     https://tibamef2e.com/tfd105/g2/f_signin.html
                                 `,
                                 }).then(
-                                    message => alert(message)
+                                    swal({
+                                        title: "信件已寄出",
+                                        type: "success"
+                                    })
                                 );
                             }
                         },
@@ -171,8 +174,8 @@ Vue.component("login", {
             }
         },
         watch: {
-            username: function() {
-                if(this.username.length < 2) {
+            username: function () {
+                if (this.username.length < 2) {
                     this.userError = true;
                     this.userErrMsg = '姓名字數少於2';
                 } else {
@@ -270,7 +273,7 @@ Vue.component("login", {
                                     swal({
                                         title: "註冊成功",
                                         type: "success"
-                                    }).then(function() {
+                                    }).then(function () {
                                         location.href = 'f_signin.html';
                                     });
                                 } else {
