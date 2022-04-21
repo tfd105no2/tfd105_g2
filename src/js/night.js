@@ -1,10 +1,12 @@
 
-new Vue({
+const vm = new Vue({
     el: '#main',
     data: {
         modal: false,
         // 選單資料
         area: [],
+        // 剩餘床位
+        left_bed: [],
         // 今日
         today: {
             year: 0,
@@ -22,7 +24,7 @@ new Vue({
         // 目前彈窗編輯資料
         current_edit: "",
         // 額滿日期陣列
-        full_date: [13, 25, 07],
+        full_date: [],
     },
     mounted() {
         // 取今天日期
@@ -37,7 +39,23 @@ new Vue({
                 console.log(err);
             })
 
-        // 
+        // 取額滿日期
+        axios.post("php/b_area_test.php",
+            {
+                canlendar_month: this.canlendar.month + 1,
+            })
+            .then(res => {
+                this.full_date = res.data;
+                console.log(this.full_date);
+
+                // 回傳的陣列內是 string型別的數字
+                // 要把陣列內的值，轉為number型別
+                this.full_date = this.full_date.map(Number);
+                console.log(this.full_date);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     },
     methods: {
         setToday() {
@@ -48,7 +66,25 @@ new Vue({
             this.today.day = this.canlendar.day = date.getDay();
         },
         adjustYear(fix) {
-            this.calendar.year += fix;
+            this.canlendar.year += fix;
+
+            // 該月額滿日期
+            axios.post("php/b_area_test.php",
+                {
+                    canlendar_month: this.canlendar.month + 1,
+                })
+                .then(res => {
+                    this.full_date = res.data;
+                    console.log(this.full_date);
+
+                    // 回傳的陣列內是 string型別的數字
+                    // 要把陣列內的值，轉為number型別
+                    this.full_date = this.full_date.map(Number);
+                    console.log(this.full_date);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         },
         adjustMonth(fix) {
             // this.canlendar.month += fix 範圍
@@ -65,8 +101,75 @@ new Vue({
             } else {
                 this.canlendar.month = month;
             }
+
+            // 該月額滿日期
+            axios.post("php/b_area_test.php",
+                {
+                    canlendar_month: this.canlendar.month + 1,
+                })
+                .then(res => {
+                    this.full_date = res.data;
+                    console.log(this.full_date);
+
+                    // 回傳的陣列內是 string型別的數字
+                    // 要把陣列內的值，轉為number型別
+                    this.full_date = this.full_date.map(Number);
+                    console.log(this.full_date);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         },
-        pop(e) {
+        // 彈窗剩餘床位
+        pop(yy, mm, dd, e) {
+
+            if (mm < 10 && dd < 10) {
+                mm = '0' + mm;
+                dd = '0' + dd;
+            } else if (mm < 10) {
+                mm = '0' + mm;
+            } else if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            let date = `${yy}-${mm}-${dd}`;
+            console.log(date);
+
+            // 取剩餘床位
+            $.ajax({
+                url: 'php/b_areaRest.php',
+                type: 'POST',
+                data: {
+                    date: date,
+                },
+                dataType: 'json',
+                success(res) {
+                    console.log(res);
+                    vm.left_bed = res;
+
+                    // 複寫成剩餘床位
+                    vm.area.forEach((item, i) => {
+                        item.bed_count = vm.left_bed[i];
+                    })
+                }
+            })
+
+
+            // axios.post("php/pre_b_areaRest.php", {
+            //     date: "2022-03-01",
+            // })
+            //     .then(res => {
+            //         alert('成功');
+            //         console.log(res.data);
+            //     })
+            //     .catch(err => {
+
+            //         console.log(err);
+            //     });
+
+
+
+
             // 在含有子元素的element上監聽click事件時,容易點到子元素,導致 e.target拿到的內容每次都不一樣
             // 這時候要改用 e.currentTarget
 
@@ -79,7 +182,6 @@ new Vue({
             console.log(e.currentTarget);
             if (!m) {
                 this.modal = !this.modal;
-                console.log("有空");
 
                 this.current_edit = {
                     year: this.canlendarMonth[i].year,

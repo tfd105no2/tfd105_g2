@@ -85,20 +85,20 @@
                     </div>
                     <div class="choose">
                         <label>
-                            <input checked type="radio" name="choose" value="creditcard" v-model="payway">
+                            <input checked type="radio" name="choose" v-bind:value="creditcard" v-model="payway">
                             <img src="img/creditcard.png" alt="信用卡icon">
                             <span>信用卡</span>
                         </label>
                     </div>
                     <div class="choose">
                         <label>
-                            <input type="radio" name="choose" value="linepay" v-model="payway">
+                            <input type="radio" name="choose" v-bind:value="linepay" v-model="payway">
                             <img src="img/linepay.png" alt="Line Pay icon">
                             <span>Line Pay</span>
                         </label>
                     </div>
                     <div class="pay_btn">
-                        <a v-on:click="post" href="./checkout_complet.html">確認付款</a>
+                        <button @click="toggle">確認付款</button>
                     </div>
                 </div>
             </div>
@@ -106,12 +106,51 @@
                 <a href="./checkout_cart.html">◁返回上一步</a>
             </div>
             <img class="pay_fish" src="img/pay_fish.png" alt="">
+
+            <!-- Credit--  Card-- popup-->
+            <section class="cardwarpper" v-if="current_edit">
+                <div class="cardopen">
+                    <div class="title">
+                        <h2>信用卡付款</h2>
+                    </div>
+    
+                    <ul>
+                        <li>
+                          <label for="username">持卡人姓名</label>
+                          <input type="text" v-model="name" id="username" placeholder="請輸入中文姓名" maxlength="8">
+                        </li>
+                        <li>
+                          <label for="cardid">信用卡號</label>
+                          <input type="text" class="cardid" v-model="cardid" v-mask="'#### #### #### ####'" maxlength="19">
+                        </li>
+                        <li>
+                          <label for="carddate">有效日期</label>
+                          <input type="text" v-model="carddate" v-mask="'##/##'" id="carddate" maxlength="5" placeholder="MM/YY">
+                        </li>
+                        <li>
+                            <label for="cardsafe" class="safetitle">安全碼</label>
+                          <input type="text" v-model="cardsafe" id="cardsafe" maxlength="3" placeholder="後3碼" v-mask="'###'">
+                        </li>
+                    </ul>
+    
+                    <div class="btn">
+                        <button class="ok" @click="confirmCard">確認</button>
+                        <button class="ok" @click="f_out()">取消</button>
+                    </div>
+    
+                </div>
+            </section>
         </main>
     </div>
 
     @@include('layout/footer.html')
 
+<<<<<<< HEAD
     <!-- 引入js -->
+=======
+    <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+>>>>>>> dev_uu
     <script src="js/checkout_pay.js"></script>
 </body>
 

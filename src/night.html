@@ -69,14 +69,18 @@
             <div class="week" v-for="i in 6">
               <!-- 把 canlendarMonth陣列值 分別塞進去格子-->
               <!-- 添加今日 非該月份 的樣式 -->
-              <div @click="pop" :data-index="(i-1)*7+(j-1)" class="day" v-for="j in 7"
-                :data-date="canlendarMonth[(i-1)*7+(j-1)].date" :class="{
+              <div
+                @click="pop(canlendarMonth[(i-1)*7+(j-1)].year,canlendarMonth[(i-1)*7+(j-1)].month+1,canlendarMonth[(i-1)*7+(j-1)].date,$event)"
+                :data-index="(i-1)*7+(j-1)" class="day" v-for="j in 7" :data-date="canlendarMonth[(i-1)*7+(j-1)].date"
+                :class="{
                   'today': today.year == canlendarMonth[(i-1)*7+(j-1)].year && today.month == canlendarMonth[(i-1)*7+(j-1)].month && today.date == canlendarMonth[(i-1)*7+(j-1)].date,
-                  'other': canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month,
+                  'other': canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month || canlendarMonth[(i-1)*7+(j-1)].month < today.month || ( (canlendarMonth[(i-1)*7+(j-1)].month == today.month) && (canlendarMonth[(i-1)*7+(j-1)].date < today.date)  ),
                   'full': full_date.includes(canlendarMonth[(i-1)*7+(j-1)].date) && canlendarMonth[(i-1)*7+(j-1)].month == canlendar.month
               }">
 
-                <div class="booking_status" v-if="canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month">已截止
+                <div class="booking_status"
+                  v-if="canlendarMonth[(i-1)*7+(j-1)].month != canlendar.month || canlendarMonth[(i-1)*7+(j-1)].month < today.month || ( (canlendarMonth[(i-1)*7+(j-1)].month == today.month) && (canlendarMonth[(i-1)*7+(j-1)].date < today.date)  )">
+                  已截止
                 </div>
                 <div class="booking_status" v-else-if="full_date.includes(canlendarMonth[(i-1)*7+(j-1)].date)">
                   已額滿</div>
@@ -86,6 +90,7 @@
               </div>
             </div>
           </div>
+
 
         </div>
 

@@ -10,7 +10,13 @@ $(function () {
         data: {
             id: news_id
         },
-        success: function(res) {            
+        success: function (res) {
+            $('#detailTitle').text(res[0].News_title)
+            if (res[0].news_style == 0) {
+                $('#newsStyle').text('園區公告');
+            } else {
+                $('#newsStyle').text('限定公告');
+            }
             $('#detailBox').append(`
             <img src="${res[0].News_image}" alt="${res[0].News_title}">
             <div class="text_area">
