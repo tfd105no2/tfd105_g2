@@ -34,6 +34,12 @@ new Vue({
         if (ticketsData) {
             this.cartNum = ticketsData.length;
         }
+        // 
+        window.addEventListener('storage', (e) => {
+            this.cartNum = JSON.parse(localStorage.getItem("ticketsData")).length;
+            console.log("修改啦");
+        })
+
     }
 })
 
