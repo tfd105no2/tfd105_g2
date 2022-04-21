@@ -22,10 +22,10 @@ new Vue({
         post() {
 
             let order_id = Date.now().toString().slice(-6);
-            axios.post("../php/order.php",
+            axios.post("php/order.php",
                 {
                     order_id: order_id,
-                    qrcode: order_id,
+                    qrcode: `checkticket.html?order_id=${order_id}`,
                     payway: this.payway,
                     order_status: '已完成',
                     payment_status: '已付款',
