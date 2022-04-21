@@ -3,6 +3,7 @@ $.ajax({
     type: 'POST',
     url: 'php/checkticket.php',
     dataType: 'json',
+    // 抓?id回傳資料庫
     success: function (data) {
         for (let i = 0; i < data.length; i++) {
             if (data[i].ticket_status == '已使用') {
