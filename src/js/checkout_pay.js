@@ -18,6 +18,16 @@ new Vue({
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
         this.products = tasks;
         console.log(this.products);
+
+        if (this.score > 0) {
+            this.products.push({
+                "id":99999,
+                "name":"折價",
+                "price":this.score * -1,
+                "quantity":1,
+                "imageUrl":""
+            })
+        }
     },
     methods: {
         payable() {
@@ -108,6 +118,25 @@ new Vue({
                 .catch(function (err) {
                     alert('失敗');
                 })
+
+
+            // line pay
+            let params = new URLSearchParams();
+            let products = this.products
+
+            params.append("order_id", order_id);
+            params.append("order_create", new Date);
+            params.append("productList", JSON.stringify(products));
+            params.append("total_price", this.payable());
+
+            axios.post("php/request.php", params)
+                .then(function (t) {
+                    console.log(t);
+                    window.location = t.data.info.paymentUrl.web
+                })
+                .catch(function (t) {
+                    alert("失敗");
+                });
         },
     },
 })
