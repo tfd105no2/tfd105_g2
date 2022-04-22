@@ -11,22 +11,6 @@ $(function () {
     //     }
     // });
 
-    // 選擇圖片
-    $('#ChoosePic').on('click', function () {
-        $('#PicInput').click();
-    });
-    $('#PicInput').on('change', function () {
-        // 內建語法
-        let reader = new FileReader();
-        // 內建函式
-        reader.readAsDataURL(this.files[0]);
-        // 針對reader綁定load事件(讀取完)
-        reader.onload = function () {
-            $('#PicBlock img').remove();
-            $('#PicBlock').append(`<img class="member_pic" src="${this.result}">`);
-        }
-        $('#PicBlock').css('background-image', 'none');
-    });
     // tab切換
     let member_item = $('#FMember .member_body .member_list li.member_item');
     let member_form = $('#FMember .member_body form.member_form');

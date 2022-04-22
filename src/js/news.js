@@ -58,4 +58,63 @@ $(function () {
         },
     });
 
+    $('.more').on('click', function () {
+        let tabNum = $('.js-i-active').data('tab');
+        let newStyle = '';
+        if (tabNum == 'TabInfor01') {
+            newStyle = 0;
+        } else {
+            newStyle = 1;
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'php/news_readmore.php',
+            dataType: 'json',
+            data: {
+                status: newStyle,
+            },
+            success: function (data) {
+                console.log(newStyle)
+                if (newStyle == 0) {
+                    $('#parkList').empty();
+                } else {
+                    $('#activeList').empty();
+                }
+                for (let i = 0; i < data.length; i++) {
+                    if (newStyle == 0) {
+                        // $('#parkList').empty();
+                        $('#parkList').append(`
+                        <li class="news_item">
+                            <a href="./news_detail.html?id=${data[i].id}">
+                                <img src="${data[i].News_image}" alt="news${i}">
+                                <div class="news_item_content">
+                                    <h6>${data[i].News_title}</h6>
+                                    <p>${data[i].News_document}</p>
+                                </div>
+                            </a>
+                        </li>
+                        `)
+                    } else {
+                        $('#activeList').append(`
+                        <li class="news_item">
+                            <a href="./news_detail.html?id=${data[i].id}">
+                                <img src="${data[i].News_image}" alt="news${i}">
+                                <div class="news_item_content">
+                                    <h6>${data[i].News_title}</h6>
+                                    <p>${data[i].News_document}</p>
+                                </div>
+                            </a>
+                        </li>
+                        `)
+                    }
+                }
+            }
+        });
+        // if (tabNum == 'TabInfor01') {
+        //     console.log('1')
+        // } else {
+        //     console.log('2')
+        // }
+    })
+
 });
