@@ -157,8 +157,9 @@
         }
           //查看更多
         .more{
-            display: block;
-            text-align: center;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
             color: $text-color;
             font-size: map-get($title, h5);
             padding-bottom: space(12);

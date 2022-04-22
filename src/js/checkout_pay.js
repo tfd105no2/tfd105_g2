@@ -4,7 +4,7 @@ new Vue({
     data: {
         products: [],
         score: 100,
-        payway: '',
+        payway: 'creditcard',
         creditcard: 'creditcard',
         linepay: 'linepay',
         current_edit: false,
@@ -18,6 +18,16 @@ new Vue({
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
         this.products = tasks;
         console.log(this.products);
+
+        if (this.score > 0) {
+            this.products.push({
+                "id": 99999,
+                "name": "折價",
+                "price": this.score * -1,
+                "quantity": 1,
+                "imageUrl": ""
+            })
+        }
     },
     methods: {
         payable() {
@@ -32,20 +42,17 @@ new Vue({
         toggle() {
             if (this.payway === this.creditcard) {
                 this.current_edit = true;
-            } else if (this.payway === '') {
-
-                return
 
             } else {
-                this.post();
 
+                this.post();
             }
         },
 
-        edit(index) {
-            this.current_edit = index;
+        // edit(index) {
+        //     this.current_edit = index;
 
-        },
+        // },
         f_out() {
             this.current_edit = null;
 
@@ -83,6 +90,29 @@ new Vue({
                 this.carddate = '';
                 this.cardsafe = '';
             } else {
+
+                // 送出資料
+                let order_id = Date.now().toString().slice(-6);
+                axios.post("php/order.php",
+                    {
+                        order_id: order_id,
+                        qrcode: `checkticket.html?order_id=${order_id}`,
+                        payway: this.payway,
+                        order_status: '已完成',
+                        payment_status: '已付款',
+                        order_create: new Date(),
+                        productList: this.products,
+                        total_price: this.payable(),
+                    })
+                    .then(function (res) {
+                        alert('成功');
+                        localStorage.clear();
+                        // 同步讀取更新右上角購物車數量
+                        vue_instance.setCart();
+                    })
+                    .catch(function (err) {
+                        alert('失敗');
+                    })
                 location.href = "checkout_complet.html";
             }
         },
@@ -104,10 +134,31 @@ new Vue({
                 .then(function (res) {
                     alert('成功');
                     localStorage.clear();
+                    // 同步讀取更新右上角購物車數量
+                    vue_instance.setCart();
                 })
                 .catch(function (err) {
                     alert('失敗');
                 })
+
+
+            // line pay
+            let params = new URLSearchParams();
+            let products = this.products
+
+            params.append("order_id", order_id);
+            params.append("order_create", new Date);
+            params.append("productList", JSON.stringify(products));
+            params.append("total_price", this.payable());
+
+            axios.post("php/request.php", params)
+                .then(function (t) {
+                    console.log(t);
+                    window.location = t.data.info.paymentUrl.web
+                })
+                .catch(function (t) {
+                    alert("失敗");
+                });
         },
     },
 })

@@ -16,6 +16,8 @@ var vue_instance = new Vue({
             let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
             if (ticketsData) {
                 this.cartNum = ticketsData.length;
+            } else {
+                this.cartNum = 0;
             }
         }
     },
