@@ -47,7 +47,8 @@ new Vue({
 
             // 存回 localstorage
             localStorage.setItem("ticketsData", JSON.stringify(ticketsData));
-
+            // 同步讀取更新右上角購物車數量
+            vue_instance.setCart();
         }
 
     },
