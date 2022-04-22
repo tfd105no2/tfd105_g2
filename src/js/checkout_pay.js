@@ -4,15 +4,15 @@ new Vue({
     data: {
         products: [],
         score: 100,
-        payway:'',
-        creditcard:'creditcard',
-        linepay:'linepay',
+        payway: '',
+        creditcard: 'creditcard',
+        linepay: 'linepay',
         current_edit: false,
         name: '',
         cardid: '',
         carddate: '',
         cardsafe: '',
-        
+
     },
     mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
@@ -30,13 +30,13 @@ new Vue({
         },
 
         toggle() {
-            if(this.payway === this.creditcard){
+            if (this.payway === this.creditcard) {
                 this.current_edit = true;
-            }else if(this.payway === ''){
+            } else if (this.payway === '') {
 
-               return
-               
-            }else{
+                return
+
+            } else {
                 this.post();
 
             }
@@ -44,47 +44,47 @@ new Vue({
 
         edit(index) {
             this.current_edit = index;
-            
+
         },
         f_out() {
             this.current_edit = null;
-            
+
         },
         confirmCard() {
-          let val = /^[\u4E00-\u9FA5]+$/;
-          let dateObj = this.carddate.split('/');
-          let cardIdobj = this.cardid.length;
-          this.cardid.innerHTML = cardIdobj;
-          let cardSafeobj = this.cardsafe.length;
-          this.cardsafe.innerHTML = cardSafeobj;
+            let val = /^[\u4E00-\u9FA5]+$/;
+            let dateObj = this.carddate.split('/');
+            let cardIdobj = this.cardid.length;
+            this.cardid.innerHTML = cardIdobj;
+            let cardSafeobj = this.cardsafe.length;
+            this.cardsafe.innerHTML = cardSafeobj;
 
-          if (val.test(this.name) == false) {
-            alert('請輸入中文姓名');
-            this.name = '';
-            this.cardid = '';
-            this.carddate = '';
-            this.cardsafe = '';
-          } else if (cardIdobj < 19) {
-            alert('請輸入正確的信用卡號');
-            this.name = '';
-            this.cardid = '';
-            this.carddate = '';
-            this.cardsafe = '';
-          } else if (dateObj[0] > 12 || dateObj[0] < 1 || dateObj[1] < 21 || dateObj[1] > 35) {
-            alert('請輸入正確的有效日期');
-            this.name = '';
-            this.cardid = '';
-            this.carddate = '';
-            this.cardsafe = '';
-          } else if (cardSafeobj != 3) {
-            alert('請輸入正確安全碼');
-            this.name = '';
-            this.cardid = '';
-            this.carddate = '';
-            this.cardsafe = '';
-          } else {
-            location.href = "checkout_complet.html";
-          }
+            if (val.test(this.name) == false) {
+                alert('請輸入中文姓名');
+                this.name = '';
+                this.cardid = '';
+                this.carddate = '';
+                this.cardsafe = '';
+            } else if (cardIdobj < 19) {
+                alert('請輸入正確的信用卡號');
+                this.name = '';
+                this.cardid = '';
+                this.carddate = '';
+                this.cardsafe = '';
+            } else if (dateObj[0] > 12 || dateObj[0] < 1 || dateObj[1] < 21 || dateObj[1] > 35) {
+                alert('請輸入正確的有效日期');
+                this.name = '';
+                this.cardid = '';
+                this.carddate = '';
+                this.cardsafe = '';
+            } else if (cardSafeobj != 3) {
+                alert('請輸入正確安全碼');
+                this.name = '';
+                this.cardid = '';
+                this.carddate = '';
+                this.cardsafe = '';
+            } else {
+                location.href = "checkout_complet.html";
+            }
         },
 
 
@@ -103,6 +103,7 @@ new Vue({
                 })
                 .then(function (res) {
                     alert('成功');
+                    localStorage.clear();
                 })
                 .catch(function (err) {
                     alert('失敗');
