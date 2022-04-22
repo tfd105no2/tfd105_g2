@@ -1,9 +1,15 @@
 // 抓取資料
+
+let urlParams = new URLSearchParams(window.location.search);
+let userId = urlParams.get('order_id');
+
 $.ajax({
     type: 'POST',
     url: 'php/checkticket.php',
     dataType: 'json',
-    // 抓?id回傳資料庫
+    data: {
+        id: userId,
+    },
     success: function (data) {
         for (let i = 0; i < data.length; i++) {
             if (data[i].ticket_status == '已使用') {
