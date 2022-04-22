@@ -19,15 +19,15 @@ new Vue({
         this.products = tasks;
         console.log(this.products);
 
-        if (this.score > 0) {
-            this.products.push({
-                "id": 99999,
-                "name": "折價",
-                "price": this.score * -1,
-                "quantity": 1,
-                "imageUrl": ""
-            })
-        }
+        // if (this.score > 0) {
+        //     this.products.push({
+        //         "id": 99999,
+        //         "name": "折價",
+        //         "price": this.score * -1,
+        //         "quantity": 1,
+        //         "imageUrl": ""
+        //     })
+        // }
     },
     methods: {
         payable() {
