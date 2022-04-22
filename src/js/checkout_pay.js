@@ -4,7 +4,7 @@ new Vue({
     data: {
         products: [],
         score: 100,
-        payway: '',
+        payway: 'creditcard',
         creditcard: 'creditcard',
         linepay: 'linepay',
         current_edit: false,
@@ -42,10 +42,10 @@ new Vue({
             }
         },
 
-        edit(index) {
-            this.current_edit = index;
+        // edit(index) {
+        //     this.current_edit = index;
 
-        },
+        // },
         f_out() {
             this.current_edit = null;
 
