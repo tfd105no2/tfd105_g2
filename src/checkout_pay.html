@@ -113,31 +113,34 @@
                     <div class="title">
                         <h2>信用卡付款</h2>
                     </div>
-    
+
                     <ul>
                         <li>
-                          <label for="username">持卡人姓名</label>
-                          <input type="text" v-model="name" id="username" placeholder="請輸入中文姓名" maxlength="8">
+                            <label for="username">持卡人姓名</label>
+                            <input type="text" v-model="name" id="username" placeholder="請輸入中文姓名" maxlength="8">
                         </li>
                         <li>
-                          <label for="cardid">信用卡號</label>
-                          <input type="text" class="cardid" v-model="cardid" v-mask="'#### #### #### ####'" maxlength="19">
+                            <label for="cardid">信用卡號</label>
+                            <input type="text" class="cardid" v-model="cardid" v-mask="'#### #### #### ####'"
+                                maxlength="19">
                         </li>
                         <li>
-                          <label for="carddate">有效日期</label>
-                          <input type="text" v-model="carddate" v-mask="'##/##'" id="carddate" maxlength="5" placeholder="MM/YY">
+                            <label for="carddate">有效日期</label>
+                            <input type="text" v-model="carddate" v-mask="'##/##'" id="carddate" maxlength="5"
+                                placeholder="MM/YY">
                         </li>
                         <li>
                             <label for="cardsafe" class="safetitle">安全碼</label>
-                          <input type="text" v-model="cardsafe" id="cardsafe" maxlength="3" placeholder="後3碼" v-mask="'###'">
+                            <input type="text" v-model="cardsafe" id="cardsafe" maxlength="3" placeholder="後3碼"
+                                v-mask="'###'">
                         </li>
                     </ul>
-    
+
                     <div class="btn">
                         <button class="ok" @click="confirmCard">確認</button>
                         <button class="ok" @click="f_out()">取消</button>
                     </div>
-    
+
                 </div>
             </section>
         </main>

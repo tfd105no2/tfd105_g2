@@ -21,11 +21,11 @@ new Vue({
 
         if (this.score > 0) {
             this.products.push({
-                "id":99999,
-                "name":"折價",
-                "price":this.score * -1,
-                "quantity":1,
-                "imageUrl":""
+                "id": 99999,
+                "name": "折價",
+                "price": this.score * -1,
+                "quantity": 1,
+                "imageUrl": ""
             })
         }
     },
@@ -42,13 +42,10 @@ new Vue({
         toggle() {
             if (this.payway === this.creditcard) {
                 this.current_edit = true;
-            } else if (this.payway === '') {
-
-                return
 
             } else {
-                this.post();
 
+                this.post();
             }
         },
 
@@ -93,6 +90,29 @@ new Vue({
                 this.carddate = '';
                 this.cardsafe = '';
             } else {
+
+                // 送出資料
+                let order_id = Date.now().toString().slice(-6);
+                axios.post("php/order.php",
+                    {
+                        order_id: order_id,
+                        qrcode: `checkticket.html?order_id=${order_id}`,
+                        payway: this.payway,
+                        order_status: '已完成',
+                        payment_status: '已付款',
+                        order_create: new Date(),
+                        productList: this.products,
+                        total_price: this.payable(),
+                    })
+                    .then(function (res) {
+                        alert('成功');
+                        localStorage.clear();
+                        // 同步讀取更新右上角購物車數量
+                        vue_instance.setCart();
+                    })
+                    .catch(function (err) {
+                        alert('失敗');
+                    })
                 location.href = "checkout_complet.html";
             }
         },
@@ -114,6 +134,8 @@ new Vue({
                 .then(function (res) {
                     alert('成功');
                     localStorage.clear();
+                    // 同步讀取更新右上角購物車數量
+                    vue_instance.setCart();
                 })
                 .catch(function (err) {
                     alert('失敗');
