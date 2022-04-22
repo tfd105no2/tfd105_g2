@@ -141,7 +141,7 @@ $(function () {
                 $('#oderDetail').append(`
                 <tr>
                     <td>${data[i].order_id}</td>
-                    <td>${data[i].createdate}</td>
+                    <td>${data[i].createdate.substr(0, 10)}</td>
                     <td>${data[i].order_status}</td>
                     <td>${data[i].total}</td>
                     <td><button class="checkTicket" value="${i}" type="button">查看</button></td>
