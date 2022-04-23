@@ -60,6 +60,7 @@ $(document).on('click', function (e) {
         // 改變按鈕狀態
         if ($(this).find('td.useStatus').eq($(e.target).data('btn')).text() == '已使用') {
             $(e.target).attr('disabled', 'disabled');
+            $(e.target).css('background-color', 'gray');
         }
         let ticketNum = $(this).find('td.useNum').eq($(e.target).data('btn')).text();
         let ticketSta = $(this).find('td.useStatus').eq($(e.target).data('btn')).text();
@@ -75,8 +76,11 @@ $(document).on('click', function (e) {
             },
             success: function (data) {
                 console.log(data);
-                alert('成功');
             },
+        });
+        swal({
+            title: "成功",
+            type: "success"
         });
     }
 })

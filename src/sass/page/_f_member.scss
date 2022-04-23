@@ -6,7 +6,6 @@
     max-width: 100%;
     display: flex;
     background-color: #EDF9FB;
-    height: 800px;
 
     .member_head {
         width: 380px;
@@ -28,7 +27,7 @@
     }
 
     .member_body {
-        margin: space(9) auto 0;
+        margin: space(10) auto space(10);
 
         .member_list {
             display: flex;
