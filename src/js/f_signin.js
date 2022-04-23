@@ -63,12 +63,6 @@ Vue.component("login", {
                                 });
                             }
                         },
-                        error: function (data) {
-                            swal({
-                                title: "連線失敗",
-                                type: "error"
-                            });
-                        }
                     })
                 } else {
                     swal({

@@ -130,7 +130,7 @@ $(function () {
                     <td>${data[i].total}</td>
                     <td><button class="checkTicket" value="${i}" type="button">查看</button></td>
                     <td><button class="checkDetail" value="${i}" type="button">查看明細</button></td>
-                    <td><button>取消</button></td>
+                    <td><button class="btnCancel" value="${i}" type="button">取消</button></td>
                 </tr>
                 `)
 
@@ -164,7 +164,7 @@ $(function () {
                                             <td>${res[j].Purchase_amount}</td>
                                             <td>${res[j].price}</td>
                                         </tr>
-                                        `                            
+                                        `
                                 }
                                 swal({
                                     title: "訂單",
@@ -203,6 +203,25 @@ $(function () {
                                         type: "error"
                                     });
                                 }
+                            }
+                        })
+                    }
+                    if ($(e.target).hasClass('btnCancel') && $(e.target).val() == i) {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'php/member_cancel.php',
+                            data: {
+                                orderId: data[i].order_id,
+                            },
+                            success: function () {
+                                swal({
+                                    title: "取消成功",
+                                    type: "success"
+                                }).then(function () {                                    
+                                    $(e.target).css({"background": "#828282", "pointer-events": "none"});
+                                    $(e.target).attr("disabled", true);
+                                    $(e.target).closest("tr").children("td:nth-child(3)").text("已取消");
+                                });
                             }
                         })
                     }
