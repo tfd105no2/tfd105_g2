@@ -3,6 +3,7 @@
 .ckContent {
     max-width: 1200px;
     margin: 0 auto;
+
     table {
         border-spacing: 0;
         width: 100%;
@@ -25,8 +26,19 @@
                 &:nth-child(odd) {
                     background-color: #eee
                 }
+
                 td {
                     padding: 10px;
+
+                    button {
+                        padding: 5px 10px;
+                        border: 1px solid transparent;
+                        border-radius: 5px;
+                        outline: none;
+                        background-color: $btn-color;
+                        color: #fff;
+                        cursor: pointer;
+                    }
                 }
             }
         }
