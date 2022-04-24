@@ -19,6 +19,15 @@ var vue_instance = new Vue({
             } else {
                 this.cartNum = 0;
             }
+        },
+        // 判斷是否登入
+        member() {
+            let member_id = sessionStorage.getItem('member_id');
+            if (member_id) {
+                window.location.href = "checkout_cart.html";
+            } else {
+                window.location.href = 'f_signin.html';
+            }
         }
     },
     mounted() {
