@@ -52,14 +52,16 @@ header {
                 color: #eee;
                 font-weight: 500;
                 font-size: 16px;
-                i {
+                & > i {
                     position: relative;
-                    .cart_num {
+                    font-size: 20px;
+                    // 購物車數量顯示
+                    & > div {
                         position: absolute;
-                        right: -14px;
-                        top: -14px;
-                        line-height: 22px;
-                        width: 22px;
+                        right: -13px;
+                        top: 5px;
+                        line-height: 20px;
+                        width: 20px;
                         background-color: #fe6e21;
                         color: #fff;
                         font-size: 14px;

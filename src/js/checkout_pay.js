@@ -91,6 +91,8 @@ new Vue({
                 this.cardsafe = '';
             } else {
 
+                // 關閉彈窗
+                this.f_out();
                 // 送出資料
                 let order_id = Date.now().toString().slice(-6);
                 let member_id = sessionStorage.getItem('member_id');
@@ -135,7 +137,7 @@ new Vue({
                     .catch(function (err) {
                         alert('失敗');
                     });
-                // location.href = "checkout_complet.html";
+                location.href = "checkout_complet.html";
             }
         },
 
