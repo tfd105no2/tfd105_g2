@@ -100,7 +100,7 @@ $(function () {
                                 title: "密碼錯誤",
                                 type: "error"
                             })
-                        } 
+                        }
                     }
                 });
             }
@@ -135,7 +135,7 @@ $(function () {
             }
         });
     })
-
+    console.log('start')
     // 訂單查詢
     $.ajax({
         type: 'POST',
@@ -162,6 +162,14 @@ $(function () {
                     <td><button class="btnCancel" value="${i}" type="button">取消</button></td>
                 </tr>
                 `)
+
+                if ($('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(3)`).text() == '已取消') {
+                    $('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(7) button`).css({
+                        "background": "#828282",
+                        "pointer-events": "none"
+                    });
+                    $('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(7) button`).attr("disabled", true);
+                }
 
                 $(document).on('click', function (e) {
                     if ($(e.target).hasClass('checkDetail') && $(e.target).val() == i) {

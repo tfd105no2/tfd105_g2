@@ -48,18 +48,20 @@ Vue.component("login", {
                             pwd: this.pwd,
                         },
                         success: function (data) {
-                            if (data == '登入成功') {
+                            if (data == '登入失敗') {
+                                swal({
+                                    title: "帳號或密碼錯誤",
+                                    type: "error"
+                                });
+                            } else {
+                                data = JSON.parse(data);
                                 swal({
                                     title: "登入成功",
                                     type: "success"
                                 }).then(function () {
                                     sessionStorage.setItem('account', acc.value);
+                                    sessionStorage.setItem('member_id', data[0].id);
                                     location.href = 'f_member.html';
-                                });
-                            } else {
-                                swal({
-                                    title: "帳號或密碼錯誤",
-                                    type: "error"
                                 });
                             }
                         },
