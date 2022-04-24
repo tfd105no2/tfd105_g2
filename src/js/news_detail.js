@@ -20,7 +20,7 @@ $(function () {
             $('#detailBox').append(`
             <img src="${res[0].News_image}" alt="${res[0].News_title}">
             <div class="text_area">
-                <h6>${res[0].News_update}</h6>
+                <h6>${res[0].create_date}</h6>
                 <h5>${res[0].News_title}</h5>
                 <p>${res[0].News_document}</p>
                 <div class="back">

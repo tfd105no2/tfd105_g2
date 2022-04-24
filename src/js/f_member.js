@@ -46,6 +46,8 @@ $(function () {
     let oldPwd = $('#MemberPassword');
     let newPwd = $('#MemberNewPw');
     let cekPwd = $('#MemberCfPw');
+    let isText = /^[a-zA-Z0-9]+$/;
+    let include = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
 
     $('#changePwd').on('click', function (e) {
         e.preventDefault();
@@ -55,23 +57,50 @@ $(function () {
                     title: "確認密碼錯誤",
                     type: "error"
                 });
+            } else if (!isText.test(newPwd.val())) {
+                swal({
+                    title: "密碼請勿包含特殊字元",
+                    type: "error"
+                });
+            } else if (newPwd.val().length < 6) {
+                swal({
+                    title: "密碼請勿少於6個字",
+                    type: "error"
+                });
+            } else if (newPwd.val().length > 15) {
+                swal({
+                    title: "密碼請勿超過15個字",
+                    type: "error"
+                });
+            } else if (!include.test(newPwd.val())) {
+                swal({
+                    title: "密碼至少包括一個大小寫字母或數字",
+                    type: "error"
+                });
             } else {
                 $.ajax({
                     type: 'POST',
                     url: 'php/change_password.php',
                     data: {
                         email: userEmail,
-                        newPwd: $('#MemberNewPw').val(),
+                        oldPwd: oldPwd.val(),
+                        newPwd: newPwd.val(),
                     },
                     success: function (res) {
-                        if (res == '更新成功') {
+                        res = JSON.parse(res)
+                        if (res != '') {
                             swal({
                                 title: "修改成功",
                                 type: "success"
                             }).then(function () {
                                 location.href = 'f_member.html';
                             });
-                        }
+                        } else {
+                            swal({
+                                title: "密碼錯誤",
+                                type: "error"
+                            })
+                        } 
                     }
                 });
             }
@@ -217,8 +246,11 @@ $(function () {
                                 swal({
                                     title: "取消成功",
                                     type: "success"
-                                }).then(function () {                                    
-                                    $(e.target).css({"background": "#828282", "pointer-events": "none"});
+                                }).then(function () {
+                                    $(e.target).css({
+                                        "background": "#828282",
+                                        "pointer-events": "none"
+                                    });
                                     $(e.target).attr("disabled", true);
                                     $(e.target).closest("tr").children("td:nth-child(3)").text("已取消");
                                 });

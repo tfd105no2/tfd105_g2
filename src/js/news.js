@@ -82,7 +82,6 @@ $(function () {
                 }
                 for (let i = 0; i < data.length; i++) {
                     if (newStyle == 0) {
-                        // $('#parkList').empty();
                         $('#parkList').append(`
                         <li class="news_item">
                             <a href="./news_detail.html?id=${data[i].id}">
@@ -110,11 +109,6 @@ $(function () {
                 }
             }
         });
-        // if (tabNum == 'TabInfor01') {
-        //     console.log('1')
-        // } else {
-        //     console.log('2')
-        // }
     })
 
 });
