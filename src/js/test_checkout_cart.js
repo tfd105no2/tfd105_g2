@@ -2,10 +2,13 @@ new Vue({
     el: '#root',
     data: {
         products: [],
-        score: 100,
+        score: 0,
+        coupon: "asd",
     },
     mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
+        let account = sessionStorage.getItem('account');
+        let vm = this;
 
         // 如果localstorage有值,就賦值products 
         // 沒有就不變動,依然為空陣列
@@ -13,6 +16,21 @@ new Vue({
             this.products = tasks;
         }
         console.log(this.products);
+
+        // 顯示歸戶折扣碼
+        $.ajax({
+            type: 'POST',
+            url: 'php/member.php',
+            dataType: 'json',
+            data: {
+                email: account,
+            },
+            success: function (res) {
+                console.log(res);
+                vm.coupon = res[0].coupon;
+            }
+        })
+
     },
     methods: {
         minus: function (product) {
@@ -52,6 +70,16 @@ new Vue({
             pay = sum - this.score;
             return pay;
         },
+        discount() {
+            if (this.score == 0) {
+                this.score = 100;
+            } else {
+                this.score = 0;
+            }
+        },
+        coupon_status() {
+            sessionStorage.setItem("discount", this.score);
+        }
 
     },
 }

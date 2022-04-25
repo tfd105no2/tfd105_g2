@@ -89,9 +89,9 @@
           </div>
           <!-- 折扣碼 -->
           <div class="discountCode">
-            <input type="text" class="discountCode_box" readonly />
+            <input type="text" class="discountCode_box" v-model="coupon" readonly />
             <span>
-              <button type="submit" class="discountCode_btn">
+              <button type="submit" class="discountCode_btn" @click="discount()">
                 使用
               </button>
             </span>
@@ -107,7 +107,7 @@
             <div>NT$<span>{{payable()}}</span></div>
           </div>
           <div class="next">
-            <a href="./checkout_pay.html">前往結帳</a>
+            <a href="./checkout_pay.html" @click="coupon_status()">前往結帳</a>
           </div>
         </div>
       </div>
@@ -119,6 +119,7 @@
         <a href="./ticket.html">來去逛逛</a>
       </div>
     </main>
+
   </div>
 
   @@include('layout/footer.html')
