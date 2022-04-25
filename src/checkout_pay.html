@@ -51,7 +51,9 @@
                                 <td class="ticketImg">
                                     <img :src="product.image" alt="票券圖片">
                                 </td>
-                                <td class="ticketType" colspan="2"><a href="#">{{product.ticket_role_name}}</a></td>
+                                <td class="ticketType" colspan="2"><a
+                                        href="#">{{product.overnight_date}}{{product.area_name}}<br>{{product.ticket_role_name}}</a>
+                                </td>
                                 <td>NT$<span>{{product.price}}</span></td>
                                 <!-- 數量組區塊 -->
                                 <td>

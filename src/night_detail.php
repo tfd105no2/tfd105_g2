@@ -71,7 +71,7 @@
           <div class="content-top">
             <img class="title_img" src="<?php echo $img; ?>" />
             <div class="content-text">
-              <h3 class="ssr"><?php echo $area_name; ?></h3>
+              <h3 class="ssr" data-area="<?php echo $id; ?>" ><?php echo $area_name; ?></h3>
               <p>預訂日期: <span class="overnight_date"><?php echo $year; ?>/<?php echo $month +1; ?>/<?php echo $date; ?></span> 星期二</p>
               <div class="bed-left">剩餘<?php echo $bed_count; ?>名</div>
               <span>注意事項</span>

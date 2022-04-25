@@ -3,6 +3,7 @@ var vue_instance = new Vue({
     data: {
         toggle: false,
         cartNum: 0,
+        member: false,
     },
     methods: {
         toggleActive() {
@@ -11,13 +12,41 @@ var vue_instance = new Vue({
             // 黑背景
             $(".ham-bg").slideToggle(580);
         },
+        // 購物車數量
         setCart() {
+
             // 購物車數量
-            let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
+            let ticketsData = localStorage.getItem("ticketsData");
             if (ticketsData) {
-                this.cartNum = ticketsData.length;
+                this.cartNum = JSON.parse(ticketsData).length;
             } else {
                 this.cartNum = 0;
+            }
+        },
+        // 會員登入狀態
+        member_status() {
+            let member_id = sessionStorage.getItem("member_id");
+            if (member_id) {
+                this.member = true;
+            }
+        },
+
+        // 判斷購物車是否登入
+        cart_login() {
+            // let member_id = sessionStorage.getItem('member_id');
+            if (this.member) {
+                window.location.href = "checkout_cart.html";
+            } else {
+                window.location.href = 'f_signin.html';
+            }
+        },
+        // 判斷會員是否登入
+        member_login() {
+            // let member_id = sessionStorage.getItem('member_id');
+            if (this.member) {
+                window.location.href = "f_member.html";
+            } else {
+                window.location.href = 'f_signin.html';
             }
         }
     },
@@ -39,6 +68,8 @@ var vue_instance = new Vue({
         })
         // 購物車數量
         this.setCart();
+        // 會員登入狀態
+        this.member_status();
     }
 })
 

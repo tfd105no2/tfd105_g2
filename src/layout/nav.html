@@ -25,16 +25,20 @@
         <a class="@@active5" href="fishgame.html">探索海洋</a>
       </li>
       <li class="user-item">
-        <a class="@@active6" href="f_signin.html" id="signBtn">
-          <i class="fas fa-user"></i>
+        <a class="@@active6" href="#" @click="member_login()" id="signBtn">
+          <i class="fas fa-user">
+            <!-- 已登入 -->
+            <div v-show="member">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </i>
         </a>
       </li>
       <li class="user-item">
-        <a class="@@active7" href="checkout_cart.html">
+        <a class="@@active7" href="#" @click="cart_login()">
           <i class="fas fa-shopping-cart">
-            <div class="cart_num">{{cartNum}}</div>
+            <div>{{cartNum}}</div>
           </i>
-
         </a>
       </li>
 

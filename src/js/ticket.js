@@ -23,8 +23,10 @@ new Vue({
             }
 
             // 先取出 localstorage ,判斷原本有無陣列
-            let ticketsData = JSON.parse(localStorage.getItem("ticketsData"));
-            if (ticketsData) {
+            let ticket = localStorage.getItem("ticketsData");
+            let ticketsData = JSON.parse(ticket);
+
+            if (ticket) {
                 // 再繼續判斷 原本localstorage 裡是否已加入過該商品
                 // 先用map取出ticketsData內的 id 陣列 ,再用 indexOf 查找是否包含該id
                 // 有的話返回索引值, 沒有的話返回 -1 

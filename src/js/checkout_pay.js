@@ -3,7 +3,7 @@ new Vue({
     el: '#root',
     data: {
         products: [],
-        score: 100,
+        score: 0,
         payway: 'creditcard',
         creditcard: 'creditcard',
         linepay: 'linepay',
@@ -91,18 +91,23 @@ new Vue({
                 this.cardsafe = '';
             } else {
 
+                // 關閉彈窗
+                this.f_out();
                 // 送出資料
                 let order_id = Date.now().toString().slice(-6);
+                let member_id = sessionStorage.getItem('member_id');
                 axios.post("php/order.php",
                     {
+                        member_id: member_id,
                         order_id: order_id,
-                        qrcode: `checkticket.html?order_id=${order_id}`,
+                        qrcode: order_id,
                         payway: this.payway,
-                        order_status: '已完成',
-                        payment_status: '已付款',
+                        order_status: 1,
+                        payment_status: 1,
                         order_create: new Date(),
                         productList: this.products,
                         total_price: this.payable(),
+                        coupon_value: 0,
                     })
                     .then(function (res) {
                         alert('成功');
@@ -112,7 +117,26 @@ new Vue({
                     })
                     .catch(function (err) {
                         alert('失敗');
+                    });
+                axios.post("php/orderDetail.php",
+                    {
+                        member_id: member_id,
+                        order_id: order_id,
+                        payway: this.payway,
+                        order_create: new Date(),
+                        productList: this.products,
+                        total_price: this.payable(),
+                        order_status: 1,
+                        payment_status: 1,
+                        coupon_value: 0,
+                        order_type: 1
                     })
+                    .then(function (res) {
+                        alert('成功');
+                    })
+                    .catch(function (err) {
+                        alert('失敗');
+                    });
                 location.href = "checkout_complet.html";
             }
         },
@@ -120,16 +144,19 @@ new Vue({
 
         post() {
             let order_id = Date.now().toString().slice(-6);
+            let member_id = sessionStorage.getItem('member_id');
             axios.post("php/order.php",
                 {
+                    member_id: member_id,
                     order_id: order_id,
-                    qrcode: `checkticket.html?order_id=${order_id}`,
+                    qrcode: order_id,
                     payway: this.payway,
-                    order_status: '已完成',
-                    payment_status: '已付款',
+                    order_status: 1,
+                    payment_status: 1,
                     order_create: new Date(),
                     productList: this.products,
                     total_price: this.payable(),
+                    coupon_value: 0,
                 })
                 .then(function (res) {
                     alert('成功');
@@ -139,7 +166,26 @@ new Vue({
                 })
                 .catch(function (err) {
                     alert('失敗');
+                });
+            axios.post("php/orderDetail.php",
+                {
+                    member_id: member_id,
+                    order_id: order_id,
+                    payway: this.payway,
+                    order_create: new Date(),
+                    productList: this.products,
+                    total_price: this.payable(),
+                    order_status: 1,
+                    payment_status: 1,
+                    coupon_value: 0,
+                    order_type: 1
                 })
+                .then(function (res) {
+                    alert('成功');
+                })
+                .catch(function (err) {
+                    alert('失敗');
+                });
 
 
             // line pay
