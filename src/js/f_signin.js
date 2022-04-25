@@ -254,7 +254,7 @@ Vue.component("login", {
             register(e) {
                 e.preventDefault();
                 if (this.username != '' && this.email != '' && this.password != '' && this.ckpwd != '' && this.phone != '') {
-                    if (!this.emailError && !this.passwordError && !this.ckpwdError && !this.phoneError && this.password == this.ckpwd) {
+                    if (!this.userError && !this.emailError && !this.passwordError && !this.ckpwdError && !this.phoneError && this.password == this.ckpwd) {
                         $.ajax({
                             type: "POST",
                             url: "php/member_sign.php",
@@ -288,6 +288,11 @@ Vue.component("login", {
                             }
                         })
                         // 額外判斷當確認密碼輸入完成，又重改密碼的時候
+                    } else if (this.userError) {
+                        swal({
+                            title: `${this.userErrMsg}`,
+                            type: "warning"
+                        });
                     } else if (this.password != this.ckpwd) {
                         this.ckpwdError = true;
                         this.ckpwdErrMsg = '確認密碼不符';

@@ -172,6 +172,7 @@ $(function () {
                 }
 
                 $(document).on('click', function (e) {
+                    // 查看明細
                     if ($(e.target).hasClass('checkDetail') && $(e.target).val() == i) {
                         $.ajax({
                             type: 'POST',
@@ -181,8 +182,6 @@ $(function () {
                                 orderId: data[i].order_id,
                             },
                             success: function (res) {
-                                console.log('123')
-                                console.log(res)
                                 let contentHead = `
                                 <table class="checkTable">
                                     <thead>
@@ -215,7 +214,7 @@ $(function () {
                         })
                     }
                     
-                    console.log(data[i].order_id)
+                    // 查看QRCODE
                     if ($(e.target).hasClass('checkTicket') && $(e.target).val() == i) {
                         $.ajax({
                             type: 'POST',
@@ -225,12 +224,9 @@ $(function () {
                                 orderId: data[i].order_id,
                             },
                             success: function (res) {
-                                console.log(res[0])
-                                console.log(res[0].qrcode)
                                 let url = window.location.href;
                                 let newUrl = url.replace('f_member.html', '')
                                 if (res[0] != undefined) {
-                                    console.log(res[0])
                                     swal({
                                         title: "入場憑證",
                                         html: `
@@ -246,6 +242,7 @@ $(function () {
                             }
                         })
                     }
+                    // 取消訂單
                     if ($(e.target).hasClass('btnCancel') && $(e.target).val() == i) {
                         $.ajax({
                             type: 'POST',
