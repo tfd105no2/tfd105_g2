@@ -62,6 +62,7 @@ Vue.component("login", {
                                     sessionStorage.setItem('account', acc.value);
                                     sessionStorage.setItem('member_id', data[0].id);
                                     location.href = 'f_member.html';
+                                    vue_instance.member_status();
                                 });
                             }
                         },
