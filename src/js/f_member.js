@@ -3,13 +3,13 @@
 $(function () {
 
     // 折扣馬歸戶
-    $.ajax({
-        type: 'POST',
-        url: 'php/get_coupon.php',
-        success: function (data) {
-            $('#MemberCoupon').val(data);
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'php/get_coupon.php',
+    //     success: function (data) {
+    //         $('#MemberCoupon').val(data);
+    //     }
+    // });
 
     // tab切換
     let member_item = $('#FMember .member_body .member_list li.member_item');
@@ -135,7 +135,7 @@ $(function () {
             }
         });
     })
-    console.log('start')
+
     // 訂單查詢
     $.ajax({
         type: 'POST',
@@ -181,6 +181,8 @@ $(function () {
                                 orderId: data[i].order_id,
                             },
                             success: function (res) {
+                                console.log('123')
+                                console.log(res)
                                 let contentHead = `
                                 <table class="checkTable">
                                     <thead>
@@ -212,7 +214,8 @@ $(function () {
                             }
                         })
                     }
-
+                    
+                    console.log(data[i].order_id)
                     if ($(e.target).hasClass('checkTicket') && $(e.target).val() == i) {
                         $.ajax({
                             type: 'POST',
@@ -269,5 +272,15 @@ $(function () {
             }
         },
     });
+
+    $('#mbLogout').on('click', function() {
+        swal({
+            title: "登出",
+            type: "success"
+        }).then(function () {
+            sessionStorage.clear();
+            location.href = 'f_signin.html';
+        });
+    })
 
 });

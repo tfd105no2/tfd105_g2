@@ -208,3 +208,24 @@
         padding: space(1);
     }
 }
+
+.mbLogout {
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    input {
+        padding: 5px 10px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        outline: none;
+        background-color: $btn-color;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #fff;
+            color: $btn-color;
+            border: 1px solid $btn-color;
+        }
+    }
+}
