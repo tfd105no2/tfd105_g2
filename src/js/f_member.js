@@ -3,13 +3,13 @@
 $(function () {
 
     // 折扣馬歸戶
-    // $.ajax({
-    //     type: 'POST',
-    //     url: 'php/get_coupon.php',
-    //     success: function (data) {
-    //         $('#MemberCoupon').val(data);
-    //     }
-    // });
+    $.ajax({
+        type: 'POST',
+        url: 'php/get_coupon.php',
+        success: function (data) {
+            $('#MemberCoupon').val(data);
+        }
+    });
 
     // tab切換
     let member_item = $('#FMember .member_body .member_list li.member_item');
@@ -163,12 +163,12 @@ $(function () {
                 </tr>
                 `)
 
-                if ($('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(3)`).text() == '已取消') {
-                    $('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(7) button`).css({
+                if ($('#oderDetail').find(`tr:nth-child(${i + 1}) td:nth-child(3)`).text() == '已取消') {
+                    $('#oderDetail').find(`tr:nth-child(${i + 1}) td:nth-child(7) button`).css({
                         "background": "#828282",
                         "pointer-events": "none"
                     });
-                    $('#oderDetail').find(`tr:nth-child(${i+1}) td:nth-child(7) button`).attr("disabled", true);
+                    $('#oderDetail').find(`tr:nth-child(${i + 1}) td:nth-child(7) button`).attr("disabled", true);
                 }
 
                 $(document).on('click', function (e) {
