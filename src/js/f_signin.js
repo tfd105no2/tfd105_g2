@@ -1,155 +1,176 @@
 Vue.component("login", {
-        data() {
-            return {
-                acc: '',
-                pwd: '',
-                pwdEye: 'open',
-                userMail: '',
-            }
-        },
-        template: `
-    <form class="login_form">
-        <div>
-            <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
-        </div>        
-        <div class="login_pwd">
-            <label for="pwd">密碼</label><input type="password" id="pwd" v-model="pwd">
-            <i class="fa-solid fa-eye" @click="pwdEye='open'" :class="openEye"></i>
-            <i class="fa-solid fa-eye-slash" @click="pwdEye='close'" :class="closeEye"></i>
-        </div>
-        <div class="login_btn">
-            <input type="submit" value="登入" @click="login">
-        </div>
-        <div class="forget_pwd">
-            <a @click="forget">忘記密碼</a>
-        </div>
-        <p>或</p>
-        <div class="login_other">
-            <button>繼續使用 <i class="fa-brands fa-facebook"></i> 登入</button>
-            <button>繼續使用 <i class="fa-brands fa-google"></i> 登入</button>
-        </div>
-        <div class="forget_box" id="forget_box">
-            <span @click="forgetClose"><i class="fa-solid fa-xmark"></i></span>
-            <p>忘記密碼</p>
-            <label for="mail">電子信箱</label><input type="text" id="mail" v-model="userMail">
-            <input type="button" value="送出" @click="sendMail">
-        </div>
-    </form>
-    `,
-        methods: {
-            login(e) {
-                e.preventDefault();
-                if (this.acc != '' && this.pwd != '') {
-                    $.ajax({
-                        type: 'POST',
-                        url: "php/member_login.php",
-                        data: {
-                            acc: this.acc,
-                            pwd: this.pwd,
-                        },
-                        success: function (data) {
-                            if (data == '登入失敗') {
-                                swal({
-                                    title: "帳號或密碼錯誤",
-                                    type: "error"
-                                });
-                            } else {
-                                data = JSON.parse(data);
-                                swal({
-                                    title: "登入成功",
-                                    type: "success"
-                                }).then(function () {
-                                    sessionStorage.setItem('account', acc.value);
-                                    sessionStorage.setItem('member_id', data[0].id);
-                                    location.href = 'f_member.html';
-                                    vue_instance.member_status();
-                                });
-                            }
-                        },
-                    })
-                } else {
-                    swal({
-                        title: "請輸入帳號密碼",
-                        type: "warning"
-                    });
-                }
-            },
-            forget(e) {
-                e.preventDefault();
-                $('#forget_box').show();
-                $('.f_register').addClass('mask');
-            },
-            forgetClose() {
-                $('#forget_box').hide();
-                $('.f_register').removeClass('mask');
-            },
-            sendMail() {
-                if (this.userMail != '') {
-                    let email = this.userMail;
-                    $.ajax({
-                        type: 'POST',
-                        url: "php/send_pwd.php",
-                        dataType: 'json',
-                        data: {
-                            mail: this.userMail,
-                        },
-                        success: function (data) {
-                            console.log('success: ' + data);
-                            if (data == '查無此信箱') {
-                                swal({
-                                    title: "此信箱尚未註冊",
-                                    type: "error"
-                                });
-                            } else {
-                                Email.send({
-                                    SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
-                                    To: `${email}`,
-                                    From: "mm7217373@gmail.com",
-                                    Subject: "Kireiumi Park 忘記密碼",
-                                    Body: `
-                                    <div>您的密碼:${data[0].password}</div>
-                                    <div>請點擊以下網址重新登入</div>
-                                    https://tibamef2e.com/tfd105/g2/f_signin.html
-                                `,
-                                }).then(
-                                    swal({
-                                        title: "信件已寄出",
-                                        type: "success"
-                                    })
-                                );
-                            }
-                        },
-                        error: function (data) {
-                            console.log('errorMsg: ' + data);
+    data() {
+        return {
+            acc: '',
+            pwd: '',
+            pwdEye: 'open',
+            userMail: '',
+        }
+    },
+    template: `
+<form class="login_form">
+    <div>
+        <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
+    </div>        
+    <div class="login_pwd">
+        <label for="pwd">密碼</label><input type="password" id="pwd" v-model="pwd">
+        <i class="fa-solid fa-eye" @click="pwdEye='open'" :class="openEye"></i>
+        <i class="fa-solid fa-eye-slash" @click="pwdEye='close'" :class="closeEye"></i>
+    </div>
+    <div class="login_btn">
+        <input type="submit" value="登入" @click="login">
+    </div>
+    <div class="forget_pwd">
+        <a @click="forget">忘記密碼</a>
+    </div>
+    <p>或</p>
+    <div class="login_other">
+        <button>繼續使用 <i class="fa-brands fa-facebook"></i> 登入</button>
+        <button>繼續使用 <i class="fa-brands fa-google"></i> 登入</button>
+    </div>
+    <div class="forget_box" id="forget_box">
+        <span @click="forgetClose"><i class="fa-solid fa-xmark"></i></span>
+        <p>忘記密碼</p>
+        <label for="mail">電子信箱</label><input type="text" id="mail" v-model="userMail">
+        <input type="button" value="送出" @click="sendMail">
+    </div>
+</form>
+`,
+    methods: {
+        login(e) {
+            e.preventDefault();
+            let c = sessionStorage.getItem("coupon");
+            if (this.acc != '' && this.pwd != '') {
+                $.ajax({
+                    type: 'POST',
+                    url: "php/member_login.php",
+                    data: {
+                        acc: this.acc,
+                        pwd: this.pwd,
+                    },
+                    success: function (data) {
+                        if (data == '登入失敗') {
                             swal({
-                                title: "連線失敗",
+                                title: "帳號或密碼錯誤",
                                 type: "error"
                             });
-                        },
-                    })
-                } else {
-                    swal({
-                        title: "請輸入信箱",
-                        type: "warning"
-                    });
-                }
+                        } else {
+                            data = JSON.parse(data);
+                            swal({
+                                title: "登入成功",
+                                type: "success"
+                            }).then(function () {
+                                sessionStorage.setItem('account', acc.value);
+                                sessionStorage.setItem('member_id', data[0].id);
+                                location.href = 'f_member.html';
+                                vue_instance.member_status();
+
+                                // 更新coupon
+                                if (c) {
+                                    // 更新coupon
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "php/get_coupon.php",
+                                        data: {
+                                            coupom: c,
+                                        },
+                                        success: function (data) {
+                                            console.log('已修改');
+                                        },
+                                    })
+                                }
+
+                            });
+                        }
+                    },
+                })
+
+
+
+
+            } else {
+                swal({
+                    title: "請輸入帳號密碼",
+                    type: "warning"
+                });
             }
         },
-        computed: {
-            openEye() {
-                if (this.pwdEye == 'open') {
-                    return 'js-eye';
-                }
-                $('#pwd').attr('type', 'text')
-            },
-            closeEye() {
-                if (this.pwdEye == 'close') {
-                    return 'js-eye';
-                }
-                $('#pwd').attr('type', 'password')
-            },
+        forget(e) {
+            e.preventDefault();
+            $('#forget_box').show();
+            $('.f_register').addClass('mask');
         },
-    }),
+        forgetClose() {
+            $('#forget_box').hide();
+            $('.f_register').removeClass('mask');
+        },
+        sendMail() {
+            if (this.userMail != '') {
+                let email = this.userMail;
+                $.ajax({
+                    type: 'POST',
+                    url: "php/send_pwd.php",
+                    dataType: 'json',
+                    data: {
+                        mail: this.userMail,
+                    },
+                    success: function (data) {
+                        console.log('success: ' + data);
+                        if (data == '查無此信箱') {
+                            swal({
+                                title: "此信箱尚未註冊",
+                                type: "error"
+                            });
+                        } else {
+                            Email.send({
+                                SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
+                                To: `${email}`,
+                                From: "mm7217373@gmail.com",
+                                Subject: "Kireiumi Park 忘記密碼",
+                                Body: `
+                                <div>您的密碼:${data[0].password}</div>
+                                <div>請點擊以下網址重新登入</div>
+                                https://tibamef2e.com/tfd105/g2/f_signin.html
+                            `,
+                            }).then(
+                                swal({
+                                    title: "信件已寄出",
+                                    type: "success"
+                                })
+                            );
+                        }
+                    },
+                    error: function (data) {
+                        console.log('errorMsg: ' + data);
+                        swal({
+                            title: "連線失敗",
+                            type: "error"
+                        });
+                    },
+                })
+            } else {
+                swal({
+                    title: "請輸入信箱",
+                    type: "warning"
+                });
+            }
+        }
+    },
+    computed: {
+        openEye() {
+            if (this.pwdEye == 'open') {
+                return 'js-eye';
+            }
+            $('#pwd').attr('type', 'text')
+        },
+        closeEye() {
+            if (this.pwdEye == 'close') {
+                return 'js-eye';
+            }
+            $('#pwd').attr('type', 'password')
+        },
+    },
+}),
     Vue.component("register", {
         data() {
             return {
@@ -231,25 +252,25 @@ Vue.component("login", {
             },
         },
         template: `
-    <form class="register_form">
-        <label for="username">姓名</label><input type="text" id="username" v-model="username" :class="{textError:userError}" placeholder="需大於兩個字">        
-        <span class="errorMsg">{{userErrMsg}}</span>
-        <br>
-        <label for="email">註冊信箱</label><input type="text" id="email" v-model="email" :class="{textError:emailError}" placeholder="需符合email格式">
-        <span class="errorMsg">{{emailErrMsg}}</span>
-        <br>
-        <label for="password">密碼</label><input type="text" id="password" v-model="password" :class="{textError:passwordError}" placeholder="密碼長度需<15且>6">
-        <span class="errorMsg">{{passErrMsg}}</span>
-        <br>
-        <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}" placeholder="需等於密碼">
-        <span class="errorMsg">{{ckpwdErrMsg}}</span>
-        <br>
-        <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone" :class="{textError:phoneError}" placeholder="需符合手機格式">
-        <span class="errorMsg">{{phoneErrMsg}}</span>
-        <br>
-        <input type="submit" value="註冊" @click="register">
-    </form>
-    `,
+<form class="register_form">
+    <label for="username">姓名</label><input type="text" id="username" v-model="username" :class="{textError:userError}" placeholder="需大於兩個字">        
+    <span class="errorMsg">{{userErrMsg}}</span>
+    <br>
+    <label for="email">註冊信箱</label><input type="text" id="email" v-model="email" :class="{textError:emailError}" placeholder="需符合email格式">
+    <span class="errorMsg">{{emailErrMsg}}</span>
+    <br>
+    <label for="password">密碼</label><input type="text" id="password" v-model="password" :class="{textError:passwordError}" placeholder="密碼長度需<15且>6">
+    <span class="errorMsg">{{passErrMsg}}</span>
+    <br>
+    <label for="ckpwd">確認密碼</label><input type="text" id="ckpwd" v-model="ckpwd" :class="{textError:ckpwdError}" placeholder="需等於密碼">
+    <span class="errorMsg">{{ckpwdErrMsg}}</span>
+    <br>
+    <label for="phone">手機號碼</label><input type="text" id="phone" v-model="phone" :class="{textError:phoneError}" placeholder="需符合手機格式">
+    <span class="errorMsg">{{phoneErrMsg}}</span>
+    <br>
+    <input type="submit" value="註冊" @click="register">
+</form>
+`,
         methods: {
             register(e) {
                 e.preventDefault();

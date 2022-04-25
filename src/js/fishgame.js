@@ -131,12 +131,41 @@ window.onload = function () {
 
     // 儲存優惠碼
     $('.fishgame_savecoupon_btn').on('click', function () {
-        $('.fishgame_savecoupon').css('display', 'flex');
+        // 判斷有無登入
+        let member_id = sessionStorage.getItem("member_id");
+        // 有登入直接更新資料庫
+        if (member_id) {
+            let e = $(".fishgame_coupon").html();
+            console.log(e);
+
+            $.ajax({
+                type: "POST",
+                url: "php/coupon.php",
+                data: { coupom: e },
+                success: function (e) {
+                    alert('已儲存優惠碼');
+                    // window.location.href="f_signin.html";
+
+                },
+                error: function () {
+                    alert("連線失敗");
+                },
+            });
+
+
+        } else {
+            $('.fishgame_savecoupon').css('display', 'flex');
+        }
+
     });
 
     // 儲存優惠碼--確定
     $('.fishgame_savecoupon_sure_btn').on('click', function () {
+        let e = $(".fishgame_coupon").html();
+        console.log(e);
+        sessionStorage.setItem("coupon", e);
         location.href = 'f_signin.html';
+
     });
     // 儲存優惠碼--取消
     $('.fishgame_savecoupon_cancel_btn').on('click', function () {
@@ -145,6 +174,6 @@ window.onload = function () {
 
     // 返回首頁
     $('.fishgame_back_btn').on('click', function () {
-        location.href = "../index.html";
+        location.href = "index.html";
     });
 }
