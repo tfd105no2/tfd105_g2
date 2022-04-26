@@ -35,10 +35,11 @@ for ($i = 0; $i < count($productList); $i++) {
         $ticket_role_id = $productList[$i]['ticket_role_id'];
         $ticket_style_id = substr($productList[$i]['ticket_role_id'], 0, 1);
         $purchase_amount = $productList[$i]['quantity'];
-        // $overnight_date = $productList[$i]['overnight_date'];
-        // $area_id = $productList[$i]['area_id'];
-      
+        $overnight_date = $productList[$i]['overnight_date'];
+        $area_id = $productList[$i]['area_id'];
         $odd  = $lastnumdd + $i;
+
+       
         // sql
         $sql = "INSERT INTO order_detail(order_detail_id, order_id, ticket_role_id, ticket_style_id, purchase_amount, overnight_status) 
                 VALUES ('$odd', '$order_id', '$ticket_role_id', '$ticket_style_id', '$purchase_amount', '未報到')";
