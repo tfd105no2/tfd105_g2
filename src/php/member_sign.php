@@ -3,10 +3,10 @@
 // 連接資料庫
 include('connection.php');
 
-$username = $_POST["username"];
-$email = $_POST["email"];
-$password = $_POST["password"];
-$phone = $_POST["phone"];
+$username = htmlspecialchars($_POST["username"]);
+$email = htmlspecialchars($_POST["email"]);
+$password = htmlspecialchars($_POST["password"]);
+$phone = htmlspecialchars($_POST["phone"]);
 $sql = "INSERT INTO member(Name, email, password, phone_number) VALUES ('$username', '$email', '$password', '$phone')";
 
 //查詢資料庫是否有存在該使用者

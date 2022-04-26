@@ -3,7 +3,7 @@ new Vue({
     data: {
         products: [],
         score: 0,
-        coupon: "asd",
+        coupon: "",
     },
     mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
@@ -70,9 +70,13 @@ new Vue({
             pay = sum - this.score;
             return pay;
         },
-        discount() {
-            if (this.score == 0) {
-                this.score = 100;
+        discount() {            
+            if(this.coupon != null) {
+                if (this.score == 0) {
+                    this.score = 100;
+                } else {
+                    this.score = 0;
+                }
             } else {
                 this.score = 0;
             }
@@ -82,5 +86,4 @@ new Vue({
         }
 
     },
-}
-);
+});

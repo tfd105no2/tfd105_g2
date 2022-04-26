@@ -3,8 +3,8 @@
 // 連接資料庫
 include('connection.php');
 
-$mbAccount = $_POST["acc"];
-$mbPassword = $_POST["pwd"];
+$mbAccount = htmlspecialchars($_POST["acc"]);
+$mbPassword = htmlspecialchars($_POST["pwd"]);
 
 $sql = "SELECT * FROM member WHERE email = '$mbAccount' AND password = '$mbPassword'";
 // 執行sql語句

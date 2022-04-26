@@ -19,7 +19,7 @@ $.ajax({
                     <td>${data[i].ticket_role_name}</td>
                     <td class="useStatus">${data[i].ticket_status}</td>
                     <td class="useDate" data-num="${i}">${data[i].use_time}</td>
-                    <td><button class="useBtn" data-btn="${i}" disabled>使用</button></td>
+                    <td><button class="useBtn" data-btn="${i}" disabled style="background-color: gray">使用</button></td>
                 </tr>
             `);
             } else {
