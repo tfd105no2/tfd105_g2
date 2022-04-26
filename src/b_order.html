@@ -11,7 +11,17 @@
   <body>
     <div class="minwidth-wrapper">
       <div id="root">
-        @@include('layout/b_head.html')
+        <!-- 後台header -->
+        <header class="b-member_header">
+          <div class="b-member_logo">
+            <img src="./img/logo.png" alt="" srcset="" />
+            <p>kireiumi後臺管理</p>
+          </div>
+          <div @click="log_out" class="b-member_logout">
+            <p>帳號登出</p>
+            <img src="./img/log-out.png" alt="" srcset="" />
+          </div>
+        </header>
 
         <main class="b_order_main">
           <div class="b_order_left">
@@ -21,7 +31,7 @@
           <div class="b_order_right">
             <form action="" method="get" id="">
               <p>訂單管理</p>
-              <select>
+              <select @change="orderType($event)">
                 <option value="0">訂單類型</option>
                 <option value="1">門票</option>
                 <option value="2">夜宿</option>
@@ -52,13 +62,13 @@
 
               <ul v-for="(order,key) in orders" class="b_order_order">
                 <li>{{order.order_id}}</li>
-                <li>{{order.account}}</li>
-                <li>{{order.order_type}}</li>
+                <li>{{order.email}}</li>
+                <li>{{order_type[order.order_type]}}</li>
+                <li>{{order.payment_method}}</li>
                 <li>{{pay_list[order.payment_status]}}</li>
                 <li>{{form_list[order.order_status]}}</li>
-                <li>{{checkin_list[order.checkin_status]}}</li>
-                <li>{{order.order_date}}</li>
-                <li @click="edit(key)">編輯與查看</li>
+                <li>{{order.createdate}}</li>
+                <li @click="edit(key)">查看</li>
               </ul>
             </div>
           </div>
@@ -78,7 +88,7 @@
 
         <!-- 詳細頁 -->
         <div class="b_order_edit" v-if="current_edit !== null">
-          <p>編輯與查看</p>
+          <p>查看</p>
 
           <div class="b_order_order_search">
             <label for="">訂單編號:</label>
@@ -89,41 +99,27 @@
             <li>
               付款狀態:
               <select name="pay_status" id="" v-model="o_pay" disabled>
-                <option value="0">未付款</option>
+                <option value="0">已退款</option>
                 <option value="1">已付款</option>
-                <option value="2">付款失敗</option>
-                <option value="3">退款中</option>
-                <option value="4">已退款</option>
               </select>
             </li>
 
             <li>
               訂單狀態:
               <select name="order_status" id="" v-model="o_form" disabled>
-                <option value="0">處理中</option>
+                <option value="0">已取消</option>
                 <option value="1">已確認</option>
-                <option value="2">已完成</option>
-                <option value="3">已取消</option>
               </select>
             </li>
-
-            <!-- <li>
-              夜宿狀態:
-              <select name="status_status" id="" v-model="o_check">
-                <option value="0">未報到</option>
-                <option value="1">已報到</option>
-                <option value="2">已過期</option>
-              </select>
-            </li> -->
           </ul>
 
           <ul class="b_order_order_information">
-            <li>會員編號: {{orders[current_edit].order_id}}</li>
-            <li>會員帳號: {{orders[current_edit].account}}</li>
-            <li>姓名: {{orders[current_edit].member_name}}</li>
-            <li>手機: {{orders[current_edit].member_phone}}</li>
-            <li>付款方式: {{orders[current_edit].payment}}</li>
-            <li>折扣碼: {{orders[current_edit].discount_id}}</li>
+            <li>會員編號: {{orders[current_edit].member_id}}</li>
+            <li>會員帳號: {{orders[current_edit].email}}</li>
+            <li>姓名: {{orders[current_edit].Name}}</li>
+            <li>手機: {{orders[current_edit].phone_number}}</li>
+            <li>付款方式: {{orders[current_edit].payment_method}}</li>
+            <li>折扣碼: {{orders[current_edit].coupon}}</li>
           </ul>
 
           <div class="b_order_order_detail">
@@ -133,15 +129,12 @@
             </ul>
 
             <section>
-              <ul
-                v-for="lists in order_list[current_edit]"
-                class="b_order_detail_content"
-              >
-                <!-- <li v-for='list in lists'>{{list}}</li> -->
-                <li>{{lists.ticket_name}}</li>
-                <li>{{lists.checkin_date}}</li>
-                <li>{{lists.area}}</li>
-                <li>{{lists.quantity}}</li>
+              <!-- {{ order_list[0].name }} {{ order_list[current_edit].name }} -->
+              <ul v-for="lists in order_list" class="b_order_detail_content">
+                <li>{{lists.ticket_role_name}}</li>
+                <li>{{lists.overnight_date}}</li>
+                <li>{{lists.names}}</li>
+                <li>{{lists.Purchase_amount}}</li>
                 <li>{{lists.price}}</li>
               </ul>
             </section>
@@ -151,7 +144,7 @@
                 商品金額&emsp;&nbsp;:&ensp;${{total_cost}}元
               </li>
               <li>
-                折扣碼優惠&nbsp;:&ensp;&nbsp;&nbsp;${{orders[current_edit].discount_price}}元
+                折扣碼優惠&nbsp;:&ensp;&nbsp;&nbsp;${{orders[current_edit].coupon_value}}元
               </li>
               <li class="line"></li>
 
@@ -161,15 +154,14 @@
 
           <div class="b_order_editbtn">
             <button class="b_order_close" @click="f_close">關閉</button>
-            <button class="b_order_save" @click="f_save">儲存</button>
           </div>
         </div>
 
         <div id="hide" v-if="current_edit !== null"></div>
-        <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check>
       </div>
     </div>
     <!-- 引入js -->
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/b_order.js"></script>
   </body>

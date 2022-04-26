@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('layout/head.html', { 'title':'後台-消息管理' })
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後台-消息管理</title>
+    <!-- 引入外部文件 -->
+    <!-- 通用的css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- fontawesome v5.15.4 -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- --------------------CSS與JS分隔線---------------------------------- -->
   </head>
   <body>
     <div class="minwidth-wrapper">
       <div id="root">
-        @@include('layout/b_head.html')
+        <!-- 後台header -->
+        <header class="b-member_header">
+          <div class="b-member_logo">
+            <img src="./img/logo.png" alt="" srcset="" />
+            <p>kireiumi後臺管理</p>
+          </div>
+          <div @click="log_out" class="b-member_logout">
+            <p>帳號登出</p>
+            <img src="./img/log-out.png" alt="" srcset="" />
+          </div>
+        </header>
 
         <main class="b_news_main">
           <div class="b_news_left">
@@ -16,7 +47,7 @@
           <div class="b_news_right">
             <form action="" method="get" id="">
               <p>消息管理</p>
-              <select>
+              <select @change="newsType($event)">
                 <option value="0">文章分類</option>
                 <option value="1">公告</option>
                 <option value="2">活動</option>
@@ -52,12 +83,12 @@
               </ul>
 
               <ul v-for="(news,key) in newss" class="b_news_news">
-                <li>{{news.news_id}}</li>
+                <li>{{news.id}}</li>
                 <li>{{news.create_date}}</li>
-                <li>{{n_sort_list[news.news_class]}}</li>
-                <li>{{news.news_title}}</li>
-                <li>{{on_off_list[news.news_status]}}</li>
-                <li>{{news.news_update}}</li>
+                <li>{{n_sort_list[news.news_style]}}</li>
+                <li>{{news.News_title}}</li>
+                <li>{{on_off_list[news.News_status]}}</li>
+                <li>{{news.News_update}}</li>
                 <li @click="edit(key)">編輯與查看</li>
               </ul>
             </div>
@@ -115,12 +146,10 @@
           <ul class="b_news_img">
             <li>
               <label for="">圖片:</label>
-              <input type="file" @change="b_uploadImg" />
+              <input type="file" id="b_preview" @change="b_previewImg" />
             </li>
             <li class="b_img">
-              <template v-if="b_preview">
-                <img :src="b_preview" />
-              </template>
+              <img id="iimage" :src="news_image" />
             </li>
           </ul>
 
@@ -132,15 +161,12 @@
 
         <div id="hide" v-if="current_edit !== null"></div>
 
-        <news-add
-          v-if="new_edit"
-          @nclose="closennn"
-          @nsave="savennn"
-        ></news-add>
+        <news-add v-if="new_edit" @nclose="closennn"></news-add>
         <double-check v-if="dbcheck" @save="sss" @cancel="ccc"></double-check>
       </div>
     </div>
     <!-- 引入js -->
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/b_news.js"></script>
   </body>

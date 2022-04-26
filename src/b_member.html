@@ -38,7 +38,7 @@
                   type="text"
                   name="search"
                   id="search"
-                  placeholder="以會員編號查詢"
+                  placeholder="以會員手機查詢"
                   v-model="member_number"
                 />
                 <label
@@ -57,10 +57,10 @@
               </ul>
 
               <ul v-for="(member,key) in members" class="b_member_member">
-                <li>{{member.member_id}}</li>
-                <li>{{member.account}}</li>
-                <li>{{member.name}}</li>
-                <li>{{member.phone}}</li>
+                <li>{{member.id}}</li>
+                <li>{{member.email}}</li>
+                <li>{{member.Name}}</li>
+                <li>{{member.phone_number}}</li>
 
                 <li @click="edit(key)">查看</li>
               </ul>
@@ -85,11 +85,11 @@
           <p>編輯與查看</p>
 
           <ul class="b-member_edit-member">
-            <li>編號:{{members[current_edit].member_id}}</li>
-            <li>帳號:{{members[current_edit].account}}</li>
-            <li>手機:{{members[current_edit].phone}}</li>
-            <li>姓名:{{members[current_edit].name}}</li>
-            <li>折扣碼:cd001</li>
+            <li>編號:{{members[current_edit].id}}</li>
+            <li>帳號:{{members[current_edit].email}}</li>
+            <li>手機:{{members[current_edit].phone_number}}</li>
+            <li>姓名:{{members[current_edit].Name}}</li>
+            <li>折扣碼:{{members[current_edit].coupon}}</li>
           </ul>
 
           <div class="b-member_editbtn">
@@ -101,6 +101,7 @@
     </div>
     <!-- 引入js -->
     <script src="js/vue.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="js/b_member.js"></script>
   </body>
 </html>

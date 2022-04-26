@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('layout/head.html', { 'title':'後台-訂票管理' })
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後台-訂票管理</title>
+    <!-- 引入外部文件 -->
+    <!-- 通用的css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- fontawesome v5.15.4 -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- --------------------CSS與JS分隔線---------------------------------- -->
   </head>
   <body>
     <div class="minwidth-wrapper">
@@ -52,11 +73,10 @@
               </ul>
 
               <ul v-for="(ticket,key) in tickets" class="b_ticket_ticket">
-                <li>{{ticket.ticket_id}}</li>
-                <li>{{ticket.buy_date}}</li>
-                <li>{{ticket.ticket_type}}</li>
+                <li>{{ticket.ticket_number_id}}</li>
+                <li>{{ticket.ticket_role_name}}</li>
                 <li>{{ticket.ticket_status}}</li>
-                <li>{{ticket.use_date}}</li>
+                <li>{{ticket.use_time}}</li>
 
                 <!-- <li @click="edit(key)">查看</li> -->
               </ul>
@@ -81,6 +101,7 @@
 
     <!-- 引入js -->
     <script src="js/vue.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="js/b_ticket.js"></script>
   </body>
 </html>

@@ -8,6 +8,7 @@ new Vue({
             name: "",
             image: "",
             overnight_date: "",
+            area_id: "",
         },
         bedType: [],
 
@@ -21,6 +22,7 @@ new Vue({
                 'identify': identify_id,
                 'area_name': this.areaInfo.name,
                 'ticket_role_id': item.id,
+                'area_id': this.areaInfo.area_id,
                 'ticket_role_name': item.ticket_role_name,
                 'price': item.price,
                 'quantity': item.quantity,
@@ -30,13 +32,13 @@ new Vue({
 
             let ticket = localStorage.getItem("ticketsData");
             let ticketsData = JSON.parse(ticket);
-
-            // 用findIndex() 去找出符合函式多條件的資料索引值
-            let index = ticketsData.findIndex(el => el.area_name == this.areaInfo.name && el.ticket_role_name == item.ticket_role_name);
-            console.log(index);
-
             // 判斷 原本localstorage內是否存在該名稱資料
             if (ticket) {
+
+                // 用findIndex() 去找出符合函式多條件的資料索引值
+                let index = ticketsData.findIndex(el => el.area_name == this.areaInfo.name && el.ticket_role_name == item.ticket_role_name);
+                console.log(index);
+
                 // 再判斷該陣列是否已加入過該商品
                 if (index != -1) {
                     ticketsData[index].quantity += item.quantity;
@@ -71,6 +73,9 @@ new Vue({
                 this.bedType = res.data;
 
             })
+
+        // 取區域id
+        this.areaInfo.area_id = parseInt($('.ssr').attr("data-area"));
 
         // 取目前區域名稱
         this.areaInfo.name = $('.ssr').text();

@@ -1,55 +1,4 @@
-// Vue.component('double-check-off', {
-//     template:
-//         ` 
-//         <div class="dbc" id='root'>
-//             <section></section>
-//             <p>日期:{{current_edit}}</p>
-//             <p>區域:海底隧道</p>
-//             <p>確定要關閉該區嗎?</p>
-
-//             <div>
-//                 <button type="button" @click='cancel'>取消</button>
-//                 <button type="button" @click='sure'>確認</button>
-//             </div>
-//         </div>                
-//         `
-//     ,
-//     methods: {
-//         sure() {
-//             this.$emit('save')
-
-//         },
-//         cancel() {
-//             this.$emit('cancel')
-//         }
-//     },
-// });
-// Vue.component('double-check-on', {
-//     template:
-//         ` 
-//         <div class="dbc">
-//             <section></section>
-//             <p>日期:2022/03/22</p>
-//             <p>區域:海底隧道</p>
-//             <p>確定要開啟該區嗎?</p>
-
-//             <div>
-//                 <button type="button" @click='cancel'>取消</button>
-//                 <button type="button" @click='sure'>確認</button>
-//             </div>
-//         </div>                
-//         `
-//     ,
-//     methods: {
-//         sure() {
-//             this.$emit('save')
-//         },
-//         cancel() {
-//             this.$emit('cancel')
-//         }
-//     },
-// });
-new Vue({
+const vm = new Vue({
     el: '#root',
     data: {
         dbcheck_off: false,
@@ -67,37 +16,45 @@ new Vue({
         ],
         area: [
             {
+                id: 91,
                 type: '海底隧道',
-                num: 20,
+                num: 0,
                 url: 'img/intro-pic-01.png',
             },
             {
+                id: 92,
                 type: '大洋池親近區',
                 num: 10,
                 url: 'img/intro-pic-01.png',
             },
             {
+                id: 93,
                 type: '小白鯨區',
                 num: 8,
                 url: 'img/intro-pic-01.png',
             },
             {
+                id: 94,
                 type: '海藻森林',
                 num: 3,
                 url: 'img/intro-pic-01.png',
             },
             {
+                id: 95,
                 type: '極地區',
                 num: 8,
                 url: 'img/intro-pic-01.png',
             },
             {
+                id: 96,
                 type: '鯊魚區',
                 num: 5,
                 url: 'img/intro-pic-01.png',
             },
 
         ],
+
+        areaList: [],
 
         today: {
             year: 0,
@@ -113,124 +70,168 @@ new Vue({
         },
 
         current_edit: null,
-        current_area: '海底隧道'
-    },
-    created: function () {
-        this.showMdata(1);
+        current_area: '海底隧道',
+        current_areaName: '',
+        fullDays: [],
+        check: null,
+        btn: null
     },
     mounted() {
-        this.setToday()
+        this.setToday(),
+            // nowMonth = (this.today.month) + 1,
+            // console.log(nowMonth),
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_area_test.php',
+                data: {
+                    nowMonth: (this.today.month) + 1
+                },
+                dataType: 'json',
+                success: function (data) {
+                    // console.log(data);
+                    vm.fullDays = data;
+                    console.log(vm.fullDays);
+                }
+            })
     },
     methods: {
         edit(year, month, date) {
-            this.current_edit = year + '/' + month + '/' + date;
-            //console.log(year + '/' + month + '/' + date);
-            // console.log(this.current_edit);
-        },
+            if (month > 0 && month < 10) {
+                month = '0' + month;
+            };
+            if (date > 0 && date < 10) {
+                date = '0' + date;
+            };
 
+            this.current_edit = year + '-' + month + '-' + date;
+            let choose_date = this.current_edit;
+            console.log(this.current_edit);
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_areaRest.php',
+                data: {
+                    date: choose_date
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    vm.area[0].num = data[0];
+                    vm.area[1].num = data[1];
+                    vm.area[2].num = data[2];
+                    vm.area[3].num = data[3];
+                    vm.area[4].num = data[4];
+                    vm.area[5].num = data[5];
+                }
+            })
+        },
+        isFull(date) {
+            // console.log(date);
+            console.log(this.fullDays);
+        },
         handlerBorder(i) {
             // console.log(i)
             this.flag = i;
-            this.current_area = this.area[i].type;
-            console.log(this.current_area);
+            this.current_area = this.area[i].id;
+            this.current_areaName = this.area[i].type;
+            // console.log(this.current_area);
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_area_detail.php',
+                data: {
+                    date: this.current_edit,
+                    area: this.current_area
+                },
+                dataType: 'json',
+                success: function (data) {
+                    vm.areaList = data;
+                    // console.log(vm.areaList);
+                }
+            })
+        },
+        showDetail() {
+            vm.check = true;
+        },
+        checkin: function (e) {
+            let orderdetail_id = e.target.dataset.id;
+            $(e.target).attr('id', 'dis');
+            let status = $(e.target).closest('ul').children('li.status');
+            // console.log($(e.target).closest('ul').children('li.status').text("已報到"));
+            // console.log(btn);
+            // console.log(e.target.dataset.id);
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_area_checkin.php',
+                data: {
+                    orderdetail_id: orderdetail_id,
+                },
+                success: function () {
+                    $('#dis').attr('disabled', 'true');
+                    $(e.target).closest('ul').children('li.status').text("已報到");
+                }
+            });
+        },
+        close_window() {
+            vm.check = null;
         },
         f_close() {
             this.dbcheck_off = true;
-            // this.current_edit = null;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 0;
         },
         f_open() {
             this.dbcheck_on = true;
-            // this.current_edit = null;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 0;
         },
         f_out() {
-
             this.current_edit = null;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 0;
         },
 
+        // 關閉區域
         sss() {
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_area_close.php',
+                data: {
+                    date: this.current_edit,
+                    area: this.current_area
+                },
+                success: function (data) {
+                    alert(data);
+                }
+            });
             this.current_edit = null;
             this.dbcheck_off = false;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 1;
-
+            window.location.reload();
         },
 
         ccc() {
             // this.current_edit = null;
             this.dbcheck_off = false;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 1;
         },
+        // 開啟區域
         osss() {
+            $.ajax({
+                type: 'POST',
+                url: 'php/b_area_open.php',
+                data: {
+                    date: this.current_edit,
+                    area: this.current_area
+                },
+                success: function (data) {
+                    alert(data);
+                }
+            });
             this.current_edit = null;
-            this.dbcheck_on = false;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 1;
+            this.dbcheck_off = false;
+            window.location.reload();
 
         },
 
         occc() {
             // this.current_edit = null;
             this.dbcheck_on = false;
-            let edit_z = document.querySelector('.b_area_edit');
-            edit_z.style.opacity = 1;
-        },
-
-
-        f_save() {
-
-            let n_index = this.$data.current_edit;
-
-            this.current_edit = null;
-
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/n-member_update.php",
-            //     data: {
-            //         account: this.members[n_index].account, // 哪筆會員
-            //         member_status: this.members[n_index].member_status, // 更新的會員狀態
-            //     },
-            //     dataType: "text",
-            //     success: function (response) {
-            //         alert("更新成功");
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     }
-            // });
-
         },
         log_out() {
             location.href = "back_login.html"
         },
 
-        showMdata(gopage) {
-            console.log(gopage);
-            if (isNaN(gopage)) return;
-            this.nowpage = gopage;
-
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/getMemberData.php",
-            //     data: {
-            //         page: gopage,
-            //     },
-            //     dataType: "json",
-            //     success: function (response) {
-            //         appVue.pages = response[0];
-            //         appVue.members = response[1];
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     },
-            // });
-        },
         setToday() {
             const date = new Date()
             this.today.year = this.calendar.year = date.getFullYear()

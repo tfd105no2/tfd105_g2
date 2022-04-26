@@ -103,14 +103,13 @@ new Vue({
                         coupon_value: 0,
                     })
                     .then(function (res) {
-                        alert('成功');
+                        // alert('成功');
                         localStorage.clear();
                         // 同步讀取更新右上角購物車數量
                         vue_instance.setCart();
                         // 清除session
                         sessionStorage.removeItem('discount');
-                        // 轉址到成功頁面
-                        location.href = "checkout_complet.html";
+
                     })
                     .catch(function (err) {
                         alert('失敗');
@@ -129,7 +128,9 @@ new Vue({
                         order_type: 1
                     })
                     .then(function (res) {
-                        alert('成功');
+                        // alert('成功');
+                        // 轉址到成功頁面
+                        location.href = "checkout_complet.html";
                     })
                     .catch(function (err) {
                         alert('失敗');

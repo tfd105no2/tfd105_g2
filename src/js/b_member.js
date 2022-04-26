@@ -1,4 +1,4 @@
-new Vue({
+const vm = new Vue({
     el: '#root',
     data: {
         member_number: '',
@@ -12,18 +12,19 @@ new Vue({
         ],
         titles: ['會員編號', '帳號', '姓名', '手機'],
         members: [
-            {
-                'member_id': '001',
-                'account': 'Harukadou@gmail.com',
-                'name': '嶠小賀',
-                'phone': '0910123456'
-            },
-            {
-                'member_id': '002',
-                'account': 'Harukadou@gmail.com',
-                'name': '芽芽',
-                'phone': '0910123456'
-            },
+            // {
+            //     'id': '001',
+            //     'account': 'Harukadou@gmail.com',
+            //     'name': '嶠小賀',
+            //     'phone': '0910123456'
+            // },
+            // {
+            //     'member_id': '002',
+            //     'account': 'Harukadou@gmail.com',
+            //     'name': '芽芽',
+            //     'phone': '0910123456'
+            // },
+
         ],
         pages: [
             { page: "<", link: "x" },
@@ -39,8 +40,21 @@ new Vue({
         nowpage: 1,
         current_edit: null,
     },
-    created: function () {
-        this.showMdata(1);
+    mounted() {
+
+        // $.getJSON("php/b_member.php", function (data) {
+        //     vm.members = data;
+        // });
+        $.ajax({
+            type: 'POST',
+            url: 'php/b_member.php',
+            dataType: 'json',
+            success: function (data) {
+                vm.pages = data[0];
+                vm.members = data[1];
+            }
+        });
+
     },
     methods: {
         edit(index) {
@@ -57,43 +71,44 @@ new Vue({
             // localStorage.setItem("n-login", "no");
             location.href = "back_login.html"
         },
-
         showMdata(gopage) {
             console.log(gopage);
             if (isNaN(gopage)) return;
             this.nowpage = gopage;
 
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/getMemberData.php",
-            //     data: {
-            //         page: gopage,
-            //     },
-            //     dataType: "json",
-            //     success: function (response) {
-            //         appVue.pages = response[0];
-            //         appVue.members = response[1];
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     },
-            // });
+            $.ajax({
+                method: "POST",
+                url: "php/b_member.php",
+                data: {
+                    page: gopage,
+                },
+                dataType: "json",
+                success: function (response) {
+                    vm.pages = response[0];
+                    // console.log(vm.pages);
+                    vm.members = response[1];
+                    // console.log(response);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                },
+            });
         },
+
+
         lookfor() {
-            const self = this;
+            $.ajax({
+                method: "POST",
+                url: "php/b_member_search.php",
+                data: {
+                    member_number: vm.member_number
+                },
+                dataType: "json",
+                success: function (res) {
+                    vm.members = res
+                },
 
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/n-selectm.php",
-            //     data: {
-            //         search: self.member_number
-            //     },
-            //     dataType: "json",
-            //     success: function (res) {
-            //         self.members = res
-            //     },
-
-            // });
+            });
         }
 
     },

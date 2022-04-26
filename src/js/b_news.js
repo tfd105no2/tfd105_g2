@@ -70,16 +70,16 @@ Vue.component('news-add', {
                 </div>
 
                 <ul class="b_news_img">
-            <li>
-              <label for="">圖片:</label>
-              <input type="file" @change="b_uploadImg" />
-            </li>
-            <li class="b_img">
-              <template v-if="b_preview">
-                <img :src="b_preview" />
-              </template>
-            </li>
-          </ul>
+                    <li>
+                    <label for="">圖片:</label>
+                    <input id="imgName" type="file" @change="b_uploadImg" />
+                    </li>
+                    <li class="b_img">
+                    <template v-if="b_preview">
+                        <img :src="b_preview" />
+                    </template>
+                    </li>
+                </ul>
                 <div class="b_news_editbtn">
                     <button class="b_news_close" @click="n_close">關閉</button>
                     <button class="b_news_save" @click="n_save">儲存</button>
@@ -94,7 +94,37 @@ Vue.component('news-add', {
             this.$emit('nclose');
         },
         n_save() {
-            this.$emit('nsave');
+            if (this.n_main_title != '' && this.n_main_content != '') {
+                let style = this.n_sort;
+                let status = this.on_off;
+                let title = this.n_main_title;
+                let content = this.n_main_content;
+                let imgName = this.b_image.name;
+                // console.log(imgName);
+                $.ajax({
+                    method: "POST",
+                    url: "php/b_news_insert.php",
+                    data: {
+                        news_style: style, //分類
+                        news_status: status, // 上下架
+                        news_title: title, // 主標題
+                        news_content: content, // 內文
+                        news_image: imgName
+                        //         new_img: this.new_img, // 所有圖片檔名
+                        //         new_img_src: this.new_img_src, // 圖片base64
+
+                    },
+                    success: function (response) {
+                        alert("新增成功");
+                        window.location.reload();
+                    },
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    }
+                })
+            } else {
+                alert('請完成所有欄位');
+            }
         },
         b_uploadImg(event) {
             let input = event.target;
@@ -113,7 +143,7 @@ Vue.component('news-add', {
 });
 
 
-var appVue = new Vue({
+var vm = new Vue({
     el: '#root',
     data: {
         dbcheck: false,
@@ -136,30 +166,20 @@ var appVue = new Vue({
             { name: "房間管理", url: "b_area.html" },
             { name: "訂票管理", url: "b_ticket.html" },
         ],
-        titles: ['文章編號', '上架日期', '文章分類', '標題', '狀態', '最後更新日期', ''],
+        titles: ['文章編號', '上架日期', '文章分類', '標題', '狀態', '最後更新時間', ''],
         newss: [
-            {
-                'news_id': '12345',
-                'create_date': '2021/01/01 00:00',
-                'news_class': 0,
-                'news_title': '3/27園區整修,停業一天',
-                'news_status': 0,
-                'news_update': '2021/03/01 16:16',
-                'news_content': '這就是內文',
-                'news_image': '',
+            // {
+            //     'news_id': '12345',
+            //     'create_date': '2021/01/01 00:00',
+            //     'news_class': 0,
+            //     'news_title': '3/27園區整修,停業一天',
+            //     'news_status': 0,
+            //     'news_update': '2021/03/01 16:16',
+            //     'news_content': '這就是內文',
+            //     'news_image': '',
 
-            },
-            {
-                'news_id': '12345',
-                'create_date': '2021/01/01 00:00',
-                'news_class': 1,
-                'news_title': '2/14情人玩親親享有小禮物',
-                'news_status': 1,
-                'news_update': '2021/03/01 16:16',
-                'news_content': '親親親親親親',
-                'news_image': '',
+            // },
 
-            },
         ],
         pages: [
             { page: "<", url: "#" },
@@ -175,10 +195,19 @@ var appVue = new Vue({
         nowpage: 1,
         current_edit: null,
         b_preview: null,
-        b_image: null
+        b_image: null,
+        newsTypeValue: null
     },
-    created: function () {
-        this.showNdata(1);
+    mounted() {
+        $.ajax({
+            type: 'POST',
+            url: 'php/b_news.php',
+            dataType: 'json',
+            success: function (data) {
+                vm.pages = data[0];
+                vm.newss = data[1];
+            }
+        });
     },
 
     methods: {
@@ -186,25 +215,24 @@ var appVue = new Vue({
 
             this.current_edit = index;
 
-            this.n_sort = this.newss[index].news_class;
-            this.on_off = this.newss[index].news_status;
-            this.n_main_title = this.newss[index].news_title;
-            this.n_main_content = this.newss[index].news_content;
+            this.n_sort = this.newss[index].news_style;
+            this.on_off = this.newss[index].News_status;
+            this.n_main_title = this.newss[index].News_title;
+            this.n_main_content = this.newss[index].News_document;
 
-            // this.new_img[0] = this.newss[index].news_image;
+            this.news_image = this.newss[index].News_image;
 
         },
-        b_uploadImg(event) {
-            let input = event.target;
-            if (input.files) {
-                let b_reader = new FileReader();
-                b_reader.onload = (e) => {
-                    console.log(this);
-                    this.b_preview = e.target.result;
-                }
-                this.b_image = input.files[0];
-                b_reader.readAsDataURL(input.files[0]);
+        b_previewImg(e) {
+            // const file = $('#b_preview').files[0];
+            let input = e.target;
+            let file = input.files[0];
+            let img = document.querySelector('#iimage');
+            console.log(file.name);
+            if (file) {
+                img.src = URL.createObjectURL(file);
             }
+            this.b_image = file.name;
         },
 
 
@@ -219,7 +247,54 @@ var appVue = new Vue({
         },
 
         n_save() {
+            let n_index = this.$data.current_edit;
+            // console.log(n_index);
+            this.newss[n_index].News_status = this.on_off; //上下架
+            this.newss[n_index].news_style = this.n_sort;  //分類
+            this.newss[n_index].News_title = this.n_main_title; //標題
+            this.newss[n_index].News_document = this.n_main_content; //內文
+            this.newss[n_index].News_image = this.b_image; //圖片
+            // console.log(this.newss[index].News_image);
+            let aa = new Date();
+            let year = aa.getFullYear();
+
+            let month = aa.getMonth() + 1;
+            if (month < 10) {
+                month = '0' + month
+            }
+
+            let date = aa.getDate();
+            if (date < 10) {
+                date = '0' + date
+            }
+
+            let today = year + '-' + month + '-' + date;
+            this.newss[n_index].News_update = today;
+
+
             this.current_edit = null;
+
+            $.ajax({
+                method: "POST",
+                url: "php/b_news_update.php",
+                data: {
+                    news_id: this.newss[n_index].id, //id
+                    news_style: this.newss[n_index].news_style, //分類
+                    news_status: this.newss[n_index].News_status, // 上下架
+                    news_title: this.newss[n_index].News_title, // 主標題
+                    news_content: this.newss[n_index].News_document, // 內文
+                    news_image: this.newss[n_index].News_image,      //圖片
+                    news_update: this.newss[n_index].News_update, // 更新日期
+
+                },
+                success: function (response) {
+                    alert("更新成功");
+                    window.location.reload();
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            })
         },
         n_close() {
             this.dbcheck = true;
@@ -227,11 +302,11 @@ var appVue = new Vue({
 
         new_add() {
             this.new_edit = true;
-            this.current_edit = "notnull";
         },
         closennn() {
-            this.new_edit = false;
+            // this.new_edit = false;
             this.dbcheck = true;
+
         },
         savennn() {
             this.current_edit = null;
@@ -244,41 +319,89 @@ var appVue = new Vue({
         },
 
         showNdata(gopage) {
-            // console.log(gopage);
+            console.log(gopage);
             if (isNaN(gopage)) return;
             this.nowpage = gopage;
 
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/getNewsData.php",
-            //     data: {
-            //         page: gopage,
-            //     },
-            //     dataType: "json",
-            //     success: function (response) {
-            //         appVue.pages = response[0];
-            //         appVue.newss = response[1];
-            //     },
-            //     error: function (exception) {
-            //         alert("發生錯誤: " + exception.status);
-            //     },
-            // });
+            if (vm.newsTypeValue != null) {
+                $.ajax({
+                    method: "POST",
+                    url: "php/b_newsType.php",
+                    data: {
+                        newsTypeValue: vm.newsTypeValue,
+                        page: gopage,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        vm.pages = response[0];
+                        // console.log(vm.pages);
+                        vm.newss = response[1];
+                        // console.log(response);
+                    },
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    },
+                });
+            } else {
+                $.ajax({
+                    method: "POST",
+                    url: "php/b_news.php",
+                    data: {
+                        page: gopage,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        vm.pages = response[0];
+                        // console.log(vm.pages);
+                        vm.newss = response[1];
+                        // console.log(response);
+                    },
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    },
+                });
+            }
+
+
+
+        },
+        newsType(event) {
+            // console.log(event.target.value);
+            // console.log('aa' + vm.newsTypeValue);
+
+            vm.newsTypeValue = (+event.target.value) - 1;
+            // console.log(newsTypeValue);
+            $.ajax({
+                method: "POST",
+                url: "php/b_newsType.php",
+                data: {
+                    newsTypeValue: vm.newsTypeValue,
+                },
+                dataType: "json",
+                success: function (response) {
+                    vm.pages = response[0];
+                    // console.log(vm.pages);
+                    vm.newss = response[1];
+                    // console.log(response);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                },
+            });
         },
         lookfor() {
-            const self = this;
+            $.ajax({
+                method: "POST",
+                url: "php/b_news_search.php",
+                data: {
+                    news_number: vm.news_number
+                },
+                dataType: "json",
+                success: function (res) {
+                    vm.newss = res
+                },
 
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../php/n-selectn.php",
-            //     data: {
-            //         search: self.news_number
-            //     },
-            //     dataType: "json",
-            //     success: function (res) {
-            //         self.newss = res
-            //     },
-
-            // });
+            });
         }
     },
 
