@@ -38,6 +38,12 @@ function package() {
 
 exports.p = package;
 
+function package() {
+    return src('src/php/*.*').pipe(dest('dist/php'))
+}
+
+exports.a = package;
+
 const rename = require('gulp-rename');
 
 // css minify

@@ -1,0 +1,522 @@
+[16-Apr-2022 11:58:57 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'team2_db' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_sign.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 11:59:10 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'team2_db' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_sign.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:02:57 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_login.php on line 13
+[16-Apr-2022 12:03:32 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_login.php on line 13
+[16-Apr-2022 12:05:11 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_login.php on line 13
+[16-Apr-2022 12:09:24 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tfd105g2' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:11:33 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tfd105g2' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=loca...', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:13:01 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tfd105g2' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=loca...', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:13:03 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tfd105g2' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=loca...', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:20:35 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'no2.sql' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:26:41 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'team2_db' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:28:41 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tibamefe_team2_db' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:29:30 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user 'tibamefe_since2021'@'localhost' to database 'tibamefe_no2' in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'vwRBSb.j&K#E')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[16-Apr-2022 12:34:17 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'tibamefe_since2021'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'FECEjgTC@#k{')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[18-Apr-2022 11:34:21 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'tibamefe_since2021'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'FECEjgTC@#k{')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[18-Apr-2022 11:34:27 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'tibamefe_since2021'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'FECEjgTC@#k{')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[19-Apr-2022 13:32:43 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'tibamefe_since2021'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'FECEjgTC@#k{')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[19-Apr-2022 13:32:51 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'tibamefe_since2021'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'tibamefe_since2...', 'FECEjgTC@#k{')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[19-Apr-2022 13:41:46 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_login.php on line 13
+[19-Apr-2022 16:43:31 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:43:31 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:43:31 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:43:40 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:43:40 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:43:40 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:44:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:45:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:45:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 16:45:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/member_order_detail.php on line 16
+[19-Apr-2022 21:02:21 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[19-Apr-2022 21:02:28 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[19-Apr-2022 21:02:30 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[19-Apr-2022 21:02:32 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[19-Apr-2022 21:02:34 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[19-Apr-2022 21:02:48 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderList.php on line 15
+[20-Apr-2022 10:56:51 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'root', 'password')
+#1 /home/tibamefe/public_html/tfd105/g2/php/get_coupon.php(3): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[20-Apr-2022 10:56:51 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'root', 'password')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_order.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[20-Apr-2022 10:56:51 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'root', 'password')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[20-Apr-2022 10:57:16 Asia/Taipei] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/tibamefe/public_html/tfd105/g2/php/connection.php:12
+Stack trace:
+#0 /home/tibamefe/public_html/tfd105/g2/php/connection.php(12): PDO->__construct('mysql:host=127....', 'root', 'password')
+#1 /home/tibamefe/public_html/tfd105/g2/php/member_login.php(4): include('/home/tibamefe/...')
+#2 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/connection.php on line 12
+[20-Apr-2022 11:28:53 Asia/Taipei] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 12
+[20-Apr-2022 11:39:39 Asia/Taipei] PHP Warning:  include(Connection.php): failed to open stream: No such file or directory in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 11:39:39 Asia/Taipei] PHP Warning:  include(Connection.php): failed to open stream: No such file or directory in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 11:39:39 Asia/Taipei] PHP Warning:  include(): Failed opening 'Connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 11:39:39 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 9
+[20-Apr-2022 12:16:43 Asia/Taipei] PHP Warning:  include(Connection.php): failed to open stream: No such file or directory in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 12:16:43 Asia/Taipei] PHP Warning:  include(Connection.php): failed to open stream: No such file or directory in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 12:16:43 Asia/Taipei] PHP Warning:  include(): Failed opening 'Connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 2
+[20-Apr-2022 12:16:43 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/send_pwd.php on line 9
+[20-Apr-2022 16:16:29 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:16:34 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:16:50 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:17:45 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:18:34 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:18:47 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:19:28 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:20:09 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:20:39 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:20:52 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:25:57 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:26:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:26:13 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:26:20 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:27:55 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[20-Apr-2022 16:29:18 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 19
+[21-Apr-2022 14:00:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:00:09 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:00:14 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:00:14 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:05:23 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:05:27 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:05:44 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:06 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:06 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:07 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:07 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:07 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:08 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:08:13 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:11:11 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:11:24 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:11:25 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:11:52 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:17:47 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:21:12 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:21:42 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:29:37 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:44:28 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:04 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:11 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:14 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:39 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:39 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:46:43 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:48:20 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:48:31 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:48:52 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:49:13 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:53:32 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:54:19 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 14:59:40 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 19:12:13 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 19:12:20 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 19:13:14 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 21:39:09 Asia/Taipei] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/tibamefe/public_html/tfd105/g2/php/request.php:82
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/request.php on line 82
+[21-Apr-2022 21:39:51 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 21:40:52 Asia/Taipei] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/tibamefe/public_html/tfd105/g2/php/request.php:82
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/request.php on line 82
+[21-Apr-2022 21:41:22 Asia/Taipei] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/tibamefe/public_html/tfd105/g2/php/request.php:82
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/request.php on line 82
+[21-Apr-2022 21:45:11 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[21-Apr-2022 21:45:27 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 01:46:31 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 10:54:10 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 10:55:21 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 10:58:17 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 10:58:23 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 18
+[22-Apr-2022 11:15:50 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 30
+[22-Apr-2022 11:15:50 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:15:50 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:15:50 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:16:20 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 30
+[22-Apr-2022 11:16:20 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:16:20 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:16:20 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:35:43 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 30
+[22-Apr-2022 11:35:43 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:35:43 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 11:35:43 Asia/Taipei] PHP Warning:  A non-numeric value encountered in /home/tibamefe/public_html/tfd105/g2/php/orderDetail.php on line 47
+[22-Apr-2022 17:11:40 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_areaRest.php on line 16
+[23-Apr-2022 00:59:14 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/tibamefe/public_html/tfd105/g2/php/request.php on line 17
+[23-Apr-2022 16:42:17 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php on line 32
+[23-Apr-2022 16:42:24 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php on line 32
+[23-Apr-2022 16:46:57 Asia/Taipei] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on bool in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tibamefe/public_html/tfd105/g2/php/b_orderType.php on line 32
