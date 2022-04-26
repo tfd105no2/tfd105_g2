@@ -3,13 +3,13 @@
 $(function () {
 
     // 折扣馬歸戶
-    $.ajax({
-        type: 'POST',
-        url: 'php/get_coupon.php',
-        success: function (data) {
-            $('#MemberCoupon').val(data);
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: 'php/get_coupon.php',
+    //     success: function (data) {
+    //         $('#MemberCoupon').val(data);
+    //     }
+    // });
 
     // tab切換
     let member_item = $('#FMember .member_body .member_list li.member_item');
