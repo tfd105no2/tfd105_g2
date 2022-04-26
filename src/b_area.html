@@ -1,7 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('layout/head.html', { 'title':'後台-區域管理' })
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後台-區域管理</title>
+    <!-- 引入外部文件 -->
+    <!-- 通用的css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- fontawesome v5.15.4 -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- --------------------CSS與JS分隔線---------------------------------- -->
+    <!-- 引入Jquery -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <!-- 引入 axios -->
+    <script src="js/axios.min.js"></script>
+    <!-- 引入 vue -->
+    <script src="js/vue.js"></script>
   </head>
   <body>
     <div class="minwidth-wrapper">
@@ -70,7 +97,7 @@
           <ul>
             <template v-for="(item,index) in area">
               <li
-                @click="handlerBorder(index)"
+                @click="handlerBorder(index);showDetail()"
                 :class="{b_area_current:flag==index,b_area_origin}"
               >
                 <img class="ticket-top" :src="item.url" />
@@ -89,20 +116,57 @@
           </div>
         </div>
 
+        <!-- 區域詳情談框 -->
+        <div class="b_area_who" v-if="check != null">
+          <p>{{current_edit}}</p>
+          <p>{{current_areaName}}</p>
+          <p
+            @click="close_window"
+            style="position: fixed; right: 0; cursor: pointer"
+          >
+            離開
+          </p>
+          <ul>
+            <li>姓名</li>
+            <li>票種</li>
+            <li>數量</li>
+            <li>報到狀態</li>
+            <li>操作</li>
+            <!-- <select name="" id="">
+              <option value="0">未報到</option>
+              <option value="1">已報到</option>
+            </select> -->
+          </ul>
+          <ul v-for="(list,key) in areaList">
+            <li>{{list.Name}}</li>
+            <li>{{list.ticket_role_name}}</li>
+            <li>{{list.Purchase_amount}}</li>
+            <li class="status">{{list.overnight_status}}</li>
+
+            <button
+              :disabled="list.overnight_status=='已報到'"
+              :data-id="list.order_detail_id"
+              @click="checkin($event)"
+            >
+              報到
+            </button>
+          </ul>
+        </div>
+
         <div id="hide" v-if="current_edit !== null"></div>
         <double-check-off
           v-if="dbcheck_off"
           @save="sss"
           @cancel="ccc"
           :b_date="current_edit"
-          :b_area="current_area"
+          :b_area="current_areaName"
         ></double-check-off>
         <double-check-on
           v-if="dbcheck_on"
           @save="osss"
           @cancel="occc"
           :b_date="current_edit"
-          :b_area="current_area"
+          :b_area="current_areaName"
         ></double-check-on>
       </div>
     </div>
