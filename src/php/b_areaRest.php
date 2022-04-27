@@ -2,6 +2,7 @@
 
 // 連接資料庫
 include('connection.php');
+
 $date = $_POST['date'];
 // echo $date;
 //sql 海底隧道
@@ -16,7 +17,7 @@ $statement2 = $pdo->query($sql2);
 // 將查詢到的資料抓出放到$data
 $data = $statement->fetchAll(); //當日定位
 $data2 = $statement2->fetchAll(); //床位總數量
-$bed;
+$bed = 0;
 if ($data) {
         $bed = $data[0][0];
 } else {

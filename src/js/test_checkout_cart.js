@@ -70,8 +70,8 @@ new Vue({
             pay = sum - this.score;
             return pay;
         },
-        discount() {            
-            if(this.coupon != null) {
+        discount() {
+            if (this.coupon != null) {
                 if (this.score == 0) {
                     this.score = 100;
                 } else {
