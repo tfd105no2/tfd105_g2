@@ -89,8 +89,8 @@ new Vue({
                 // 送出資料
                 let order_id = Date.now().toString().slice(-6);
                 let member_id = sessionStorage.getItem('member_id');
-                axios.post("php/order.php",
-                    {
+                let email = sessionStorage.getItem('account');
+                axios.post("php/order.php", {
                         member_id: member_id,
                         order_id: order_id,
                         qrcode: order_id,
@@ -109,13 +109,23 @@ new Vue({
                         vue_instance.setCart();
                         // 清除session
                         sessionStorage.removeItem('discount');
+                        // 發qrcode至信箱
+                        Email.send({
+                            SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
+                            To: `${email}`,
+                            From: "mm7217373@gmail.com",
+                            Subject: "Kireiumi Park 入場憑證",
+                            Body: `
+                            <h2>Kireiumi Park 入場憑證</h2>
+                            <img src="https://chart.googleapis.com/chart?cht=qr&chs=120x120&choe=UTF-8&chld=H|0&chl=https://tibamef2e.com/tfd105/g2/${res.data}">
+                            `,
+                        })
 
                     })
                     .catch(function (err) {
                         alert('失敗');
                     });
-                axios.post("php/orderDetail.php",
-                    {
+                axios.post("php/orderDetail.php", {
                         member_id: member_id,
                         order_id: order_id,
                         payway: this.payway,
@@ -143,8 +153,7 @@ new Vue({
         post() {
             let order_id = Date.now().toString().slice(-6);
             let member_id = sessionStorage.getItem('member_id');
-            axios.post("php/order.php",
-                {
+            axios.post("php/order.php", {
                     member_id: member_id,
                     order_id: order_id,
                     qrcode: order_id,
@@ -165,8 +174,7 @@ new Vue({
                 .catch(function (err) {
                     alert('失敗');
                 });
-            axios.post("php/orderDetail.php",
-                {
+            axios.post("php/orderDetail.php", {
                     member_id: member_id,
                     order_id: order_id,
                     payway: this.payway,

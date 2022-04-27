@@ -234,10 +234,11 @@ $(function () {
                                             `,
                                     });
                                 } else {
-                                    swal({
-                                        title: "查無資料",
-                                        type: "error"
-                                    });
+                                    // swal({
+                                    //     title: "查無資料",
+                                    //     type: "error"
+                                    // });
+                                    location.href = 'ticket.html';
                                 }
                             }
                         })

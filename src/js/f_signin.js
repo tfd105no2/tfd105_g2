@@ -10,10 +10,10 @@ Vue.component("login", {
     template: `
 <form class="login_form">
     <div>
-        <label for="acc">帳號</label><input type="text" id="acc" v-model="acc">        
+        <label for="acc">帳號</label><input type="text" id="acc" v-model="acc" placeholder="請輸入信箱">        
     </div>        
     <div class="login_pwd">
-        <label for="pwd">密碼</label><input type="password" id="pwd" v-model="pwd">
+        <label for="pwd">密碼</label><input type="password" id="pwd" v-model="pwd" placeholder="請輸入密碼">
         <i class="fa-solid fa-eye" @click="pwdEye='open'" :class="openEye"></i>
         <i class="fa-solid fa-eye-slash" @click="pwdEye='close'" :class="closeEye"></i>
     </div>
@@ -22,12 +22,7 @@ Vue.component("login", {
     </div>
     <div class="forget_pwd">
         <a @click="forget">忘記密碼</a>
-    </div>
-    <p>或</p>
-    <div class="login_other">
-        <button>繼續使用 <i class="fa-brands fa-facebook"></i> 登入</button>
-        <button>繼續使用 <i class="fa-brands fa-google"></i> 登入</button>
-    </div>
+    </div>    
     <div class="forget_box" id="forget_box">
         <span @click="forgetClose"><i class="fa-solid fa-xmark"></i></span>
         <p>忘記密碼</p>
@@ -36,6 +31,11 @@ Vue.component("login", {
     </div>
 </form>
 `,
+// <p>或</p>
+//     <div class="login_other">
+//         <button>繼續使用 <i class="fa-brands fa-facebook"></i> 登入</button>
+//         <button>繼續使用 <i class="fa-brands fa-google"></i> 登入</button>
+//     </div>
     methods: {
         login(e) {
             e.preventDefault();
