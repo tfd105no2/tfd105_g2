@@ -185,6 +185,7 @@ const vm = new Vue({
 
         // 關閉區域
         sss() {
+
             $.ajax({
                 type: 'POST',
                 url: 'php/b_area_close.php',
@@ -193,12 +194,28 @@ const vm = new Vue({
                     area: this.current_area
                 },
                 success: function (data) {
+                    console.log(data);
                     alert(data);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'php/b_areaRest.php',
+                        data: {
+                            date: data,
+                        },
+                        success: function (data) {
+                            // 把傳回的字串轉陣列
+                            data = JSON.parse(data)
+                            console.log(data);
+                            // 把回傳修改好的陣列塞入
+                            vm.area.map((item, index) => {
+                                item.num = data[index];
+                            })
+
+                        }
+                    })
                 }
             });
-            this.current_edit = null;
             this.dbcheck_off = false;
-            window.location.reload();
         },
 
         ccc() {
@@ -215,12 +232,27 @@ const vm = new Vue({
                     area: this.current_area
                 },
                 success: function (data) {
-                    alert(data);
+                    console.log(data);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'php/b_areaRest.php',
+                        data: {
+                            date: vm.current_edit,
+                        },
+                        success: function (data) {
+                            // 把傳回的字串轉陣列
+                            data = JSON.parse(data);
+                            console.log(data);
+                            // 把回傳修改好的陣列塞入
+                            vm.area.map((item, index) => {
+                                item.num = data[index];
+                            })
+                        }
+                    })
                 }
             });
-            this.current_edit = null;
-            this.dbcheck_off = false;
-            window.location.reload();
+            this.dbcheck_on = false;
 
         },
 
