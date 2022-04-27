@@ -89,8 +89,10 @@ new Vue({
                 // 送出資料
                 let order_id = Date.now().toString().slice(-6);
                 let member_id = sessionStorage.getItem('member_id');
+                let discount = sessionStorage.getItem('discount');
                 axios.post("php/order.php",
                     {
+                        discount: discount,
                         member_id: member_id,
                         order_id: order_id,
                         qrcode: order_id,
@@ -143,8 +145,10 @@ new Vue({
         post() {
             let order_id = Date.now().toString().slice(-6);
             let member_id = sessionStorage.getItem('member_id');
+            let discount = sessionStorage.getItem('discount');
             axios.post("php/order.php",
                 {
+                    discount: discount,
                     member_id: member_id,
                     order_id: order_id,
                     qrcode: order_id,
