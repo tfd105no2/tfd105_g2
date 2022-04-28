@@ -71,7 +71,7 @@ new Vue({
             return pay;
         },
         discount() {
-            if (this.coupon != null) {
+            if (this.coupon) {
                 if (this.score == 0) {
                     this.score = 100;
                 } else {
