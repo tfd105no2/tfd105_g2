@@ -125,3 +125,10 @@ $.ajax({
     $(".b .rain").text("降雨機率:" + rainb + "%");
   },
 });
+
+$('.scroll-box').on('click', function (e) {
+  event.preventDefault();
+  $('html, body').animate({
+    scrollTop: $(window).height()
+  }, 1200);
+});

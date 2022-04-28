@@ -17,9 +17,9 @@
             <img src="img/logo.svg" alt="" />
           </h1>
           <h2>AQUARIUM</h2>
-          <div class="scroll-box">
-            <a href="">scroll</a>
-            <a href="">
+          <div class="scroll-box js-scroll-counter scroll-counter">
+            <a href="#">scroll</a>
+            <a href="#">
               <img src="https://www.sumida-aquarium.com/img/top/vector_scroll.svg" alt="" />
             </a>
           </div>
@@ -31,7 +31,7 @@
 
       <!-- section 天氣與營業時間 -->
       <section class="weather-time-wrap">
-        <div class="container">
+        <div class="container" data-aos="fade-right">
           <div class="weathers">
             <div class="weather a weather1">
               <h1 class="location"></h1>
@@ -77,7 +77,7 @@
       </section>
       <!-- section 動物介紹 -->
       <section class="intro">
-        <div class="container">
+        <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
           <div class="top">
             <div class="pic">
               <img src="img/intro_jelly.jpeg" alt="" />
@@ -116,7 +116,7 @@
           </div>
           <ul class="news_row">
             <li class="news_item">
-              <a href="news_detail.html?id=1">
+              <a href="">
                 <img src="img/news_detail.png" alt="" />
                 <div class="news_text">
                   <h4>White Day贈禮</h4>
@@ -125,7 +125,7 @@
               </a>
             </li>
             <li class="news_item">
-              <a href="news_detail.html?id=3">
+              <a href="">
                 <img src="img/news3.png" alt="" />
                 <div class="news_text">
                   <h4>新冠疫情相關</h4>
@@ -137,7 +137,7 @@
               </a>
             </li>
             <li class="news_item">
-              <a href="news_detail.html?id=4">
+              <a href="">
                 <img src="img/news4.png" alt="" />
                 <div class="news_text">
                   <h4>228淨灘活動</h4>
@@ -155,7 +155,7 @@
       <section class="function_card">
         <div class="container">
           <img class="deco" src="img/jelly02.png" alt="" />
-          <div class="booking_card">
+          <div class="booking_card" data-aos="flip-left">
             <h4>夜宿體驗</h4>
             <p>
               海洋公園強力推出室內夜宿體驗，讓您擁有最近距離的感受，與您喜愛的海底總動員一起入睡！
@@ -165,16 +165,14 @@
               <a href="night.html">預訂</a>
             </div>
           </div>
-          <div class="map_card">
+          <div class="map_card" data-aos="flip-right">
             <h4>如何到這裡</h4>
             <p class="title">使用這張方便的地圖，直接引導您前往海洋公園!</p>
-            <form action="//maps.google.com/maps" method="get" target="_blank">
-              <input class="input_add" name="saddr" type="text" id="saddr" value="" placeholder="輸入目前所在位置">
+            <form action="#" method="get" target="_blank">
+              <input class="input_add" type="text" name="map_card" id="map_card" placeholder="請輸入你的位置" />
               <p class="address">目的地:</p>
               <p class="address">台北市中山區南京東路三段219號</p>
-              <input type="submit" class="btn_map" value="前往">
-              <input name="daddr" value="台北市中山區南京東路三段219號" type="hidden">
-              <input name="hl" value="zh-TW" type="hidden">
+              <input class="btn_map" type="submit" value="前往" />
             </form>
           </div>
         </div>
@@ -192,6 +190,9 @@
 
 
   <script src="js/index.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+
+
 </body>
 
 </html>
