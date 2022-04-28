@@ -15,7 +15,6 @@ new Vue({
         if (tasks) {
             this.products = tasks;
         }
-        console.log(this.products);
 
         // 顯示歸戶折扣碼
         $.ajax({
@@ -26,7 +25,6 @@ new Vue({
                 email: account,
             },
             success: function (res) {
-                console.log(res);
                 vm.coupon = res[0].coupon;
             }
         })
@@ -47,7 +45,6 @@ new Vue({
         },
         remove: function (c) {
             let index = this.products.map(x => x.identify).indexOf(c);
-            console.log(index);
             this.products.splice(index, 1);
             // 存回localstorage
             localStorage.setItem("ticketsData", JSON.stringify(this.products));
@@ -71,7 +68,7 @@ new Vue({
             return pay;
         },
         discount() {
-            if (this.coupon != null) {
+            if (this.coupon) {
                 if (this.score == 0) {
                     this.score = 100;
                 } else {

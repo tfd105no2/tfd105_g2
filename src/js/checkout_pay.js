@@ -16,8 +16,7 @@ new Vue({
     },
     mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
-        this.products = tasks;
-        console.log(this.products);
+        this.products = tasks;        
 
         // 取折價金額
         this.score = sessionStorage.getItem('discount');
@@ -89,9 +88,9 @@ new Vue({
                 // 送出資料
                 let order_id = Date.now().toString().slice(-6);
                 let member_id = sessionStorage.getItem('member_id');
+                let email = sessionStorage.getItem('account');
                 let discount = sessionStorage.getItem('discount');
-                axios.post("php/order.php",
-                    {
+                axios.post("php/order.php", {
                         discount: discount,
                         member_id: member_id,
                         order_id: order_id,
@@ -111,13 +110,23 @@ new Vue({
                         vue_instance.setCart();
                         // 清除session
                         sessionStorage.removeItem('discount');
+                        // 發qrcode至信箱
+                        Email.send({
+                            SecureToken: "9dbd2bf2-7775-4dbf-98b5-16602e43cbc0",
+                            To: `${email}`,
+                            From: "mm7217373@gmail.com",
+                            Subject: "Kireiumi Park 入場憑證",
+                            Body: `
+                            <h2>Kireiumi Park 入場憑證</h2>
+                            <img src="https://chart.googleapis.com/chart?cht=qr&chs=120x120&choe=UTF-8&chld=H|0&chl=https://tibamef2e.com/tfd105/g2/${res.data}">
+                            `,
+                        })
 
                     })
                     .catch(function (err) {
                         alert('失敗');
                     });
-                axios.post("php/orderDetail.php",
-                    {
+                axios.post("php/orderDetail.php", {
                         member_id: member_id,
                         order_id: order_id,
                         payway: this.payway,
@@ -169,8 +178,7 @@ new Vue({
                 .catch(function (err) {
                     alert('失敗');
                 });
-            axios.post("php/orderDetail.php",
-                {
+            axios.post("php/orderDetail.php", {
                     member_id: member_id,
                     order_id: order_id,
                     payway: this.payway,
@@ -200,8 +208,7 @@ new Vue({
             params.append("total_price", this.payable());
 
             axios.post("php/request.php", params)
-                .then(function (t) {
-                    console.log(t);
+                .then(function (t) {                    
                     window.location = t.data.info.paymentUrl.web
                 })
                 .catch(function (t) {

@@ -135,8 +135,7 @@ window.onload = function () {
         let member_id = sessionStorage.getItem("member_id");
         // 有登入直接更新資料庫
         if (member_id) {
-            let e = $(".fishgame_coupon").html();
-            console.log(e);
+            let e = $(".fishgame_coupon").html();            
 
             $.ajax({
                 type: "POST",
@@ -162,7 +161,6 @@ window.onload = function () {
     // 儲存優惠碼--確定
     $('.fishgame_savecoupon_sure_btn').on('click', function () {
         let e = $(".fishgame_coupon").html();
-        console.log(e);
         sessionStorage.setItem("coupon", e);
         location.href = 'f_signin.html';
 

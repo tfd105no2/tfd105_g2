@@ -36,7 +36,6 @@ new Vue({
                 }).indexOf(item.id);
 
                 if (index != -1) {
-                    console.log(index);
                     ticketsData[index].quantity += 1;
                 } else {
                     ticketsData.push(obj);
@@ -61,9 +60,7 @@ new Vue({
         // 改用 箭頭函式, this指向外層作用域的this, 故 this = Vue.
         axios.get('php/ticket_role.php')
             .then((res) => {
-                console.log(this);
                 this.ticketsData = res.data;
-                console.log(this.ticketsData);
             })
             .catch((err) => {
                 console.log(err);
