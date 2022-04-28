@@ -73,8 +73,7 @@ $(function () {
             data: {
                 status: newStyle,
             },
-            success: function (data) {
-                console.log(newStyle)
+            success: function (data) {                
                 if (newStyle == 0) {
                     $('#parkList').empty();
                 } else {

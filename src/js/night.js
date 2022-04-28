@@ -45,13 +45,11 @@ const vm = new Vue({
                 canlendar_month: this.canlendar.month + 1,
             })
             .then(res => {
-                this.full_date = res.data;
-                console.log(this.full_date);
+                this.full_date = res.data;                
 
                 // 回傳的陣列內是 string型別的數字
                 // 要把陣列內的值，轉為number型別
                 this.full_date = this.full_date.map(Number);
-                console.log(this.full_date);
             })
             .catch(err => {
                 console.log(err);
@@ -75,12 +73,10 @@ const vm = new Vue({
                 })
                 .then(res => {
                     this.full_date = res.data;
-                    console.log(this.full_date);
 
                     // 回傳的陣列內是 string型別的數字
                     // 要把陣列內的值，轉為number型別
                     this.full_date = this.full_date.map(Number);
-                    console.log(this.full_date);
                 })
                 .catch(err => {
                     console.log(err);
@@ -109,12 +105,10 @@ const vm = new Vue({
                 })
                 .then(res => {
                     this.full_date = res.data;
-                    console.log(this.full_date);
 
                     // 回傳的陣列內是 string型別的數字
                     // 要把陣列內的值，轉為number型別
                     this.full_date = this.full_date.map(Number);
-                    console.log(this.full_date);
                 })
                 .catch(err => {
                     console.log(err);
@@ -133,7 +127,6 @@ const vm = new Vue({
             }
 
             let date = `${yy}-${mm}-${dd}`;
-            console.log(date);
 
             // 取剩餘床位
             $.ajax({
@@ -144,7 +137,6 @@ const vm = new Vue({
                 },
                 dataType: 'json',
                 success(res) {
-                    console.log(res);
                     vm.left_bed = res;
 
                     // 複寫成剩餘床位
@@ -176,10 +168,8 @@ const vm = new Vue({
             // e.target 是當前點擊的元素
             // e. currentTarget 是你綁定事件的元素 
             let i = e.currentTarget.getAttribute('data-index');
-            console.log(i);
             let m = e.currentTarget.classList.contains('other') || e.currentTarget.classList.contains('full');
             // console.log(e.target);
-            console.log(e.currentTarget);
             if (!m) {
                 this.modal = !this.modal;
 

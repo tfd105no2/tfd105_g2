@@ -16,8 +16,7 @@ new Vue({
     },
     mounted() {
         let tasks = JSON.parse(localStorage.getItem("ticketsData"));
-        this.products = tasks;
-        console.log(this.products);
+        this.products = tasks;        
 
         // 取折價金額
         this.score = sessionStorage.getItem('discount');
@@ -209,8 +208,7 @@ new Vue({
             params.append("total_price", this.payable());
 
             axios.post("php/request.php", params)
-                .then(function (t) {
-                    console.log(t);
+                .then(function (t) {                    
                     window.location = t.data.info.paymentUrl.web
                 })
                 .catch(function (t) {

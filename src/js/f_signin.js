@@ -114,8 +114,7 @@ Vue.component("login", {
                     data: {
                         mail: this.userMail,
                     },
-                    success: function (data) {
-                        console.log('success: ' + data);
+                    success: function (data) {                        
                         if (data == '查無此信箱') {
                             swal({
                                 title: "此信箱尚未註冊",
@@ -140,8 +139,7 @@ Vue.component("login", {
                             );
                         }
                     },
-                    error: function (data) {
-                        console.log('errorMsg: ' + data);
+                    error: function (data) {                        
                         swal({
                             title: "連線失敗",
                             type: "error"

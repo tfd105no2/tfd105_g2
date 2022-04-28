@@ -51,9 +51,6 @@ $.ajax({
     let rainb =
       data.records.location[0].weatherElement[1].time[1].parameter
         .parameterName;
-    console.log(data.records.location[0]);
-    console.log(weatherValue);
-    console.log(weatherValueb);
 
     // 根據weatherValue判斷天氣圖片要用哪張
     // weatherValue是String,用+轉換成Number
